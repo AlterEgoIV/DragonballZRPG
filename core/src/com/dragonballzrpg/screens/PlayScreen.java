@@ -5,17 +5,22 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.dragonballzrpg.entities.Entity;
+
+import java.util.List;
 
 /**
  * Created by Carl on 04/08/2016.
  */
 public class PlayScreen implements Screen
 {
+    private SpriteBatch batch;
     private final int VIEWPORT_WIDTH = 240;
     private final int VIEWPORT_HEIGHT = 160;
     private OrthographicCamera camera;
@@ -24,6 +29,13 @@ public class PlayScreen implements Screen
     private Viewport viewport;
     private int mapWidth;
     private int mapHeight;
+    private List<Entity> entities;
+
+    public PlayScreen(SpriteBatch batch, List<Entity> entities)
+    {
+        this.batch = batch;
+        this.entities = entities; // changes will be reflected in original List
+    }
 
     @Override
     public void show()
@@ -50,6 +62,27 @@ public class PlayScreen implements Screen
         camera.update();
         mapRenderer.setView(camera);
         mapRenderer.render();
+
+        for(Entity entity : entities)
+        {
+            entity.update();
+        }
+
+        /*for(Collidable entity : entities)
+        {
+            if(entity.hasCollided())
+            {
+                collisionHandler.handleCollision(entity);
+            }
+        }*/
+
+        batch.setProjectionMatrix(camera.combined);
+        batch.begin();
+        for(Entity entity : entities)
+        {
+            entity.render(batch);
+        }
+        batch.end();
     }
 
     private void handleInput()
@@ -125,6 +158,7 @@ public class PlayScreen implements Screen
     @Override
     public void dispose()
     {
+        //batch.dispose();
         map.dispose();
         mapRenderer.dispose();
     }

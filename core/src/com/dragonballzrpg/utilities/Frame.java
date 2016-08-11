@@ -21,18 +21,8 @@ public class Frame
         return frame;
     }
 
-    public void setFrame(TextureRegion frame)
-    {
-        this.frame = frame;
-    }
-
     public double getDuration()
     {
         return duration;
-    }
-
-    public void setDuration(double duration)
-    {
-        this.duration = duration;
     }
 }
