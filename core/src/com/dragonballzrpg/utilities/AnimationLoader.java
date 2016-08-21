@@ -18,7 +18,6 @@ import java.util.Map;
 public class AnimationLoader
 {
     private Map<String, TextureRegion[]> animations;
-    private Map<String, Animation> animationMap;
 
     public AnimationLoader(Texture spriteSheet, String dataFile)
     {

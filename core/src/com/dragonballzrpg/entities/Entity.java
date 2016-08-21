@@ -1,5 +1,6 @@
 package com.dragonballzrpg.entities;
 
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
@@ -10,15 +11,16 @@ public abstract class Entity
 {
     protected Vector2 position;
     protected double speed;
-    protected double width;
-    protected double height;
+    protected float width;
+    protected float height;
+    protected AssetManager assetManager;
 
     public Entity()
     {
         position = new Vector2(0, 0);
         speed = 0.0d;
-        width = 0.0d;
-        height = 0.0d;
+        width = 0.0f;
+        height = 0.0f;
     }
 
     public abstract void update();

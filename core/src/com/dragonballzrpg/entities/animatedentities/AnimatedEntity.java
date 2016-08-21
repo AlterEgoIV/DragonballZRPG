@@ -19,8 +19,17 @@ public abstract class AnimatedEntity extends Entity
     public AnimatedEntity()
     {
         animations = new HashMap<String, Animation>();
-        currentAnimation = new Animation();
     }
 
     protected abstract void initialiseAnimations();
+
+    public Map<String, Animation> getAnimations()
+    {
+        return animations;
+    }
+
+    public void setCurrentAnimation(Animation currentAnimation)
+    {
+        this.currentAnimation = currentAnimation;
+    }
 }

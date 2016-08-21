@@ -1,7 +1,6 @@
 package com.dragonballzrpg.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -39,16 +38,14 @@ public class PlayScreen extends GameScreen
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        handleInput();
-        checkBoundaries();
-
-        mapRenderer.setView(game.camera);
-        mapRenderer.render();
-
-        for(Entity entity : game.entities)
+        for(Entity entity : game.entities.values())
         {
             entity.update();
         }
+
+        game.camera.update();
+        mapRenderer.setView(game.camera);
+        mapRenderer.render();
 
         /*for(Collidable entity : game.entities)
         {
@@ -58,64 +55,19 @@ public class PlayScreen extends GameScreen
             }
         }*/
 
+        game.batch.setProjectionMatrix(game.camera.combined);
         game.batch.begin();
-        for(Entity entity : game.entities)
+        for(Entity entity : game.entities.values())
         {
             entity.render(game.batch);
         }
         game.batch.end();
     }
 
-    private void handleInput()
-    {
-        if(Gdx.input.isKeyPressed(Input.Keys.UP))
-        {
-            game.camera.translate(0, 5);
-        }
-
-        if(Gdx.input.isKeyPressed(Input.Keys.DOWN))
-        {
-            game.camera.translate(0, -5);
-        }
-
-        if(Gdx.input.isKeyPressed(Input.Keys.LEFT))
-        {
-            game.camera.translate(-5, 0);
-        }
-
-        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-        {
-            game.camera.translate(5, 0);
-        }
-    }
-
-    private void checkBoundaries()
-    {
-        if(game.camera.position.x < game.VIEWPORT_WIDTH / 2)
-        {
-            game.camera.position.x = game.VIEWPORT_WIDTH / 2;
-        }
-
-        if(game.camera.position.x > mapWidth - (game.VIEWPORT_WIDTH / 2))
-        {
-            game.camera.position.x = mapWidth - (game.VIEWPORT_WIDTH / 2);
-        }
-
-        if(game.camera.position.y < game.VIEWPORT_HEIGHT / 2)
-        {
-            game.camera.position.y = game.VIEWPORT_HEIGHT / 2;
-        }
-
-        if(game.camera.position.y > mapHeight - (game.VIEWPORT_HEIGHT / 2))
-        {
-            game.camera.position.y = mapHeight - (game.VIEWPORT_HEIGHT / 2);
-        }
-    }
-
     @Override
     public void resize(int width, int height)
     {
-        game.viewport.update(width, height);
+
     }
 
     @Override

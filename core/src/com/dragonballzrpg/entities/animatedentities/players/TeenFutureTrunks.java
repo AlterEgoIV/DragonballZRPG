@@ -1,8 +1,11 @@
 package com.dragonballzrpg.entities.animatedentities.players;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.dragonballzrpg.input.GameInputProcessor;
 import com.dragonballzrpg.utilities.Animation;
 import com.dragonballzrpg.utilities.AnimationLoader;
 
@@ -11,22 +14,34 @@ import com.dragonballzrpg.utilities.AnimationLoader;
  */
 public class TeenFutureTrunks extends Player
 {
-    public TeenFutureTrunks(AssetManager assetManager)
+    public TeenFutureTrunks(AssetManager assetManager, OrthographicCamera camera, GameInputProcessor inputProcessor)
     {
+        this.assetManager = assetManager;
+        this.camera = camera;
+        this.inputProcessor = inputProcessor;
         animationLoader = new AnimationLoader(assetManager.get("spritesheets/futuretrunks/teenFutureTrunks.png", Texture.class), "spritesheetproperties/teenFutureTrunks.csv");
         initialiseAnimations();
+        width = animations.get("facingDown").getCurrentFrame().getRegionWidth();
+        height = animations.get("facingDown").getCurrentFrame().getRegionHeight();
     }
 
     @Override
     public void update()
     {
+        currentDirection.update(this);
         currentAnimation.update();
+
+        position.x += ((currentDirection.getX() * speed) * Gdx.graphics.getDeltaTime());
+        position.y += ((currentDirection.getY() * speed) * Gdx.graphics.getDeltaTime());
+
+        camera.position.x = (int)position.x + width / 2.0f;
+        camera.position.y = (int)position.y + height / 2.0f;
     }
 
     @Override
     public void render(SpriteBatch batch)
     {
-        batch.draw(currentAnimation.getCurrentFrame(), position.x, position.y);
+        batch.draw(currentAnimation.getCurrentFrame(), (int)position.x, (int)position.y);
     }
 
     @Override
@@ -62,5 +77,17 @@ public class TeenFutureTrunks extends Player
         animations.put("facingRight", animation);
 
         currentAnimation = animations.get("facingDown");
+    }
+
+    @Override
+    public void handleKeyPress(int keyCode)
+    {
+
+    }
+
+    @Override
+    public void handleKeyRelease(int keyCode)
+    {
+
     }
 }
