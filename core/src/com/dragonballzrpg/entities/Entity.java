@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.Vector2;
  */
 public abstract class Entity
 {
-    protected Vector2 position;
+    public Vector2 position;
     protected double speed;
     protected float width;
     protected float height;
@@ -25,4 +25,9 @@ public abstract class Entity
 
     public abstract void update();
     public abstract void render(SpriteBatch batch);
+
+    public double getSpeed()
+    {
+        return speed;
+    }
 }

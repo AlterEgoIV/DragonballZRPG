@@ -1,6 +1,5 @@
 package com.dragonballzrpg.entities.animatedentities.players;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -28,11 +27,13 @@ public class TeenFutureTrunks extends Player
     @Override
     public void update()
     {
-        currentDirection.update(this);
+        //currentDirection.update(this);
+        currentState.update(this);
         currentAnimation.update();
+        handleRunWindow();
 
-        position.x += ((currentDirection.getX() * speed) * Gdx.graphics.getDeltaTime());
-        position.y += ((currentDirection.getY() * speed) * Gdx.graphics.getDeltaTime());
+        //position.x += ((currentDirection.getX() * speed) * Gdx.graphics.getDeltaTime());
+        //position.y += ((currentDirection.getY() * speed) * Gdx.graphics.getDeltaTime());
 
         camera.position.x = (int)position.x + width / 2.0f;
         camera.position.y = (int)position.y + height / 2.0f;
@@ -49,14 +50,14 @@ public class TeenFutureTrunks extends Player
     {
         Animation animation = new Animation();
 
-        animations.put("walkingUp", new Animation(animationLoader.load("walkingUp"), .25d, true));
-        animations.put("walkingDown", new Animation(animationLoader.load("walkingDown"), .25d, true));
-        animations.put("walkingLeft", new Animation(animationLoader.load("walkingLeft"), .25d, true));
-        animations.put("walkingRight", new Animation(animationLoader.load("walkingRight"), .25d, true));
-        animations.put("runningUp", new Animation(animationLoader.load("runningUp"), .25d, true));
-        animations.put("runningDown", new Animation(animationLoader.load("runningDown"), .25d, true));
-        animations.put("runningLeft", new Animation(animationLoader.load("runningLeft"), .25d, true));
-        animations.put("runningRight", new Animation(animationLoader.load("runningRight"), .25d, true));
+        animations.put("walkingUp", new Animation(animationLoader.load("walkingUp"), .125d, true));
+        animations.put("walkingDown", new Animation(animationLoader.load("walkingDown"), .125d, true));
+        animations.put("walkingLeft", new Animation(animationLoader.load("walkingLeft"), .125d, true));
+        animations.put("walkingRight", new Animation(animationLoader.load("walkingRight"), .125d, true));
+        animations.put("runningUp", new Animation(animationLoader.load("runningUp"), .125d, true));
+        animations.put("runningDown", new Animation(animationLoader.load("runningDown"), .125d, true));
+        animations.put("runningLeft", new Animation(animationLoader.load("runningLeft"), .125d, true));
+        animations.put("runningRight", new Animation(animationLoader.load("runningRight"), .125d, true));
         animations.put("facingUp", new Animation(animationLoader.load("facingUp"), 1));
 
         animation.setLoops(true);
@@ -82,12 +83,12 @@ public class TeenFutureTrunks extends Player
     @Override
     public void handleKeyPress(int keyCode)
     {
-
+        setKeys(keyCode);
     }
 
     @Override
     public void handleKeyRelease(int keyCode)
     {
-
+        unsetKeys(keyCode);
     }
 }
