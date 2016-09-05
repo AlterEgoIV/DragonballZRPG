@@ -60,8 +60,22 @@ public abstract class Player extends AnimatedEntity implements InputHandler
 
     public Player()
     {
+        animationNames.add("facingUp");
+        animationNames.add("facingDown");
+        animationNames.add("facingLeft");
+        animationNames.add("facingRight");
+        animationNames.add("walkingUp");
+        animationNames.add("walkingDown");
+        animationNames.add("walkingLeft");
+        animationNames.add("walkingRight");
+        animationNames.add("runningUp");
+        animationNames.add("runningDown");
+        animationNames.add("runningLeft");
+        animationNames.add("runningRight");
+
         speed = 100.0d;
         runSpeed = speed * 2;
+
         playerStates = new HashMap<String, State>();
         playerStates.put("standing", new Standing());
         playerStates.put("walkingNorth", new WalkingNorth());
@@ -100,7 +114,7 @@ public abstract class Player extends AnimatedEntity implements InputHandler
         readyToRunRight = false;
         runWindowOpen = false;
         elapsedRunWindowTime = 0.0d;
-        runWindowDuration = .5d;
+        runWindowDuration = .4d;
     }
 
     protected void setKeys(int keyCode)

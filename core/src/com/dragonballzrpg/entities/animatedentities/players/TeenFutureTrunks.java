@@ -27,13 +27,9 @@ public class TeenFutureTrunks extends Player
     @Override
     public void update()
     {
-        //currentDirection.update(this);
         currentState.update(this);
         currentAnimation.update();
         handleRunWindow();
-
-        //position.x += ((currentDirection.getX() * speed) * Gdx.graphics.getDeltaTime());
-        //position.y += ((currentDirection.getY() * speed) * Gdx.graphics.getDeltaTime());
 
         camera.position.x = (int)position.x + width / 2.0f;
         camera.position.y = (int)position.y + height / 2.0f;
@@ -50,7 +46,25 @@ public class TeenFutureTrunks extends Player
     {
         Animation animation = new Animation();
 
-        animations.put("walkingUp", new Animation(animationLoader.load("walkingUp"), .125d, true));
+        for(String name : animationNames)
+        {
+            if(name.equals("facingDown") || name.equals("facingLeft") || name.equals("facingRight"))
+            {
+                animation.setLoops(true);
+                animation.addFrame(animationLoader.load(name, 0), 5.0d); // frame 0, duration 5 seconds
+                animation.addFrame(animationLoader.load(name, 1), .25d); // frame 1, duration .25 seconds
+                animations.put(name, animation);
+                animation = new Animation(); // Clear the Animation
+            }
+            else
+            {
+                animations.put(name, new Animation(animationLoader.load(name), .125d, true)); // name, duration, looping
+            }
+        }
+
+        currentAnimation = animations.get("facingDown");
+
+        /*animations.put("walkingUp", new Animation(animationLoader.load("walkingUp"), .125d, true));
         animations.put("walkingDown", new Animation(animationLoader.load("walkingDown"), .125d, true));
         animations.put("walkingLeft", new Animation(animationLoader.load("walkingLeft"), .125d, true));
         animations.put("walkingRight", new Animation(animationLoader.load("walkingRight"), .125d, true));
@@ -58,9 +72,9 @@ public class TeenFutureTrunks extends Player
         animations.put("runningDown", new Animation(animationLoader.load("runningDown"), .125d, true));
         animations.put("runningLeft", new Animation(animationLoader.load("runningLeft"), .125d, true));
         animations.put("runningRight", new Animation(animationLoader.load("runningRight"), .125d, true));
-        animations.put("facingUp", new Animation(animationLoader.load("facingUp"), 1));
+        animations.put("facingUp", new Animation(animationLoader.load("facingUp"), 1));*/
 
-        animation.setLoops(true);
+        /*animation.setLoops(true);
         animation.addFrame(animationLoader.load("facingDown", 0), 5.0d);
         animation.addFrame(animationLoader.load("facingDown", 1), .25d);
         animations.put("facingDown", animation);
@@ -75,9 +89,7 @@ public class TeenFutureTrunks extends Player
         animation.setLoops(true);
         animation.addFrame(animationLoader.load("facingRight", 0), 5.0d);
         animation.addFrame(animationLoader.load("facingRight", 1), .25d);
-        animations.put("facingRight", animation);
-
-        currentAnimation = animations.get("facingDown");
+        animations.put("facingRight", animation);*/
     }
 
     @Override
