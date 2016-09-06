@@ -60,19 +60,6 @@ public abstract class Player extends AnimatedEntity implements InputHandler
 
     public Player()
     {
-        animationNames.add("facingUp");
-        animationNames.add("facingDown");
-        animationNames.add("facingLeft");
-        animationNames.add("facingRight");
-        animationNames.add("walkingUp");
-        animationNames.add("walkingDown");
-        animationNames.add("walkingLeft");
-        animationNames.add("walkingRight");
-        animationNames.add("runningUp");
-        animationNames.add("runningDown");
-        animationNames.add("runningLeft");
-        animationNames.add("runningRight");
-
         speed = 100.0d;
         runSpeed = speed * 2;
 
@@ -121,11 +108,14 @@ public abstract class Player extends AnimatedEntity implements InputHandler
     {
         switch(keyCode)
         {
-            case Input.Keys.UP: upKeyPressed = true; if(!runWindowOpen) runWindowOpen = true; break;
-            case Input.Keys.DOWN: downKeyPressed = true; if(!runWindowOpen) runWindowOpen = true; break;
-            case Input.Keys.LEFT: leftKeyPressed = true; if(!runWindowOpen) runWindowOpen = true; break;
-            case Input.Keys.RIGHT: rightKeyPressed = true; if(!runWindowOpen) runWindowOpen = true; break;
+            case Input.Keys.UP: upKeyPressed = true; break;
+            case Input.Keys.DOWN: downKeyPressed = true; break;
+            case Input.Keys.LEFT: leftKeyPressed = true; break;
+            case Input.Keys.RIGHT: rightKeyPressed = true; break;
+            default: return;
         }
+
+        if(!runWindowOpen) runWindowOpen = true;
     }
 
     protected void unsetKeys(int keyCode)
@@ -139,7 +129,7 @@ public abstract class Player extends AnimatedEntity implements InputHandler
         }
     }
 
-    protected void handleRunWindow()
+    protected void checkRunWindow()
     {
         if(runWindowOpen)
         {

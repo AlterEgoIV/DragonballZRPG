@@ -29,7 +29,7 @@ public class TeenFutureTrunks extends Player
     {
         currentState.update(this);
         currentAnimation.update();
-        handleRunWindow();
+        checkRunWindow();
 
         camera.position.x = (int)position.x + width / 2.0f;
         camera.position.y = (int)position.y + height / 2.0f;
@@ -44,52 +44,60 @@ public class TeenFutureTrunks extends Player
     @Override
     protected void initialiseAnimations()
     {
-        Animation animation = new Animation();
+        // Animation name sets are grouped by their animations frame durations
 
-        for(String name : animationNames)
+        String[] animationNameSet1 =
         {
-            if(name.equals("facingDown") || name.equals("facingLeft") || name.equals("facingRight"))
-            {
-                animation.setLoops(true);
-                animation.addFrame(animationLoader.load(name, 0), 5.0d); // frame 0, duration 5 seconds
-                animation.addFrame(animationLoader.load(name, 1), .25d); // frame 1, duration .25 seconds
-                animations.put(name, animation);
-                animation = new Animation(); // Clear the Animation
-            }
-            else
-            {
-                animations.put(name, new Animation(animationLoader.load(name), .125d, true)); // name, duration, looping
-            }
+            "facingDown", "facingLeft", "facingRight"
+        };
+
+        String[] animationNameSet2 =
+        {
+            "walkingUp", "walkingDown", "walkingLeft", "walkingRight",
+            "runningUp", "runningDown", "runningLeft", "runningRight",
+            "punch1Up", "punch1Down", "punch1Left", "punch1Right",
+            "punch2Up", "punch2Down", "punch2Left", "punch2Right",
+            "kickUp", "kickDown", "kickLeft", "kickRight"
+        };
+
+        String[] animationNameSet3 =
+        {
+            "knockedBackUp", "knockedBackDown", "knockedBackLeft", "knockedBackRight",
+            "kiBlastUp", "kiBlastDown", "kiBlastLeft", "kiBlastRight",
+            "continuousKiBlastUp", "continuousKiBlastDown", "continuousKiBlastLeft", "continuousKiBlastRight",
+            "flyingUp", "transforming"
+        };
+
+        String[] animationNameSet4 =
+        {
+            "facingUp", "dying"
+        };
+
+        for(String name : animationNameSet1)
+        {
+            Animation animation = new Animation();
+            animation.setLoops(true);
+            animation.addFrame(animationLoader.load(name, 0), 5.0d); // frame 0, duration 5 seconds
+            animation.addFrame(animationLoader.load(name, 1), .25d); // frame 1, duration .25 seconds
+            animations.put(name, animation);
+        }
+
+        for(String name : animationNameSet2)
+        {
+            animations.put(name, new Animation(animationLoader.load(name), .125d, true)); // name, duration, looping
+        }
+
+        for(String name : animationNameSet3)
+        {
+            animations.put(name, new Animation(animationLoader.load(name), .25d, true));
+        }
+
+        for(String name : animationNameSet4)
+        {
+            animations.put(name, new Animation(animationLoader.load(name), 1, true));
         }
 
         currentAnimation = animations.get("facingDown");
-
-        /*animations.put("walkingUp", new Animation(animationLoader.load("walkingUp"), .125d, true));
-        animations.put("walkingDown", new Animation(animationLoader.load("walkingDown"), .125d, true));
-        animations.put("walkingLeft", new Animation(animationLoader.load("walkingLeft"), .125d, true));
-        animations.put("walkingRight", new Animation(animationLoader.load("walkingRight"), .125d, true));
-        animations.put("runningUp", new Animation(animationLoader.load("runningUp"), .125d, true));
-        animations.put("runningDown", new Animation(animationLoader.load("runningDown"), .125d, true));
-        animations.put("runningLeft", new Animation(animationLoader.load("runningLeft"), .125d, true));
-        animations.put("runningRight", new Animation(animationLoader.load("runningRight"), .125d, true));
-        animations.put("facingUp", new Animation(animationLoader.load("facingUp"), 1));*/
-
-        /*animation.setLoops(true);
-        animation.addFrame(animationLoader.load("facingDown", 0), 5.0d);
-        animation.addFrame(animationLoader.load("facingDown", 1), .25d);
-        animations.put("facingDown", animation);
-
-        animation = new Animation();
-        animation.setLoops(true);
-        animation.addFrame(animationLoader.load("facingLeft", 0), 5.0d);
-        animation.addFrame(animationLoader.load("facingLeft", 1), .25d);
-        animations.put("facingLeft", animation);
-
-        animation = new Animation();
-        animation.setLoops(true);
-        animation.addFrame(animationLoader.load("facingRight", 0), 5.0d);
-        animation.addFrame(animationLoader.load("facingRight", 1), .25d);
-        animations.put("facingRight", animation);*/
     }
 
     @Override
