@@ -13,6 +13,7 @@ public class Animation
 {
     private List<Frame> frames;
     private int currentFrame;
+    private double animationDuration;
     private double currentFrameDuration;
     private boolean loops;
 
@@ -20,6 +21,7 @@ public class Animation
     {
         frames = new ArrayList<Frame>();
         currentFrame = 0;
+        animationDuration = 0.0d;
         currentFrameDuration = 0.0d;
         loops = false;
     }
@@ -35,6 +37,7 @@ public class Animation
 
         currentFrame = 0;
         currentFrameDuration = 0.0d;
+        animationDuration = frameDuration * frames.length;
         loops = false;
     }
 
@@ -50,6 +53,7 @@ public class Animation
 
         currentFrame = 0;
         currentFrameDuration = 0.0d;
+        animationDuration = frameDuration * frames.length;
     }
 
     public void update()
@@ -76,17 +80,24 @@ public class Animation
 
     public void addFrame(TextureRegion frame, double duration)
     {
+        animationDuration += duration;
         frames.add(new Frame(frame, duration));
     }
 
     public void removeFrame(int frame)
     {
+        animationDuration -= frames.get(frame).getDuration();
         frames.remove(frame);
     }
 
     public TextureRegion getCurrentFrame()
     {
         return frames.get(currentFrame).getFrame();
+    }
+
+    public double getDuration()
+    {
+        return animationDuration;
     }
 
     public void reset()

@@ -13,7 +13,7 @@ import java.util.Map;
 public abstract class AnimatedEntity extends Entity
 {
     protected Map<String, Animation> animations;
-    protected Animation currentAnimation;
+    public Animation currentAnimation;
     protected AnimationLoader animationLoader;
 
     public AnimatedEntity()

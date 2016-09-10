@@ -4,43 +4,37 @@ import com.badlogic.gdx.Gdx;
 import com.dragonballzrpg.entities.Entity;
 import com.dragonballzrpg.entities.animatedentities.players.Player;
 import com.dragonballzrpg.states.State;
+import com.dragonballzrpg.states.Transition;
+
+import java.util.Map;
 
 /**
  * Created by Carl on 30/08/2016.
  */
-public class WalkingEastSouth implements State
+public class WalkingEastSouth extends State
 {
+    @Override
+    public void initialiseTransitions(Map<String, State> playerStates)
+    {
+        //transitions.add(new Transition(playerStates.get("walkingSouth"), "walkingDown", false, true, false, false, false, false));
+        //transitions.add(new Transition(playerStates.get("walkingEast"), "walkingRight", false, false, false, true, false, false));
+        //transitions.add(new Transition(playerStates.get("walkingEastNorth"), "walkingRight", true, false, false, true, false, false));
+        //transitions.add(new Transition(playerStates.get("standing"), "facingRight", false, false, false, false, false, false));
+        //transitions.add(new Transition(playerStates.get("walkingSouth"), "walkingDown", true, true, false, false, false, false));
+
+        transitions.add(new Transition(playerStates.get("walkingSouth"), "walkingDown", false, true, false, false));
+        transitions.add(new Transition(playerStates.get("walkingEast"), "walkingRight", false, false, false, true));
+        transitions.add(new Transition(playerStates.get("walkingEastNorth"), "walkingRight", true, false, false, true));
+        transitions.add(new Transition(playerStates.get("standing"), "facingRight", false, false, false, false));
+        transitions.add(new Transition(playerStates.get("walkingSouth"), "walkingDown", true, true, false, false));
+    }
+
     @Override
     public void update(Entity entity)
     {
-        // Down
-        if(!((Player)entity).isUpKeyPressed() && ((Player)entity).isDownKeyPressed() &&
-           !((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
+        for(Transition transition : transitions)
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingDown"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingSouth"));
-        }
-
-        // Right
-        if(!((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
-           !((Player)entity).isLeftKeyPressed() && ((Player)entity).isRightKeyPressed())
-        {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingRight"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingEast"));
-        }
-
-        // Up && Right
-        if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
-           !((Player)entity).isLeftKeyPressed() && ((Player)entity).isRightKeyPressed())
-        {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingRight"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingEastNorth"));
-        }
-
-        if(!((Player)entity).isRightKeyPressed())
-        {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("facingRight"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("standing"));
+            transition.update((Player)entity);
         }
 
         ((Player)entity).position.x += entity.getSpeed() * Gdx.graphics.getDeltaTime();

@@ -55,12 +55,16 @@ public class TeenFutureTrunks extends Player
         {
             "walkingUp", "walkingDown", "walkingLeft", "walkingRight",
             "runningUp", "runningDown", "runningLeft", "runningRight",
+        };
+
+        String[] animationNameSet3 =
+        {
             "punch1Up", "punch1Down", "punch1Left", "punch1Right",
             "punch2Up", "punch2Down", "punch2Left", "punch2Right",
             "kickUp", "kickDown", "kickLeft", "kickRight"
         };
 
-        String[] animationNameSet3 =
+        String[] animationNameSet4 =
         {
             "knockedBackUp", "knockedBackDown", "knockedBackLeft", "knockedBackRight",
             "kiBlastUp", "kiBlastDown", "kiBlastLeft", "kiBlastRight",
@@ -68,7 +72,7 @@ public class TeenFutureTrunks extends Player
             "flyingUp", "transforming"
         };
 
-        String[] animationNameSet4 =
+        String[] animationNameSet5 =
         {
             "facingUp", "dying"
         };
@@ -89,10 +93,15 @@ public class TeenFutureTrunks extends Player
 
         for(String name : animationNameSet3)
         {
-            animations.put(name, new Animation(animationLoader.load(name), .25d, true));
+            animations.put(name, new Animation(animationLoader.load(name), .07d)); // name, duration, looping
         }
 
         for(String name : animationNameSet4)
+        {
+            animations.put(name, new Animation(animationLoader.load(name), .25d, true));
+        }
+
+        for(String name : animationNameSet5)
         {
             animations.put(name, new Animation(animationLoader.load(name), 1, true));
         }

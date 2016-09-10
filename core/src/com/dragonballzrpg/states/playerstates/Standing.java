@@ -4,15 +4,29 @@ import com.dragonballzrpg.entities.Entity;
 import com.dragonballzrpg.entities.animatedentities.players.Player;
 import com.dragonballzrpg.states.State;
 
+import java.util.Map;
+
 /**
  * Created by Carl on 24/08/2016.
  */
-public class Standing implements State
+public class Standing extends State
 {
+    @Override
+    public void initialiseTransitions(Map<String, State> playerStates)
+    {
+
+    }
+
     @Override
     public void update(Entity entity)
     {
-        if(((Player)entity).isUpKeyPressed() && ((Player)entity).isReadyToRunUp())
+        if(((Player)entity).isMKeyPressed() && ((Player)entity).canAttack) // For testing
+        {
+            ((Player)entity).canAttack = false;
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get(getRandomValue(new String[]{"punch1Right", "punch2Right", "kickRight"})));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("attackingRight"));
+        }
+        else if(((Player)entity).isUpKeyPressed() && ((Player)entity).isReadyToRunUp())
         {
             ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningUp"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningNorth"));

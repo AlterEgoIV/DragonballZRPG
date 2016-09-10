@@ -8,6 +8,10 @@ import com.dragonballzrpg.input.GameInputProcessor;
 import com.dragonballzrpg.input.InputHandler;
 import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.states.playerstates.Standing;
+import com.dragonballzrpg.states.playerstates.attackingstates.AttackingDownState;
+import com.dragonballzrpg.states.playerstates.attackingstates.AttackingLeftState;
+import com.dragonballzrpg.states.playerstates.attackingstates.AttackingRightState;
+import com.dragonballzrpg.states.playerstates.attackingstates.AttackingUpState;
 import com.dragonballzrpg.states.playerstates.runningstates.RunningEast;
 import com.dragonballzrpg.states.playerstates.runningstates.RunningEastNorth;
 import com.dragonballzrpg.states.playerstates.runningstates.RunningEastSouth;
@@ -41,7 +45,7 @@ import java.util.Map;
  */
 public abstract class Player extends AnimatedEntity implements InputHandler
 {
-    private Map<String, State> playerStates;
+    public Map<String, State> playerStates;
     protected State currentState;
     protected GameInputProcessor inputProcessor;
     protected OrthographicCamera camera;
@@ -49,11 +53,13 @@ public abstract class Player extends AnimatedEntity implements InputHandler
     private boolean downKeyPressed;
     private boolean leftKeyPressed;
     private boolean rightKeyPressed;
+    private boolean mKeyPressed;
     private boolean readyToRunUp;
     private boolean readyToRunDown;
     private boolean readyToRunLeft;
     private boolean readyToRunRight;
     private boolean runWindowOpen;
+    public boolean canAttack;
     private double elapsedRunWindowTime;
     private double runWindowDuration;
     private double runSpeed;
@@ -64,6 +70,25 @@ public abstract class Player extends AnimatedEntity implements InputHandler
         runSpeed = speed * 2;
 
         playerStates = new HashMap<String, State>();
+        initialiseStates();
+
+        upKeyPressed = false;
+        downKeyPressed = false;
+        leftKeyPressed = false;
+        rightKeyPressed = false;
+        mKeyPressed = false;
+        readyToRunUp = false;
+        readyToRunDown = false;
+        readyToRunLeft = false;
+        readyToRunRight = false;
+        runWindowOpen = false;
+        canAttack = true;
+        elapsedRunWindowTime = 0.0d;
+        runWindowDuration = .3d;
+    }
+
+    private void initialiseStates()
+    {
         playerStates.put("standing", new Standing());
         playerStates.put("walkingNorth", new WalkingNorth());
         playerStates.put("walkingSouth", new WalkingSouth());
@@ -89,19 +114,17 @@ public abstract class Player extends AnimatedEntity implements InputHandler
         playerStates.put("runningWestNorth", new RunningWestNorth());
         playerStates.put("runningEastSouth", new RunningEastSouth());
         playerStates.put("runningWestSouth", new RunningWestSouth());
-        currentState = playerStates.get("standing");
+        playerStates.put("attackingUp", new AttackingUpState());
+        playerStates.put("attackingDown", new AttackingDownState());
+        playerStates.put("attackingLeft", new AttackingLeftState());
+        playerStates.put("attackingRight", new AttackingRightState());
 
-        upKeyPressed = false;
-        downKeyPressed = false;
-        leftKeyPressed = false;
-        rightKeyPressed = false;
-        readyToRunUp = false;
-        readyToRunDown = false;
-        readyToRunLeft = false;
-        readyToRunRight = false;
-        runWindowOpen = false;
-        elapsedRunWindowTime = 0.0d;
-        runWindowDuration = .4d;
+        for(State state : playerStates.values())
+        {
+            state.initialiseTransitions(playerStates);
+        }
+
+        currentState = playerStates.get("standing");
     }
 
     protected void setKeys(int keyCode)
@@ -112,6 +135,7 @@ public abstract class Player extends AnimatedEntity implements InputHandler
             case Input.Keys.DOWN: downKeyPressed = true; break;
             case Input.Keys.LEFT: leftKeyPressed = true; break;
             case Input.Keys.RIGHT: rightKeyPressed = true; break;
+            case Input.Keys.M: mKeyPressed = true; break;
             default: return;
         }
 
@@ -126,6 +150,8 @@ public abstract class Player extends AnimatedEntity implements InputHandler
             case Input.Keys.DOWN: downKeyPressed = false; if(runWindowOpen) readyToRunDown = true; break;
             case Input.Keys.LEFT: leftKeyPressed = false; if(runWindowOpen) readyToRunLeft = true; break;
             case Input.Keys.RIGHT: rightKeyPressed = false; if(runWindowOpen) readyToRunRight = true; break;
+            case Input.Keys.M: mKeyPressed = false; canAttack = true; break;
+            default: break;
         }
     }
 
@@ -180,6 +206,11 @@ public abstract class Player extends AnimatedEntity implements InputHandler
     public boolean isRightKeyPressed()
     {
         return rightKeyPressed;
+    }
+
+    public boolean isMKeyPressed()
+    {
+        return mKeyPressed;
     }
 
     public boolean isReadyToRunUp()

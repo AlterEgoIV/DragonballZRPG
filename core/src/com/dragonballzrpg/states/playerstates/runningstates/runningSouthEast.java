@@ -5,11 +5,19 @@ import com.dragonballzrpg.entities.Entity;
 import com.dragonballzrpg.entities.animatedentities.players.Player;
 import com.dragonballzrpg.states.State;
 
+import java.util.Map;
+
 /**
  * Created by Carl on 24/08/2016.
  */
-public class RunningSouthEast implements State
+public class RunningSouthEast extends State
 {
+    @Override
+    public void initialiseTransitions(Map<String, State> playerStates)
+    {
+
+    }
+
     @Override
     public void update(Entity entity)
     {
