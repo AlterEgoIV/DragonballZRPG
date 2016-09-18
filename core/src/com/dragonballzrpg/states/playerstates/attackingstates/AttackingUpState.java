@@ -1,9 +1,8 @@
 package com.dragonballzrpg.states.playerstates.attackingstates;
 
 import com.dragonballzrpg.entities.Entity;
+import com.dragonballzrpg.entities.animatedentities.players.Player;
 import com.dragonballzrpg.states.State;
-
-import java.util.Map;
 
 /**
  * Created by Carl on 06/09/2016.
@@ -11,7 +10,13 @@ import java.util.Map;
 public class AttackingUpState extends State
 {
     @Override
-    public void initialiseTransitions(Map<String, State> playerStates)
+    public void initialiseTransitions(Player p)
+    {
+
+    }
+
+    @Override
+    public void enter(Entity entity)
     {
 
     }

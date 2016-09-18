@@ -1,10 +1,10 @@
 package com.dragonballzrpg.states;
 
 import com.dragonballzrpg.entities.Entity;
+import com.dragonballzrpg.entities.animatedentities.players.Player;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 /**
@@ -21,7 +21,8 @@ public abstract class State
         currentStateDuration = 0.0d;
     }
 
-    public abstract void initialiseTransitions(Map<String, State> playerStates);
+    public abstract void initialiseTransitions(Player p);
+    public abstract void enter(Entity entity);
     public abstract void update(Entity entity);
 
     public <T> T getRandomValue(T[] values)

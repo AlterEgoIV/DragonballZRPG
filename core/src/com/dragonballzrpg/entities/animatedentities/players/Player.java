@@ -36,6 +36,7 @@ import com.dragonballzrpg.states.playerstates.walkingstates.WalkingSouthWest;
 import com.dragonballzrpg.states.playerstates.walkingstates.WalkingWest;
 import com.dragonballzrpg.states.playerstates.walkingstates.WalkingWestNorth;
 import com.dragonballzrpg.states.playerstates.walkingstates.WalkingWestSouth;
+import com.dragonballzrpg.wrappers.Bool;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,10 +47,22 @@ import java.util.Map;
 public abstract class Player extends AnimatedEntity implements InputHandler
 {
     public Map<String, State> playerStates;
+    //protected KeyState[] keyStates;
     protected State currentState;
     protected GameInputProcessor inputProcessor;
     protected OrthographicCamera camera;
-    private boolean upKeyPressed;
+    private Bool upKeyPressed;
+    private Bool downKeyPressed;
+    private Bool leftKeyPressed;
+    private Bool rightKeyPressed;
+    private Bool mKeyPressed;
+    private Bool readyToRunUp;
+    private Bool readyToRunDown;
+    private Bool readyToRunLeft;
+    private Bool readyToRunRight;
+    private Bool runWindowOpen;
+    private Bool canAttack;
+    /*private boolean upKeyPressed;
     private boolean downKeyPressed;
     private boolean leftKeyPressed;
     private boolean rightKeyPressed;
@@ -59,7 +72,7 @@ public abstract class Player extends AnimatedEntity implements InputHandler
     private boolean readyToRunLeft;
     private boolean readyToRunRight;
     private boolean runWindowOpen;
-    public boolean canAttack;
+    public boolean canAttack;*/
     private double elapsedRunWindowTime;
     private double runWindowDuration;
     private double runSpeed;
@@ -69,10 +82,22 @@ public abstract class Player extends AnimatedEntity implements InputHandler
         speed = 100.0d;
         runSpeed = speed * 2;
 
+        upKeyPressed = new Bool();
+        downKeyPressed = new Bool();
+        leftKeyPressed = new Bool();
+        rightKeyPressed = new Bool();
+        mKeyPressed = new Bool();
+        readyToRunUp = new Bool();
+        readyToRunDown = new Bool();
+        readyToRunLeft = new Bool();
+        readyToRunRight = new Bool();
+        runWindowOpen = new Bool();
+        canAttack = new Bool(true);
+
         playerStates = new HashMap<String, State>();
         initialiseStates();
 
-        upKeyPressed = false;
+        /*upKeyPressed = false;
         downKeyPressed = false;
         leftKeyPressed = false;
         rightKeyPressed = false;
@@ -82,7 +107,7 @@ public abstract class Player extends AnimatedEntity implements InputHandler
         readyToRunLeft = false;
         readyToRunRight = false;
         runWindowOpen = false;
-        canAttack = true;
+        canAttack = true;*/
         elapsedRunWindowTime = 0.0d;
         runWindowDuration = .3d;
     }
@@ -121,15 +146,36 @@ public abstract class Player extends AnimatedEntity implements InputHandler
 
         for(State state : playerStates.values())
         {
-            state.initialiseTransitions(playerStates);
+            state.initialiseTransitions(this);
         }
 
+        System.out.println("Player States initialised.");
+
+        /*for(State state : playerStates.values())
+        {
+            state.initialiseTransitions(playerStates);
+        }*/
+
         currentState = playerStates.get("standing");
+
+        System.out.println("standing");
     }
 
     protected void setKeys(int keyCode)
     {
         switch(keyCode)
+        {
+            case Input.Keys.UP: upKeyPressed.setValue(true); break;
+            case Input.Keys.DOWN: downKeyPressed.setValue(true); break;
+            case Input.Keys.LEFT: leftKeyPressed.setValue(true); break;
+            case Input.Keys.RIGHT: rightKeyPressed.setValue(true); break;
+            case Input.Keys.M: mKeyPressed.setValue(true); break;
+            default: return;
+        }
+
+        if(!runWindowOpen.getValue()) runWindowOpen.setValue(true);
+
+        /*switch(keyCode)
         {
             case Input.Keys.UP: upKeyPressed = true; break;
             case Input.Keys.DOWN: downKeyPressed = true; break;
@@ -139,12 +185,22 @@ public abstract class Player extends AnimatedEntity implements InputHandler
             default: return;
         }
 
-        if(!runWindowOpen) runWindowOpen = true;
+        if(!runWindowOpen) runWindowOpen = true;*/
     }
 
     protected void unsetKeys(int keyCode)
     {
         switch(keyCode)
+        {
+            case Input.Keys.UP: upKeyPressed.setValue(false); if(runWindowOpen.getValue()) readyToRunUp.setValue(true); break;
+            case Input.Keys.DOWN: downKeyPressed.setValue(false); if(runWindowOpen.getValue()) readyToRunDown.setValue(true); break;
+            case Input.Keys.LEFT: leftKeyPressed.setValue(false); if(runWindowOpen.getValue()) readyToRunLeft.setValue(true); break;
+            case Input.Keys.RIGHT: rightKeyPressed.setValue(false); if(runWindowOpen.getValue()) readyToRunRight.setValue(true); break;
+            case Input.Keys.M: mKeyPressed.setValue(false); canAttack.setValue(true); break;
+            default: break;
+        }
+
+        /*switch(keyCode)
         {
             case Input.Keys.UP: upKeyPressed = false; if(runWindowOpen) readyToRunUp = true; break;
             case Input.Keys.DOWN: downKeyPressed = false; if(runWindowOpen) readyToRunDown = true; break;
@@ -152,23 +208,23 @@ public abstract class Player extends AnimatedEntity implements InputHandler
             case Input.Keys.RIGHT: rightKeyPressed = false; if(runWindowOpen) readyToRunRight = true; break;
             case Input.Keys.M: mKeyPressed = false; canAttack = true; break;
             default: break;
-        }
+        }*/
     }
 
     protected void checkRunWindow()
     {
-        if(runWindowOpen)
+        if(runWindowOpen.getValue())
         {
             elapsedRunWindowTime += Gdx.graphics.getDeltaTime();
 
             if(elapsedRunWindowTime >= runWindowDuration)
             {
                 elapsedRunWindowTime = 0.0d;
-                runWindowOpen = false;
-                readyToRunUp = false;
-                readyToRunDown = false;
-                readyToRunLeft = false;
-                readyToRunRight = false;
+                runWindowOpen.setValue(false);
+                readyToRunUp.setValue(false);
+                readyToRunDown.setValue(false);
+                readyToRunLeft.setValue(false);
+                readyToRunRight.setValue(false);
             }
         }
     }
@@ -176,6 +232,11 @@ public abstract class Player extends AnimatedEntity implements InputHandler
     public double getRunSpeed()
     {
         return runSpeed;
+    }
+
+    public State getCurrentState()
+    {
+        return currentState;
     }
 
     public void setCurrentState(State currentState)
@@ -188,48 +249,103 @@ public abstract class Player extends AnimatedEntity implements InputHandler
         return playerStates;
     }
 
-    public boolean isUpKeyPressed()
+    public Bool getUpKeyPressed()
     {
         return upKeyPressed;
     }
 
-    public boolean isDownKeyPressed()
+    public Bool getDownKeyPressed()
     {
         return downKeyPressed;
     }
 
-    public boolean isLeftKeyPressed()
+    public Bool getLeftKeyPressed()
     {
         return leftKeyPressed;
     }
 
-    public boolean isRightKeyPressed()
+    public Bool getRightKeyPressed()
     {
+        System.out.println("Right key returned.");
         return rightKeyPressed;
+
+        //System.out.println("Returned null.");
+
+        //return null;
     }
 
-    public boolean isMKeyPressed()
+    public Bool getMKeyPressed()
     {
         return mKeyPressed;
     }
 
-    public boolean isReadyToRunUp()
+    public Bool getReadyToRunUp()
     {
         return readyToRunUp;
     }
 
-    public boolean isReadyToRunDown()
+    public Bool getReadyToRunDown()
     {
         return readyToRunDown;
     }
 
-    public boolean isReadyToRunLeft()
+    public Bool getReadyToRunLeft()
     {
         return readyToRunLeft;
     }
 
-    public boolean isReadyToRunRight()
+    public Bool getReadyToRunRight()
     {
         return readyToRunRight;
     }
+
+    public Bool getCanAttack()
+    {
+        return canAttack;
+    }
+
+    /*public boolean isUpKeyPressed()
+    {
+        return upKeyPressed.isTrue();
+    }
+
+    public boolean isDownKeyPressed()
+    {
+        return downKeyPressed.isTrue();
+    }
+
+    public boolean isLeftKeyPressed()
+    {
+        return leftKeyPressed.isTrue();
+    }
+
+    public boolean isRightKeyPressed()
+    {
+        return rightKeyPressed.isTrue();
+    }
+
+    public boolean isMKeyPressed()
+    {
+        return mKeyPressed.isTrue();
+    }
+
+    public boolean isReadyToRunUp()
+    {
+        return readyToRunUp.isTrue();
+    }
+
+    public boolean isReadyToRunDown()
+    {
+        return readyToRunDown.isTrue();
+    }
+
+    public boolean isReadyToRunLeft()
+    {
+        return readyToRunLeft.isTrue();
+    }
+
+    public boolean isReadyToRunRight()
+    {
+        return readyToRunRight.isTrue();
+    }*/
 }

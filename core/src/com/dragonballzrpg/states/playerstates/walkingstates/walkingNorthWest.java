@@ -5,15 +5,19 @@ import com.dragonballzrpg.entities.Entity;
 import com.dragonballzrpg.entities.animatedentities.players.Player;
 import com.dragonballzrpg.states.State;
 
-import java.util.Map;
-
 /**
  * Created by Carl on 24/08/2016.
  */
 public class WalkingNorthWest extends State
 {
     @Override
-    public void initialiseTransitions(Map<String, State> playerStates)
+    public void initialiseTransitions(Player p)
+    {
+
+    }
+
+    @Override
+    public void enter(Entity entity)
     {
 
     }
@@ -22,7 +26,7 @@ public class WalkingNorthWest extends State
     public void update(Entity entity)
     {
         // Up
-        if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
+        /*if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
            !((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
         {
             ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingUp"));
@@ -49,7 +53,7 @@ public class WalkingNorthWest extends State
         {
             ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("facingUp"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("standing"));
-        }
+        }*/
 
         ((Player)entity).position.x -= entity.getSpeed() * Gdx.graphics.getDeltaTime();
         ((Player)entity).position.y += entity.getSpeed() * Gdx.graphics.getDeltaTime();

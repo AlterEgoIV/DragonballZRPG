@@ -2,46 +2,47 @@ package com.dragonballzrpg.states;
 
 import com.dragonballzrpg.entities.animatedentities.players.Player;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 /**
  * Created by Carl on 07/09/2016.
  */
 public class Transition
 {
     private State state;
-    private String animation;
-    private boolean up, down, left, right /*m, canAttack*/;
+    private String[] animationNames;
+    private List<TransitionCondition> transitionConditions;
 
-    public Transition(State state, String animation, boolean up, boolean down, boolean left, boolean right/*boolean m, boolean canAttack*/)
+    public Transition(State state, String[] animationNames, TransitionCondition[] transitionConditions)
     {
         this.state = state;
-        this.animation = animation;
-        this.up = up;
-        this.down = down;
-        this.left = left;
-        this.right = right;
-        //this.m = m;
-        //this.canAttack = canAttack;
+        this.animationNames = animationNames;
+        this.transitionConditions = new ArrayList<TransitionCondition>();
+
+        for(TransitionCondition transitionCondition : transitionConditions)
+        {
+            this.transitionConditions.add(transitionCondition);
+        }
     }
 
     public void update(Player p)
     {
-        if(p.isUpKeyPressed() == up && p.isDownKeyPressed() == down &&
-           p.isLeftKeyPressed() == left && p.isRightKeyPressed() == right /*&&
-           p.isMKeyPressed() == m && p.canAttack = canAttack*/)
+        for(TransitionCondition transitionCondition : transitionConditions)
         {
-            //if(p.canAttack) p.canAttack = false;
-            p.setCurrentAnimation(p.getAnimations().get(animation));
-            p.setCurrentState(state);
+            if(!transitionCondition.isValid()) return;
         }
+
+        p.setCurrentAnimation(p.getAnimations().get(getRandomAnimationName(animationNames)));
+        p.setCurrentState(state);
+        p.getCurrentState().enter(p);
     }
 
-    public State getState()
+    private String getRandomAnimationName(String[] animationNames)
     {
-        return state;
-    }
+        Random random = new Random();
 
-    public void setAnimation(String animation)
-    {
-        this.animation = animation;
+        return animationNames[random.nextInt(animationNames.length)];
     }
 }

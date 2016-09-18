@@ -3,8 +3,8 @@ package com.dragonballzrpg.states.playerstates;
 import com.dragonballzrpg.entities.Entity;
 import com.dragonballzrpg.entities.animatedentities.players.Player;
 import com.dragonballzrpg.states.State;
-
-import java.util.Map;
+import com.dragonballzrpg.states.Transition;
+import com.dragonballzrpg.states.TransitionCondition;
 
 /**
  * Created by Carl on 24/08/2016.
@@ -12,7 +12,31 @@ import java.util.Map;
 public class Standing extends State
 {
     @Override
-    public void initialiseTransitions(Map<String, State> playerStates)
+    public void initialiseTransitions(Player p)
+    {
+        transitions.add(new Transition(p.getPlayerStates().get("walkingEast"), new String[]{"walkingRight"},
+        new TransitionCondition[]
+        {
+            new TransitionCondition(p.getRightKeyPressed(), true)
+        }));
+
+        transitions.add(new Transition(p.getPlayerStates().get("runningEast"), new String[]{"runningRight"},
+        new TransitionCondition[]
+        {
+            new TransitionCondition(p.getRightKeyPressed(), true),
+            new TransitionCondition(p.getReadyToRunRight(), true)
+        }));
+
+        transitions.add(new Transition(p.getPlayerStates().get("attackingRight"), new String[]{"punch1Right", "punch2Right", "kickRight"},
+        new TransitionCondition[]
+        {
+            new TransitionCondition(p.getMKeyPressed(), true),
+            new TransitionCondition(p.getCanAttack(), true)
+        }));
+    }
+
+    @Override
+    public void enter(Entity entity)
     {
 
     }
@@ -20,7 +44,12 @@ public class Standing extends State
     @Override
     public void update(Entity entity)
     {
-        if(((Player)entity).isMKeyPressed() && ((Player)entity).canAttack) // For testing
+        for(Transition transition : transitions)
+        {
+            transition.update((Player)entity);
+        }
+
+        /*if(((Player)entity).isMKeyPressed() && ((Player)entity).canAttack) // For testing
         {
             ((Player)entity).canAttack = false;
             ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get(getRandomValue(new String[]{"punch1Right", "punch2Right", "kickRight"})));
@@ -65,6 +94,6 @@ public class Standing extends State
         {
             ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingRight"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingEast"));
-        }
+        }*/
     }
 }

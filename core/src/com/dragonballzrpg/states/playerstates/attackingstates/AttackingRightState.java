@@ -5,8 +5,7 @@ import com.dragonballzrpg.entities.Entity;
 import com.dragonballzrpg.entities.animatedentities.players.Player;
 import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.states.Transition;
-
-import java.util.Map;
+import com.dragonballzrpg.states.TransitionCondition;
 
 /**
  * Created by Carl on 06/09/2016.
@@ -14,16 +13,25 @@ import java.util.Map;
 public class AttackingRightState extends State
 {
     @Override
-    public void initialiseTransitions(Map<String, State> playerStates)
+    public void initialiseTransitions(Player p)
     {
-        //transitions.add(new Transition(playerStates.get("standing"), "facingRight", false, false, false, false, false, false));
-        //transitions.add(new Transition(playerStates.get("standing"), "facingRight", false, false, false, false, true, false));
-        //transitions.add(new Transition(playerStates.get("walkingEast"), "walkingRight", false, false, false, true, false, true));
-        //transitions.add(new Transition(playerStates.get("walkingEast"), "walkingRight", false, false, false, true, true, true));
+        transitions.add(new Transition(p.getPlayerStates().get("standing"), new String[]{"facingRight"},
+        new TransitionCondition[]
+        {
+            new TransitionCondition(p.getRightKeyPressed(), false)
+        }));
 
-        transitions.add(new Transition(playerStates.get("standing"), "facingRight", false, false, false, false));
-        //transitions.add(new Transition(playerStates.get("walkingEast"), "walkingRight", false, false, false, true, false));
-        //transitions.add(new Transition(playerStates.get("walkingEast"), "walkingRight", false, false, false, true, true));
+        transitions.add(new Transition(p.getPlayerStates().get("walkingEast"), new String[]{"walkingRight"},
+        new TransitionCondition[]
+        {
+            new TransitionCondition(p.getRightKeyPressed(), true)
+        }));
+    }
+
+    @Override
+    public void enter(Entity entity)
+    {
+        ((Player)entity).getCanAttack().setValue(false);
     }
 
     @Override
@@ -35,12 +43,6 @@ public class AttackingRightState extends State
         {
             currentStateDuration = 0.0d;
             ((Player)entity).currentAnimation.reset();
-
-            if(((Player)entity).isRightKeyPressed())
-            {
-                ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingRight"));
-                ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingEast"));
-            }
 
             for(Transition transition : transitions)
             {

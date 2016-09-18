@@ -6,27 +6,21 @@ import com.dragonballzrpg.entities.animatedentities.players.Player;
 import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.states.Transition;
 
-import java.util.Map;
-
 /**
  * Created by Carl on 30/08/2016.
  */
 public class WalkingEastNorth extends State
 {
     @Override
-    public void initialiseTransitions(Map<String, State> playerStates)
+    public void initialiseTransitions(Player p)
     {
-        //transitions.add(new Transition(playerStates.get("walkingNorth"), "walkingUp", true, false, false, false, false, false));
-        //transitions.add(new Transition(playerStates.get("walkingEast"), "walkingRight", false, false, false, true, false, false));
-        //transitions.add(new Transition(playerStates.get("walkingEastSouth"), "walkingRight", false, true, false, true, false, false));
-        //transitions.add(new Transition(playerStates.get("standing"), "facingRight", false, false, false, false, false, false));
-        //transitions.add(new Transition(playerStates.get("walkingNorth"), "walkingUp", true, true, false, false, false, false));
 
-        transitions.add(new Transition(playerStates.get("walkingNorth"), "walkingUp", true, false, false, false));
-        transitions.add(new Transition(playerStates.get("walkingEast"), "walkingRight", false, false, false, true));
-        transitions.add(new Transition(playerStates.get("walkingEastSouth"), "walkingRight", false, true, false, true));
-        transitions.add(new Transition(playerStates.get("standing"), "facingRight", false, false, false, false));
-        transitions.add(new Transition(playerStates.get("walkingNorth"), "walkingUp", true, true, false, false));
+    }
+
+    @Override
+    public void enter(Entity entity)
+    {
+
     }
 
     @Override
