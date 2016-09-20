@@ -2,22 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a26e2c20-67a5-454f-ae7e-535d8c58ff93" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningEast.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningNorth.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningNorthEast.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningNorthWest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningSouth.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningSouthEast.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningSouthWest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningWest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingEast.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingNorth.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingNorthEast.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingNorthWest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingSouth.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingSouthEast.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingSouthWest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingWest.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningEast.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningNorth.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningNorthEast.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningNorthWest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningSouth.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningSouthEast.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningSouthWest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningWest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingEast.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingNorth.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingNorthEast.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingNorthWest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingSouth.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingSouthEast.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingSouthWest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingWest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DragonballZRPG.iws" />
@@ -64,21 +64,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/entities/animatedentities/players/Player.java">
+      <file leaf-file-name="WalkingWest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingWest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="130" column="61" selection-start-line="130" selection-start-column="61" selection-end-line="130" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AttackingRightState.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/AttackingRightState.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="912">
-              <caret line="48" column="50" selection-start-line="48" selection-start-column="50" selection-end-line="48" selection-end-column="50" />
+            <state relative-caret-position="1144">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,30 +76,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Entity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/entities/Entity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="25" column="52" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DragonballZRPG.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/DragonballZRPG.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RunningEastNorth.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningEastNorth.java">
+      <file leaf-file-name="WalkingWestNorth.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingWestNorth.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="572">
               <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
@@ -118,32 +86,92 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ControlsScreen.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/screens/ControlsScreen.java">
+      <file leaf-file-name="WalkingWestSouth.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingWestSouth.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="572">
+              <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameScreen.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/screens/GameScreen.java">
+      <file leaf-file-name="WalkingEastSouth.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingEastSouth.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+            <state relative-caret-position="154">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayScreen.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/screens/PlayScreen.java">
+      <file leaf-file-name="WalkingEastNorth.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingEastNorth.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+            <state relative-caret-position="154">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WalkingSouth.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingSouth.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1144">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WalkingNorthEast.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingNorthEast.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1320">
+              <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WalkingNorthWest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingNorthWest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1342">
+              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WalkingSouthEast.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingSouthEast.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1330">
+              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WalkingSouthWest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingSouthWest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1220">
+              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -2385,6 +2413,19 @@
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/AttackingDownState.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningEastNorth.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningEastSouth.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningWestNorth.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningWestSouth.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingEastSouth.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingEastNorth.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingWestNorth.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingWestSouth.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/Transition.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/State.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/Standing.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/entities/Entity.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/DragonballZRPG.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/entities/animatedentities/players/Player.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningEast.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningNorth.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningNorthEast.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningNorthWest.java" />
@@ -2392,10 +2433,7 @@
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningSouthEast.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningSouthWest.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningWest.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningWestNorth.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningWestSouth.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingEastSouth.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingEastNorth.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingEast.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingNorth.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingNorthEast.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingNorthWest.java" />
@@ -2403,16 +2441,6 @@
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingSouthEast.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingSouthWest.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingWest.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingWestNorth.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingWestSouth.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/Transition.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/State.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingEast.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/Standing.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/entities/Entity.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/DragonballZRPG.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningEast.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/entities/animatedentities/players/Player.java" />
       </list>
     </option>
   </component>
@@ -2607,36 +2635,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DragonballZRPG" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dragonballzrpg" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="states" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="playerstates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="attackingstates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="ProjectPane" />
@@ -2655,6 +2653,9 @@
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.dragonballzrpg.states.playerstates.walkingstates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Programming\LibGDX\DragonballZRPG\core\src\com\dragonballzrpg\states\playerstates\runningstates" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="groovy.util.GroovyTestCase" />
@@ -3065,7 +3066,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="7" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -3084,7 +3085,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -3235,55 +3236,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningEastSouth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningNorthEast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningNorthWest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningSouth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningSouthEast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningSouthWest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningWest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningWestNorth.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -3295,94 +3247,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingEastSouth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingEastNorth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingNorth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingNorthEast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingNorthWest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingSouth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingSouthEast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingSouthWest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingWest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingWestNorth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingWestSouth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3416,14 +3280,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
           <caret line="30" column="50" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingEast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
           <folding />
         </state>
       </provider>
@@ -3470,30 +3326,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningNorth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningEastNorth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningEast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/DragonballZRPG.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -3509,6 +3341,214 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningEast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningEastNorth.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningEastSouth.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningNorth.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="51" column="1" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningNorthEast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1342">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningNorthWest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningSouth.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="51" column="1" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningSouthEast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningSouthWest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningWest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1144">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingEast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="902">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingNorth.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="51" column="1" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingNorthEast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingNorthWest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1342">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingSouth.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1144">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingSouthEast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1330">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingSouthWest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1220">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingWest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1144">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingWestNorth.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingWestSouth.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingEastSouth.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingEastNorth.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
