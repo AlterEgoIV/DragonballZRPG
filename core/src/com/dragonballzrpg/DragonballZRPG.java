@@ -12,9 +12,9 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.dragonballzrpg.entities.Entity;
 import com.dragonballzrpg.entities.animatedentities.players.TeenFutureTrunks;
-import com.dragonballzrpg.screens.PlayScreen;
 import com.dragonballzrpg.input.GameInputProcessor;
 import com.dragonballzrpg.input.InputHandler;
+import com.dragonballzrpg.screens.PlayScreen;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,37 +24,28 @@ public class DragonballZRPG extends Game
 	private final int VIEWPORT_WIDTH = 240;
 	private final int VIEWPORT_HEIGHT = 160;
 	public OrthographicCamera camera;
-	public Viewport viewport;
+	private Viewport viewport;
 	public SpriteBatch batch;
 	public Map<String, Entity> entities;
 	private AssetManager assetManager;
-	private Screen playScreen;
+	private Map<String, Screen> screens;
 	private GameInputProcessor inputProcessor;
 
 	@Override
 	public void create()
 	{
-		camera = new OrthographicCamera(VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
-		camera.translate(VIEWPORT_WIDTH / 2, VIEWPORT_HEIGHT / 2);
-		viewport = new StretchViewport(VIEWPORT_WIDTH, VIEWPORT_HEIGHT, camera);
-		viewport.apply();
+		initialiseCamera();
+		initialiseViewport();
 
 		batch = new SpriteBatch();
 
-		assetManager = new AssetManager();
-		assetManager.load("spritesheets/futuretrunks/teenFutureTrunks.png", Texture.class);
-		assetManager.finishLoading();
-
-		inputProcessor = new GameInputProcessor();
-		Gdx.input.setInputProcessor(inputProcessor);
-
-		entities = new HashMap<String, Entity>();
-		entities.put("teenFutureTrunks", new TeenFutureTrunks(assetManager, camera, inputProcessor));
+		loadAssets();
+		initialiseInputProcessor();
+		initialiseEntities();
 
 		inputProcessor.setInputHandler((InputHandler)entities.get("teenFutureTrunks"));
 
-		playScreen = new PlayScreen(this);
-		setScreen(playScreen);
+		initialiseScreens();
 	}
 
 	@Override
@@ -71,12 +62,52 @@ public class DragonballZRPG extends Game
 	{
 		batch.dispose();
 		assetManager.dispose();
-		playScreen.dispose();
+		screens.get("playScreen").dispose();
 	}
 
 	@Override
 	public void resize(int width, int height)
 	{
 		viewport.update(width, height);
+	}
+
+	private void initialiseCamera()
+	{
+		camera = new OrthographicCamera(VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
+		camera.translate(VIEWPORT_WIDTH / 2, VIEWPORT_HEIGHT / 2);
+	}
+
+	private void initialiseViewport()
+	{
+		viewport = new StretchViewport(VIEWPORT_WIDTH, VIEWPORT_HEIGHT, camera);
+		viewport.apply();
+	}
+
+	private void loadAssets()
+	{
+		assetManager = new AssetManager();
+		assetManager.load("spritesheets/futuretrunks/teenFutureTrunks.png", Texture.class);
+		assetManager.finishLoading();
+	}
+
+	private void initialiseInputProcessor()
+	{
+		inputProcessor = new GameInputProcessor();
+		Gdx.input.setInputProcessor(inputProcessor);
+	}
+
+	private void initialiseEntities()
+	{
+		entities = new HashMap<String, Entity>();
+		entities.put("teenFutureTrunks", new TeenFutureTrunks(assetManager, camera, inputProcessor));
+	}
+
+	private void initialiseScreens()
+	{
+		screens = new HashMap<String, Screen>();
+
+		screens.put("playScreen", new PlayScreen(this));
+
+		setScreen(screens.get("playScreen"));
 	}
 }
