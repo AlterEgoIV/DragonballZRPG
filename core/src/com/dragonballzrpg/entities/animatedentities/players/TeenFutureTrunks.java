@@ -15,7 +15,7 @@ public class TeenFutureTrunks extends Player
 {
     public TeenFutureTrunks(AssetManager assetManager, OrthographicCamera camera, GameInputProcessor inputProcessor)
     {
-        this.assetManager = assetManager;
+        super(assetManager);
         this.camera = camera;
         this.inputProcessor = inputProcessor;
         animationLoader = new AnimationLoader(assetManager.get("spritesheets/futuretrunks/teenFutureTrunks.png", Texture.class), "spritesheetproperties/teenFutureTrunks.csv");
@@ -93,7 +93,7 @@ public class TeenFutureTrunks extends Player
 
         for(String name : animationNameSet3)
         {
-            animations.put(name, new Animation(animationLoader.load(name), .07d)); // name, duration, looping
+            animations.put(name, new Animation(animationLoader.load(name), .0675d/*.07d*/)); // name, duration, looping
         }
 
         for(String name : animationNameSet4)

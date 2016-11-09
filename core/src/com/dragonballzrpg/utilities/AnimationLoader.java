@@ -35,14 +35,16 @@ public class AnimationLoader
                 // While there is a line from the file left to be read, transfer it to line (String)
                 while((line = reader.readLine()) != null)
                 {
-                    String[] values = line.split(","); // Split the String up into set of values
+                    String[] values = line.split(","); // Split the line up into set of String values
 
-                    if(values.length == 1)
+                    if(values.length == 1) // If only one String in the line
                     {
-                        String name = values[0];
+                        String name = values[0]; // Set the Animation name
 
+                        // Create TextureRegion array the same size as List of frames
                         TextureRegion[] textureRegions = new TextureRegion[frames.size()];
 
+                        // Convert the List of frames to array of TextureRegions
                         for(int i = 0; i < frames.size(); ++i)
                         {
                             textureRegions[i] = frames.get(i);

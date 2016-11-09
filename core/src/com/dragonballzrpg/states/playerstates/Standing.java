@@ -1,5 +1,6 @@
 package com.dragonballzrpg.states.playerstates;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.dragonballzrpg.entities.Entity;
 import com.dragonballzrpg.entities.animatedentities.players.Player;
 import com.dragonballzrpg.states.State;
@@ -37,6 +38,12 @@ public class Standing extends State
 
     @Override
     public void enter(Entity entity)
+    {
+
+    }
+
+    @Override
+    public void exit(Entity entity)
     {
 
     }
@@ -95,5 +102,11 @@ public class Standing extends State
             ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingRight"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingEast"));
         }*/
+    }
+
+    @Override
+    public void render(Entity entity, SpriteBatch batch)
+    {
+
     }
 }

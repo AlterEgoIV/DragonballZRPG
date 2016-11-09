@@ -15,18 +15,19 @@ public abstract class Entity
 {
     public Vector2 position;
     protected double speed;
-    protected float width;
-    protected float height;
+    protected int width;
+    protected int height;
     protected AssetManager assetManager;
-    protected Map<String, Sound> soundEffects;
+    protected Map<String, Sound> sounds;
 
-    public Entity()
+    public Entity(AssetManager assetManager)
     {
+        this.assetManager = assetManager;
         position = new Vector2(0, 0);
-        soundEffects = new HashMap<String, Sound>();
+        sounds = new HashMap<String, Sound>();
         speed = 0.0d;
-        width = 0.0f;
-        height = 0.0f;
+        width = 0;
+        height = 0;
     }
 
     public abstract void update();
@@ -35,5 +36,10 @@ public abstract class Entity
     public double getSpeed()
     {
         return speed;
+    }
+
+    public Map<String, Sound> getSounds()
+    {
+        return sounds;
     }
 }

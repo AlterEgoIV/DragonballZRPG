@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -43,6 +44,7 @@ public class DragonballZRPG extends Game
 		initialiseInputProcessor();
 		initialiseEntities();
 
+		// Set the user controlled entity to TeenFutureTrunks object in entities
 		inputProcessor.setInputHandler((InputHandler)entities.get("teenFutureTrunks"));
 
 		initialiseScreens();
@@ -51,10 +53,10 @@ public class DragonballZRPG extends Game
 	@Override
 	public void render()
 	{
-		Gdx.gl.glClearColor(0, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		Gdx.gl.glClearColor(0, 0, 0, 1); // Set the colour the screen is cleared with
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT); // Clear the screen
 
-		super.render();
+		super.render(); // ^Game.render()
 	}
 
 	@Override
@@ -74,6 +76,8 @@ public class DragonballZRPG extends Game
 	private void initialiseCamera()
 	{
 		camera = new OrthographicCamera(VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
+
+		// Move the cameras bottom left corner from (0, 0) to half the VIEWPORT_WIDTH right and half the VIEWPORT_HEIGHT up
 		camera.translate(VIEWPORT_WIDTH / 2, VIEWPORT_HEIGHT / 2);
 	}
 
@@ -86,7 +90,13 @@ public class DragonballZRPG extends Game
 	private void loadAssets()
 	{
 		assetManager = new AssetManager();
+
 		assetManager.load("spritesheets/futuretrunks/teenFutureTrunks.png", Texture.class);
+
+		assetManager.load("sounds/melee1.wav", Sound.class);
+		assetManager.load("sounds/melee2.wav", Sound.class);
+		assetManager.load("sounds/running.wav", Sound.class);
+
 		assetManager.finishLoading();
 	}
 

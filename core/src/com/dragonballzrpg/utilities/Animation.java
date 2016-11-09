@@ -95,6 +95,11 @@ public class Animation
         return frames.get(currentFrame).getFrame();
     }
 
+    public TextureRegion getFrame(int index)
+    {
+        return frames.get(index).getFrame();
+    }
+
     public double getDuration()
     {
         return animationDuration;

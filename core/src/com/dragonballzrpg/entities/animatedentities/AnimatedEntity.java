@@ -1,5 +1,6 @@
 package com.dragonballzrpg.entities.animatedentities;
 
+import com.badlogic.gdx.assets.AssetManager;
 import com.dragonballzrpg.entities.Entity;
 import com.dragonballzrpg.utilities.Animation;
 import com.dragonballzrpg.utilities.AnimationLoader;
@@ -16,8 +17,9 @@ public abstract class AnimatedEntity extends Entity
     public Animation currentAnimation;
     protected AnimationLoader animationLoader;
 
-    public AnimatedEntity()
+    public AnimatedEntity(AssetManager assetManager)
     {
+        super(assetManager);
         animations = new HashMap<String, Animation>();
     }
 

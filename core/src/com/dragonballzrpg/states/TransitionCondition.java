@@ -7,17 +7,17 @@ import com.dragonballzrpg.wrappers.Bool;
  */
 public class TransitionCondition
 {
-    private Bool value;
-    private boolean control;
+    private Bool condition;
+    private boolean requiredValue;
 
-    public TransitionCondition(Bool value, boolean control)
+    public TransitionCondition(Bool condition, boolean requiredValue)
     {
-        this.value = value;
-        this.control = control;
+        this.condition = condition;
+        this.requiredValue = requiredValue;
     }
 
     public boolean isValid()
     {
-        return value.equals(control);
+        return condition.equals(requiredValue);
     }
 }

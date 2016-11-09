@@ -1,5 +1,6 @@
 package com.dragonballzrpg.states;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.dragonballzrpg.entities.Entity;
 import com.dragonballzrpg.entities.animatedentities.players.Player;
 
@@ -23,9 +24,11 @@ public abstract class State
 
     public abstract void initialiseTransitions(Player p);
     public abstract void enter(Entity entity);
+    public abstract void exit(Entity entity);
     public abstract void update(Entity entity);
+    public abstract void render(Entity entity, SpriteBatch batch);
 
-    public <T> T getRandomValue(T[] values)
+    protected <T> T getRandomValue(T[] values)
     {
         Random random = new Random();
         int value = random.nextInt(values.length);
