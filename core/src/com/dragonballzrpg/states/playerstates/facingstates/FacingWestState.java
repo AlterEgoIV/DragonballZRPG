@@ -19,39 +19,39 @@ public class FacingWestState extends State
         transitions.add(new Transition(p.getPlayerStates().get("walkingNorth"), new String[]{"walkingUp"},
         new TransitionCondition[]
         {
-        new TransitionCondition(p.getUpKeyPressed(), true)
+            new TransitionCondition(p.getUpKeyPressed(), true)
         }));
 
         transitions.add(new Transition(p.getPlayerStates().get("walkingSouth"), new String[]{"walkingDown"},
         new TransitionCondition[]
         {
-        new TransitionCondition(p.getDownKeyPressed(), true)
+            new TransitionCondition(p.getDownKeyPressed(), true)
         }));
 
         transitions.add(new Transition(p.getPlayerStates().get("walkingWest"), new String[]{"walkingLeft"},
         new TransitionCondition[]
         {
-        new TransitionCondition(p.getLeftKeyPressed(), true)
+            new TransitionCondition(p.getLeftKeyPressed(), true)
         }));
 
         transitions.add(new Transition(p.getPlayerStates().get("walkingEast"), new String[]{"walkingRight"},
         new TransitionCondition[]
         {
-        new TransitionCondition(p.getRightKeyPressed(), true)
+            new TransitionCondition(p.getRightKeyPressed(), true)
         }));
 
         transitions.add(new Transition(p.getPlayerStates().get("runningWest"), new String[]{"runningLeft"},
         new TransitionCondition[]
         {
-        new TransitionCondition(p.getLeftKeyPressed(), true),
-        new TransitionCondition(p.getReadyToRunLeft(), true)
+            new TransitionCondition(p.getLeftKeyPressed(), true),
+            new TransitionCondition(p.getReadyToRunLeft(), true)
         }));
 
         transitions.add(new Transition(p.getPlayerStates().get("meleeingWest"), new String[]{"punch1Left", "punch2Left", "kickLeft"},
         new TransitionCondition[]
         {
-        new TransitionCondition(p.getMKeyPressed(), true),
-        new TransitionCondition(p.getCanAttack(), true)
+            new TransitionCondition(p.getMKeyPressed(), true),
+            new TransitionCondition(p.getCanAttack(), true)
         }));
     }
 

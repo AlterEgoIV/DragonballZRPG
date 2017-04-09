@@ -6,6 +6,7 @@ import com.dragonballzrpg.entities.Entity;
 import com.dragonballzrpg.entities.animatedentities.players.Player;
 import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.states.Transition;
+import com.dragonballzrpg.states.TransitionCondition;
 
 /**
  * Created by Carl on 24/08/2016.
@@ -15,7 +16,12 @@ public class WalkingNorthEastState extends State
     @Override
     public void initialiseTransitions(Player p)
     {
-
+        transitions.add(new Transition(p.getPlayerStates().get("walkingNorth"), new String[]{"walkingUp"},
+        new TransitionCondition[]
+        {
+            new TransitionCondition(p.getUpKeyPressed(), true),
+            new TransitionCondition(p.getRightKeyPressed(), false)
+        }));
     }
 
     @Override

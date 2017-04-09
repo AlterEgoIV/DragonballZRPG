@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DragonballZRPG.iml" filepath="$PROJECT_DIR$/DragonballZRPG.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DragonballZRPG.iml" filepath="$PROJECT_DIR$/.idea/modules/DragonballZRPG.iml" />
       <module fileurl="file://$PROJECT_DIR$/android/android.iml" filepath="$PROJECT_DIR$/android/android.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
       <module fileurl="file://$PROJECT_DIR$/desktop/desktop.iml" filepath="$PROJECT_DIR$/desktop/desktop.iml" />
