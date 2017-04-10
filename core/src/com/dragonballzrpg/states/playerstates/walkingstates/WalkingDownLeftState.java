@@ -1,4 +1,4 @@
-package com.dragonballzrpg.states.playerstates.runningstates;
+package com.dragonballzrpg.states.playerstates.walkingstates;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -10,7 +10,7 @@ import com.dragonballzrpg.states.Transition;
 /**
  * Created by Carl on 24/08/2016.
  */
-public class RunningSouthWestState extends State
+public class WalkingDownLeftState extends State
 {
     @Override
     public void initialiseTransitions(Player p)
@@ -42,8 +42,8 @@ public class RunningSouthWestState extends State
         /*if(!((Player)entity).isUpKeyPressed() && ((Player)entity).isDownKeyPressed() &&
            !((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningDown"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningSouth"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingDown"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingSouth"));
         }
 
         // Left
@@ -58,8 +58,8 @@ public class RunningSouthWestState extends State
         if(!((Player)entity).isUpKeyPressed() && ((Player)entity).isDownKeyPressed() &&
            !((Player)entity).isLeftKeyPressed() && ((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningDown"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningSouthEast"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingDown"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingSouthEast"));
         }
 
         if(!((Player)entity).isDownKeyPressed())
@@ -68,8 +68,8 @@ public class RunningSouthWestState extends State
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("standing"));
         }*/
 
-        ((Player)entity).position.x -= (((Player)entity).getRunSpeed() / 2) * Gdx.graphics.getDeltaTime();
-        ((Player)entity).position.y -= ((Player)entity).getRunSpeed() * Gdx.graphics.getDeltaTime();
+        ((Player)entity).position.x -= entity.getSpeed() * Gdx.graphics.getDeltaTime();
+        ((Player)entity).position.y -= entity.getSpeed() * Gdx.graphics.getDeltaTime();
     }
 
     @Override

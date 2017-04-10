@@ -11,15 +11,15 @@ import com.dragonballzrpg.states.TransitionCondition;
 /**
  * Created by Carl on 06/09/2016.
  */
-public class MeleeingSouthState extends State
+public class MeleeingUpState extends State
 {
     @Override
     public void initialiseTransitions(Player p)
     {
-        transitions.add(new Transition(p.getPlayerStates().get("facingSouth"), new String[]{"facingDown"},
+        transitions.add(new Transition(p.getPlayerStates().get("facingNorth"), new String[]{"facingUp"},
         new TransitionCondition[]
         {
-        new TransitionCondition(p.getDownKeyPressed(), false)
+        new TransitionCondition(p.getUpKeyPressed(), false)
         }));
 
         transitions.add(new Transition(p.getPlayerStates().get("walkingNorth"), new String[]{"walkingUp"},
@@ -112,7 +112,7 @@ public class MeleeingSouthState extends State
         {
             //p.setCurrentAttackState(p.getPlayerStates().get("notAttacking"));
             //p.setCurrentMovementState(p.getPlayerStates().get("standing"));
-            p.setCurrentAnimation(p.getAnimations().get("facingDown"));
+            p.setCurrentAnimation(p.getAnimations().get("facingUp"));
         }*/
     }
 

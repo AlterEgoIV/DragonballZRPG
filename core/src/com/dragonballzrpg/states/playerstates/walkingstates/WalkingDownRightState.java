@@ -10,7 +10,7 @@ import com.dragonballzrpg.states.Transition;
 /**
  * Created by Carl on 24/08/2016.
  */
-public class WalkingSouthEastState extends State
+public class WalkingDownRightState extends State
 {
     @Override
     public void initialiseTransitions(Player p)

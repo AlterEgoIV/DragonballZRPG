@@ -10,7 +10,7 @@ import com.dragonballzrpg.states.Transition;
 /**
  * Created by Carl on 24/08/2016.
  */
-public class RunningSouthState extends State
+public class RunningLeftState extends State
 {
     @Override
     public void initialiseTransitions(Player p)
@@ -38,29 +38,29 @@ public class RunningSouthState extends State
             transition.update((Player)entity);
         }
 
-        // Down && Left
-        /*if(!((Player)entity).isUpKeyPressed() && ((Player)entity).isDownKeyPressed() &&
+        // Up && Left
+        /*if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
            ((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningDown"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningSouthWest"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningLeft"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningWestNorth"));
         }
 
-        // Down && Right
+        // Down && Left
         if(!((Player)entity).isUpKeyPressed() && ((Player)entity).isDownKeyPressed() &&
-           !((Player)entity).isLeftKeyPressed() && ((Player)entity).isRightKeyPressed())
+           ((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningDown"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningSouthEast"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningLeft"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningWestSouth"));
         }
 
-        if(!((Player)entity).isDownKeyPressed())
+        if(!((Player)entity).isLeftKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("facingDown"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("facingLeft"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("standing"));
         }*/
 
-        ((Player)entity).position.y -= ((Player)entity).getRunSpeed() * Gdx.graphics.getDeltaTime();
+        ((Player)entity).position.x -= ((Player)entity).getRunSpeed() * Gdx.graphics.getDeltaTime();
     }
 
     @Override

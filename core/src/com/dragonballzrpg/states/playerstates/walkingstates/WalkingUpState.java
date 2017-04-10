@@ -11,39 +11,39 @@ import com.dragonballzrpg.states.TransitionCondition;
 /**
  * Created by Carl on 24/08/2016.
  */
-public class WalkingSouthState extends State
+public class WalkingUpState extends State
 {
     @Override
     public void initialiseTransitions(Player p)
     {
-        transitions.add(new Transition(p.getPlayerStates().get("facingSouth"), new String[]{"facingDown"},
+        transitions.add(new Transition(p.getPlayerStates().get("facingNorth"), new String[]{"facingUp"},
         new TransitionCondition[]
         {
-            new TransitionCondition(p.getDownKeyPressed(), false)
+            new TransitionCondition(p.getUpKeyPressed(), false)
         }));
 
-        transitions.add(new Transition(p.getPlayerStates().get("walkingNorth"), new String[]{"walkingUp"},
+        transitions.add(new Transition(p.getPlayerStates().get("walkingSouth"), new String[]{"walkingDown"},
+        new TransitionCondition[]
+        {
+        new TransitionCondition(p.getUpKeyPressed(), false),
+        new TransitionCondition(p.getDownKeyPressed(), true)
+        }));
+
+        transitions.add(new Transition(p.getPlayerStates().get("walkingNorthEast"), new String[]{"walkingUp"},
         new TransitionCondition[]
         {
         new TransitionCondition(p.getUpKeyPressed(), true),
-        new TransitionCondition(p.getDownKeyPressed(), false)
-        }));
-
-        transitions.add(new Transition(p.getPlayerStates().get("walkingSouthEast"), new String[]{"walkingDown"},
-        new TransitionCondition[]
-        {
-        new TransitionCondition(p.getDownKeyPressed(), true),
         new TransitionCondition(p.getRightKeyPressed(), true)
         }));
 
-        transitions.add(new Transition(p.getPlayerStates().get("walkingSouthWest"), new String[]{"walkingDown"},
+        transitions.add(new Transition(p.getPlayerStates().get("walkingNorthWest"), new String[]{"walkingUp"},
         new TransitionCondition[]
         {
-        new TransitionCondition(p.getDownKeyPressed(), true),
+        new TransitionCondition(p.getUpKeyPressed(), true),
         new TransitionCondition(p.getLeftKeyPressed(), true)
         }));
 
-        transitions.add(new Transition(p.getPlayerStates().get("meleeingSouth"), new String[]{"punch1Down", "punch2Down", "kickDown"},
+        transitions.add(new Transition(p.getPlayerStates().get("meleeingNorth"), new String[]{"punch1Up", "punch2Up", "kickUp"},
         new TransitionCondition[]
         {
         new TransitionCondition(p.getMKeyPressed(), true),
@@ -56,7 +56,6 @@ public class WalkingSouthState extends State
     {
 
     }
-
     @Override
     public void exit(Entity entity)
     {
@@ -71,29 +70,29 @@ public class WalkingSouthState extends State
             transition.update((Player)entity);
         }
 
-        // Down && Left
-        /*if(!((Player)entity).isUpKeyPressed() && ((Player)entity).isDownKeyPressed() &&
+        // Up && Left
+        /*if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
            ((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingDown"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingSouthWest"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingUp"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingNorthWest"));
         }
 
-        // Down && Right
-        if(!((Player)entity).isUpKeyPressed() && ((Player)entity).isDownKeyPressed() &&
+        // Up && Right
+        if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
            !((Player)entity).isLeftKeyPressed() && ((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingDown"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingSouthEast"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingUp"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingNorthEast"));
         }
 
-        if(!((Player)entity).isDownKeyPressed())
+        if(!((Player)entity).isUpKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("facingDown"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("facingUp"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("standing"));
         }*/
 
-        ((Player)entity).position.y -= entity.getSpeed() * Gdx.graphics.getDeltaTime();
+        ((Player)entity).position.y += entity.getSpeed() * Gdx.graphics.getDeltaTime();
     }
 
     @Override

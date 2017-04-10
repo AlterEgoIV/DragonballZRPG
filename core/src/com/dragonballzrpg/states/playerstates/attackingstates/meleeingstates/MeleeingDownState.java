@@ -11,15 +11,15 @@ import com.dragonballzrpg.states.TransitionCondition;
 /**
  * Created by Carl on 06/09/2016.
  */
-public class MeleeingWestState extends State
+public class MeleeingDownState extends State
 {
     @Override
     public void initialiseTransitions(Player p)
     {
-        transitions.add(new Transition(p.getPlayerStates().get("facingWest"), new String[]{"facingLeft"},
+        transitions.add(new Transition(p.getPlayerStates().get("facingSouth"), new String[]{"facingDown"},
         new TransitionCondition[]
         {
-        new TransitionCondition(p.getRightKeyPressed(), false)
+        new TransitionCondition(p.getDownKeyPressed(), false)
         }));
 
         transitions.add(new Transition(p.getPlayerStates().get("walkingNorth"), new String[]{"walkingUp"},
@@ -112,24 +112,13 @@ public class MeleeingWestState extends State
         {
             //p.setCurrentAttackState(p.getPlayerStates().get("notAttacking"));
             //p.setCurrentMovementState(p.getPlayerStates().get("standing"));
-            p.setCurrentAnimation(p.getAnimations().get("facingLeft"));
+            p.setCurrentAnimation(p.getAnimations().get("facingDown"));
         }*/
     }
 
     @Override
     public void render(Entity entity, SpriteBatch batch)
     {
-        int offsetx = (int)entity.position.x / 2;
-        int offsety = (int)entity.position.y / 2;
-
-
-        batch.draw(((Player)entity).currentAnimation.getCurrentFrame(), (int)entity.position.x + offsetx, (int)entity.position.y);
-        //batch.draw(((Player)entity).currentAnimation.getCurrentFrame(),
-        //((Player)entity).position.x - ((Player)entity).currentAnimation.getCurrentFrame().getRegionWidth() / 2,
-        //(int)((Player)entity).position.y);
-        //batch.draw(((Player)entity).currentAnimation.getCurrentFrame(), (int)entity.position.x, (int)entity.position.y);
-        //batch.draw(((Player)entity).currentAnimation.getCurrentFrame(),
-        //(int)((Player)entity).position.x - ((Player)entity).currentAnimation.getCurrentFrame().getRegionWidth(),
-        //(int)((Player)entity).position.y - ((Player)entity).currentAnimation.getCurrentFrame().getRegionHeight() / 2);
+        batch.draw(((Player)entity).currentAnimation.getCurrentFrame(), (int)entity.position.x, (int)entity.position.y);
     }
 }

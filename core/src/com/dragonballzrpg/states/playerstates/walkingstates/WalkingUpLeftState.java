@@ -1,4 +1,4 @@
-package com.dragonballzrpg.states.playerstates.runningstates;
+package com.dragonballzrpg.states.playerstates.walkingstates;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -10,7 +10,7 @@ import com.dragonballzrpg.states.Transition;
 /**
  * Created by Carl on 24/08/2016.
  */
-public class RunningNorthEastState extends State
+public class WalkingUpLeftState extends State
 {
     @Override
     public void initialiseTransitions(Player p)
@@ -42,24 +42,24 @@ public class RunningNorthEastState extends State
         /*if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
            !((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningUp"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningNorth"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingUp"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingNorth"));
         }
 
-        // Right
+        // Left
         if(!((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
-           !((Player)entity).isLeftKeyPressed() && ((Player)entity).isRightKeyPressed())
-        {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingRight"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingEast"));
-        }
-
-        // Up && Left
-        if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
            ((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningUp"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningNorthWest"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingLeft"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingWest"));
+        }
+
+        // Up && Right
+        if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
+           !((Player)entity).isLeftKeyPressed() && ((Player)entity).isRightKeyPressed())
+        {
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingUp"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingNorthEast"));
         }
 
         if(!((Player)entity).isUpKeyPressed())
@@ -68,8 +68,8 @@ public class RunningNorthEastState extends State
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("standing"));
         }*/
 
-        ((Player)entity).position.x += (((Player)entity).getRunSpeed() / 2) * Gdx.graphics.getDeltaTime();
-        ((Player)entity).position.y += ((Player)entity).getRunSpeed() * Gdx.graphics.getDeltaTime();
+        ((Player)entity).position.x -= entity.getSpeed() * Gdx.graphics.getDeltaTime();
+        ((Player)entity).position.y += entity.getSpeed() * Gdx.graphics.getDeltaTime();
     }
 
     @Override

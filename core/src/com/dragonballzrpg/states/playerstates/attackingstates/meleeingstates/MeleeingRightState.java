@@ -11,7 +11,7 @@ import com.dragonballzrpg.states.TransitionCondition;
 /**
  * Created by Carl on 06/09/2016.
  */
-public class MeleeingEastState extends State
+public class MeleeingRightState extends State
 {
     @Override
     public void initialiseTransitions(Player p)

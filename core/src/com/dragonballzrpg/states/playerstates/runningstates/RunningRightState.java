@@ -11,7 +11,7 @@ import com.dragonballzrpg.states.TransitionCondition;
 /**
  * Created by Carl on 24/08/2016.
  */
-public class RunningEastState extends State
+public class RunningRightState extends State
 {
     @Override
     public void initialiseTransitions(Player p)
