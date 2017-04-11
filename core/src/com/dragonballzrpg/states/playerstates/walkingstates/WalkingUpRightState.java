@@ -48,30 +48,30 @@ public class WalkingUpRightState extends State
         /*if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
            !((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingUp"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingNorth"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("walkingUp"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingNorth"));
         }
 
         // Right
         if(!((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
            !((Player)entity).isLeftKeyPressed() && ((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingRight"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingEast"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("walkingRight"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingEast"));
         }
 
         // Up && Left
         if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
            ((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingUp"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingNorthWest"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("walkingUp"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingNorthWest"));
         }
 
         if(!((Player)entity).isUpKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("facingUp"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("standing"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("facingUp"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("standing"));
         }*/
 
         ((Player)entity).position.x += entity.getSpeed() * Gdx.graphics.getDeltaTime();

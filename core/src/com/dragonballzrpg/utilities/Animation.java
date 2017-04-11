@@ -66,7 +66,7 @@ public class Animation
 
             if(currentFrame < frames.size() - 1)
             {
-                currentFrame++;
+                ++currentFrame;
             }
             else
             {
@@ -115,10 +115,12 @@ public class Animation
     {
         frames = new ArrayList<Frame>();
         currentFrame = 0;
+        animationDuration = 0.0d;
         currentFrameDuration = 0.0d;
+        loops = false;
     }
 
-    public void setLoops(boolean loops)
+    public void loops(boolean loops)
     {
         this.loops = loops;
     }

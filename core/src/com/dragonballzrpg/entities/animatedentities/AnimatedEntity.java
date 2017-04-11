@@ -3,7 +3,7 @@ package com.dragonballzrpg.entities.animatedentities;
 import com.badlogic.gdx.assets.AssetManager;
 import com.dragonballzrpg.entities.Entity;
 import com.dragonballzrpg.utilities.Animation;
-import com.dragonballzrpg.utilities.AnimationLoader;
+import com.dragonballzrpg.utilities.SpriteSheetAnimationsExtractor;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +15,7 @@ public abstract class AnimatedEntity extends Entity
 {
     protected Map<String, Animation> animations;
     public Animation currentAnimation;
-    protected AnimationLoader animationLoader;
+    protected SpriteSheetAnimationsExtractor spriteSheetAnimationsExtractor;
 
     public AnimatedEntity(AssetManager assetManager)
     {

@@ -5,6 +5,6 @@ package com.dragonballzrpg.input;
  */
 public interface InputHandler
 {
-    void handleKeyPress(int keyCode);
-    void handleKeyRelease(int keyCode);
+    void handleKeyDown(int keyCode);
+    void handleKeyUp(int keyCode);
 }

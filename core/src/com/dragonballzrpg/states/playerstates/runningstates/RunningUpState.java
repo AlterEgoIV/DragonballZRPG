@@ -42,22 +42,22 @@ public class RunningUpState extends State
         /*if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
            ((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningUp"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningNorthWest"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("runningUp"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningNorthWest"));
         }
 
         // Up && Right
         if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
            !((Player)entity).isLeftKeyPressed() && ((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningUp"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningNorthEast"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("runningUp"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningNorthEast"));
         }
 
         if(!((Player)entity).isUpKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("facingUp"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("standing"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("facingUp"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("standing"));
         }*/
 
         ((Player)entity).position.y += ((Player)entity).getRunSpeed() * Gdx.graphics.getDeltaTime();

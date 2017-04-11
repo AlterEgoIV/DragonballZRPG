@@ -42,30 +42,30 @@ public class RunningEastSouthState extends State
         /*if(!((Player)entity).isUpKeyPressed() && ((Player)entity).isDownKeyPressed() &&
            !((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingDown"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingSouth"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("walkingDown"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingSouth"));
         }
 
         // Right
         if(!((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
            !((Player)entity).isLeftKeyPressed() && ((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningRight"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningEast"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("runningRight"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningEast"));
         }
 
         // Up && Right
         if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
            !((Player)entity).isLeftKeyPressed() && ((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningRight"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningEastNorth"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("runningRight"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningEastNorth"));
         }
 
         if(!((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("facingRight"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("standing"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("facingRight"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("standing"));
         }*/
 
         ((Player)entity).position.x += ((Player)entity).getRunSpeed() * Gdx.graphics.getDeltaTime();

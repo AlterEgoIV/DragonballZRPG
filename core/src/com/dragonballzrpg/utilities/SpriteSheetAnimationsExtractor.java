@@ -15,14 +15,17 @@ import java.util.Map;
 /**
  * Created by Carl on 07/08/2016.
  */
-public class AnimationLoader
+public class SpriteSheetAnimationsExtractor
 {
     private Map<String, TextureRegion[]> animations;
 
-    public AnimationLoader(Texture spriteSheet, String dataFile)
+    public SpriteSheetAnimationsExtractor()
     {
         animations = new HashMap<String, TextureRegion[]>();
+    }
 
+    public void extractAnimations(Texture spriteSheet, String dataFile)
+    {
         BufferedReader reader = new BufferedReader(new InputStreamReader(Gdx.files.internal(dataFile).read()));
         List<TextureRegion> frames = new ArrayList<TextureRegion>();
 
@@ -54,6 +57,7 @@ public class AnimationLoader
                         animations.put(name, textureRegions);
 
                         // Reset frames
+                        //frames.clear();
                         frames = new ArrayList<TextureRegion>();
                     }
                     else
@@ -82,15 +86,16 @@ public class AnimationLoader
         }
     }
 
-    public TextureRegion[] load(String animation)
+    public TextureRegion[] getAnimation(String animation)
     {
         return animations.get(animation);
     }
 
-    public TextureRegion load(String animation, int frame)
+    public TextureRegion getAnimationFrame(String animation, int frame)
     {
         TextureRegion[] frames = animations.get(animation);
 
-        return new TextureRegion(frames[frame]);
+        return frames[frame];
+        //return new TextureRegion(frames[frame]);
     }
 }

@@ -42,30 +42,30 @@ public class RunningDownLeftState extends State
         /*if(!((Player)entity).isUpKeyPressed() && ((Player)entity).isDownKeyPressed() &&
            !((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningDown"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningSouth"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("runningDown"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningSouth"));
         }
 
         // Left
         if(!((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
            ((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingLeft"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingWest"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("walkingLeft"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingWest"));
         }
 
         // Down && Right
         if(!((Player)entity).isUpKeyPressed() && ((Player)entity).isDownKeyPressed() &&
            !((Player)entity).isLeftKeyPressed() && ((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningDown"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningSouthEast"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("runningDown"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningSouthEast"));
         }
 
         if(!((Player)entity).isDownKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("facingDown"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("standing"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("facingDown"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("standing"));
         }*/
 
         ((Player)entity).position.x -= (((Player)entity).getRunSpeed() / 2) * Gdx.graphics.getDeltaTime();

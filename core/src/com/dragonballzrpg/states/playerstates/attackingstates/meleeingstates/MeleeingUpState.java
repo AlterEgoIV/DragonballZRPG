@@ -111,9 +111,9 @@ public class MeleeingUpState extends State
 
         if(!p.isMKeyPressed())
         {
-            //p.setCurrentAttackState(p.getPlayerStates().get("notAttacking"));
-            //p.setCurrentMovementState(p.getPlayerStates().get("standing"));
-            p.setCurrentAnimation(p.getAnimations().get("facingUp"));
+            //p.setCurrentAttackState(p.getPlayerStates().getAnimation("notAttacking"));
+            //p.setCurrentMovementState(p.getPlayerStates().getAnimation("standing"));
+            p.setCurrentAnimation(p.getAnimations().getAnimation("facingUp"));
         }*/
     }
 

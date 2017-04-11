@@ -10,7 +10,7 @@ import com.dragonballzrpg.states.TransitionCondition;
 /**
  * Created by Carl on 24/08/2016.
  */
-public class Standing extends State
+public class StandingState extends State
 {
     @Override
     public void initialiseTransitions(Player p)
@@ -59,48 +59,48 @@ public class Standing extends State
         /*if(((Player)entity).isMKeyPressed() && ((Player)entity).canAttack) // For testing
         {
             ((Player)entity).canAttack = false;
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get(getRandomValue(new String[]{"punch1Right", "punch2Right", "kickRight"})));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("attackingRight"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation(getRandomValue(new String[]{"punch1Right", "punch2Right", "kickRight"})));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("attackingRight"));
         }
         else if(((Player)entity).isUpKeyPressed() && ((Player)entity).isReadyToRunUp())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningUp"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningNorth"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("runningUp"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningNorth"));
         }
         else if(((Player)entity).isDownKeyPressed() && ((Player)entity).isReadyToRunDown())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningDown"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningSouth"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("runningDown"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningSouth"));
         }
         else if(((Player)entity).isLeftKeyPressed() && ((Player)entity).isReadyToRunLeft())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningLeft"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningWest"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("runningLeft"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningWest"));
         }
         else if(((Player)entity).isRightKeyPressed() && ((Player)entity).isReadyToRunRight())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("runningRight"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("runningEast"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("runningRight"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningEast"));
         }
         else if(((Player)entity).isUpKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingUp"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingNorth"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("walkingUp"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingNorth"));
         }
         else if(((Player)entity).isDownKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingDown"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingSouth"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("walkingDown"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingSouth"));
         }
         else if(((Player)entity).isLeftKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingLeft"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingWest"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("walkingLeft"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingWest"));
         }
         else if(((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get("walkingRight"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get("walkingEast"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("walkingRight"));
+            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingEast"));
         }*/
     }
 

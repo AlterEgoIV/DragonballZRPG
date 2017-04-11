@@ -10,14 +10,11 @@ import com.dragonballzrpg.enums.StateName;
 import com.dragonballzrpg.input.GameInputProcessor;
 import com.dragonballzrpg.input.InputHandler;
 import com.dragonballzrpg.states.State;
+import com.dragonballzrpg.states.playerstates.StandingState;
 import com.dragonballzrpg.states.playerstates.attackingstates.meleeingstates.MeleeingRightState;
 import com.dragonballzrpg.states.playerstates.attackingstates.meleeingstates.MeleeingUpState;
 import com.dragonballzrpg.states.playerstates.attackingstates.meleeingstates.MeleeingDownState;
 import com.dragonballzrpg.states.playerstates.attackingstates.meleeingstates.MeleeingLeftState;
-import com.dragonballzrpg.states.playerstates.facingstates.FacingRightState;
-import com.dragonballzrpg.states.playerstates.facingstates.FacingUpState;
-import com.dragonballzrpg.states.playerstates.facingstates.FacingDownState;
-import com.dragonballzrpg.states.playerstates.facingstates.FacingLeftState;
 import com.dragonballzrpg.states.playerstates.runningstates.RunningRightState;
 import com.dragonballzrpg.states.playerstates.runningstates.RunningUpRightState;
 import com.dragonballzrpg.states.playerstates.runningstates.RunningUpState;
@@ -90,10 +87,11 @@ public abstract class Player extends AnimatedEntity implements InputHandler
 
     private void initialiseStates()
     {
-        playerStates.put(StateName.FACING_UP, new FacingUpState());
-        playerStates.put(StateName.FACING_DOWN, new FacingDownState());
-        playerStates.put(StateName.FACING_LEFT, new FacingLeftState());
-        playerStates.put(StateName.FACING_RIGHT, new FacingRightState());
+        playerStates.put(StateName.STANDING, new StandingState());
+        //playerStates.put(StateName.FACING_UP, new FacingUpState());
+        //playerStates.put(StateName.FACING_DOWN, new FacingDownState());
+        //playerStates.put(StateName.FACING_LEFT, new FacingLeftState());
+        //playerStates.put(StateName.FACING_RIGHT, new FacingRightState());
         playerStates.put(StateName.WALKING_UP, new WalkingUpState());
         playerStates.put(StateName.WALKING_DOWN, new WalkingDownState());
         playerStates.put(StateName.WALKING_LEFT, new WalkingLeftState());
@@ -128,7 +126,7 @@ public abstract class Player extends AnimatedEntity implements InputHandler
             state.initialiseTransitions(this);
         }
 
-        currentState = playerStates.get(StateName.FACING_DOWN);
+        currentState = playerStates.get(StateName.STANDING);
     }
 
     private void initialiseSounds()

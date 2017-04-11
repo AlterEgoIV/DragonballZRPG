@@ -19,7 +19,7 @@ public class GameInputProcessor implements InputProcessor
     {
         if(inputHandler != null)
         {
-            inputHandler.handleKeyPress(keycode);
+            inputHandler.handleKeyDown(keycode);
 
             return true;
         }
@@ -32,7 +32,7 @@ public class GameInputProcessor implements InputProcessor
     {
         if(inputHandler != null)
         {
-            inputHandler.handleKeyRelease(keycode);
+            inputHandler.handleKeyUp(keycode);
 
             return true;
         }
