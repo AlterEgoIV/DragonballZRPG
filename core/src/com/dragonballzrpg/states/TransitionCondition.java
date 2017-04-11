@@ -1,16 +1,14 @@
 package com.dragonballzrpg.states;
 
-import com.dragonballzrpg.wrappers.Bool;
-
 /**
  * Created by Carl on 15/09/2016.
  */
 public class TransitionCondition
 {
-    private Bool condition;
+    private Boolean condition;
     private boolean requiredValue;
 
-    public TransitionCondition(Bool condition, boolean requiredValue)
+    public TransitionCondition(Boolean condition, boolean requiredValue)
     {
         this.condition = condition;
         this.requiredValue = requiredValue;
