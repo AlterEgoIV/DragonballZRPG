@@ -59,47 +59,47 @@ public class StandingState extends State
         /*if(((Player)entity).isMKeyPressed() && ((Player)entity).canAttack) // For testing
         {
             ((Player)entity).canAttack = false;
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation(getRandomValue(new String[]{"punch1Right", "punch2Right", "kickRight"})));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation(getRandomValue(new String[]{"punch1Right", "punch2Right", "kickRight"})));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("attackingRight"));
         }
         else if(((Player)entity).isUpKeyPressed() && ((Player)entity).isReadyToRunUp())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("runningUp"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("runningUp"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningNorth"));
         }
         else if(((Player)entity).isDownKeyPressed() && ((Player)entity).isReadyToRunDown())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("runningDown"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("runningDown"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningSouth"));
         }
         else if(((Player)entity).isLeftKeyPressed() && ((Player)entity).isReadyToRunLeft())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("runningLeft"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("runningLeft"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningWest"));
         }
         else if(((Player)entity).isRightKeyPressed() && ((Player)entity).isReadyToRunRight())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("runningRight"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("runningRight"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningEast"));
         }
         else if(((Player)entity).isUpKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("walkingUp"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("walkingUp"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingNorth"));
         }
         else if(((Player)entity).isDownKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("walkingDown"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("walkingDown"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingSouth"));
         }
         else if(((Player)entity).isLeftKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("walkingLeft"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("walkingLeft"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingWest"));
         }
         else if(((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("walkingRight"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("walkingRight"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingEast"));
         }*/
     }

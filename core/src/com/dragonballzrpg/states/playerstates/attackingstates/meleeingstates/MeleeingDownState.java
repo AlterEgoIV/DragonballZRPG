@@ -113,7 +113,7 @@ public class MeleeingDownState extends State
         {
             //p.setCurrentAttackState(p.getPlayerStates().getAnimation("notAttacking"));
             //p.setCurrentMovementState(p.getPlayerStates().getAnimation("standing"));
-            p.setCurrentAnimation(p.getAnimations().getAnimation("facingDown"));
+            p.setCurrentAnimation(p.getStringAnimations().getAnimation("facingDown"));
         }*/
     }
 

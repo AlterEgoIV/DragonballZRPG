@@ -113,7 +113,7 @@ public class MeleeingLeftState extends State
         {
             //p.setCurrentAttackState(p.getPlayerStates().getAnimation("notAttacking"));
             //p.setCurrentMovementState(p.getPlayerStates().getAnimation("standing"));
-            p.setCurrentAnimation(p.getAnimations().getAnimation("facingLeft"));
+            p.setCurrentAnimation(p.getStringAnimations().getAnimation("facingLeft"));
         }*/
     }
 

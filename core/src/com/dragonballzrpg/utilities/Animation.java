@@ -111,14 +111,14 @@ public class Animation
         currentFrameDuration = 0.0d;
     }
 
-    public void clear()
-    {
-        frames = new ArrayList<Frame>();
-        currentFrame = 0;
-        animationDuration = 0.0d;
-        currentFrameDuration = 0.0d;
-        loops = false;
-    }
+//    public void clear()
+//    {
+//        frames = new ArrayList<Frame>();
+//        currentFrame = 0;
+//        animationDuration = 0.0d;
+//        currentFrameDuration = 0.0d;
+//        loops = false;
+//    }
 
     public void loops(boolean loops)
     {

@@ -2,11 +2,12 @@ package com.dragonballzrpg.entities.animatedentities.players;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.dragonballzrpg.enums.AnimationName;
 import com.dragonballzrpg.input.GameInputProcessor;
 import com.dragonballzrpg.utilities.Animation;
-import com.dragonballzrpg.utilities.SpriteSheetAnimationsExtractor;
+
+import java.util.Map;
 
 /**
  * Created by Carl on 09/08/2016.
@@ -20,15 +21,28 @@ public class TeenFutureTrunks extends Player
         this.inputProcessor = inputProcessor;
         //spriteSheetAnimationsExtractor = new SpriteSheetAnimationsExtractor(assetManager.get("spritesheets/futuretrunks/teenFutureTrunks.png", Texture.class), "spritesheetproperties/teenFutureTrunks.csv");
         //initialiseAnimations();
-        //width = animations.get("facingDown").getCurrentFrame().getRegionWidth();
-        //height = animations.get("facingDown").getCurrentFrame().getRegionHeight();
+        //width = stringAnimations.get("facingDown").getCurrentFrame().getRegionWidth();
+        //height = stringAnimations.get("facingDown").getCurrentFrame().getRegionHeight();
+    }
+
+    public TeenFutureTrunks(AssetManager assetManager, OrthographicCamera camera, GameInputProcessor inputProcessor, Map<AnimationName, Animation> animations)
+    {
+        super(assetManager);
+        this.camera = camera;
+        this.inputProcessor = inputProcessor;
+        this.animations = animations;
+        currentAnimation = animations.get(AnimationName.FACE_DOWN);
+        //spriteSheetAnimationsExtractor = new SpriteSheetAnimationsExtractor(assetManager.get("spritesheets/futuretrunks/teenFutureTrunks.png", Texture.class), "spritesheetproperties/teenFutureTrunks.csv");
+        //initialiseAnimations();
+        //width = stringAnimations.get("facingDown").getCurrentFrame().getRegionWidth();
+        //height = stringAnimations.get("facingDown").getCurrentFrame().getRegionHeight();
     }
 
     @Override
     public void update()
     {
         currentState.update(this);
-        //currentAnimation.update();
+        currentAnimation.update();
         checkRunWindow();
 
         camera.position.x = (int)position.x + width / 2.0f;
@@ -38,13 +52,13 @@ public class TeenFutureTrunks extends Player
     @Override
     public void render(SpriteBatch batch)
     {
-        //batch.draw(currentAnimation.getCurrentFrame(), (int)position.x, (int)position.y);
+        batch.draw(currentAnimation.getCurrentFrame(), (int)position.x, (int)position.y);
     }
 
     @Override
     protected void initialiseAnimations()
     {
-        // Animation name sets are grouped by their animations frame durations
+        // Animation name sets are grouped by their stringAnimations frame durations
 
         String[] animationNameSet1 =
         {
@@ -83,30 +97,30 @@ public class TeenFutureTrunks extends Player
             animation.loops(true);
             animation.addFrame(spriteSheetAnimationsExtractor.getAnimationFrame(animationName, 0), 5.0d); // frame 0, duration 5 seconds
             animation.addFrame(spriteSheetAnimationsExtractor.getAnimationFrame(animationName, 1), .25d); // frame 1, duration .25 seconds
-            animations.put(animationName, animation);
+            stringAnimations.put(animationName, animation);
         }
 
         for(String animationName : animationNameSet2)
         {
-            animations.put(animationName, new Animation(spriteSheetAnimationsExtractor.getAnimation(animationName), .125d, true)); // name, duration, looping
+            stringAnimations.put(animationName, new Animation(spriteSheetAnimationsExtractor.getAnimation(animationName), .125d, true)); // name, duration, looping
         }
 
         for(String animationName : animationNameSet3)
         {
-            animations.put(animationName, new Animation(spriteSheetAnimationsExtractor.getAnimation(animationName), .0675d/*.07d*/)); // name, duration, looping
+            stringAnimations.put(animationName, new Animation(spriteSheetAnimationsExtractor.getAnimation(animationName), .0675d/*.07d*/)); // name, duration, looping
         }
 
         for(String animationName : animationNameSet4)
         {
-            animations.put(animationName, new Animation(spriteSheetAnimationsExtractor.getAnimation(animationName), .25d, true));
+            stringAnimations.put(animationName, new Animation(spriteSheetAnimationsExtractor.getAnimation(animationName), .25d, true));
         }
 
         for(String animationName : animationNameSet5)
         {
-            animations.put(animationName, new Animation(spriteSheetAnimationsExtractor.getAnimation(animationName), 1, true));
+            stringAnimations.put(animationName, new Animation(spriteSheetAnimationsExtractor.getAnimation(animationName), 1, true));
         }
 
-        currentAnimation = animations.get("facingDown");
+        currentAnimation = stringAnimations.get("facingDown");
     }
 
     @Override

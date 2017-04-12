@@ -127,19 +127,18 @@ public class DragonballZRPG extends Game
 		animation.addFrame(spriteSheetAnimationsExtractor.getAnimationFrame("facingDown", 1), .25d);
 		animation.loops(true);
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.FACE_DOWN, animation);
-		animation.clear();
 
+		animation = new Animation();
 		animation.addFrame(spriteSheetAnimationsExtractor.getAnimationFrame("facingLeft", 0), 5.0d);
 		animation.addFrame(spriteSheetAnimationsExtractor.getAnimationFrame("facingLeft", 1), .25d);
 		animation.loops(true);
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.FACE_LEFT, animation);
-		animation.clear();
 
+		animation = new Animation();
 		animation.addFrame(spriteSheetAnimationsExtractor.getAnimationFrame("facingRight", 0), 5.0d);
 		animation.addFrame(spriteSheetAnimationsExtractor.getAnimationFrame("facingRight", 1), .25d);
 		animation.loops(true);
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.FACE_RIGHT, animation);
-		animation.clear();
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.WALK_UP,
 		new Animation(spriteSheetAnimationsExtractor.getAnimation("walkingUp"), .125d));
@@ -173,7 +172,8 @@ public class DragonballZRPG extends Game
 
 	private void initialiseEntities()
 	{
-		entities.put("teenFutureTrunks", new TeenFutureTrunks(assetManager, camera, inputProcessor));
+		entities.put("teenFutureTrunks", new TeenFutureTrunks(assetManager, camera, inputProcessor,
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS)));
 	}
 
 	private void initialiseScreens()

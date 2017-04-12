@@ -34,7 +34,7 @@ public class Transition
             if(!transitionCondition.isValid()) return;
         }
 
-        p.setCurrentAnimation(p.getAnimations().get(getRandomAnimationName(animationNames)));
+        p.setCurrentAnimation(p.getStringAnimations().get(getRandomAnimationName(animationNames)));
         p.getCurrentState().exit(p);
         p.setCurrentState(state);
         p.getCurrentState().enter(p);

@@ -42,7 +42,7 @@ public class RunningLeftState extends State
         /*if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
            ((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("runningLeft"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("runningLeft"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningWestNorth"));
         }
 
@@ -50,13 +50,13 @@ public class RunningLeftState extends State
         if(!((Player)entity).isUpKeyPressed() && ((Player)entity).isDownKeyPressed() &&
            ((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("runningLeft"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("runningLeft"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningWestSouth"));
         }
 
         if(!((Player)entity).isLeftKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("facingLeft"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("facingLeft"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("standing"));
         }*/
 

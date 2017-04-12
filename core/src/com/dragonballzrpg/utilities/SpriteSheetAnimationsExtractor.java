@@ -53,7 +53,7 @@ public class SpriteSheetAnimationsExtractor
                             textureRegions[i] = frames.get(i);
                         }
 
-                        // Add the current name and frames to the animations HashMap
+                        // Add the current name and frames to the stringAnimations HashMap
                         animations.put(name, textureRegions);
 
                         // Reset frames

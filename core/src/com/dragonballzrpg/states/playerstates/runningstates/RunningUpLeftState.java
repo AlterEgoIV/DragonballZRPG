@@ -42,7 +42,7 @@ public class RunningUpLeftState extends State
         /*if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
            !((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("runningUp"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("runningUp"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningNorth"));
         }
 
@@ -50,7 +50,7 @@ public class RunningUpLeftState extends State
         if(!((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
            ((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("walkingLeft"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("walkingLeft"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingWest"));
         }
 
@@ -58,13 +58,13 @@ public class RunningUpLeftState extends State
         if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
            !((Player)entity).isLeftKeyPressed() && ((Player)entity).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("runningUp"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("runningUp"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningNorthEast"));
         }
 
         if(!((Player)entity).isUpKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().getAnimation("facingUp"));
+            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("facingUp"));
             ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("standing"));
         }*/
 
