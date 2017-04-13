@@ -3,6 +3,8 @@ package com.dragonballzrpg.states.playerstates;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.dragonballzrpg.entities.Entity;
 import com.dragonballzrpg.entities.animatedentities.players.Player;
+import com.dragonballzrpg.enums.AnimationName;
+import com.dragonballzrpg.enums.StateName;
 import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.states.Transition;
 import com.dragonballzrpg.states.TransitionCondition;
@@ -15,25 +17,26 @@ public class StandingState extends State
     @Override
     public void initialiseTransitions(Player p)
     {
-        transitions.add(new Transition(p.getPlayerStates().get("walkingEast"), new String[]{"walkingRight"},
+        transitions.add(new Transition(p.getPlayerStates().get(StateName.WALKING_RIGHT), new AnimationName[]{AnimationName.WALK_RIGHT},
         new TransitionCondition[]
         {
-            new TransitionCondition(p.getRightKeyPressed(), true)
+            new TransitionCondition(p.isRightKeyPressed(), true)
         }));
 
-        transitions.add(new Transition(p.getPlayerStates().get("runningEast"), new String[]{"runningRight"},
-        new TransitionCondition[]
-        {
-            new TransitionCondition(p.getRightKeyPressed(), true),
-            new TransitionCondition(p.getReadyToRunRight(), true)
-        }));
-
-        transitions.add(new Transition(p.getPlayerStates().get("attackingRight"), new String[]{"punch1Right", "punch2Right", "kickRight"},
-        new TransitionCondition[]
-        {
-            new TransitionCondition(p.getMKeyPressed(), true),
-            new TransitionCondition(p.getCanAttack(), true)
-        }));
+//        transitions.add(new Transition(p.getPlayerStates().get(StateName.RUNNING_RIGHT), new AnimationName[]{AnimationName.RUN_RIGHT},
+//        new TransitionCondition[]
+//        {
+//            new TransitionCondition(p.isRightKeyPressed(), true),
+//            new TransitionCondition(p.isReadyToRunRight(), true)
+//        }));
+//
+//        transitions.add(new Transition(p.getPlayerStates().get(StateName.MELEEING_RIGHT),
+//                        new AnimationName[]{AnimationName.PUNCH_RIGHT_1, AnimationName.PUNCH_RIGHT_2, AnimationName.KICK_RIGHT},
+//        new TransitionCondition[]
+//        {
+//            new TransitionCondition(p.isMKeyPressed(), true),
+//            new TransitionCondition(p.canAttack(), true)
+//        }));
     }
 
     @Override
@@ -55,6 +58,12 @@ public class StandingState extends State
         {
             transition.update((Player)entity);
         }
+
+//        if(((Player)entity).isRightKeyPressed())
+//        {
+//            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get(AnimationName.WALK_RIGHT));
+//            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get(StateName.WALKING_RIGHT));
+//        }
 
         /*if(((Player)entity).isMKeyPressed() && ((Player)entity).canAttack) // For testing
         {

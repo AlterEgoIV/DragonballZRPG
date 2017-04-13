@@ -16,26 +16,26 @@ public class WalkingEastNorthState extends State
     @Override
     public void initialiseTransitions(Player p)
     {
-        transitions.add(new Transition(p.getPlayerStates().get("facingEast"), new String[]{"facingRight"},
-        new TransitionCondition[]
-        {
-            new TransitionCondition(p.getUpKeyPressed(), false),
-            new TransitionCondition(p.getRightKeyPressed(), false)
-        }));
-
-        transitions.add(new Transition(p.getPlayerStates().get("walkingNorth"), new String[]{"walkingUp"},
-        new TransitionCondition[]
-        {
-            new TransitionCondition(p.getUpKeyPressed(), true),
-            new TransitionCondition(p.getRightKeyPressed(), false)
-        }));
-
-        transitions.add(new Transition(p.getPlayerStates().get("walkingEast"), new String[]{"walkingRight"},
-        new TransitionCondition[]
-        {
-            new TransitionCondition(p.getUpKeyPressed(), false),
-            new TransitionCondition(p.getRightKeyPressed(), true)
-        }));
+//        transitions.add(new Transition(p.getPlayerStates().get("facingEast"), new String[]{"facingRight"},
+//        new TransitionCondition[]
+//        {
+//            new TransitionCondition(p.isUpKeyPressed(), false),
+//            new TransitionCondition(p.isRightKeyPressed(), false)
+//        }));
+//
+//        transitions.add(new Transition(p.getPlayerStates().get("walkingNorth"), new String[]{"walkingUp"},
+//        new TransitionCondition[]
+//        {
+//            new TransitionCondition(p.isUpKeyPressed(), true),
+//            new TransitionCondition(p.isRightKeyPressed(), false)
+//        }));
+//
+//        transitions.add(new Transition(p.getPlayerStates().get("walkingEast"), new String[]{"walkingRight"},
+//        new TransitionCondition[]
+//        {
+//            new TransitionCondition(p.isUpKeyPressed(), false),
+//            new TransitionCondition(p.isRightKeyPressed(), true)
+//        }));
     }
 
     @Override

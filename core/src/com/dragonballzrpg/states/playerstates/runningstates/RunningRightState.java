@@ -16,23 +16,23 @@ public class RunningRightState extends State
     @Override
     public void initialiseTransitions(Player p)
     {
-        transitions.add(new Transition(p.getPlayerStates().get("facingEast"), new String[]{"facingRight"},
-        new TransitionCondition[]
-        {
-            new TransitionCondition(p.getRightKeyPressed(), false)
-        }));
+//        transitions.add(new Transition(p.getPlayerStates().get("facingEast"), new String[]{"facingRight"},
+//        new TransitionCondition[]
+//        {
+//            new TransitionCondition(p.isRightKeyPressed(), false)
+//        }));
     }
 
     @Override
     public void enter(Entity entity)
     {
-        entity.getSounds().get("running").loop();
+        //entity.getSounds().get("running").loop();
     }
 
     @Override
     public void exit(Entity entity)
     {
-        entity.getSounds().get("running").stop();
+        //entity.getSounds().get("running").stop();
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.dragonballzrpg.states;
 
 import com.dragonballzrpg.entities.animatedentities.players.Player;
+import com.dragonballzrpg.enums.AnimationName;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +13,10 @@ import java.util.Random;
 public class Transition
 {
     private State state;
-    private String[] animationNames;
+    private AnimationName[] animationNames;
     private List<TransitionCondition> transitionConditions;
 
-    public Transition(State state, String[] animationNames, TransitionCondition[] transitionConditions)
+    public Transition(State state, AnimationName[] animationNames, TransitionCondition[] transitionConditions)
     {
         this.state = state;
         this.animationNames = animationNames;
@@ -29,18 +30,20 @@ public class Transition
 
     public void update(Player p)
     {
+        //System.out.println("Before transition condition checks");
         for(TransitionCondition transitionCondition : transitionConditions)
         {
-            if(!transitionCondition.isValid()) return;
+            if(!transitionCondition.isValid()) System.out.println("Transition condition failed"); return;
         }
+        System.out.println("After transition condition checks");
 
-        p.setCurrentAnimation(p.getStringAnimations().get(getRandomAnimationName(animationNames)));
-        p.getCurrentState().exit(p);
+        p.setCurrentAnimation(p.getAnimations().get(getRandomAnimationName(animationNames)));
+        //p.getCurrentState().exit(p);
         p.setCurrentState(state);
-        p.getCurrentState().enter(p);
+        //p.getCurrentState().enter(p);
     }
 
-    private String getRandomAnimationName(String[] animationNames)
+    private AnimationName getRandomAnimationName(AnimationName[] animationNames)
     {
         Random random = new Random();
 

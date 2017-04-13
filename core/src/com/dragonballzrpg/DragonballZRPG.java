@@ -8,15 +8,13 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.dragonballzrpg.entities.Entity;
-import com.dragonballzrpg.entities.animatedentities.players.TeenFutureTrunks;
 import com.dragonballzrpg.enums.AnimationName;
 import com.dragonballzrpg.enums.AnimationSet;
+import com.dragonballzrpg.enums.ScreenName;
+import com.dragonballzrpg.enums.SoundName;
 import com.dragonballzrpg.input.GameInputProcessor;
-import com.dragonballzrpg.input.InputHandler;
 import com.dragonballzrpg.screens.PlayScreen;
 import com.dragonballzrpg.utilities.Animation;
 import com.dragonballzrpg.utilities.SpriteSheetAnimationsExtractor;
@@ -28,15 +26,14 @@ public class DragonballZRPG extends Game
 {
 	private final int VIEWPORT_WIDTH = 240;
 	private final int VIEWPORT_HEIGHT = 160;
+	public AssetManager assetManager;
+	public Map<AnimationSet, HashMap<AnimationName, Animation>> setOfAnimationSets;
+	public Map<SoundName, Sound> sounds;
+	public Map<ScreenName, Screen> screens;
 	public OrthographicCamera camera;
 	private Viewport viewport;
-	public SpriteBatch batch;
-	public Map<String, Entity> entities;
-	private AssetManager assetManager;
 	private SpriteSheetAnimationsExtractor spriteSheetAnimationsExtractor;
-	private Map<String, Screen> screens;
 	private GameInputProcessor inputProcessor;
-	private Map<AnimationSet, HashMap<AnimationName, Animation>> setOfAnimationSets;
 
 	@Override
 	public void create()
@@ -45,26 +42,23 @@ public class DragonballZRPG extends Game
 		spriteSheetAnimationsExtractor = new SpriteSheetAnimationsExtractor();
 		setOfAnimationSets = new HashMap<AnimationSet, HashMap<AnimationName, Animation>>();
 		initialiseSetOfAnimationSets();
+		sounds = new HashMap<SoundName, Sound>();
+		screens = new HashMap<ScreenName, Screen>();
 		camera = new OrthographicCamera(VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
 		viewport = new StretchViewport(VIEWPORT_WIDTH, VIEWPORT_HEIGHT, camera);
-		entities = new HashMap<String, Entity>();
-		screens = new HashMap<String, Screen>();
 
 		loadAssets(); // load assets first
 		loadAnimations();
+		loadSounds();
 
+		initialiseScreens();
 		initialiseCamera();
 		initialiseViewport();
-
-		batch = new SpriteBatch();
-
 		initialiseInputProcessor();
 		initialiseEntities();
 
 		// Set the user controlled entity to TeenFutureTrunks object in entities
-		inputProcessor.setInputHandler((InputHandler)entities.get("teenFutureTrunks"));
-
-		initialiseScreens();
+		//inputProcessor.setInputHandler((InputHandler)entities.get("teenFutureTrunks"));
 	}
 
 	@Override
@@ -79,9 +73,8 @@ public class DragonballZRPG extends Game
 	@Override
 	public void dispose()
 	{
-		batch.dispose();
 		assetManager.dispose();
-		screens.get("playScreen").dispose();
+		//screens.get("playScreen").dispose();
 	}
 
 	@Override
@@ -110,6 +103,13 @@ public class DragonballZRPG extends Game
 	private void loadAnimations()
 	{
 		loadTeenFutureTrunksAnimations();
+	}
+
+	private void loadSounds()
+	{
+		sounds.put(SoundName.MELEE_1, assetManager.get("sounds/melee1.wav", Sound.class));
+		sounds.put(SoundName.MELEE_2, assetManager.get("sounds/melee2.wav", Sound.class));
+		sounds.put(SoundName.RUNNING, assetManager.get("sounds/running.wav", Sound.class));
 	}
 
 	private void loadTeenFutureTrunksAnimations()
@@ -141,16 +141,16 @@ public class DragonballZRPG extends Game
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.FACE_RIGHT, animation);
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.WALK_UP,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("walkingUp"), .125d));
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("walkingUp"), .125d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.WALK_DOWN,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("walkingDown"), .125d));
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("walkingDown"), .125d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.WALK_LEFT,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("walkingLeft"), .125d));
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("walkingLeft"), .125d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.WALK_RIGHT,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("walkingRight"), .125d));
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("walkingRight"), .125d, true));
 	}
 
 	private void initialiseCamera()
@@ -172,14 +172,14 @@ public class DragonballZRPG extends Game
 
 	private void initialiseEntities()
 	{
-		entities.put("teenFutureTrunks", new TeenFutureTrunks(assetManager, camera, inputProcessor,
-		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS)));
+		//entities.put("teenFutureTrunks", new TeenFutureTrunks(assetManager, camera, inputProcessor,
+		//setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS)));
 	}
 
 	private void initialiseScreens()
 	{
-		screens.put("playScreen", new PlayScreen(this));
+		screens.put(ScreenName.PLAY_SCREEN, new PlayScreen(this));
 
-		setScreen(screens.get("playScreen"));
+		setScreen(screens.get(ScreenName.PLAY_SCREEN));
 	}
 }

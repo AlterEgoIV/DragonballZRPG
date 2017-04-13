@@ -16,43 +16,43 @@ public class FacingUpState extends State
     @Override
     public void initialiseTransitions(Player p)
     {
-        transitions.add(new Transition(p.getPlayerStates().get("walkingNorth"), new String[]{"walkingUp"},
-        new TransitionCondition[]
-        {
-            new TransitionCondition(p.getUpKeyPressed(), true)
-        }));
-
-        transitions.add(new Transition(p.getPlayerStates().get("walkingSouth"), new String[]{"walkingDown"},
-        new TransitionCondition[]
-        {
-            new TransitionCondition(p.getDownKeyPressed(), true)
-        }));
-
-        transitions.add(new Transition(p.getPlayerStates().get("walkingWest"), new String[]{"walkingLeft"},
-        new TransitionCondition[]
-        {
-            new TransitionCondition(p.getLeftKeyPressed(), true)
-        }));
-
-        transitions.add(new Transition(p.getPlayerStates().get("walkingEast"), new String[]{"walkingRight"},
-        new TransitionCondition[]
-        {
-            new TransitionCondition(p.getRightKeyPressed(), true)
-        }));
-
-        transitions.add(new Transition(p.getPlayerStates().get("runningNorth"), new String[]{"runningUp"},
-        new TransitionCondition[]
-        {
-            new TransitionCondition(p.getUpKeyPressed(), true),
-            new TransitionCondition(p.getReadyToRunUp(), true)
-        }));
-
-        transitions.add(new Transition(p.getPlayerStates().get("meleeingNorth"), new String[]{"punch1Up", "punch2Up", "kickUp"},
-        new TransitionCondition[]
-        {
-            new TransitionCondition(p.getMKeyPressed(), true),
-            new TransitionCondition(p.getCanAttack(), true)
-        }));
+//        transitions.add(new Transition(p.getPlayerStates().get("walkingNorth"), new String[]{"walkingUp"},
+//        new TransitionCondition[]
+//        {
+//            new TransitionCondition(p.isUpKeyPressed(), true)
+//        }));
+//
+//        transitions.add(new Transition(p.getPlayerStates().get("walkingSouth"), new String[]{"walkingDown"},
+//        new TransitionCondition[]
+//        {
+//            new TransitionCondition(p.isDownKeyPressed(), true)
+//        }));
+//
+//        transitions.add(new Transition(p.getPlayerStates().get("walkingWest"), new String[]{"walkingLeft"},
+//        new TransitionCondition[]
+//        {
+//            new TransitionCondition(p.isLeftKeyPressed(), true)
+//        }));
+//
+//        transitions.add(new Transition(p.getPlayerStates().get("walkingEast"), new String[]{"walkingRight"},
+//        new TransitionCondition[]
+//        {
+//            new TransitionCondition(p.isRightKeyPressed(), true)
+//        }));
+//
+//        transitions.add(new Transition(p.getPlayerStates().get("runningNorth"), new String[]{"runningUp"},
+//        new TransitionCondition[]
+//        {
+//            new TransitionCondition(p.isUpKeyPressed(), true),
+//            new TransitionCondition(p.getReadyToRunUp(), true)
+//        }));
+//
+//        transitions.add(new Transition(p.getPlayerStates().get("meleeingNorth"), new String[]{"punch1Up", "punch2Up", "kickUp"},
+//        new TransitionCondition[]
+//        {
+//            new TransitionCondition(p.getMKeyPressed(), true),
+//            new TransitionCondition(p.getCanAttack(), true)
+//        }));
     }
 
     @Override

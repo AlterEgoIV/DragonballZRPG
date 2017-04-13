@@ -2,12 +2,13 @@ package com.dragonballzrpg.entities.animatedentities.players;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.dragonballzrpg.entities.animatedentities.AnimatedEntity;
+import com.badlogic.gdx.math.Vector2;
+import com.dragonballzrpg.entities.Entity;
+import com.dragonballzrpg.enums.AnimationName;
+import com.dragonballzrpg.enums.SoundName;
 import com.dragonballzrpg.enums.StateName;
-import com.dragonballzrpg.input.GameInputProcessor;
 import com.dragonballzrpg.input.InputHandler;
 import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.states.playerstates.StandingState;
@@ -31,6 +32,7 @@ import com.dragonballzrpg.states.playerstates.walkingstates.WalkingDownRightStat
 import com.dragonballzrpg.states.playerstates.walkingstates.WalkingDownState;
 import com.dragonballzrpg.states.playerstates.walkingstates.WalkingDownLeftState;
 import com.dragonballzrpg.states.playerstates.walkingstates.WalkingLeftState;
+import com.dragonballzrpg.utilities.Animation;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,11 +40,10 @@ import java.util.Map;
 /**
  * Created by Carl on 09/08/2016.
  */
-public abstract class Player extends AnimatedEntity implements InputHandler
+public abstract class Player extends Entity implements InputHandler
 {
     public Map<StateName, State> playerStates;
     protected State currentState;
-    protected GameInputProcessor inputProcessor;
     protected OrthographicCamera camera;
     private Boolean upKeyPressed;
     private Boolean downKeyPressed;
@@ -59,9 +60,10 @@ public abstract class Player extends AnimatedEntity implements InputHandler
     private double runWindowDuration;
     private double runSpeed;
 
-    public Player(AssetManager assetManager)
+    public Player(Vector2 position, double speed, Map<AnimationName, Animation> animations, Animation currentAnimation,
+                  Map<SoundName, Sound> sounds)
     {
-        super(assetManager);
+        super(position, speed, animations, currentAnimation, sounds);
         speed = 100.0d;
         runSpeed = speed * 2;
 
@@ -79,7 +81,7 @@ public abstract class Player extends AnimatedEntity implements InputHandler
 
         playerStates = new HashMap<StateName, State>();
         initialiseStates();
-        initialiseSounds();
+        //initialiseSounds();
 
         elapsedRunWindowTime = 0.0d;
         runWindowDuration = .3d;
@@ -129,12 +131,12 @@ public abstract class Player extends AnimatedEntity implements InputHandler
         currentState = playerStates.get(StateName.STANDING);
     }
 
-    private void initialiseSounds()
-    {
-        sounds.put("melee1", (Sound)assetManager.get("sounds/melee1.wav"));
-        sounds.put("melee2", (Sound)assetManager.get("sounds/melee2.wav"));
-        sounds.put("running", (Sound)assetManager.get("sounds/running.wav"));
-    }
+//    private void initialiseSounds()
+//    {
+//        sounds.put(SoundName.MELEE_1, (Sound)assetManager.get("sounds/melee1.wav"));
+//        sounds.put(SoundName.MELEE_2, (Sound)assetManager.get("sounds/melee2.wav"));
+//        sounds.put(SoundName.RUNNING, (Sound)assetManager.get("sounds/running.wav"));
+//    }
 
     protected void setKeys(int keyCode)
     {
@@ -202,52 +204,52 @@ public abstract class Player extends AnimatedEntity implements InputHandler
         return playerStates;
     }
 
-    public Boolean getUpKeyPressed()
+    public Boolean isUpKeyPressed()
     {
         return upKeyPressed;
     }
 
-    public Boolean getDownKeyPressed()
+    public Boolean isDownKeyPressed()
     {
         return downKeyPressed;
     }
 
-    public Boolean getLeftKeyPressed()
+    public Boolean isLeftKeyPressed()
     {
         return leftKeyPressed;
     }
 
-    public Boolean getRightKeyPressed()
+    public Boolean isRightKeyPressed()
     {
         return rightKeyPressed;
     }
 
-    public Boolean getMKeyPressed()
+    public Boolean isMKeyPressed()
     {
         return mKeyPressed;
     }
 
-    public Boolean getReadyToRunUp()
+    public Boolean isReadyToRunUp()
     {
         return readyToRunUp;
     }
 
-    public Boolean getReadyToRunDown()
+    public Boolean isReadyToRunDown()
     {
         return readyToRunDown;
     }
 
-    public Boolean getReadyToRunLeft()
+    public Boolean isReadyToRunLeft()
     {
         return readyToRunLeft;
     }
 
-    public Boolean getReadyToRunRight()
+    public Boolean isReadyToRunRight()
     {
         return readyToRunRight;
     }
 
-    public Boolean getCanAttack()
+    public Boolean canAttack()
     {
         return canAttack;
     }
@@ -255,5 +257,10 @@ public abstract class Player extends AnimatedEntity implements InputHandler
     public void setCanAttack(boolean canAttack)
     {
         this.canAttack = canAttack;
+    }
+
+    public Map<AnimationName, Animation> getAnimations()
+    {
+        return animations;
     }
 }

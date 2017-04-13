@@ -16,6 +16,6 @@ public class TransitionCondition
 
     public boolean isValid()
     {
-        return condition.equals(requiredValue);
+        return condition == requiredValue;
     }
 }
