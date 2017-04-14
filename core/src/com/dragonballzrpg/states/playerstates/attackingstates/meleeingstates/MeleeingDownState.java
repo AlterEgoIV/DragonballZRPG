@@ -79,7 +79,7 @@ public class MeleeingDownState extends State
     {
         Player p = (Player)entity;
 
-        p.canAttack().set(false);
+        //p.canAttack().set(false);
         //p.setCanAttack(false);
         //p.getSounds().value(getRandomValue(new String[]{"melee1", "melee2"})).play();
     }

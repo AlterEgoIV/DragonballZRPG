@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.dragonballzrpg.enums.AnimationName;
 import com.dragonballzrpg.enums.SoundName;
+import com.dragonballzrpg.enums.StateName;
+import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.utilities.Animation;
 
 import java.util.HashMap;
@@ -16,21 +18,14 @@ import java.util.Map;
 public abstract class Entity
 {
     public Vector2 position;
+    public Map<StateName, State> states;
+    public State currentState;
+    public Map<AnimationName, Animation> animations;
+    public Animation currentAnimation;
+    public Map<SoundName, Sound> sounds;
     protected double speed;
     protected int width;
     protected int height;
-    protected Map<AnimationName, Animation> animations;
-    public Animation currentAnimation;
-    public Map<SoundName, Sound> sounds;
-
-    public Entity()
-    {
-        position = new Vector2(0, 0);
-        sounds = new HashMap<SoundName, Sound>();
-        speed = 0.0d;
-        width = 0;
-        height = 0;
-    }
 
     public Entity(Vector2 position, double speed, Map<AnimationName, Animation> animations, Animation currentAnimation,
                   Map<SoundName, Sound> sounds)
@@ -42,6 +37,8 @@ public abstract class Entity
         this.sounds = sounds;
         width = currentAnimation.getFrame(0).getRegionWidth();
         height = currentAnimation.getFrame(0).getRegionHeight();
+        states = new HashMap<StateName, State>();
+        currentState = null;
     }
 
     public abstract void update();
@@ -50,10 +47,5 @@ public abstract class Entity
     public double getSpeed()
     {
         return speed;
-    }
-
-    public void setCurrentAnimation(Animation currentAnimation)
-    {
-        this.currentAnimation = currentAnimation;
     }
 }

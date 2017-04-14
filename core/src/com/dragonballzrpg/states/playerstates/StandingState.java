@@ -14,22 +14,13 @@ import com.dragonballzrpg.states.TransitionCondition;
  */
 public class StandingState extends State
 {
-//    public StandingState(Player p)
-//    {
-//        transitions.add(new Transition(p.getPlayerStates().get(StateName.WALKING_RIGHT), new AnimationName[]{AnimationName.WALK_RIGHT},
-//          new TransitionCondition[]
-//            {
-//              new TransitionCondition(p.isRightKeyPressed(), true)
-//            }));
-//    }
-
     @Override
-    public void initialiseTransitions(Player p)
+    public void initialiseTransitions(Player player)
     {
-        transitions.add(new Transition(p.getPlayerStates().get(StateName.WALKING_RIGHT), new AnimationName[]{AnimationName.WALK_RIGHT},
+        transitions.add(new Transition(player.states.get(StateName.WALKING_RIGHT), new AnimationName[]{AnimationName.WALK_RIGHT},
         new TransitionCondition[]
         {
-            new TransitionCondition(p.isRightKeyPressed(), true)
+            new TransitionCondition(player.isRightKeyPressed, true)
         }));
 
 //        transitions.add(new Transition(p.getPlayerStates().value(StateName.RUNNING_RIGHT), new AnimationName[]{AnimationName.RUN_RIGHT},

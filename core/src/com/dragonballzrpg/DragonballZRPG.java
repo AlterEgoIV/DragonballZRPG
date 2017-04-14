@@ -56,18 +56,15 @@ public class DragonballZRPG extends Game
 		initialiseScreens();
 		initialiseCamera();
 		initialiseViewport();
-
-		// Set the user controlled entity to TeenFutureTrunks object in entities
-		//inputProcessor.setInputHandler((InputHandler)entities.value("teenFutureTrunks"));
 	}
 
 	@Override
 	public void render()
 	{
-		Gdx.gl.glClearColor(0, 0, 0, 1); // Set the colour the screen is cleared with
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT); // Clear the screen
+		Gdx.gl.glClearColor(0, 0, 0, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		super.render(); // ^Game.render()
+		super.render();
 	}
 
 	@Override

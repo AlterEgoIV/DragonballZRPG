@@ -1,5 +1,6 @@
 package com.dragonballzrpg.states;
 
+import com.dragonballzrpg.entities.Entity;
 import com.dragonballzrpg.entities.players.Player;
 import com.dragonballzrpg.enums.AnimationName;
 
@@ -28,19 +29,17 @@ public class Transition
         }
     }
 
-    public void update(Player p)
+    public void update(Entity entity)
     {
-        //System.out.println("Before transition condition checks");
         for(TransitionCondition transitionCondition : transitionConditions)
         {
             if(!transitionCondition.isValid()) return;
         }
-        System.out.println("After transition condition checks");
 
-        p.setCurrentAnimation(p.getAnimations().get(getRandomAnimationName(animationNames)));
-        p.getCurrentState().exit(p);
-        p.setCurrentState(state);
-        p.getCurrentState().enter(p);
+        entity.currentAnimation = entity.animations.get(getRandomAnimationName(animationNames));
+        entity.currentState.exit(entity);
+        entity.currentState = state;
+        entity.currentState.enter(entity);
     }
 
     private AnimationName getRandomAnimationName(AnimationName[] animationNames)

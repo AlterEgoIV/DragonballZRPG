@@ -60,20 +60,9 @@ public class PlayScreen extends GameScreen
 
     private void createEntities()
     {
-//        Entity entity;
-//
-//        entity = new TeenFutureTrunks(game.camera,
-//          new Vector2(0, 0), 100.0d,
-//          game.setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
-//          game.setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN),
-//          game.sounds);
-//
-//        entities.add(entity);
-
         entities.addAll(players.values());
 
         // Create other entities
-        //game.inputProcessor.setInputHandler((InputHandler)teenFutureTrunks);
     }
 
     @Override
@@ -85,11 +74,6 @@ public class PlayScreen extends GameScreen
     @Override
     public void render(float delta)
     {
-//        for(Entity entity : game.entities.values())
-//        {
-//            entity.update();
-//        }
-
         for(Entity entity : entities)
         {
             entity.update();
@@ -99,24 +83,12 @@ public class PlayScreen extends GameScreen
         mapRenderer.setView(game.camera);
         mapRenderer.render();
 
-        /*for(Collidable entity : game.entities)
-        {
-            if(entity.hasCollided())
-            {
-                collisionHandler.handleCollision(entity);
-            }
-        }*/
-
         batch.setProjectionMatrix(game.camera.combined);
         batch.begin();
         for(Entity entity : entities)
         {
             entity.render(batch);
         }
-//        for(Entity entity : game.entities.values())
-//        {
-//            entity.render(batch);
-//        }
         batch.end();
     }
 

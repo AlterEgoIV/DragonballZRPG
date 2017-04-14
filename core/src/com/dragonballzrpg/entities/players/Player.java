@@ -43,31 +43,18 @@ import java.util.Map;
  */
 public abstract class Player extends Entity implements InputHandler
 {
-    public Map<StateName, State> playerStates;
-    protected State currentState;
     protected OrthographicCamera camera;
-//    private Boolean upKeyPressed;
-//    private Boolean downKeyPressed;
-//    private Boolean leftKeyPressed;
-//    private Boolean rightKeyPressed;
-//    private Boolean mKeyPressed;
-//    private Boolean readyToRunUp;
-//    private Boolean readyToRunDown;
-//    private Boolean readyToRunLeft;
-//    private Boolean readyToRunRight;
-//    private Boolean runWindowOpen;
-//    private Boolean canAttack;
-    private Bool upKeyPressed;
-    private Bool downKeyPressed;
-    private Bool leftKeyPressed;
-    private Bool rightKeyPressed;
-    private Bool mKeyPressed;
-    private Bool readyToRunUp;
-    private Bool readyToRunDown;
-    private Bool readyToRunLeft;
-    private Bool readyToRunRight;
-    private Bool runWindowOpen;
-    private Bool canAttack;
+    public Bool isUpKeyPressed;
+    public Bool isDownKeyPressed;
+    public Bool isLeftKeyPressed;
+    public Bool isRightKeyPressed;
+    public Bool isMKeyPressed;
+    public Bool isReadyToRunUp;
+    public Bool isReadyToRunDown;
+    public Bool isReadyToRunLeft;
+    public Bool isReadyToRunRight;
+    public Bool runWindowOpen;
+    public Bool canAttack;
     private double elapsedRunWindowTime;
     private double runWindowDuration;
     private double runSpeed;
@@ -79,33 +66,19 @@ public abstract class Player extends Entity implements InputHandler
         speed = 100.0d;
         runSpeed = speed * 2;
 
-//        upKeyPressed = false;
-//        downKeyPressed = false;
-//        leftKeyPressed = false;
-//        rightKeyPressed = false;
-//        mKeyPressed = false;
-//        readyToRunUp = false;
-//        readyToRunDown = false;
-//        readyToRunLeft = false;
-//        readyToRunRight = false;
-//        runWindowOpen = false;
-//        canAttack = true;
-
-        upKeyPressed = new Bool();
-        downKeyPressed = new Bool();
-        leftKeyPressed = new Bool();
-        rightKeyPressed = new Bool();
-        mKeyPressed = new Bool();
-        readyToRunUp = new Bool();
-        readyToRunDown = new Bool();
-        readyToRunLeft = new Bool();
-        readyToRunRight = new Bool();
+        isUpKeyPressed = new Bool();
+        isDownKeyPressed = new Bool();
+        isLeftKeyPressed = new Bool();
+        isRightKeyPressed = new Bool();
+        isMKeyPressed = new Bool();
+        isReadyToRunUp = new Bool();
+        isReadyToRunDown = new Bool();
+        isReadyToRunLeft = new Bool();
+        isReadyToRunRight = new Bool();
         runWindowOpen = new Bool();
         canAttack = new Bool(true);
 
-        playerStates = new HashMap<StateName, State>();
         initialiseStates();
-        //initialiseSounds();
 
         elapsedRunWindowTime = 0.0d;
         runWindowDuration = .3d;
@@ -113,90 +86,62 @@ public abstract class Player extends Entity implements InputHandler
 
     private void initialiseStates()
     {
-        playerStates.put(StateName.STANDING, new StandingState());
-        //playerStates.put(StateName.FACING_UP, new FacingUpState());
-        //playerStates.put(StateName.FACING_DOWN, new FacingDownState());
-        //playerStates.put(StateName.FACING_LEFT, new FacingLeftState());
-        //playerStates.put(StateName.FACING_RIGHT, new FacingRightState());
-        playerStates.put(StateName.WALKING_UP, new WalkingUpState());
-        playerStates.put(StateName.WALKING_DOWN, new WalkingDownState());
-        playerStates.put(StateName.WALKING_LEFT, new WalkingLeftState());
-        playerStates.put(StateName.WALKING_RIGHT, new WalkingRightState());
-        playerStates.put(StateName.WALKING_UP_LEFT, new WalkingUpLeftState());
-        playerStates.put(StateName.WALKING_UP_RIGHT, new WalkingUpRightState());
-        playerStates.put(StateName.WALKING_DOWN_LEFT, new WalkingDownLeftState());
-        playerStates.put(StateName.WALKING_DOWN_RIGHT, new WalkingDownRightState());
-        //playerStates.put("walkingEastNorth", new WalkingEastNorthState());
-        //playerStates.put("walkingWestNorth", new WalkingWestNorthState());
-        //playerStates.put("walkingEastSouth", new WalkingEastSouthState());
-        //playerStates.put("walkingWestSouth", new WalkingWestSouthState());
-        playerStates.put(StateName.RUNNING_UP, new RunningUpState());
-        playerStates.put(StateName.RUNNING_DOWN, new RunningDownState());
-        playerStates.put(StateName.RUNNING_LEFT, new RunningLeftState());
-        playerStates.put(StateName.RUNNING_RIGHT, new RunningRightState());
-        playerStates.put(StateName.RUNNING_UP_LEFT, new RunningUpLeftState());
-        playerStates.put(StateName.RUNNING_UP_RIGHT, new RunningUpRightState());
-        playerStates.put(StateName.RUNNING_DOWN_LEFT, new RunningDownLeftState());
-        playerStates.put(StateName.RUNNING_DOWN_RIGHT, new RunningDownRightState());
-        //playerStates.put("runningEastNorth", new RunningEastNorthState());
-        //playerStates.put("runningWestNorth", new RunningWestNorthState());
-        //playerStates.put("runningEastSouth", new RunningEastSouthState());
-        //playerStates.put("runningWestSouth", new RunningWestSouthState());
-        playerStates.put(StateName.MELEEING_UP, new MeleeingUpState());
-        playerStates.put(StateName.MELEEING_DOWN, new MeleeingDownState());
-        playerStates.put(StateName.MELEEING_LEFT, new MeleeingLeftState());
-        playerStates.put(StateName.MELEEING_RIGHT, new MeleeingRightState());
+        states.put(StateName.STANDING, new StandingState());
+        states.put(StateName.WALKING_UP, new WalkingUpState());
+        states.put(StateName.WALKING_DOWN, new WalkingDownState());
+        states.put(StateName.WALKING_LEFT, new WalkingLeftState());
+        states.put(StateName.WALKING_RIGHT, new WalkingRightState());
+        states.put(StateName.WALKING_UP_LEFT, new WalkingUpLeftState());
+        states.put(StateName.WALKING_UP_RIGHT, new WalkingUpRightState());
+        states.put(StateName.WALKING_DOWN_LEFT, new WalkingDownLeftState());
+        states.put(StateName.WALKING_DOWN_RIGHT, new WalkingDownRightState());
+        states.put(StateName.RUNNING_UP, new RunningUpState());
+        states.put(StateName.RUNNING_DOWN, new RunningDownState());
+        states.put(StateName.RUNNING_LEFT, new RunningLeftState());
+        states.put(StateName.RUNNING_RIGHT, new RunningRightState());
+        states.put(StateName.RUNNING_UP_LEFT, new RunningUpLeftState());
+        states.put(StateName.RUNNING_UP_RIGHT, new RunningUpRightState());
+        states.put(StateName.RUNNING_DOWN_LEFT, new RunningDownLeftState());
+        states.put(StateName.RUNNING_DOWN_RIGHT, new RunningDownRightState());
+        states.put(StateName.MELEEING_UP, new MeleeingUpState());
+        states.put(StateName.MELEEING_DOWN, new MeleeingDownState());
+        states.put(StateName.MELEEING_LEFT, new MeleeingLeftState());
+        states.put(StateName.MELEEING_RIGHT, new MeleeingRightState());
 
-        for(State state : playerStates.values())
+        for(State state : states.values())
         {
             state.initialiseTransitions(this);
         }
 
-        currentState = playerStates.get(StateName.STANDING);
+        currentState = states.get(StateName.STANDING);
     }
-
-//    private void initialiseSounds()
-//    {
-//        sounds.put(SoundName.MELEE_1, (Sound)assetManager.value("sounds/melee1.wav"));
-//        sounds.put(SoundName.MELEE_2, (Sound)assetManager.value("sounds/melee2.wav"));
-//        sounds.put(SoundName.RUNNING, (Sound)assetManager.value("sounds/running.wav"));
-//    }
 
     protected void setKeys(int keyCode)
     {
         switch(keyCode)
         {
-            case Input.Keys.UP: upKeyPressed.set(true); break;
-            case Input.Keys.DOWN: downKeyPressed.set(true); break;
-            case Input.Keys.LEFT: leftKeyPressed.set(true); break;
-            case Input.Keys.RIGHT: rightKeyPressed.set(true); break;
-            case Input.Keys.M: mKeyPressed.set(true); break;
-//            case Input.Keys.UP: upKeyPressed = true; break;
-//            case Input.Keys.DOWN: downKeyPressed = true; break;
-//            case Input.Keys.LEFT: leftKeyPressed = true; break;
-//            case Input.Keys.RIGHT: rightKeyPressed = true; break;
-//            case Input.Keys.M: mKeyPressed = true; break;
+            case Input.Keys.UP: isUpKeyPressed.set(true); break;
+            case Input.Keys.DOWN: isDownKeyPressed.set(true); break;
+            case Input.Keys.LEFT: isLeftKeyPressed.set(true); break;
+            case Input.Keys.RIGHT: isRightKeyPressed.set(true); break;
+            case Input.Keys.M: isMKeyPressed.set(true); break;
+
             default: return;
         }
 
         if(!runWindowOpen.value()) runWindowOpen.set(true);
-        //if(!runWindowOpen) runWindowOpen = true;
     }
 
     protected void unsetKeys(int keyCode)
     {
         switch(keyCode)
         {
-            case Input.Keys.UP: upKeyPressed.set(false); if(runWindowOpen.value()) readyToRunUp.set(true); break;
-            case Input.Keys.DOWN: downKeyPressed.set(false); if(runWindowOpen.value()) readyToRunDown.set(true); break;
-            case Input.Keys.LEFT: leftKeyPressed.set(false); if(runWindowOpen.value()) readyToRunLeft.set(true); break;
-            case Input.Keys.RIGHT: rightKeyPressed.set(false); if(runWindowOpen.value()) readyToRunRight.set(true); break;
-            case Input.Keys.M: mKeyPressed.set(false); canAttack.set(true); break;
-//            case Input.Keys.UP: upKeyPressed = false; if(runWindowOpen) readyToRunUp = true; break;
-//            case Input.Keys.DOWN: downKeyPressed = false; if(runWindowOpen) readyToRunDown = true; break;
-//            case Input.Keys.LEFT: leftKeyPressed = false; if(runWindowOpen) readyToRunLeft = true; break;
-//            case Input.Keys.RIGHT: rightKeyPressed = false; if(runWindowOpen) readyToRunRight = true; break;
-//            case Input.Keys.M: mKeyPressed = false; canAttack = true; break;
+            case Input.Keys.UP: isUpKeyPressed.set(false); if(runWindowOpen.value()) isReadyToRunUp.set(true); break;
+            case Input.Keys.DOWN: isDownKeyPressed.set(false); if(runWindowOpen.value()) isReadyToRunDown.set(true); break;
+            case Input.Keys.LEFT: isLeftKeyPressed.set(false); if(runWindowOpen.value()) isReadyToRunLeft.set(true); break;
+            case Input.Keys.RIGHT: isRightKeyPressed.set(false); if(runWindowOpen.value()) isReadyToRunRight.set(true); break;
+            case Input.Keys.M: isMKeyPressed.set(false); canAttack.set(true); break;
+
             default: break;
         }
     }
@@ -211,15 +156,10 @@ public abstract class Player extends Entity implements InputHandler
             {
                 elapsedRunWindowTime = 0.0d;
                 runWindowOpen.set(false);
-                readyToRunUp.set(false);
-                readyToRunDown.set(false);
-                readyToRunLeft.set(false);
-                readyToRunRight.set(false);
-//                runWindowOpen = false;
-//                readyToRunUp = false;
-//                readyToRunDown = false;
-//                readyToRunLeft = false;
-//                readyToRunRight = false;
+                isReadyToRunUp.set(false);
+                isReadyToRunDown.set(false);
+                isReadyToRunLeft.set(false);
+                isReadyToRunRight.set(false);
             }
         }
     }
@@ -227,135 +167,5 @@ public abstract class Player extends Entity implements InputHandler
     public double getRunSpeed()
     {
         return runSpeed;
-    }
-
-    public State getCurrentState()
-    {
-        return currentState;
-    }
-
-    public void setCurrentState(State currentState)
-    {
-        this.currentState = currentState;
-    }
-
-    public Map<StateName, State> getPlayerStates()
-    {
-        return playerStates;
-    }
-
-    public Bool isUpKeyPressed()
-    {
-        return upKeyPressed;
-    }
-
-    public Bool isDownKeyPressed()
-    {
-        return downKeyPressed;
-    }
-
-    public Bool isLeftKeyPressed()
-    {
-        return leftKeyPressed;
-    }
-
-    public Bool isRightKeyPressed()
-    {
-        return rightKeyPressed;
-    }
-
-    public Bool isMKeyPressed()
-    {
-        return mKeyPressed;
-    }
-
-    public Bool isReadyToRunUp()
-    {
-        return readyToRunUp;
-    }
-
-    public Bool isReadyToRunDown()
-    {
-        return readyToRunDown;
-    }
-
-    public Bool isReadyToRunLeft()
-    {
-        return readyToRunLeft;
-    }
-
-    public Bool isReadyToRunRight()
-    {
-        return readyToRunRight;
-    }
-
-    public Bool canAttack()
-    {
-        return canAttack;
-    }
-
-//    public void setCanAttack(boolean canAttack)
-//    {
-//        this.canAttack = canAttack;
-//    }
-
-//    public Boolean isUpKeyPressed()
-//    {
-//        return upKeyPressed;
-//    }
-//
-//    public Boolean isDownKeyPressed()
-//    {
-//        return downKeyPressed;
-//    }
-//
-//    public Boolean isLeftKeyPressed()
-//    {
-//        return leftKeyPressed;
-//    }
-//
-//    public Boolean isRightKeyPressed()
-//    {
-//        return rightKeyPressed;
-//    }
-//
-//    public Boolean isMKeyPressed()
-//    {
-//        return mKeyPressed;
-//    }
-//
-//    public Boolean isReadyToRunUp()
-//    {
-//        return readyToRunUp;
-//    }
-//
-//    public Boolean isReadyToRunDown()
-//    {
-//        return readyToRunDown;
-//    }
-//
-//    public Boolean isReadyToRunLeft()
-//    {
-//        return readyToRunLeft;
-//    }
-//
-//    public Boolean isReadyToRunRight()
-//    {
-//        return readyToRunRight;
-//    }
-//
-//    public Boolean canAttack()
-//    {
-//        return canAttack;
-//    }
-//
-//    public void setCanAttack(boolean canAttack)
-//    {
-//        this.canAttack = canAttack;
-//    }
-
-    public Map<AnimationName, Animation> getAnimations()
-    {
-        return animations;
     }
 }
