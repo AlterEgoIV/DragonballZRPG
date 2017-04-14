@@ -35,7 +35,6 @@ import com.dragonballzrpg.states.playerstates.walkingstates.WalkingLeftState;
 import com.dragonballzrpg.utilities.Animation;
 import com.dragonballzrpg.wrappers.Bool;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -48,7 +47,7 @@ public abstract class Player extends Entity implements InputHandler
     public Bool isDownKeyPressed;
     public Bool isLeftKeyPressed;
     public Bool isRightKeyPressed;
-    public Bool isMKeyPressed;
+    public Bool isMeleeKeyPressed;
     public Bool isReadyToRunUp;
     public Bool isReadyToRunDown;
     public Bool isReadyToRunLeft;
@@ -58,25 +57,31 @@ public abstract class Player extends Entity implements InputHandler
     private double elapsedRunWindowTime;
     private double runWindowDuration;
     private double runSpeed;
+    private int up, down, left, right, melee;
 
     public Player(Vector2 position, double speed, Map<AnimationName, Animation> animations, Animation currentAnimation,
-                  Map<SoundName, Sound> sounds)
+                  Map<SoundName, Sound> sounds, int up, int down, int left, int right, int melee)
     {
         super(position, speed, animations, currentAnimation, sounds);
-        speed = 100.0d;
         runSpeed = speed * 2;
 
         isUpKeyPressed = new Bool();
         isDownKeyPressed = new Bool();
         isLeftKeyPressed = new Bool();
         isRightKeyPressed = new Bool();
-        isMKeyPressed = new Bool();
+        isMeleeKeyPressed = new Bool();
         isReadyToRunUp = new Bool();
         isReadyToRunDown = new Bool();
         isReadyToRunLeft = new Bool();
         isReadyToRunRight = new Bool();
         runWindowOpen = new Bool();
         canAttack = new Bool(true);
+
+        this.up = up;
+        this.down = down;
+        this.left = left;
+        this.right = right;
+        this.melee = melee;
 
         initialiseStates();
 
@@ -118,32 +123,83 @@ public abstract class Player extends Entity implements InputHandler
 
     protected void setKeys(int keyCode)
     {
-        switch(keyCode)
+        if(keyCode == up)
         {
-            case Input.Keys.UP: isUpKeyPressed.set(true); break;
-            case Input.Keys.DOWN: isDownKeyPressed.set(true); break;
-            case Input.Keys.LEFT: isLeftKeyPressed.set(true); break;
-            case Input.Keys.RIGHT: isRightKeyPressed.set(true); break;
-            case Input.Keys.M: isMKeyPressed.set(true); break;
-
-            default: return;
+            isUpKeyPressed.set(true);
         }
+        else if(keyCode == down)
+        {
+            isDownKeyPressed.set(true);
+        }
+        else if(keyCode == left)
+        {
+            isLeftKeyPressed.set(true);
+        }
+        else if(keyCode == right)
+        {
+            isRightKeyPressed.set(true);
+        }
+        else if(keyCode == melee)
+        {
+            isMeleeKeyPressed.set(true);
+        }
+        else
+        {
+            return;
+        }
+
+//        switch(keyCode)
+//        {
+//            case Input.Keys.UP: isUpKeyPressed.set(true); break;
+//            case Input.Keys.DOWN: isDownKeyPressed.set(true); break;
+//            case Input.Keys.LEFT: isLeftKeyPressed.set(true); break;
+//            case Input.Keys.RIGHT: isRightKeyPressed.set(true); break;
+//            case Input.Keys.M: isMeleeKeyPressed.set(true); break;
+//
+//            default: return;
+//        }
 
         if(!runWindowOpen.value()) runWindowOpen.set(true);
     }
 
     protected void unsetKeys(int keyCode)
     {
-        switch(keyCode)
+        if(keyCode == up)
         {
-            case Input.Keys.UP: isUpKeyPressed.set(false); if(runWindowOpen.value()) isReadyToRunUp.set(true); break;
-            case Input.Keys.DOWN: isDownKeyPressed.set(false); if(runWindowOpen.value()) isReadyToRunDown.set(true); break;
-            case Input.Keys.LEFT: isLeftKeyPressed.set(false); if(runWindowOpen.value()) isReadyToRunLeft.set(true); break;
-            case Input.Keys.RIGHT: isRightKeyPressed.set(false); if(runWindowOpen.value()) isReadyToRunRight.set(true); break;
-            case Input.Keys.M: isMKeyPressed.set(false); canAttack.set(true); break;
-
-            default: break;
+            isUpKeyPressed.set(false);
+            if(runWindowOpen.value()) isReadyToRunUp.set(true);
         }
+        else if(keyCode == down)
+        {
+            isDownKeyPressed.set(false);
+            if(runWindowOpen.value()) isReadyToRunDown.set(true);
+        }
+        else if(keyCode == left)
+        {
+            isLeftKeyPressed.set(false);
+            if(runWindowOpen.value()) isReadyToRunLeft.set(true);
+        }
+        else if(keyCode == right)
+        {
+            isRightKeyPressed.set(false);
+            if(runWindowOpen.value()) isReadyToRunRight.set(true);
+        }
+        else if(keyCode == melee)
+        {
+            isMeleeKeyPressed.set(false);
+            canAttack.set(true);
+        }
+
+//        switch(keyCode)
+//        {
+//            case Input.Keys.UP: isUpKeyPressed.set(false); if(runWindowOpen.value()) isReadyToRunUp.set(true); break;
+//            case Input.Keys.DOWN: isDownKeyPressed.set(false); if(runWindowOpen.value()) isReadyToRunDown.set(true); break;
+//            case Input.Keys.LEFT: isLeftKeyPressed.set(false); if(runWindowOpen.value()) isReadyToRunLeft.set(true); break;
+//            case Input.Keys.RIGHT: isRightKeyPressed.set(false); if(runWindowOpen.value()) isReadyToRunRight.set(true); break;
+//            case Input.Keys.M: isMeleeKeyPressed.set(false); canAttack.set(true); break;
+//
+//            default: break;
+//        }
     }
 
     protected void checkRunWindow()

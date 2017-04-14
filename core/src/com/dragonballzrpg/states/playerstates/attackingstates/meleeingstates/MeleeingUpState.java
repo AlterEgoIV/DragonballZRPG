@@ -108,7 +108,7 @@ public class MeleeingUpState extends State
 
         /*Player p = (Player)entity;
 
-        if(!p.isMKeyPressed())
+        if(!p.isMeleeKeyPressed())
         {
             //p.setCurrentAttackState(p.getPlayerStates().getAnimation("notAttacking"));
             //p.setCurrentMovementState(p.getPlayerStates().getAnimation("standing"));

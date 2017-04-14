@@ -17,9 +17,9 @@ public class TeenFutureTrunks extends Player
 {
     public TeenFutureTrunks(OrthographicCamera camera, Vector2 position, double speed,
                             Map<AnimationName, Animation> animations, Animation currentAnimation,
-                            Map<SoundName, Sound> sounds)
+                            Map<SoundName, Sound> sounds, int up, int down, int left, int right, int melee)
     {
-        super(position, speed, animations, currentAnimation, sounds);
+        super(position, speed, animations, currentAnimation, sounds, up, down, left, right, melee);
         this.camera = camera;
     }
 

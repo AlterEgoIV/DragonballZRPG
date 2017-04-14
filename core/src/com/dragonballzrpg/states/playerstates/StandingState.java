@@ -34,7 +34,7 @@ public class StandingState extends State
                         new AnimationName[]{AnimationName.PUNCH_RIGHT_1, AnimationName.PUNCH_RIGHT_2, AnimationName.KICK_RIGHT},
         new TransitionCondition[]
         {
-            new TransitionCondition(player.isMKeyPressed, true),
+            new TransitionCondition(player.isMeleeKeyPressed, true),
             new TransitionCondition(player.canAttack, true)
         }));
     }
@@ -65,7 +65,7 @@ public class StandingState extends State
 //            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get(StateName.WALKING_RIGHT));
 //        }
 
-        /*if(((Player)entity).isMKeyPressed() && ((Player)entity).canAttack) // For testing
+        /*if(((Player)entity).isMeleeKeyPressed() && ((Player)entity).canAttack) // For testing
         {
             ((Player)entity).canAttack = false;
             ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation(getRandomValue(new String[]{"punch1Right", "punch2Right", "kickRight"})));

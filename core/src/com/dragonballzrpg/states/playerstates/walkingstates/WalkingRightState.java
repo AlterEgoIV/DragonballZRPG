@@ -48,7 +48,7 @@ public class WalkingRightState extends State
 //        transitions.add(new Transition(p.getPlayerStates().get("meleeingEast"), new String[]{"punch1Right", "punch2Right", "kickRight"},
 //        new TransitionCondition[]
 //        {
-//        new TransitionCondition(p.isMKeyPressed(), true),
+//        new TransitionCondition(p.isMeleeKeyPressed(), true),
 //        new TransitionCondition(p.canAttack(), true)
 //        }));
     }

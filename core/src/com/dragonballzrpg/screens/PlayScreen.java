@@ -1,5 +1,6 @@
 package com.dragonballzrpg.screens;
 
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
@@ -53,7 +54,8 @@ public class PlayScreen extends GameScreen
           new Vector2(0, 0), 100.0d,
           game.setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
           game.setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN),
-          game.sounds);
+          game.sounds,
+          Input.Keys.UP, Input.Keys.DOWN, Input.Keys.LEFT, Input.Keys.RIGHT, Input.Keys.M);
 
         players.put(PlayerName.TEEN_FUTURE_TRUNKS, player);
     }

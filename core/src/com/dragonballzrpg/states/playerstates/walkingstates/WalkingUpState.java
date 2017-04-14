@@ -45,7 +45,7 @@ public class WalkingUpState extends State
 //        transitions.add(new Transition(p.getPlayerStates().get("meleeingNorth"), new String[]{"punch1Up", "punch2Up", "kickUp"},
 //        new TransitionCondition[]
 //        {
-//        new TransitionCondition(p.isMKeyPressed(), true),
+//        new TransitionCondition(p.isMeleeKeyPressed(), true),
 //        new TransitionCondition(p.canAttack(), true)
 //        }));
     }
