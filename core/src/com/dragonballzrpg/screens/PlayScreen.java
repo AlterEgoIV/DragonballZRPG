@@ -11,6 +11,7 @@ import com.dragonballzrpg.entities.players.TeenFutureTrunks;
 import com.dragonballzrpg.enums.AnimationName;
 import com.dragonballzrpg.enums.AnimationSet;
 import com.dragonballzrpg.enums.PlayerName;
+import com.dragonballzrpg.input.InputHandler;
 
 import java.util.*;
 
@@ -41,7 +42,7 @@ public class PlayScreen extends GameScreen
         createPlayers();
         createEntities();
 
-        game.inputProcessor.add(players.get(PlayerName.TEEN_FUTURE_TRUNKS));
+        game.inputProcessor.addAll(players.values());
     }
 
     private void createPlayers()

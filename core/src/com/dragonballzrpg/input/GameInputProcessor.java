@@ -3,6 +3,7 @@ package com.dragonballzrpg.input;
 import com.badlogic.gdx.InputProcessor;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -11,11 +12,15 @@ import java.util.List;
 public class GameInputProcessor implements InputProcessor
 {
     private List<InputHandler> inputHandlers;
-    //private InputHandler inputHandler;
 
     public GameInputProcessor()
     {
         inputHandlers = new ArrayList<InputHandler>();
+    }
+
+    public void addAll(Collection<? extends InputHandler> inputHandlers)
+    {
+        this.inputHandlers.addAll(inputHandlers);
     }
 
     public void add(InputHandler inputHandler)
@@ -28,11 +33,6 @@ public class GameInputProcessor implements InputProcessor
         if(inputHandlers.contains(inputHandler)) inputHandlers.remove(inputHandler);
     }
 
-//    public void setInputHandler(InputHandler inputHandler)
-//    {
-//        this.inputHandler = inputHandler;
-//    }
-
     @Override
     public boolean keyDown(int keycode)
     {
@@ -42,15 +42,6 @@ public class GameInputProcessor implements InputProcessor
         }
 
         return false;
-
-//        if(inputHandler != null)
-//        {
-//            inputHandler.handleKeyDown(keycode);
-//
-//            return true;
-//        }
-//
-//        return false;
     }
 
     @Override
@@ -62,15 +53,6 @@ public class GameInputProcessor implements InputProcessor
         }
 
         return false;
-
-//        if(inputHandler != null)
-//        {
-//            inputHandler.handleKeyUp(keycode);
-//
-//            return true;
-//        }
-//
-//        return false;
     }
 
     @Override
