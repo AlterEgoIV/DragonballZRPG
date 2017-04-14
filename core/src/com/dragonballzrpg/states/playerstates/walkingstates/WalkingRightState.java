@@ -3,12 +3,9 @@ package com.dragonballzrpg.states.playerstates.walkingstates;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.dragonballzrpg.entities.Entity;
-import com.dragonballzrpg.entities.animatedentities.players.Player;
-import com.dragonballzrpg.enums.AnimationName;
-import com.dragonballzrpg.enums.StateName;
+import com.dragonballzrpg.entities.players.Player;
 import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.states.Transition;
-import com.dragonballzrpg.states.TransitionCondition;
 
 /**
  * Created by Carl on 24/08/2016.
@@ -73,7 +70,7 @@ public class WalkingRightState extends State
             transition.update((Player)entity);
         }
 
-        ((Player)entity).position.x += entity.getSpeed() * Gdx.graphics.getDeltaTime();
+        entity.position.x += entity.getSpeed() * Gdx.graphics.getDeltaTime();
     }
 
     @Override

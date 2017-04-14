@@ -2,10 +2,9 @@ package com.dragonballzrpg.states.playerstates.facingstates;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.dragonballzrpg.entities.Entity;
-import com.dragonballzrpg.entities.animatedentities.players.Player;
+import com.dragonballzrpg.entities.players.Player;
 import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.states.Transition;
-import com.dragonballzrpg.states.TransitionCondition;
 
 /**
  * Created by Carl on 21/09/2016.

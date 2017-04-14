@@ -3,10 +3,9 @@ package com.dragonballzrpg.states.playerstates.attackingstates.meleeingstates;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.dragonballzrpg.entities.Entity;
-import com.dragonballzrpg.entities.animatedentities.players.Player;
+import com.dragonballzrpg.entities.players.Player;
 import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.states.Transition;
-import com.dragonballzrpg.states.TransitionCondition;
 
 /**
  * Created by Carl on 06/09/2016.
@@ -16,58 +15,58 @@ public class MeleeingRightState extends State
     @Override
     public void initialiseTransitions(Player p)
     {
-//        transitions.add(new Transition(p.getPlayerStates().get("facingEast"), new String[]{"facingRight"},
+//        transitions.add(new Transition(p.getPlayerStates().value("facingEast"), new String[]{"facingRight"},
 //        new TransitionCondition[]
 //        {
 //            new TransitionCondition(p.isRightKeyPressed(), false)
 //        }));
 //
-//        transitions.add(new Transition(p.getPlayerStates().get("walkingNorth"), new String[]{"walkingUp"},
+//        transitions.add(new Transition(p.getPlayerStates().value("walkingNorth"), new String[]{"walkingUp"},
 //        new TransitionCondition[]
 //        {
 //            new TransitionCondition(p.isUpKeyPressed(), true)
 //        }));
 //
-//        transitions.add(new Transition(p.getPlayerStates().get("walkingSouth"), new String[]{"walkingDown"},
+//        transitions.add(new Transition(p.getPlayerStates().value("walkingSouth"), new String[]{"walkingDown"},
 //        new TransitionCondition[]
 //        {
 //            new TransitionCondition(p.isDownKeyPressed(), true)
 //        }));
 //
-//        transitions.add(new Transition(p.getPlayerStates().get("walkingWest"), new String[]{"walkingLeft"},
+//        transitions.add(new Transition(p.getPlayerStates().value("walkingWest"), new String[]{"walkingLeft"},
 //        new TransitionCondition[]
 //        {
 //            new TransitionCondition(p.isLeftKeyPressed(), true)
 //        }));
 //
-//        transitions.add(new Transition(p.getPlayerStates().get("walkingEast"), new String[]{"walkingRight"},
+//        transitions.add(new Transition(p.getPlayerStates().value("walkingEast"), new String[]{"walkingRight"},
 //        new TransitionCondition[]
 //        {
 //            new TransitionCondition(p.isRightKeyPressed(), true)
 //        }));
 //
-//        transitions.add(new Transition(p.getPlayerStates().get("walkingWestNorth"), new String[]{"walkingLeft"},
+//        transitions.add(new Transition(p.getPlayerStates().value("walkingWestNorth"), new String[]{"walkingLeft"},
 //        new TransitionCondition[]
 //        {
 //            new TransitionCondition(p.isUpKeyPressed(), true),
 //            new TransitionCondition(p.isLeftKeyPressed(), true)
 //        }));
 //
-//        transitions.add(new Transition(p.getPlayerStates().get("walkingEastNorth"), new String[]{"walkingRight"},
+//        transitions.add(new Transition(p.getPlayerStates().value("walkingEastNorth"), new String[]{"walkingRight"},
 //        new TransitionCondition[]
 //        {
 //            new TransitionCondition(p.isUpKeyPressed(), true),
 //            new TransitionCondition(p.isRightKeyPressed(), true)
 //        }));
 //
-//        transitions.add(new Transition(p.getPlayerStates().get("walkingWestSouth"), new String[]{"walkingLeft"},
+//        transitions.add(new Transition(p.getPlayerStates().value("walkingWestSouth"), new String[]{"walkingLeft"},
 //        new TransitionCondition[]
 //        {
 //            new TransitionCondition(p.isDownKeyPressed(), true),
 //            new TransitionCondition(p.isLeftKeyPressed(), true)
 //        }));
 //
-//        transitions.add(new Transition(p.getPlayerStates().get("walkingEastSouth"), new String[]{"walkingRight"},
+//        transitions.add(new Transition(p.getPlayerStates().value("walkingEastSouth"), new String[]{"walkingRight"},
 //        new TransitionCondition[]
 //        {
 //            new TransitionCondition(p.isDownKeyPressed(), true),
@@ -80,9 +79,9 @@ public class MeleeingRightState extends State
     {
         Player p = (Player)entity;
 
-        //p.canAttack().setValue(false);
-        p.setCanAttack(false);
-        //p.getSounds().get(getRandomValue(new String[]{"melee1", "melee2"})).play();
+        p.canAttack().set(false);
+        //p.setCanAttack(false);
+        //p.getSounds().value(getRandomValue(new String[]{"melee1", "melee2"})).play();
     }
 
     @Override

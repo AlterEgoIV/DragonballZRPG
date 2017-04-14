@@ -2,7 +2,7 @@ package com.dragonballzrpg.states.playerstates;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.dragonballzrpg.entities.Entity;
-import com.dragonballzrpg.entities.animatedentities.players.Player;
+import com.dragonballzrpg.entities.players.Player;
 import com.dragonballzrpg.enums.AnimationName;
 import com.dragonballzrpg.enums.StateName;
 import com.dragonballzrpg.states.State;
@@ -14,6 +14,15 @@ import com.dragonballzrpg.states.TransitionCondition;
  */
 public class StandingState extends State
 {
+//    public StandingState(Player p)
+//    {
+//        transitions.add(new Transition(p.getPlayerStates().get(StateName.WALKING_RIGHT), new AnimationName[]{AnimationName.WALK_RIGHT},
+//          new TransitionCondition[]
+//            {
+//              new TransitionCondition(p.isRightKeyPressed(), true)
+//            }));
+//    }
+
     @Override
     public void initialiseTransitions(Player p)
     {
@@ -23,14 +32,14 @@ public class StandingState extends State
             new TransitionCondition(p.isRightKeyPressed(), true)
         }));
 
-//        transitions.add(new Transition(p.getPlayerStates().get(StateName.RUNNING_RIGHT), new AnimationName[]{AnimationName.RUN_RIGHT},
+//        transitions.add(new Transition(p.getPlayerStates().value(StateName.RUNNING_RIGHT), new AnimationName[]{AnimationName.RUN_RIGHT},
 //        new TransitionCondition[]
 //        {
 //            new TransitionCondition(p.isRightKeyPressed(), true),
 //            new TransitionCondition(p.isReadyToRunRight(), true)
 //        }));
 //
-//        transitions.add(new Transition(p.getPlayerStates().get(StateName.MELEEING_RIGHT),
+//        transitions.add(new Transition(p.getPlayerStates().value(StateName.MELEEING_RIGHT),
 //                        new AnimationName[]{AnimationName.PUNCH_RIGHT_1, AnimationName.PUNCH_RIGHT_2, AnimationName.KICK_RIGHT},
 //        new TransitionCondition[]
 //        {
@@ -59,7 +68,7 @@ public class StandingState extends State
             transition.update((Player)entity);
         }
 
-//        if(((Player)entity).isRightKeyPressed())
+//        if(((Player)entity).isRightKeyPressed().value())
 //        {
 //            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get(AnimationName.WALK_RIGHT));
 //            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get(StateName.WALKING_RIGHT));

@@ -1,13 +1,11 @@
-package com.dragonballzrpg.entities.animatedentities.players;
+package com.dragonballzrpg.entities.players;
 
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.dragonballzrpg.enums.AnimationName;
 import com.dragonballzrpg.enums.SoundName;
-import com.dragonballzrpg.input.GameInputProcessor;
 import com.dragonballzrpg.utilities.Animation;
 
 import java.util.Map;

@@ -33,7 +33,7 @@ public class DragonballZRPG extends Game
 	public OrthographicCamera camera;
 	private Viewport viewport;
 	private SpriteSheetAnimationsExtractor spriteSheetAnimationsExtractor;
-	private GameInputProcessor inputProcessor;
+	public GameInputProcessor inputProcessor;
 
 	@Override
 	public void create()
@@ -46,6 +46,8 @@ public class DragonballZRPG extends Game
 		screens = new HashMap<ScreenName, Screen>();
 		camera = new OrthographicCamera(VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
 		viewport = new StretchViewport(VIEWPORT_WIDTH, VIEWPORT_HEIGHT, camera);
+		inputProcessor = new GameInputProcessor();
+		Gdx.input.setInputProcessor(inputProcessor);
 
 		loadAssets(); // load assets first
 		loadAnimations();
@@ -54,11 +56,9 @@ public class DragonballZRPG extends Game
 		initialiseScreens();
 		initialiseCamera();
 		initialiseViewport();
-		initialiseInputProcessor();
-		initialiseEntities();
 
 		// Set the user controlled entity to TeenFutureTrunks object in entities
-		//inputProcessor.setInputHandler((InputHandler)entities.get("teenFutureTrunks"));
+		//inputProcessor.setInputHandler((InputHandler)entities.value("teenFutureTrunks"));
 	}
 
 	@Override
@@ -74,7 +74,7 @@ public class DragonballZRPG extends Game
 	public void dispose()
 	{
 		assetManager.dispose();
-		//screens.get("playScreen").dispose();
+		screens.get(ScreenName.PLAY_SCREEN).dispose();
 	}
 
 	@Override
@@ -151,6 +151,18 @@ public class DragonballZRPG extends Game
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.WALK_RIGHT,
 		new Animation(spriteSheetAnimationsExtractor.getAnimation("walkingRight"), .125d, true));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.RUN_UP,
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("runningUp"), .125d, true));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.RUN_DOWN,
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("runningDown"), .125d, true));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.RUN_LEFT,
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("runningLeft"), .125d, true));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.RUN_RIGHT,
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("runningRight"), .125d, true));
 	}
 
 	private void initialiseCamera()
@@ -162,18 +174,6 @@ public class DragonballZRPG extends Game
 	private void initialiseViewport()
 	{
 		viewport.apply();
-	}
-
-	private void initialiseInputProcessor()
-	{
-		inputProcessor = new GameInputProcessor();
-		Gdx.input.setInputProcessor(inputProcessor);
-	}
-
-	private void initialiseEntities()
-	{
-		//entities.put("teenFutureTrunks", new TeenFutureTrunks(assetManager, camera, inputProcessor,
-		//setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS)));
 	}
 
 	private void initialiseScreens()

@@ -2,7 +2,7 @@ package com.dragonballzrpg.states;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.dragonballzrpg.entities.Entity;
-import com.dragonballzrpg.entities.animatedentities.players.Player;
+import com.dragonballzrpg.entities.players.Player;
 
 import java.util.ArrayList;
 import java.util.List;

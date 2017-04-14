@@ -3,10 +3,9 @@ package com.dragonballzrpg.states.playerstates.attackingstates.meleeingstates;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.dragonballzrpg.entities.Entity;
-import com.dragonballzrpg.entities.animatedentities.players.Player;
+import com.dragonballzrpg.entities.players.Player;
 import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.states.Transition;
-import com.dragonballzrpg.states.TransitionCondition;
 
 /**
  * Created by Carl on 06/09/2016.
@@ -80,8 +79,8 @@ public class MeleeingUpState extends State
     {
         Player p = (Player)entity;
 
-        //p.canAttack().setValue(false);
-        p.setCanAttack(false);
+        p.canAttack().set(false);
+        //p.setCanAttack(false);
         //p.getSounds().get(getRandomValue(new String[]{"melee1", "melee2"})).play();
     }
 

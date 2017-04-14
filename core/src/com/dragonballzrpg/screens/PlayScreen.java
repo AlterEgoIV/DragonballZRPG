@@ -6,13 +6,13 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.dragonballzrpg.DragonballZRPG;
 import com.dragonballzrpg.entities.Entity;
-import com.dragonballzrpg.entities.animatedentities.players.TeenFutureTrunks;
+import com.dragonballzrpg.entities.players.Player;
+import com.dragonballzrpg.entities.players.TeenFutureTrunks;
 import com.dragonballzrpg.enums.AnimationName;
 import com.dragonballzrpg.enums.AnimationSet;
-import com.dragonballzrpg.utilities.Animation;
+import com.dragonballzrpg.enums.PlayerName;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Carl on 04/08/2016.
@@ -23,6 +23,7 @@ public class PlayScreen extends GameScreen
     private OrthogonalTiledMapRenderer mapRenderer;
     private int mapWidth;
     private int mapHeight;
+    private Map<PlayerName, Player> players;
     private List<Entity> entities;
 
     public PlayScreen(DragonballZRPG game)
@@ -33,18 +34,45 @@ public class PlayScreen extends GameScreen
         mapRenderer = new OrthogonalTiledMapRenderer(map);
         mapWidth = map.getProperties().get("width", Integer.class) * map.getProperties().get("tilewidth", Integer.class);
         mapHeight = map.getProperties().get("height", Integer.class) * map.getProperties().get("tileheight", Integer.class);
+
+        players = new HashMap<PlayerName, Player>();
         entities = new ArrayList<Entity>();
 
+        createPlayers();
         createEntities();
+
+        game.inputProcessor.add(players.get(PlayerName.TEEN_FUTURE_TRUNKS));
+    }
+
+    private void createPlayers()
+    {
+        Player player;
+
+        player = new TeenFutureTrunks(game.camera,
+          new Vector2(0, 0), 100.0d,
+          game.setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
+          game.setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN),
+          game.sounds);
+
+        players.put(PlayerName.TEEN_FUTURE_TRUNKS, player);
     }
 
     private void createEntities()
     {
-        entities.add(new TeenFutureTrunks(game.camera,
-          new Vector2(0, 0), 100.0d,
-          game.setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
-          game.setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN),
-          game.sounds));
+//        Entity entity;
+//
+//        entity = new TeenFutureTrunks(game.camera,
+//          new Vector2(0, 0), 100.0d,
+//          game.setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
+//          game.setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN),
+//          game.sounds);
+//
+//        entities.add(entity);
+
+        entities.addAll(players.values());
+
+        // Create other entities
+        //game.inputProcessor.setInputHandler((InputHandler)teenFutureTrunks);
     }
 
     @Override
