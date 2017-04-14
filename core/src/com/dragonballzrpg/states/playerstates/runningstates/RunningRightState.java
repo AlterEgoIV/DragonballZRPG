@@ -4,8 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.dragonballzrpg.entities.Entity;
 import com.dragonballzrpg.entities.players.Player;
+import com.dragonballzrpg.enums.AnimationName;
+import com.dragonballzrpg.enums.StateName;
 import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.states.Transition;
+import com.dragonballzrpg.states.TransitionCondition;
 
 /**
  * Created by Carl on 24/08/2016.
@@ -13,13 +16,13 @@ import com.dragonballzrpg.states.Transition;
 public class RunningRightState extends State
 {
     @Override
-    public void initialiseTransitions(Player p)
+    public void initialiseTransitions(Player player)
     {
-//        transitions.add(new Transition(p.getPlayerStates().get("facingEast"), new String[]{"facingRight"},
-//        new TransitionCondition[]
-//        {
-//            new TransitionCondition(p.isRightKeyPressed(), false)
-//        }));
+        transitions.add(new Transition(player.states.get(StateName.STANDING), new AnimationName[]{AnimationName.FACE_RIGHT},
+        new TransitionCondition[]
+        {
+            new TransitionCondition(player.isRightKeyPressed, false)
+        }));
     }
 
     @Override

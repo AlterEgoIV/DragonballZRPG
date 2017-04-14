@@ -15,28 +15,12 @@ import java.util.Map;
  */
 public class TeenFutureTrunks extends Player
 {
-//    public TeenFutureTrunks(AssetManager assetManager, OrthographicCamera camera, GameInputProcessor inputProcessor)
-//    {
-//        //super(assetManager);
-//        this.camera = camera;
-//        this.inputProcessor = inputProcessor;
-//        //spriteSheetAnimationsExtractor = new SpriteSheetAnimationsExtractor(assetManager.get("spritesheets/futuretrunks/teenFutureTrunks.png", Texture.class), "spritesheetproperties/teenFutureTrunks.csv");
-//        //initialiseAnimations();
-//        //width = stringAnimations.get("facingDown").getCurrentFrame().getRegionWidth();
-//        //height = stringAnimations.get("facingDown").getCurrentFrame().getRegionHeight();
-//    }
-
     public TeenFutureTrunks(OrthographicCamera camera, Vector2 position, double speed,
                             Map<AnimationName, Animation> animations, Animation currentAnimation,
                             Map<SoundName, Sound> sounds)
     {
         super(position, speed, animations, currentAnimation, sounds);
         this.camera = camera;
-        //this.animations = animations;
-        //this.sounds = sounds;
-        //currentAnimation = animations.get(AnimationName.FACE_DOWN);
-        //width = stringAnimations.get("facingDown").getCurrentFrame().getRegionWidth();
-        //height = stringAnimations.get("facingDown").getCurrentFrame().getRegionHeight();
     }
 
     @Override

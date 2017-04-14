@@ -23,12 +23,12 @@ public class StandingState extends State
             new TransitionCondition(player.isRightKeyPressed, true)
         }));
 
-//        transitions.add(new Transition(p.getPlayerStates().value(StateName.RUNNING_RIGHT), new AnimationName[]{AnimationName.RUN_RIGHT},
-//        new TransitionCondition[]
-//        {
-//            new TransitionCondition(p.isRightKeyPressed(), true),
-//            new TransitionCondition(p.isReadyToRunRight(), true)
-//        }));
+        transitions.add(new Transition(player.states.get(StateName.RUNNING_RIGHT), new AnimationName[]{AnimationName.RUN_RIGHT},
+        new TransitionCondition[]
+        {
+            new TransitionCondition(player.isRightKeyPressed, true),
+            new TransitionCondition(player.isReadyToRunRight, true)
+        }));
 //
 //        transitions.add(new Transition(p.getPlayerStates().value(StateName.MELEEING_RIGHT),
 //                        new AnimationName[]{AnimationName.PUNCH_RIGHT_1, AnimationName.PUNCH_RIGHT_2, AnimationName.KICK_RIGHT},
