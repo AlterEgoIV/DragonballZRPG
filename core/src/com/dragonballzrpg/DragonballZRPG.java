@@ -160,6 +160,42 @@ public class DragonballZRPG extends Game
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.RUN_RIGHT,
 		new Animation(spriteSheetAnimationsExtractor.getAnimation("runningRight"), .125d, true));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.PUNCH_UP_1,
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("punch1Up"), .0675d));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.PUNCH_DOWN_1,
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("punch1Down"), .0675d));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.PUNCH_LEFT_1,
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("punch1Left"), .0675d));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.PUNCH_RIGHT_1,
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("punch1Right"), .0675d));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.PUNCH_UP_2,
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("punch2Up"), .0675d));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.PUNCH_DOWN_2,
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("punch2Down"), .0675d));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.PUNCH_LEFT_2,
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("punch2Left"), .0675d));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.PUNCH_RIGHT_2,
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("punch2Right"), .0675d));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.KICK_UP,
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("kickUp"), .0675d));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.KICK_DOWN,
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("kickDown"), .0675d));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.KICK_LEFT,
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("kickLeft"), .0675d));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.KICK_RIGHT,
+		new Animation(spriteSheetAnimationsExtractor.getAnimation("kickRight"), .0675d));
 	}
 
 	private void initialiseCamera()

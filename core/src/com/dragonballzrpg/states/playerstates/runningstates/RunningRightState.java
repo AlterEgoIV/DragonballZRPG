@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.dragonballzrpg.entities.Entity;
 import com.dragonballzrpg.entities.players.Player;
 import com.dragonballzrpg.enums.AnimationName;
+import com.dragonballzrpg.enums.SoundName;
 import com.dragonballzrpg.enums.StateName;
 import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.states.Transition;
@@ -28,13 +29,13 @@ public class RunningRightState extends State
     @Override
     public void enter(Entity entity)
     {
-        //entity.getSounds().get("running").loop();
+        entity.sounds.get(SoundName.RUNNING).loop();
     }
 
     @Override
     public void exit(Entity entity)
     {
-        //entity.getSounds().get("running").stop();
+        entity.sounds.get(SoundName.RUNNING).stop();
     }
 
     @Override
@@ -42,7 +43,7 @@ public class RunningRightState extends State
     {
         for(Transition transition : transitions)
         {
-            transition.update((Player)entity);
+            transition.update(entity);
         }
 
         // Up && Right
