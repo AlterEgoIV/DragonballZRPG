@@ -26,6 +26,7 @@ public class PlayScreen extends GameScreen
     private int mapWidth;
     private int mapHeight;
     private Map<PlayerName, Player> players;
+    private Entity currentPlayer;
     private List<Entity> entities;
 
     public PlayScreen(DragonballZRPG game)
@@ -41,9 +42,10 @@ public class PlayScreen extends GameScreen
         entities = new ArrayList<Entity>();
 
         createPlayers();
+        currentPlayer = players.get(PlayerName.TEEN_FUTURE_TRUNKS);
         createEntities();
 
-        game.inputProcessor.addAll(players.values());
+        game.inputProcessor.add((InputHandler)currentPlayer);
     }
 
     private void createPlayers()

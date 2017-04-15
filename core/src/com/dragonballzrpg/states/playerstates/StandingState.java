@@ -30,6 +30,14 @@ public class StandingState extends State
             new TransitionCondition(player.isReadyToRunRight, true)
         }));
 
+//        transitions.add(new Transition(player.states.get(StateName.MELEEING_DOWN),
+//                        new AnimationName[]{AnimationName.PUNCH_DOWN_1, AnimationName.PUNCH_DOWN_2, AnimationName.KICK_DOWN},
+//        new TransitionCondition[]
+//        {
+//            new TransitionCondition(player.isMeleeKeyPressed, true),
+//            new TransitionCondition(player.canAttack, true)
+//        }));
+
         transitions.add(new Transition(player.states.get(StateName.MELEEING_RIGHT),
                         new AnimationName[]{AnimationName.PUNCH_RIGHT_1, AnimationName.PUNCH_RIGHT_2, AnimationName.KICK_RIGHT},
         new TransitionCondition[]

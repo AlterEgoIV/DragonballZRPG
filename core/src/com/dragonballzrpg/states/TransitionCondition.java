@@ -7,7 +7,6 @@ import com.dragonballzrpg.wrappers.Bool;
  */
 public class TransitionCondition
 {
-    //private Boolean condition;
     private Bool condition;
     private boolean requiredValue;
 

@@ -25,6 +25,12 @@ public class MeleeingRightState extends State
             new TransitionCondition(player.isRightKeyPressed, false)
         }));
 
+        transitions.add(new Transition(player.states.get(StateName.WALKING_RIGHT), new AnimationName[]{AnimationName.WALK_RIGHT},
+        new TransitionCondition[]
+        {
+            new TransitionCondition(player.isRightKeyPressed, true)
+        }));
+
 //        transitions.add(new Transition(p.getPlayerStates().value("walkingNorth"), new String[]{"walkingUp"},
 //        new TransitionCondition[]
 //        {
@@ -85,6 +91,7 @@ public class MeleeingRightState extends State
 
         player.canAttack.set(false);
         player.sounds.get(getRandomValue(new SoundName[]{SoundName.MELEE_1, SoundName.MELEE_2})).play();
+
         //p.canAttack().set(false);
         //p.setCanAttack(false);
         //p.getSounds().value(getRandomValue(new String[]{"melee1", "melee2"})).play();
@@ -93,7 +100,7 @@ public class MeleeingRightState extends State
     @Override
     public void exit(Entity entity)
     {
-
+        Player player = (Player)entity;
     }
 
     @Override

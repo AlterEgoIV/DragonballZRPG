@@ -4,8 +4,14 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.dragonballzrpg.entities.Entity;
 import com.dragonballzrpg.entities.players.Player;
+import com.dragonballzrpg.enums.AnimationName;
+import com.dragonballzrpg.enums.SoundName;
+import com.dragonballzrpg.enums.StateName;
 import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.states.Transition;
+import com.dragonballzrpg.states.TransitionCondition;
+
+import static sun.audio.AudioPlayer.player;
 
 /**
  * Created by Carl on 06/09/2016.
@@ -13,8 +19,14 @@ import com.dragonballzrpg.states.Transition;
 public class MeleeingDownState extends State
 {
     @Override
-    public void initialiseTransitions(Player p)
+    public void initialiseTransitions(Player player)
     {
+        transitions.add(new Transition(player.states.get(StateName.STANDING), new AnimationName[]{AnimationName.FACE_DOWN},
+        new TransitionCondition[]
+        {
+            new TransitionCondition(player.isMeleeKeyPressed, false)
+        }));
+
 //        transitions.add(new Transition(p.getPlayerStates().value(StateName.STANDING), new String[]{"facingDown"},
 //        new TransitionCondition[]
 //        {
@@ -77,7 +89,10 @@ public class MeleeingDownState extends State
     @Override
     public void enter(Entity entity)
     {
-        Player p = (Player)entity;
+        Player player = (Player)entity;
+
+        player.canAttack.set(false);
+        player.sounds.get(getRandomValue(new SoundName[]{SoundName.MELEE_1, SoundName.MELEE_2})).play();
 
         //p.canAttack().set(false);
         //p.setCanAttack(false);
@@ -87,7 +102,7 @@ public class MeleeingDownState extends State
     @Override
     public void exit(Entity entity)
     {
-
+        Player player = (Player)entity;
     }
 
     @Override
