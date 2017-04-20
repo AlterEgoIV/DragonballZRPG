@@ -17,6 +17,12 @@ public class StandingState extends State
     @Override
     public void initialiseTransitions(Player player)
     {
+        transitions.add(new Transition(player.states.get(StateName.WALKING_LEFT), new AnimationName[]{AnimationName.WALK_LEFT},
+        new TransitionCondition[]
+        {
+            new TransitionCondition(player.isLeftKeyPressed, true)
+        }));
+
         transitions.add(new Transition(player.states.get(StateName.WALKING_RIGHT), new AnimationName[]{AnimationName.WALK_RIGHT},
         new TransitionCondition[]
         {

@@ -4,8 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.dragonballzrpg.entities.Entity;
 import com.dragonballzrpg.entities.players.Player;
+import com.dragonballzrpg.enums.AnimationName;
+import com.dragonballzrpg.enums.StateName;
 import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.states.Transition;
+import com.dragonballzrpg.states.TransitionCondition;
 
 /**
  * Created by Carl on 24/08/2016.
@@ -13,8 +16,22 @@ import com.dragonballzrpg.states.Transition;
 public class WalkingLeftState extends State
 {
     @Override
-    public void initialiseTransitions(Player p)
+    public void initialiseTransitions(Player player)
     {
+        transitions.add(new Transition(player.states.get(StateName.STANDING), new AnimationName[]{AnimationName.FACE_LEFT},
+        new TransitionCondition[]
+        {
+        new TransitionCondition(player.isLeftKeyPressed, false)
+        }));
+
+        transitions.add(new Transition(player.states.get(StateName.MELEEING_RIGHT),
+        new AnimationName[]{AnimationName.PUNCH_RIGHT_1, AnimationName.PUNCH_RIGHT_2, AnimationName.KICK_RIGHT},
+        new TransitionCondition[]
+        {
+        new TransitionCondition(player.isMeleeKeyPressed, true),
+        new TransitionCondition(player.canAttack, true)
+        }));
+
 //        transitions.add(new Transition(p.getPlayerStates().get("facingWest"), new String[]{"facingLeft"},
 //        new TransitionCondition[]
 //        {

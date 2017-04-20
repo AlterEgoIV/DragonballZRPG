@@ -46,7 +46,7 @@ public class DragonballZRPG extends Game
 		screens = new HashMap<ScreenName, Screen>();
 		camera = new OrthographicCamera(VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
 		viewport = new StretchViewport(VIEWPORT_WIDTH, VIEWPORT_HEIGHT, camera);
-		//inputProcessor = new GameInputProcessor();
+		inputProcessor = new GameInputProcessor();
 		Gdx.input.setInputProcessor(inputProcessor);
 
 		loadAssets(); // load assets first

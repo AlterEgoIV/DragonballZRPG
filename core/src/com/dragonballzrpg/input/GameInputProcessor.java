@@ -12,11 +12,9 @@ import java.util.List;
 public class GameInputProcessor implements InputProcessor
 {
     private List<InputHandler> inputHandlers;
-    //private InputController inputController;
 
     public GameInputProcessor()
     {
-        //this.inputController = inputController;
         inputHandlers = new ArrayList<InputHandler>();
     }
 
