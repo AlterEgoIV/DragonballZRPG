@@ -28,6 +28,11 @@ public abstract class State
     public abstract void update(Entity entity);
     public abstract void render(Entity entity, SpriteBatch batch);
 
+    public void setTransitions(List<Transition> transitions)
+    {
+        this.transitions = transitions;
+    }
+
     protected <T> T getRandomValue(T[] values)
     {
         Random random = new Random();

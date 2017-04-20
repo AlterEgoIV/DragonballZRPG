@@ -11,8 +11,6 @@ import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.states.Transition;
 import com.dragonballzrpg.states.TransitionCondition;
 
-import static sun.audio.AudioPlayer.player;
-
 /**
  * Created by Carl on 06/09/2016.
  */

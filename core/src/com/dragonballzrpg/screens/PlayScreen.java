@@ -1,5 +1,6 @@
 package com.dragonballzrpg.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -12,7 +13,7 @@ import com.dragonballzrpg.entities.players.TeenFutureTrunks;
 import com.dragonballzrpg.enums.AnimationName;
 import com.dragonballzrpg.enums.AnimationSet;
 import com.dragonballzrpg.enums.PlayerName;
-import com.dragonballzrpg.input.InputHandler;
+import com.dragonballzrpg.input.GameInputProcessor;
 
 import java.util.*;
 
@@ -28,6 +29,7 @@ public class PlayScreen extends GameScreen
     private Map<PlayerName, Player> players;
     private Entity currentPlayer;
     private List<Entity> entities;
+    private InputController inputController;
 
     public PlayScreen(DragonballZRPG game)
     {
@@ -45,7 +47,12 @@ public class PlayScreen extends GameScreen
         currentPlayer = players.get(PlayerName.TEEN_FUTURE_TRUNKS);
         createEntities();
 
-        game.inputProcessor.add((InputHandler)currentPlayer);
+        inputController = new InputController(currentPlayer, Input.Keys.UP, Input.Keys.DOWN, Input.Keys.LEFT, Input.Keys.RIGHT, Input.Keys.M);
+
+        game.inputProcessor = new GameInputProcessor(inputController);
+        Gdx.input.setInputProcessor(game.inputProcessor);
+
+        //game.inputProcessor.add((InputHandler)currentPlayer);
     }
 
     private void createPlayers()
