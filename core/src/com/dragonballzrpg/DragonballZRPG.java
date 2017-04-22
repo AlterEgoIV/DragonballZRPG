@@ -18,6 +18,7 @@ import com.dragonballzrpg.input.GameInputProcessor;
 import com.dragonballzrpg.screens.PlayScreen;
 import com.dragonballzrpg.utilities.Animation;
 import com.dragonballzrpg.utilities.SpriteSheetAnimationsExtractor;
+import com.dragonballzrpg.utilities.SpriteSheetAnimationsExtractorXML;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,6 +35,7 @@ public class DragonballZRPG extends Game
 	private Viewport viewport;
 	private SpriteSheetAnimationsExtractor spriteSheetAnimationsExtractor;
 	public GameInputProcessor inputProcessor;
+	private SpriteSheetAnimationsExtractorXML spriteSheetAnimationsExtractorXML;
 
 	@Override
 	public void create()
@@ -50,7 +52,21 @@ public class DragonballZRPG extends Game
 		Gdx.input.setInputProcessor(inputProcessor);
 
 		loadAssets(); // load assets first
-		loadAnimations();
+
+		spriteSheetAnimationsExtractorXML = new SpriteSheetAnimationsExtractorXML(assetManager);
+		spriteSheetAnimationsExtractorXML.extractAnimations("spritesheets/futuretrunks/teenFutureTrunks.png",
+		"spritesheetproperties/teenFutureTrunksSpriteSheet.sprites");
+
+		Animation animation = new Animation();
+		animation.addFrame(spriteSheetAnimationsExtractorXML.getAnimationFrame("faceDown", 0), 5.0d);
+		animation.addFrame(spriteSheetAnimationsExtractorXML.getAnimationFrame("faceDown", 1), .25d);
+		animation.loops(true);
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.FACE_DOWN, animation);
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.WALK_DOWN,
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("walkDown"), .125d, true));
+
+		//loadAnimations();
 		loadSounds();
 
 		initialiseScreens();
