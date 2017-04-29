@@ -37,6 +37,9 @@ public abstract class Entity
         this.sounds = sounds;
         width = currentAnimation.getFrame(0).getRegionWidth();
         height = currentAnimation.getFrame(0).getRegionHeight();
+
+        //position.x -= width / 2;
+        //position.y += height / 2;
         states = new HashMap<StateName, State>();
         currentState = null;
     }

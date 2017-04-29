@@ -30,14 +30,18 @@ public class TeenFutureTrunks extends Player
         currentAnimation.update();
         checkRunWindow();
 
-        camera.position.x = (int)position.x + width / 2.0f;
-        camera.position.y = (int)position.y + height / 2.0f;
+        //currentAnimation.getCurrentFrame().setRegionX(currentAnimation.getCurrentFrame().getRegionX() - currentAnimation.getCurrentFrame().getRegionWidth() / 2);
+        //currentAnimation.getCurrentFrame().scroll(currentAnimation.getCurrentFrame().getRegionWidth(), 0);
+
+        camera.position.x = (int)position.x;
+        camera.position.y = (int)position.y;
     }
 
     @Override
     public void render(SpriteBatch batch)
     {
         batch.draw(currentAnimation.getCurrentFrame(), (int)position.x, (int)position.y);
+        //batch.draw(currentAnimation.getCurrentFrame(), (int)position.x - width / 2, (int)position.y - height / 2);
     }
 
 //    @Override

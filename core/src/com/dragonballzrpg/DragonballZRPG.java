@@ -17,7 +17,6 @@ import com.dragonballzrpg.enums.SoundName;
 import com.dragonballzrpg.input.GameInputProcessor;
 import com.dragonballzrpg.screens.PlayScreen;
 import com.dragonballzrpg.utilities.Animation;
-import com.dragonballzrpg.utilities.SpriteSheetAnimationsExtractor;
 import com.dragonballzrpg.utilities.SpriteSheetAnimationsExtractorXML;
 
 import java.util.HashMap;
@@ -33,7 +32,6 @@ public class DragonballZRPG extends Game
 	public Map<ScreenName, Screen> screens;
 	public OrthographicCamera camera;
 	private Viewport viewport;
-	private SpriteSheetAnimationsExtractor spriteSheetAnimationsExtractor;
 	public GameInputProcessor inputProcessor;
 	private SpriteSheetAnimationsExtractorXML spriteSheetAnimationsExtractorXML;
 
@@ -41,7 +39,7 @@ public class DragonballZRPG extends Game
 	public void create()
 	{
 		assetManager = new AssetManager();
-		spriteSheetAnimationsExtractor = new SpriteSheetAnimationsExtractor();
+		spriteSheetAnimationsExtractorXML = new SpriteSheetAnimationsExtractorXML(assetManager);
 		setOfAnimationSets = new HashMap<AnimationSet, HashMap<AnimationName, Animation>>();
 		initialiseSetOfAnimationSets();
 		sounds = new HashMap<SoundName, Sound>();
@@ -53,20 +51,7 @@ public class DragonballZRPG extends Game
 
 		loadAssets(); // load assets first
 
-		spriteSheetAnimationsExtractorXML = new SpriteSheetAnimationsExtractorXML(assetManager);
-		spriteSheetAnimationsExtractorXML.extractAnimations("spritesheets/futuretrunks/teenFutureTrunks.png",
-		"spritesheetproperties/teenFutureTrunksSpriteSheet.sprites");
-
-		Animation animation = new Animation();
-		animation.addFrame(spriteSheetAnimationsExtractorXML.getAnimationFrame("faceDown", 0), 5.0d);
-		animation.addFrame(spriteSheetAnimationsExtractorXML.getAnimationFrame("faceDown", 1), .25d);
-		animation.loops(true);
-		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.FACE_DOWN, animation);
-
-		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.WALK_DOWN,
-		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("walkDown"), .125d, true));
-
-		//loadAnimations();
+		loadAnimations();
 		loadSounds();
 
 		initialiseScreens();
@@ -127,91 +112,161 @@ public class DragonballZRPG extends Game
 
 	private void loadTeenFutureTrunksAnimations()
 	{
-		Animation animation = new Animation();
 		String spriteSheet = "spritesheets/futuretrunks/teenFutureTrunks.png";
-		String spriteSheetProperties = "spritesheetproperties/teenFutureTrunks.csv";
+		String spriteSheetProperties = "spritesheetproperties/teenFutureTrunksSpriteSheet.sprites";
 
-		spriteSheetAnimationsExtractor.extractAnimations(assetManager.get(spriteSheet, Texture.class), spriteSheetProperties);
+		spriteSheetAnimationsExtractorXML.extractAnimations(spriteSheet, spriteSheetProperties);
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.FACE_UP,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("facingUp"), 1));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("faceUp"), 1));
 
-		animation.addFrame(spriteSheetAnimationsExtractor.getAnimationFrame("facingDown", 0), 5.0d);
-		animation.addFrame(spriteSheetAnimationsExtractor.getAnimationFrame("facingDown", 1), .25d);
+		Animation animation = new Animation();
+		animation.addFrame(spriteSheetAnimationsExtractorXML.getAnimationFrame("faceDown", 0), 5.0d);
+		animation.addFrame(spriteSheetAnimationsExtractorXML.getAnimationFrame("faceDown", 1), .25d);
 		animation.loops(true);
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.FACE_DOWN, animation);
 
 		animation = new Animation();
-		animation.addFrame(spriteSheetAnimationsExtractor.getAnimationFrame("facingLeft", 0), 5.0d);
-		animation.addFrame(spriteSheetAnimationsExtractor.getAnimationFrame("facingLeft", 1), .25d);
+		animation.addFrame(spriteSheetAnimationsExtractorXML.getAnimationFrame("faceLeft", 0), 5.0d);
+		animation.addFrame(spriteSheetAnimationsExtractorXML.getAnimationFrame("faceLeft", 1), .25d);
 		animation.loops(true);
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.FACE_LEFT, animation);
 
 		animation = new Animation();
-		animation.addFrame(spriteSheetAnimationsExtractor.getAnimationFrame("facingRight", 0), 5.0d);
-		animation.addFrame(spriteSheetAnimationsExtractor.getAnimationFrame("facingRight", 1), .25d);
+		animation.addFrame(spriteSheetAnimationsExtractorXML.getAnimationFrame("faceRight", 0), 5.0d);
+		animation.addFrame(spriteSheetAnimationsExtractorXML.getAnimationFrame("faceRight", 1), .25d);
 		animation.loops(true);
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.FACE_RIGHT, animation);
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.WALK_UP,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("walkingUp"), .125d, true));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("walkUp"), .125d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.WALK_DOWN,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("walkingDown"), .125d, true));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("walkDown"), .125d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.WALK_LEFT,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("walkingLeft"), .125d, true));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("walkLeft"), .125d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.WALK_RIGHT,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("walkingRight"), .125d, true));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("walkRight"), .125d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.RUN_UP,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("runningUp"), .125d, true));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("runUp"), .125d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.RUN_DOWN,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("runningDown"), .125d, true));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("runDown"), .125d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.RUN_LEFT,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("runningLeft"), .125d, true));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("runLeft"), .125d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.RUN_RIGHT,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("runningRight"), .125d, true));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("runRight"), .125d, true));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.KNOCKED_BACK_UP,
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("knockedBackUp"), .25d));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.KNOCKED_BACK_DOWN,
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("knockedBackDown"), .25d));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.KNOCKED_BACK_LEFT,
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("knockedBackLeft"), .25d));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.KNOCKED_BACK_RIGHT,
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("knockedBackRight"), .25d));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.PUNCH_UP_1,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("punch1Up"), .0675d));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("punchUp1"), .0675d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.PUNCH_DOWN_1,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("punch1Down"), .0675d));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("punchDown1"), .0675d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.PUNCH_LEFT_1,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("punch1Left"), .0675d));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("punchLeft1"), 1, true));
+
+//		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_LEFT_1).getFrame(0).
+//		setRegionX(setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_LEFT_1).getFrame(0).getRegionX() +
+//		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_LEFT_1).getFrame(0).getRegionWidth());
+//
+//		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_LEFT_1).getFrame(0).
+//		setRegionX(setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_LEFT_1).getFrame(0).getRegionX() +
+//		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_LEFT_1).getFrame(0).getRegionWidth());
+//
+//		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_LEFT_1).getFrame(1).
+//		setRegionX(setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_LEFT_1).getFrame(1).getRegionX() +
+//		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_LEFT_1).getFrame(1).getRegionWidth());
+//
+//		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_LEFT_1).getFrame(2).
+//		setRegionX(setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_LEFT_1).getFrame(2).getRegionX() +
+//		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_LEFT_1).getFrame(2).getRegionWidth());
+//
+//		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_LEFT_1).getFrame(3).
+//		setRegionX(setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_LEFT_1).getFrame(3).getRegionX() +
+//		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_LEFT_1).getFrame(3).getRegionWidth());
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.PUNCH_RIGHT_1,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("punch1Right"), .0675d));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("punchRight1"), 1, true));
 
+//		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_RIGHT_1).getFrame(0).flip(true, false);
+//		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_RIGHT_1).getFrame(1).flip(true, false);
+//		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_RIGHT_1).getFrame(2).flip(true, false);
+//		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.PUNCH_RIGHT_1).getFrame(3).flip(true, false);
+//
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.PUNCH_UP_2,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("punch2Up"), .0675d));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("punchUp2"), .0675d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.PUNCH_DOWN_2,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("punch2Down"), .0675d));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("punchDown2"), .0675d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.PUNCH_LEFT_2,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("punch2Left"), .0675d));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("punchLeft2"), .0675d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.PUNCH_RIGHT_2,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("punch2Right"), .0675d));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("punchRight2"), .0675d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.KICK_UP,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("kickUp"), .0675d));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("kickUp"), .0675d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.KICK_DOWN,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("kickDown"), .0675d));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("kickDown"), .0675d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.KICK_LEFT,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("kickLeft"), .0675d));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("kickLeft"), .0675d, true));
 
 		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.KICK_RIGHT,
-		new Animation(spriteSheetAnimationsExtractor.getAnimation("kickRight"), .0675d));
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("kickRight"), .0675d, true));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.KI_BLAST_UP,
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("kiBlastUp"), .25d, true));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.KI_BLAST_DOWN,
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("kiBlastDown"), .25d, true));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.KI_BLAST_LEFT,
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("kiBlastLeft"), .25d, true));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.KI_BLAST_RIGHT,
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("kiBlastRight"), .25d, true));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.CONTINUOUS_KI_BLAST_UP,
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("continuousKiBlastUp"), .25d, true));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.CONTINUOUS_KI_BLAST_DOWN,
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("continuousKiBlastDown"), .25d, true));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.CONTINUOUS_KI_BLAST_LEFT,
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("continuousKiBlastLeft"), .25d, true));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.CONTINUOUS_KI_BLAST_RIGHT,
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("continuousKiBlastRight"), .25d, true));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.FLY_UP,
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("flyUp"), .25d, true));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.TRANSFORM_TO_SUPER,
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("transformToSuper"), .25d, true));
+
+		setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).put(AnimationName.DIE,
+		new Animation(spriteSheetAnimationsExtractorXML.getAnimation("die"), 1, true));
 	}
 
 	private void initialiseCamera()
