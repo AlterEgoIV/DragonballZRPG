@@ -78,7 +78,7 @@ public class FacingDownState extends State
     @Override
     public void render(Entity entity, SpriteBatch batch)
     {
-        batch.draw(((Player)entity).currentAnimation.getCurrentFrame(), entity.position.x, entity.position.y);
+        //batch.draw(((Player)entity).currentAnimation.getCurrentFrame(), entity.position.x, entity.position.y);
         //batch.draw(((Player)entity).currentAnimation.getCurrentFrame(),
         //(int)((Player)entity).position.x - ((Player)entity).currentAnimation.getCurrentFrame().getRegionWidth() / 2,
         //(int)((Player)entity).position.y - ((Player)entity).currentAnimation.getCurrentFrame().getRegionHeight() / 2);

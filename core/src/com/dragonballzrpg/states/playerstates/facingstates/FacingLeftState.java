@@ -78,7 +78,7 @@ public class FacingLeftState extends State
     @Override
     public void render(Entity entity, SpriteBatch batch)
     {
-        batch.draw(((Player)entity).currentAnimation.getCurrentFrame(), (int)entity.position.x, (int)entity.position.y);
+        //batch.draw(((Player)entity).currentAnimation.getCurrentFrame(), (int)entity.position.x, (int)entity.position.y);
         //batch.draw(((Player)entity).currentAnimation.getCurrentFrame(), (int)entity.position.x, (int)entity.position.y);
         //batch.draw(((Player)entity).currentAnimation.getCurrentFrame(),
         //((Player)entity).position.x - ((Player)entity).currentAnimation.getCurrentFrame().getRegionWidth() / 2,

@@ -119,8 +119,8 @@ public class WalkingLeftState extends State
         //batch.draw(((Player)entity).currentAnimation.getCurrentFrame(),
         //(int)((Player)entity).position.x - ((Player)entity).currentAnimation.getCurrentFrame().getRegionWidth() / 2,
         //(int)((Player)entity).position.y );
-        batch.draw(((Player)entity).currentAnimation.getCurrentFrame(),
-        (int)((Player)entity).position.x - ((Player)entity).currentAnimation.getCurrentFrame().getRegionWidth() / 2,
-        ((Player)entity).position.y - ((Player)entity).currentAnimation.getCurrentFrame().getRegionHeight() / 2.0f);
+//        batch.draw(((Player)entity).currentAnimation.getCurrentFrame(),
+//        (int)((Player)entity).position.x - ((Player)entity).currentAnimation.getCurrentFrame().getRegionWidth() / 2,
+//        ((Player)entity).position.y - ((Player)entity).currentAnimation.getCurrentFrame().getRegionHeight() / 2.0f);
     }
 }

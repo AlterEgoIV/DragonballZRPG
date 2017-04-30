@@ -21,6 +21,9 @@ public class TeenFutureTrunks extends Player
     {
         super(position, speed, animations, currentAnimation, sounds, up, down, left, right, melee);
         this.camera = camera;
+        animations.get(AnimationName.PUNCH_LEFT_1).getFrame(1).relativePosition.x = -3;
+        animations.get(AnimationName.PUNCH_LEFT_1).getFrame(2).relativePosition.x = -13;
+        animations.get(AnimationName.PUNCH_LEFT_1).getFrame(3).relativePosition.x = -6;
     }
 
     @Override
@@ -30,17 +33,17 @@ public class TeenFutureTrunks extends Player
         currentAnimation.update();
         checkRunWindow();
 
-        //currentAnimation.getCurrentFrame().setRegionX(currentAnimation.getCurrentFrame().getRegionX() - currentAnimation.getCurrentFrame().getRegionWidth() / 2);
-        //currentAnimation.getCurrentFrame().scroll(currentAnimation.getCurrentFrame().getRegionWidth(), 0);
-
         camera.position.x = (int)position.x;
         camera.position.y = (int)position.y;
+
+        System.out.println("Position.x: " + position.x);
+        System.out.println("Position.y: " + position.y);
     }
 
     @Override
     public void render(SpriteBatch batch)
     {
-        batch.draw(currentAnimation.getCurrentFrame(), (int)position.x, (int)position.y);
+        batch.draw(currentAnimation.getCurrentFrame().getTextureRegion(), (int)position.x + currentAnimation.getCurrentFrame().relativePosition.x, (int)position.y);
         //batch.draw(currentAnimation.getCurrentFrame(), (int)position.x - width / 2, (int)position.y - height / 2);
     }
 

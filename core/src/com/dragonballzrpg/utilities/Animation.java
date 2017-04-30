@@ -90,14 +90,16 @@ public class Animation
         frames.remove(frame);
     }
 
-    public TextureRegion getCurrentFrame()
+    public Frame getCurrentFrame()
     {
-        return frames.get(currentFrame).getFrame();
+        //return frames.get(currentFrame).getTextureRegion();
+        return frames.get(currentFrame);
     }
 
-    public TextureRegion getFrame(int index)
+    public Frame getFrame(int index)
     {
-        return frames.get(index).getFrame();
+        //return frames.get(index).getTextureRegion();
+        return frames.get(index);
     }
 
     public double getDuration()

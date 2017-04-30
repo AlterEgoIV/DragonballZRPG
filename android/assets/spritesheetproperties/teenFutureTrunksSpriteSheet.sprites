@@ -199,11 +199,13 @@
         <spr name="1" x="18" y="109" w="16" h="26"/>
 		<spr name="2" x="35" y="109" w="16" h="26"/>
       </dir>
-	  <dir name="transformToSuper">
+	  <dir name="beginTransformToSuper">
         <spr name="0" x="169" y="108" w="20" h="27"/>
         <spr name="1" x="190" y="105" w="22" h="30"/>
-		<spr name="2" x="213" y="104" w="22" h="31"/>
-		<spr name="3" x="236" y="104" w="22" h="31"/>
+      </dir>
+	  <dir name="transformToSuper">
+		<spr name="0" x="213" y="104" w="22" h="31"/>
+		<spr name="1" x="236" y="104" w="22" h="31"/>
       </dir>
 	  <dir name="die">
         <spr name="0" x="53" y="106" w="22" h="29"/>

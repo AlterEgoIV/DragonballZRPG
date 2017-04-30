@@ -35,8 +35,8 @@ public abstract class Entity
         this.animations = animations;
         this.currentAnimation = currentAnimation;
         this.sounds = sounds;
-        width = currentAnimation.getFrame(0).getRegionWidth();
-        height = currentAnimation.getFrame(0).getRegionHeight();
+        width = currentAnimation.getFrame(0).getTextureRegion().getRegionWidth();
+        height = currentAnimation.getFrame(0).getTextureRegion().getRegionHeight();
 
         //position.x -= width / 2;
         //position.y += height / 2;

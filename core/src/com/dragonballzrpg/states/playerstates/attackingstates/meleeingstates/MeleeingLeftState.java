@@ -123,7 +123,7 @@ public class MeleeingLeftState extends State
         int offsety = (int)entity.position.y / 2;
 
 
-        batch.draw(((Player)entity).currentAnimation.getCurrentFrame(), (int)entity.position.x + offsetx, (int)entity.position.y);
+        //batch.draw(((Player)entity).currentAnimation.getCurrentFrame(), (int)entity.position.x + offsetx, (int)entity.position.y);
         //batch.draw(((Player)entity).currentAnimation.getCurrentFrame(),
         //((Player)entity).position.x - ((Player)entity).currentAnimation.getCurrentFrame().getRegionWidth() / 2,
         //(int)((Player)entity).position.y);
