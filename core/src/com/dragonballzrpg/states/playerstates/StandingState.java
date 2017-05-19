@@ -1,8 +1,8 @@
 package com.dragonballzrpg.states.playerstates;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.dragonballzrpg.entities.Entity;
-import com.dragonballzrpg.entities.players.Player;
+import com.dragonballzrpg.gameobjects.GameObject;
+import com.dragonballzrpg.gameobjects.players.Player;
 import com.dragonballzrpg.enums.AnimationName;
 import com.dragonballzrpg.enums.StateName;
 import com.dragonballzrpg.states.State;
@@ -54,81 +54,81 @@ public class StandingState extends State
     }
 
     @Override
-    public void enter(Entity entity)
+    public void enter(GameObject gameObject)
     {
 
     }
 
     @Override
-    public void exit(Entity entity)
+    public void exit(GameObject gameObject)
     {
 
     }
 
     @Override
-    public void update(Entity entity)
+    public void update(GameObject gameObject)
     {
         for(Transition transition : transitions)
         {
-            transition.update((Player)entity);
+            transition.update((Player) gameObject);
         }
 
-//        if(((Player)entity).isRightKeyPressed().value())
+//        if(((Player)gameObject).isRightKeyPressed().value())
 //        {
-//            ((Player)entity).setCurrentAnimation(((Player)entity).getAnimations().get(AnimationName.WALK_RIGHT));
-//            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().get(StateName.WALKING_RIGHT));
+//            ((Player)gameObject).setCurrentAnimation(((Player)gameObject).getAnimations().get(AnimationName.WALK_RIGHT));
+//            ((Player)gameObject).setCurrentState(((Player)gameObject).getPlayerStates().get(StateName.WALKING_RIGHT));
 //        }
 
-        /*if(((Player)entity).isMeleeKeyPressed() && ((Player)entity).canAttack) // For testing
+        /*if(((Player)gameObject).isMeleeKeyPressed() && ((Player)gameObject).canAttack) // For testing
         {
-            ((Player)entity).canAttack = false;
-            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation(getRandomValue(new String[]{"punch1Right", "punch2Right", "kickRight"})));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("attackingRight"));
+            ((Player)gameObject).canAttack = false;
+            ((Player)gameObject).setCurrentAnimation(((Player)gameObject).getStringAnimations().getAnimation(getRandomValue(new String[]{"punch1Right", "punch2Right", "kickRight"})));
+            ((Player)gameObject).setCurrentState(((Player)gameObject).getPlayerStates().getAnimation("attackingRight"));
         }
-        else if(((Player)entity).isUpKeyPressed() && ((Player)entity).isReadyToRunUp())
+        else if(((Player)gameObject).isUpKeyPressed() && ((Player)gameObject).isReadyToRunUp())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("runningUp"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningNorth"));
+            ((Player)gameObject).setCurrentAnimation(((Player)gameObject).getStringAnimations().getAnimation("runningUp"));
+            ((Player)gameObject).setCurrentState(((Player)gameObject).getPlayerStates().getAnimation("runningNorth"));
         }
-        else if(((Player)entity).isDownKeyPressed() && ((Player)entity).isReadyToRunDown())
+        else if(((Player)gameObject).isDownKeyPressed() && ((Player)gameObject).isReadyToRunDown())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("runningDown"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningSouth"));
+            ((Player)gameObject).setCurrentAnimation(((Player)gameObject).getStringAnimations().getAnimation("runningDown"));
+            ((Player)gameObject).setCurrentState(((Player)gameObject).getPlayerStates().getAnimation("runningSouth"));
         }
-        else if(((Player)entity).isLeftKeyPressed() && ((Player)entity).isReadyToRunLeft())
+        else if(((Player)gameObject).isLeftKeyPressed() && ((Player)gameObject).isReadyToRunLeft())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("runningLeft"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningWest"));
+            ((Player)gameObject).setCurrentAnimation(((Player)gameObject).getStringAnimations().getAnimation("runningLeft"));
+            ((Player)gameObject).setCurrentState(((Player)gameObject).getPlayerStates().getAnimation("runningWest"));
         }
-        else if(((Player)entity).isRightKeyPressed() && ((Player)entity).isReadyToRunRight())
+        else if(((Player)gameObject).isRightKeyPressed() && ((Player)gameObject).isReadyToRunRight())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("runningRight"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningEast"));
+            ((Player)gameObject).setCurrentAnimation(((Player)gameObject).getStringAnimations().getAnimation("runningRight"));
+            ((Player)gameObject).setCurrentState(((Player)gameObject).getPlayerStates().getAnimation("runningEast"));
         }
-        else if(((Player)entity).isUpKeyPressed())
+        else if(((Player)gameObject).isUpKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("walkingUp"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingNorth"));
+            ((Player)gameObject).setCurrentAnimation(((Player)gameObject).getStringAnimations().getAnimation("walkingUp"));
+            ((Player)gameObject).setCurrentState(((Player)gameObject).getPlayerStates().getAnimation("walkingNorth"));
         }
-        else if(((Player)entity).isDownKeyPressed())
+        else if(((Player)gameObject).isDownKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("walkingDown"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingSouth"));
+            ((Player)gameObject).setCurrentAnimation(((Player)gameObject).getStringAnimations().getAnimation("walkingDown"));
+            ((Player)gameObject).setCurrentState(((Player)gameObject).getPlayerStates().getAnimation("walkingSouth"));
         }
-        else if(((Player)entity).isLeftKeyPressed())
+        else if(((Player)gameObject).isLeftKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("walkingLeft"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingWest"));
+            ((Player)gameObject).setCurrentAnimation(((Player)gameObject).getStringAnimations().getAnimation("walkingLeft"));
+            ((Player)gameObject).setCurrentState(((Player)gameObject).getPlayerStates().getAnimation("walkingWest"));
         }
-        else if(((Player)entity).isRightKeyPressed())
+        else if(((Player)gameObject).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("walkingRight"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingEast"));
+            ((Player)gameObject).setCurrentAnimation(((Player)gameObject).getStringAnimations().getAnimation("walkingRight"));
+            ((Player)gameObject).setCurrentState(((Player)gameObject).getPlayerStates().getAnimation("walkingEast"));
         }*/
     }
 
     @Override
-    public void render(Entity entity, SpriteBatch batch)
+    public void render(GameObject gameObject, SpriteBatch batch)
     {
 
     }

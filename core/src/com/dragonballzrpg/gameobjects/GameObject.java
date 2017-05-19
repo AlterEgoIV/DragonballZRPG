@@ -1,4 +1,4 @@
-package com.dragonballzrpg.entities;
+package com.dragonballzrpg.gameobjects;
 
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -9,29 +9,31 @@ import com.dragonballzrpg.enums.StateName;
 import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.utilities.Animation;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by Carl on 09/08/2016.
  */
-public abstract class Entity
+public abstract class GameObject
 {
-    public Vector2 position;
+    public Vector2 position, velocity;
     public Map<StateName, State> states;
     public State currentState;
     public Map<AnimationName, Animation> animations;
     public Animation currentAnimation;
     public Map<SoundName, Sound> sounds;
-    protected double speed;
-    protected int width;
-    protected int height;
+    protected float speed;
+    public int width, height;
+    public Rectangle boundingBox;
 
-    public Entity(Vector2 position, double speed, Map<AnimationName, Animation> animations, Animation currentAnimation,
-                  Map<SoundName, Sound> sounds)
+    public GameObject(Vector2 position, float speed, Map<AnimationName, Animation> animations, Animation currentAnimation,
+                      Map<SoundName, Sound> sounds)
     {
         this.position = position;
         this.speed = speed;
+        this.velocity = new Vector2(speed, speed);
         this.animations = animations;
         this.currentAnimation = currentAnimation;
         this.sounds = sounds;
@@ -42,6 +44,7 @@ public abstract class Entity
         //position.y += height / 2;
         states = new HashMap<StateName, State>();
         currentState = null;
+        boundingBox = new Rectangle((int)position.x - width / 2, (int)position.y - height / 2, (int)width, (int)height);
     }
 
     public abstract void update();

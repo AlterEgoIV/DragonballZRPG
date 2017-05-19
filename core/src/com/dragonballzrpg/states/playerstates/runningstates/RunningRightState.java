@@ -2,8 +2,8 @@ package com.dragonballzrpg.states.playerstates.runningstates;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.dragonballzrpg.entities.Entity;
-import com.dragonballzrpg.entities.players.Player;
+import com.dragonballzrpg.gameobjects.GameObject;
+import com.dragonballzrpg.gameobjects.players.Player;
 import com.dragonballzrpg.enums.AnimationName;
 import com.dragonballzrpg.enums.SoundName;
 import com.dragonballzrpg.enums.StateName;
@@ -35,52 +35,52 @@ public class RunningRightState extends State
     }
 
     @Override
-    public void enter(Entity entity)
+    public void enter(GameObject gameObject)
     {
-        entity.sounds.get(SoundName.RUNNING).loop();
+        gameObject.sounds.get(SoundName.RUNNING).loop();
     }
 
     @Override
-    public void exit(Entity entity)
+    public void exit(GameObject gameObject)
     {
-        entity.sounds.get(SoundName.RUNNING).stop();
+        gameObject.sounds.get(SoundName.RUNNING).stop();
     }
 
     @Override
-    public void update(Entity entity)
+    public void update(GameObject gameObject)
     {
         for(Transition transition : transitions)
         {
-            transition.update(entity);
+            transition.update(gameObject);
         }
 
         // Up && Right
-        /*if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
-           !((Player)entity).isLeftKeyPressed() && ((Player)entity).isRightKeyPressed())
+        /*if(((Player)gameObject).isUpKeyPressed() && !((Player)gameObject).isDownKeyPressed() &&
+           !((Player)gameObject).isLeftKeyPressed() && ((Player)gameObject).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("runningRight"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningEastNorth"));
+            ((Player)gameObject).setCurrentAnimation(((Player)gameObject).getStringAnimations().getAnimation("runningRight"));
+            ((Player)gameObject).setCurrentState(((Player)gameObject).getPlayerStates().getAnimation("runningEastNorth"));
         }
 
         // Down && Right
-        if(!((Player)entity).isUpKeyPressed() && ((Player)entity).isDownKeyPressed() &&
-           !((Player)entity).isLeftKeyPressed() && ((Player)entity).isRightKeyPressed())
+        if(!((Player)gameObject).isUpKeyPressed() && ((Player)gameObject).isDownKeyPressed() &&
+           !((Player)gameObject).isLeftKeyPressed() && ((Player)gameObject).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("runningRight"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("runningEastSouth"));
+            ((Player)gameObject).setCurrentAnimation(((Player)gameObject).getStringAnimations().getAnimation("runningRight"));
+            ((Player)gameObject).setCurrentState(((Player)gameObject).getPlayerStates().getAnimation("runningEastSouth"));
         }
 
-        if(!((Player)entity).isRightKeyPressed())
+        if(!((Player)gameObject).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("facingRight"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("standing"));
+            ((Player)gameObject).setCurrentAnimation(((Player)gameObject).getStringAnimations().getAnimation("facingRight"));
+            ((Player)gameObject).setCurrentState(((Player)gameObject).getPlayerStates().getAnimation("standing"));
         }*/
 
-        ((Player)entity).position.x += ((Player)entity).getRunSpeed() * Gdx.graphics.getDeltaTime();
+        ((Player) gameObject).position.x += ((Player) gameObject).getRunSpeed() * Gdx.graphics.getDeltaTime();
     }
 
     @Override
-    public void render(Entity entity, SpriteBatch batch)
+    public void render(GameObject gameObject, SpriteBatch batch)
     {
 
     }

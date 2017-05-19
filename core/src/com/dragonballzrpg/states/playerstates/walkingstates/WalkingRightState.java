@@ -2,8 +2,8 @@ package com.dragonballzrpg.states.playerstates.walkingstates;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.dragonballzrpg.entities.Entity;
-import com.dragonballzrpg.entities.players.Player;
+import com.dragonballzrpg.gameobjects.GameObject;
+import com.dragonballzrpg.gameobjects.players.Player;
 import com.dragonballzrpg.enums.AnimationName;
 import com.dragonballzrpg.enums.StateName;
 import com.dragonballzrpg.states.State;
@@ -62,30 +62,30 @@ public class WalkingRightState extends State
     }
 
     @Override
-    public void enter(Entity entity)
+    public void enter(GameObject gameObject)
     {
 
     }
 
     @Override
-    public void exit(Entity entity)
+    public void exit(GameObject gameObject)
     {
 
     }
 
     @Override
-    public void update(Entity entity)
+    public void update(GameObject gameObject)
     {
         for(Transition transition : transitions)
         {
-            transition.update(entity);
+            transition.update(gameObject);
         }
 
-        entity.position.x += entity.getSpeed() * Gdx.graphics.getDeltaTime();
+        gameObject.position.x += gameObject.getSpeed() * Gdx.graphics.getDeltaTime();
     }
 
     @Override
-    public void render(Entity entity, SpriteBatch batch)
+    public void render(GameObject gameObject, SpriteBatch batch)
     {
 
     }

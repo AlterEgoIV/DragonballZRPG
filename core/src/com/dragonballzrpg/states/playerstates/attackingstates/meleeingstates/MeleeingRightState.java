@@ -2,8 +2,8 @@ package com.dragonballzrpg.states.playerstates.attackingstates.meleeingstates;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.dragonballzrpg.entities.Entity;
-import com.dragonballzrpg.entities.players.Player;
+import com.dragonballzrpg.gameobjects.GameObject;
+import com.dragonballzrpg.gameobjects.players.Player;
 import com.dragonballzrpg.enums.AnimationName;
 import com.dragonballzrpg.enums.SoundName;
 import com.dragonballzrpg.enums.StateName;
@@ -85,9 +85,9 @@ public class MeleeingRightState extends State
     }
 
     @Override
-    public void enter(Entity entity)
+    public void enter(GameObject gameObject)
     {
-        Player player = (Player)entity;
+        Player player = (Player) gameObject;
 
         player.canAttack.set(false);
         player.sounds.get(getRandomValue(new SoundName[]{SoundName.MELEE_1, SoundName.MELEE_2})).play();
@@ -98,34 +98,34 @@ public class MeleeingRightState extends State
     }
 
     @Override
-    public void exit(Entity entity)
+    public void exit(GameObject gameObject)
     {
-        Player player = (Player)entity;
+        Player player = (Player) gameObject;
     }
 
     @Override
-    public void update(Entity entity)
+    public void update(GameObject gameObject)
     {
         currentStateDuration += Gdx.graphics.getDeltaTime();
 
-        if(currentStateDuration >= entity.currentAnimation.getDuration())
+        if(currentStateDuration >= gameObject.currentAnimation.getDuration())
         {
             currentStateDuration = 0.0d;
-            entity.currentAnimation.reset();
+            gameObject.currentAnimation.reset();
 
             for(Transition transition : transitions)
             {
-                transition.update(entity);
+                transition.update(gameObject);
             }
         }
     }
 
     @Override
-    public void render(Entity entity, SpriteBatch batch)
+    public void render(GameObject gameObject, SpriteBatch batch)
     {
-        //batch.draw(((Player)entity).currentAnimation.getCurrentFrame(), (int)entity.position.x, (int)entity.position.y);
-//        batch.draw(((Player)entity).currentAnimation.getCurrentFrame(),
-//        (int)((Player)entity).position.x,
-//        (int)((Player)entity).position.y - ((Player)entity).currentAnimation.getCurrentFrame().getRegionHeight() / 2);
+        //batch.draw(((Player)gameObject).currentAnimation.getCurrentFrame(), (int)gameObject.position.x, (int)gameObject.position.y);
+//        batch.draw(((Player)gameObject).currentAnimation.getCurrentFrame(),
+//        (int)((Player)gameObject).position.x,
+//        (int)((Player)gameObject).position.y - ((Player)gameObject).currentAnimation.getCurrentFrame().getRegionHeight() / 2);
     }
 }

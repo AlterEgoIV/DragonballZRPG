@@ -1,8 +1,8 @@
 package com.dragonballzrpg.states.playerstates.attackingstates.meleeingstates;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.dragonballzrpg.entities.Entity;
-import com.dragonballzrpg.entities.players.Player;
+import com.dragonballzrpg.gameobjects.GameObject;
+import com.dragonballzrpg.gameobjects.players.Player;
 import com.dragonballzrpg.states.State;
 
 /**
@@ -18,25 +18,25 @@ public class MeleeingState extends State
     }
 
     @Override
-    public void enter(Entity entity)
+    public void enter(GameObject gameObject)
     {
 
     }
 
     @Override
-    public void exit(Entity entity)
+    public void exit(GameObject gameObject)
     {
 
     }
 
     @Override
-    public void update(Entity entity)
+    public void update(GameObject gameObject)
     {
 
     }
 
     @Override
-    public void render(Entity entity, SpriteBatch batch)
+    public void render(GameObject gameObject, SpriteBatch batch)
     {
 
     }

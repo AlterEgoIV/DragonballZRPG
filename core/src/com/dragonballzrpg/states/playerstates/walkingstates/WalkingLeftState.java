@@ -2,8 +2,8 @@ package com.dragonballzrpg.states.playerstates.walkingstates;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.dragonballzrpg.entities.Entity;
-import com.dragonballzrpg.entities.players.Player;
+import com.dragonballzrpg.gameobjects.GameObject;
+import com.dragonballzrpg.gameobjects.players.Player;
 import com.dragonballzrpg.enums.AnimationName;
 import com.dragonballzrpg.enums.StateName;
 import com.dragonballzrpg.states.State;
@@ -68,59 +68,59 @@ public class WalkingLeftState extends State
     }
 
     @Override
-    public void enter(Entity entity)
+    public void enter(GameObject gameObject)
     {
 
     }
 
     @Override
-    public void exit(Entity entity)
+    public void exit(GameObject gameObject)
     {
 
     }
 
     @Override
-    public void update(Entity entity)
+    public void update(GameObject gameObject)
     {
         for(Transition transition : transitions)
         {
-            transition.update((Player)entity);
+            transition.update((Player) gameObject);
         }
 
         // Up && Left
-        /*if(((Player)entity).isUpKeyPressed() && !((Player)entity).isDownKeyPressed() &&
-           ((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
+        /*if(((Player)gameObject).isUpKeyPressed() && !((Player)gameObject).isDownKeyPressed() &&
+           ((Player)gameObject).isLeftKeyPressed() && !((Player)gameObject).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("walkingLeft"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingWestNorth"));
+            ((Player)gameObject).setCurrentAnimation(((Player)gameObject).getStringAnimations().getAnimation("walkingLeft"));
+            ((Player)gameObject).setCurrentState(((Player)gameObject).getPlayerStates().getAnimation("walkingWestNorth"));
         }
 
         // Down && Left
-        if(!((Player)entity).isUpKeyPressed() && ((Player)entity).isDownKeyPressed() &&
-           ((Player)entity).isLeftKeyPressed() && !((Player)entity).isRightKeyPressed())
+        if(!((Player)gameObject).isUpKeyPressed() && ((Player)gameObject).isDownKeyPressed() &&
+           ((Player)gameObject).isLeftKeyPressed() && !((Player)gameObject).isRightKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("walkingLeft"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("walkingWestSouth"));
+            ((Player)gameObject).setCurrentAnimation(((Player)gameObject).getStringAnimations().getAnimation("walkingLeft"));
+            ((Player)gameObject).setCurrentState(((Player)gameObject).getPlayerStates().getAnimation("walkingWestSouth"));
         }
 
-        if(!((Player)entity).isLeftKeyPressed())
+        if(!((Player)gameObject).isLeftKeyPressed())
         {
-            ((Player)entity).setCurrentAnimation(((Player)entity).getStringAnimations().getAnimation("facingLeft"));
-            ((Player)entity).setCurrentState(((Player)entity).getPlayerStates().getAnimation("standing"));
+            ((Player)gameObject).setCurrentAnimation(((Player)gameObject).getStringAnimations().getAnimation("facingLeft"));
+            ((Player)gameObject).setCurrentState(((Player)gameObject).getPlayerStates().getAnimation("standing"));
         }*/
 
-        ((Player)entity).position.x -= entity.getSpeed() * Gdx.graphics.getDeltaTime();
+        ((Player) gameObject).position.x -= gameObject.getSpeed() * Gdx.graphics.getDeltaTime();
     }
 
     @Override
-    public void render(Entity entity, SpriteBatch batch)
+    public void render(GameObject gameObject, SpriteBatch batch)
     {
-        //batch.draw(((Player)entity).currentAnimation.getCurrentFrame(), (int)entity.position.x, (int)entity.position.y);
-        //batch.draw(((Player)entity).currentAnimation.getCurrentFrame(),
-        //(int)((Player)entity).position.x - ((Player)entity).currentAnimation.getCurrentFrame().getRegionWidth() / 2,
-        //(int)((Player)entity).position.y );
-//        batch.draw(((Player)entity).currentAnimation.getCurrentFrame(),
-//        (int)((Player)entity).position.x - ((Player)entity).currentAnimation.getCurrentFrame().getRegionWidth() / 2,
-//        ((Player)entity).position.y - ((Player)entity).currentAnimation.getCurrentFrame().getRegionHeight() / 2.0f);
+        //batch.draw(((Player)gameObject).currentAnimation.getCurrentFrame(), (int)gameObject.position.x, (int)gameObject.position.y);
+        //batch.draw(((Player)gameObject).currentAnimation.getCurrentFrame(),
+        //(int)((Player)gameObject).position.x - ((Player)gameObject).currentAnimation.getCurrentFrame().getRegionWidth() / 2,
+        //(int)((Player)gameObject).position.y );
+//        batch.draw(((Player)gameObject).currentAnimation.getCurrentFrame(),
+//        (int)((Player)gameObject).position.x - ((Player)gameObject).currentAnimation.getCurrentFrame().getRegionWidth() / 2,
+//        ((Player)gameObject).position.y - ((Player)gameObject).currentAnimation.getCurrentFrame().getRegionHeight() / 2.0f);
     }
 }

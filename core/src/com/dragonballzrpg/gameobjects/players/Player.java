@@ -1,10 +1,10 @@
-package com.dragonballzrpg.entities.players;
+package com.dragonballzrpg.gameobjects.players;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
-import com.dragonballzrpg.entities.Entity;
+import com.dragonballzrpg.gameobjects.GameObject;
 import com.dragonballzrpg.enums.AnimationName;
 import com.dragonballzrpg.enums.SoundName;
 import com.dragonballzrpg.enums.StateName;
@@ -39,7 +39,7 @@ import java.util.Map;
 /**
  * Created by Carl on 09/08/2016.
  */
-public abstract class Player extends Entity implements InputHandler
+public abstract class Player extends GameObject implements InputHandler
 {
     protected OrthographicCamera camera;
     public Bool isUpKeyPressed;
@@ -58,7 +58,7 @@ public abstract class Player extends Entity implements InputHandler
     private double runSpeed;
     private int up, down, left, right, melee;
 
-    public Player(Vector2 position, double speed, Map<AnimationName, Animation> animations, Animation currentAnimation,
+    public Player(Vector2 position, float speed, Map<AnimationName, Animation> animations, Animation currentAnimation,
                   Map<SoundName, Sound> sounds, int up, int down, int left, int right, int melee)
     {
         super(position, speed, animations, currentAnimation, sounds);

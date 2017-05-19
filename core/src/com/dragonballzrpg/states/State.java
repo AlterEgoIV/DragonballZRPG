@@ -1,8 +1,8 @@
 package com.dragonballzrpg.states;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.dragonballzrpg.entities.Entity;
-import com.dragonballzrpg.entities.players.Player;
+import com.dragonballzrpg.gameobjects.GameObject;
+import com.dragonballzrpg.gameobjects.players.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +23,10 @@ public abstract class State
     }
 
     public abstract void initialiseTransitions(Player player);
-    public abstract void enter(Entity entity);
-    public abstract void exit(Entity entity);
-    public abstract void update(Entity entity);
-    public abstract void render(Entity entity, SpriteBatch batch);
+    public abstract void enter(GameObject gameObject);
+    public abstract void exit(GameObject gameObject);
+    public abstract void update(GameObject gameObject);
+    public abstract void render(GameObject gameObject, SpriteBatch batch);
 
     public void setTransitions(List<Transition> transitions)
     {
