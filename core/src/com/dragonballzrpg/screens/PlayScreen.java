@@ -8,7 +8,7 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.*;
 import com.dragonballzrpg.DragonballZRPG;
-import com.dragonballzrpg.PhysicsSimulator;
+import com.dragonballzrpg.physics.PhysicsSimulator;
 import com.dragonballzrpg.gameobjects.GameObject;
 import com.dragonballzrpg.gameobjects.players.Player;
 import com.dragonballzrpg.gameobjects.players.TeenFutureTrunks;
@@ -82,8 +82,8 @@ public class PlayScreen extends GameScreen
 
         player = new TeenFutureTrunks(game.camera,
           new Vector2(0, 0), 100.0f,
-          game.setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
-          game.setOfAnimationSets.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN),
+          game.animationLoader.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
+          game.animationLoader.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN),
           game.sounds,
           Input.Keys.UP, Input.Keys.DOWN, Input.Keys.LEFT, Input.Keys.RIGHT, Input.Keys.M);
 

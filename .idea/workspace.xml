@@ -2,47 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6cbd35be-cf1d-47ce-8c94-36c768fd3ece" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/CollisionHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/PhysicsSimulator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/android/assets/test2.tmx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/loaders/AnimationLoader.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LICENSE" afterPath="$PROJECT_DIR$/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/DragonballZRPG.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/DragonballZRPG.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/screens/PlayScreen.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/screens/PlayScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/State.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/State.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/Transition.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/Transition.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/StandingState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/StandingState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingDownState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingDownState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingLeftState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingLeftState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingRightState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingRightState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingUpState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingUpState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/facingstates/FacingDownState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/facingstates/FacingDownState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/facingstates/FacingLeftState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/facingstates/FacingLeftState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/facingstates/FacingRightState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/facingstates/FacingRightState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/facingstates/FacingUpState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/facingstates/FacingUpState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningDownLeftState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningDownLeftState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningDownRightState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningDownRightState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningDownState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningDownState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningLeftState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningLeftState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningRightState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningRightState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningUpLeftState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningUpLeftState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningUpRightState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningUpRightState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningUpState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningUpState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingDownLeftState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingDownLeftState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingDownRightState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingDownRightState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingDownState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingDownState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingLeftState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingLeftState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingRightState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingRightState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingUpLeftState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingUpLeftState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingUpRightState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingUpRightState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingUpState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingUpState.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/entities/Entity.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/GameObject.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/entities/players/Player.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/Player.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/entities/players/TeenFutureTrunks.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/TeenFutureTrunks.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/CollisionHandler.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/physics/CollisionHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/PhysicsSimulator.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/physics/PhysicsSimulator.java" />
     </list>
     <manually-removed-from-ignored>
       <directory path="android/assets/" />
@@ -69,83 +40,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="DragonballZRPG.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DragonballZRPG.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/DragonballZRPG.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="122" column="101" lean-forward="false" selection-start-line="122" selection-start-column="101" selection-end-line="122" selection-end-column="101" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayScreen.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/screens/PlayScreen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="87" column="91" lean-forward="true" selection-start-line="87" selection-start-column="91" selection-end-line="87" selection-end-column="91" />
+            <state relative-caret-position="532">
+              <caret line="48" column="41" lean-forward="false" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#3161#3162#0" expanded="true" />
+                <element signature="e#3184#3185#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/Player.java">
+      <file leaf-file-name="AnimationLoader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/loaders/AnimationLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="60" column="41" lean-forward="false" selection-start-line="60" selection-start-column="41" selection-end-line="60" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameObject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/GameObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TeenFutureTrunks.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/TeenFutureTrunks.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="808">
-              <caret line="67" column="10" lean-forward="false" selection-start-line="67" selection-start-column="10" selection-end-line="67" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PhysicsSimulator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/PhysicsSimulator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="15" column="41" lean-forward="false" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+            <state relative-caret-position="504">
+              <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#669#670#0" expanded="true" />
-                <element signature="e#716#717#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CollisionHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/CollisionHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="40" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#510#511#0" expanded="true" />
-                <element signature="e#553#554#0" expanded="true" />
-                <element signature="e#601#602#0" expanded="true" />
-                <element signature="e#648#649#0" expanded="true" />
+                <element signature="e#1350#1351#0" expanded="true" />
+                <element signature="e#1398#1399#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2620,9 +2536,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/enums/SoundName.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/entities/animatedentities/AnimatedEntity.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/entities/animatedentities/players/TeenFutureTrunks.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/screens/ControlsScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/Controller.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/InputController.java" />
@@ -2649,7 +2562,6 @@
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/XMLAnimationExtractor.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/SpriteSheetAnimationsExtractorXML.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/enums/AnimationName.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/DragonballZRPG.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/Animation.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/Frame.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/entities/Entity.java" />
@@ -2670,7 +2582,11 @@
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/CollisionHandler.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/PhysicsSimulator.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/TeenFutureTrunks.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/physics/CollisionHandler.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/physics/PhysicsSimulator.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/screens/PlayScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/loaders/AnimationLoader.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/DragonballZRPG.java" />
       </list>
     </option>
   </component>
@@ -2714,6 +2630,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -2785,6 +2703,84 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="screens" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dragonballzrpg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="physics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dragonballzrpg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loaders" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dragonballzrpg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="gameobjects" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -2821,10 +2817,56 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spritesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spritesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="futuretrunks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3245,7 +3287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493580878248</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Added collision handling">
+      <created>1495229200946</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1495229200946</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -3276,7 +3325,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24865736" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -3285,6 +3333,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -3309,7 +3358,8 @@
     <MESSAGE value="Added SpriteSheetAnimationsExtractorXML to handle parsing XML sprite sheet property files" />
     <MESSAGE value="Animations are loaded with SpriteSheetAnimationsExtractorXML" />
     <MESSAGE value="Animation Frame displacement introduced" />
-    <option name="LAST_COMMIT_MESSAGE" value="Animation Frame displacement introduced" />
+    <MESSAGE value="Added collision handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added collision handling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -3320,7 +3370,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/InputController.java" />
     <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/Controller.java" />
     <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/AIController.java" />
     <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/wrappers/Bool.java">
@@ -3386,7 +3435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="24" column="62" lean-forward="false" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3446,7 +3494,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3472,7 +3519,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="16" column="78" lean-forward="false" selection-start-line="16" selection-start-column="78" selection-end-line="16" selection-end-column="78" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3569,9 +3615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
           <caret line="105" column="53" lean-forward="false" selection-start-line="105" selection-start-column="53" selection-end-line="105" selection-end-column="53" />
-          <folding>
-            <marker date="1493499717155" expanded="true" signature="1671:1686" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3579,23 +3622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-560">
           <caret line="32" column="12" lean-forward="false" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/GameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="60" column="41" lean-forward="false" selection-start-line="60" selection-start-column="41" selection-end-line="60" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3603,49 +3629,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="95" column="40" lean-forward="false" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/CollisionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="40" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
-            <element signature="e#553#554#0" expanded="true" />
-            <element signature="e#601#602#0" expanded="true" />
-            <element signature="e#648#649#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/PhysicsSimulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="15" column="41" lean-forward="false" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#669#670#0" expanded="true" />
-            <element signature="e#716#717#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/DragonballZRPG.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="122" column="101" lean-forward="false" selection-start-line="122" selection-start-column="101" selection-end-line="122" selection-end-column="101" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/TeenFutureTrunks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="808">
-          <caret line="67" column="10" lean-forward="false" selection-start-line="67" selection-start-column="10" selection-end-line="67" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3653,16 +3636,82 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/physics/CollisionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/physics/PhysicsSimulator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="41" column="63" lean-forward="false" selection-start-line="41" selection-start-column="63" selection-end-line="41" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/screens/PlayScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="87" column="91" lean-forward="true" selection-start-line="87" selection-start-column="91" selection-end-line="87" selection-end-column="91" />
+        <state relative-caret-position="1869">
+          <caret line="89" column="59" lean-forward="false" selection-start-line="89" selection-start-column="59" selection-end-line="89" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/TeenFutureTrunks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="23" column="99" lean-forward="true" selection-start-line="23" selection-start-column="99" selection-end-line="23" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/loaders/AnimationLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1350#1351#0" expanded="true" />
+            <element signature="e#1398#1399#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/DragonballZRPG.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="48" column="41" lean-forward="false" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
+          <folding>
+            <element signature="e#3161#3162#0" expanded="true" />
+            <element signature="e#3184#3185#0" expanded="true" />
           </folding>
         </state>
       </provider>

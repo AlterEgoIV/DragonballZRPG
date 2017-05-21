@@ -1,6 +1,5 @@
-package com.dragonballzrpg;
+package com.dragonballzrpg.physics;
 
-import com.badlogic.gdx.Gdx;
 import com.dragonballzrpg.gameobjects.GameObject;
 
 import java.awt.*;
@@ -10,48 +9,50 @@ import java.util.List;
 /**
  * Created by Carl on 19/05/2017.
  */
-public class PhysicsSimulator
+public class CollisionHandler
 {
-    private CollisionHandler collisionHandler;
     private List<GameObject> gameObjects;
+    private List<Rectangle> staticRectangles;
 
-    public PhysicsSimulator()
+    public CollisionHandler()
     {
-        collisionHandler = new CollisionHandler();
         gameObjects = new ArrayList<GameObject>();
+        staticRectangles = new ArrayList<Rectangle>();
     }
 
     public void add(GameObject gameObject)
     {
-        collisionHandler.add(gameObject);
         gameObjects.add(gameObject);
     }
 
     public void add(Rectangle rectangle)
     {
-        collisionHandler.add(rectangle);
+        staticRectangles.add(rectangle);
     }
 
-    public void update()
+    public void handleXAxisCollisions(GameObject gameObject)
     {
-        for(GameObject gameObject : gameObjects)
+        // Static
+        for(Rectangle staticRectangle : staticRectangles)
         {
-            gameObject.position.x += gameObject.velocity.x * Gdx.graphics.getDeltaTime();
-            gameObject.boundingBox.setLocation((int)gameObject.position.x - gameObject.width / 2, (int)gameObject.position.y - gameObject.height / 2);
+            if(gameObject.boundingBox.intersects(staticRectangle))
+            {
+                Rectangle rectangle = gameObject.boundingBox.intersection(staticRectangle);
 
-            collisionHandler.handleXAxisCollisions(gameObject);
-            //handleXAxisCollisions(gameObject);
-
-            gameObject.position.y += gameObject.velocity.y * Gdx.graphics.getDeltaTime();
-            gameObject.boundingBox.setLocation((int)gameObject.position.x - gameObject.width / 2, (int)gameObject.position.y - gameObject.height / 2);
-
-            collisionHandler.handleYAxisCollisions(gameObject);
-            //handleYAxisCollisions(gameObject);
+                if(gameObject.boundingBox.x < staticRectangle.x)
+                {
+                    gameObject.position.x -= rectangle.width;
+                    gameObject.boundingBox.setLocation((int)gameObject.position.x - gameObject.width / 2, (int)gameObject.position.y - gameObject.height / 2);
+                }
+                else if(gameObject.boundingBox.x > staticRectangle.x)
+                {
+                    gameObject.position.x += rectangle.width;
+                    gameObject.boundingBox.setLocation((int)gameObject.position.x - gameObject.width / 2, (int)gameObject.position.y - gameObject.height / 2);
+                }
+            }
         }
-    }
 
-    private void handleXAxisCollisions(GameObject gameObject)
-    {
+        // Dynamic
         for(GameObject otherObject : gameObjects)
         {
             if(otherObject != gameObject)
@@ -75,8 +76,29 @@ public class PhysicsSimulator
         }
     }
 
-    private void handleYAxisCollisions(GameObject gameObject)
+    public void handleYAxisCollisions(GameObject gameObject)
     {
+        // Static
+        for(Rectangle staticRectangle : staticRectangles)
+        {
+            if(gameObject.boundingBox.intersects(staticRectangle))
+            {
+                Rectangle rectangle = gameObject.boundingBox.intersection(staticRectangle);
+
+                if(gameObject.boundingBox.y < staticRectangle.y)
+                {
+                    gameObject.position.y -= rectangle.height;
+                    gameObject.boundingBox.setLocation((int)gameObject.position.x - gameObject.width / 2, (int)gameObject.position.y - gameObject.height / 2);
+                }
+                else if(gameObject.boundingBox.y > staticRectangle.y)
+                {
+                    gameObject.position.y += rectangle.height;
+                    gameObject.boundingBox.setLocation((int)gameObject.position.x - gameObject.width / 2, (int)gameObject.position.y - gameObject.height / 2);
+                }
+            }
+        }
+
+        // Dynamic
         for(GameObject otherObject : gameObjects)
         {
             if(otherObject != gameObject)
