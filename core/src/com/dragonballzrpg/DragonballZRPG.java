@@ -2,6 +2,7 @@ package com.dragonballzrpg;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Sound;
@@ -10,12 +11,11 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.dragonballzrpg.enums.AnimationName;
-import com.dragonballzrpg.enums.AnimationSet;
-import com.dragonballzrpg.enums.ScreenName;
-import com.dragonballzrpg.enums.SoundName;
+import com.dragonballzrpg.enums.*;
 import com.dragonballzrpg.input.GameInputProcessor;
 import com.dragonballzrpg.loaders.AnimationLoader;
+import com.dragonballzrpg.screens.ControlsScreen;
+import com.dragonballzrpg.screens.MainMenuScreen;
 import com.dragonballzrpg.screens.PlayScreen;
 import com.dragonballzrpg.utilities.Animation;
 import com.dragonballzrpg.utilities.SpriteSheetAnimationsExtractorXML;
@@ -31,10 +31,10 @@ public class DragonballZRPG extends Game
 	public Map<SoundName, Sound> sounds;
 	public Map<ScreenName, Screen> screens;
 	public OrthographicCamera camera;
-	private Viewport viewport;
+	public Viewport viewport;
 	public GameInputProcessor inputProcessor;
 	public AnimationLoader animationLoader;
-
+	public Map<ActionName, Integer> inputActions;
 
 	@Override
 	public void create()
@@ -53,6 +53,9 @@ public class DragonballZRPG extends Game
 		viewport = new StretchViewport(VIEWPORT_WIDTH, VIEWPORT_HEIGHT, camera);
 		inputProcessor = new GameInputProcessor();
 		Gdx.input.setInputProcessor(inputProcessor);
+
+		inputActions = new HashMap<ActionName, Integer>();
+		initialiseInputActions();
 
 		initialiseScreens();
 		initialiseCamera();
@@ -99,6 +102,28 @@ public class DragonballZRPG extends Game
 		sounds.put(SoundName.RUNNING, assetManager.get("sounds/running.wav", Sound.class));
 	}
 
+	private void initialiseInputActions()
+	{
+		inputActions.put(ActionName.UP, Input.Keys.UP);
+		inputActions.put(ActionName.DOWN, Input.Keys.DOWN);
+		inputActions.put(ActionName.LEFT, Input.Keys.LEFT);
+		inputActions.put(ActionName.RIGHT, Input.Keys.RIGHT);
+		inputActions.put(ActionName.INTERACT_MELEE, Input.Keys.M);
+		inputActions.put(ActionName.CANCEL_ENERGY_ATTACK, Input.Keys.N);
+		inputActions.put(ActionName.PAUSE, Input.Keys.ENTER);
+		inputActions.put(ActionName.SWITCH_ENERGY_ATTACK, Input.Keys.B);
+	}
+
+	private void initialiseScreens()
+	{
+		screens.put(ScreenName.MAIN_MENU_SCREEN, new MainMenuScreen(this));
+		screens.put(ScreenName.PLAY_SCREEN, new PlayScreen(this));
+		screens.put(ScreenName.CONTROLS_SCREEN, new ControlsScreen(this));
+
+		setScreen(screens.get(ScreenName.MAIN_MENU_SCREEN));
+		//setScreen(screens.get(ScreenName.PLAY_SCREEN));
+	}
+
 	private void initialiseCamera()
 	{
 		// Move the cameras bottom left corner from (0, 0) to half the VIEWPORT_WIDTH right and half the VIEWPORT_HEIGHT up
@@ -108,12 +133,5 @@ public class DragonballZRPG extends Game
 	private void initialiseViewport()
 	{
 		viewport.apply();
-	}
-
-	private void initialiseScreens()
-	{
-		screens.put(ScreenName.PLAY_SCREEN, new PlayScreen(this));
-
-		setScreen(screens.get(ScreenName.PLAY_SCREEN));
 	}
 }

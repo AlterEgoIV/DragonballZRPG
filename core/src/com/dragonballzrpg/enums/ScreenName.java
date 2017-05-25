@@ -5,5 +5,5 @@ package com.dragonballzrpg.enums;
  */
 public enum ScreenName
 {
-    PLAY_SCREEN
+    MAIN_MENU_SCREEN, PLAY_SCREEN, CONTROLS_SCREEN
 }
