@@ -1,5 +1,7 @@
 package com.dragonballzrpg.ui.uielements;
 
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.dragonballzrpg.input.InputHandler;
@@ -9,14 +11,15 @@ import com.dragonballzrpg.input.InputHandler;
  */
 public class MenuOption extends UIElement implements InputHandler
 {
-    public boolean isSelected;
+    private Panel panel;
     private Text text;
 
-    public MenuOption(Vector2 position, Text text, boolean isSelected)
+    public MenuOption(Vector2 position, int width, int height, Panel panel, Text text)
     {
-        this.position = position;
+        super(position, width, height);
+
+        this.panel = panel;
         this.text = text;
-        this.isSelected = isSelected;
     }
 
     @Override
@@ -28,7 +31,8 @@ public class MenuOption extends UIElement implements InputHandler
     @Override
     public void render(SpriteBatch batch)
     {
-
+        panel.render(batch);
+        text.render(batch);
     }
 
     @Override

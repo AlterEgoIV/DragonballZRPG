@@ -3,6 +3,7 @@ package com.dragonballzrpg.ui.uielements;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +18,17 @@ public class TextBox extends UIElement
     private List<String> strings;
     private String currentString;
 
-    public TextBox()
+    public TextBox(Vector2 position, int width, int height)
     {
-        bitmapFont = new BitmapFont();
-        glyphLayout = new GlyphLayout();
-        strings = new ArrayList<String>();
+        super(position, width, height);
     }
+
+//    public TextBox()
+//    {
+//        bitmapFont = new BitmapFont();
+//        glyphLayout = new GlyphLayout();
+//        strings = new ArrayList<String>();
+//    }
 
     @Override
     public void update()

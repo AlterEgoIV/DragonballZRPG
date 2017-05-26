@@ -1,7 +1,5 @@
 package com.dragonballzrpg.screens;
 
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.dragonballzrpg.DragonballZRPG;
 import com.dragonballzrpg.ui.MainMenuUI;
 import com.dragonballzrpg.ui.UI;
@@ -17,7 +15,7 @@ public class MainMenuScreen extends GameScreen
     {
         super(game);
 
-        ui = new MainMenuUI();
+        ui = new MainMenuUI(game.viewport);
     }
 
     @Override

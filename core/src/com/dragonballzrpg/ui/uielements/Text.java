@@ -13,9 +13,19 @@ public class Text extends UIElement
     private BitmapFont font;
     private GlyphLayout layout;
 
+    public Text(float x, float y, String text, float scaleX, float scaleY)
+    {
+        super(x, y);
+
+        font = new BitmapFont();
+        font.getData().setScale(scaleX, scaleY); // x: .35f, y: .3f
+        layout = new GlyphLayout(font, text);
+    }
+
     public Text(Vector2 position, String text, float scaleX, float scaleY)
     {
-        this.position = position;
+        super(position);
+
         font = new BitmapFont();
         font.getData().setScale(scaleX, scaleY); // x: .35f, y: .3f
         layout = new GlyphLayout(font, text);
@@ -31,5 +41,15 @@ public class Text extends UIElement
     public void render(SpriteBatch batch)
     {
         font.draw(batch, layout, position.x, position.y);
+    }
+
+    public float getWidth()
+    {
+        return layout.width;
+    }
+
+    public float getHeight()
+    {
+        return layout.height;
     }
 }

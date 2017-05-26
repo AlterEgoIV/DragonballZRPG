@@ -108,8 +108,8 @@ public class DragonballZRPG extends Game
 		inputActions.put(ActionName.DOWN, Input.Keys.DOWN);
 		inputActions.put(ActionName.LEFT, Input.Keys.LEFT);
 		inputActions.put(ActionName.RIGHT, Input.Keys.RIGHT);
-		inputActions.put(ActionName.INTERACT_MELEE, Input.Keys.M);
-		inputActions.put(ActionName.CANCEL_ENERGY_ATTACK, Input.Keys.N);
+		inputActions.put(ActionName.INTERACT_OR_MELEE, Input.Keys.M);
+		inputActions.put(ActionName.CANCEL_OR_ENERGY_ATTACK, Input.Keys.N);
 		inputActions.put(ActionName.PAUSE, Input.Keys.ENTER);
 		inputActions.put(ActionName.SWITCH_ENERGY_ATTACK, Input.Keys.B);
 	}
