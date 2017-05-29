@@ -1,5 +1,7 @@
 package com.dragonballzrpg.screens;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputProcessor;
 import com.dragonballzrpg.DragonballZRPG;
 import com.dragonballzrpg.ui.MainMenuUI;
 import com.dragonballzrpg.ui.UI;
@@ -15,13 +17,13 @@ public class MainMenuScreen extends GameScreen
     {
         super(game);
 
-        ui = new MainMenuUI(game.viewport);
+        ui = new MainMenuUI(game);
     }
 
     @Override
     public void show()
     {
-
+        Gdx.input.setInputProcessor((InputProcessor)ui);
     }
 
     @Override
@@ -30,9 +32,6 @@ public class MainMenuScreen extends GameScreen
         batch.setProjectionMatrix(game.camera.combined);
         batch.begin();
         ui.render(batch);
-        //font.draw(batch, layout,
-        //game.viewport.getWorldWidth() / 2 - (layout.width / 2),
-        //game.viewport.getWorldHeight() / 2 + (layout.height / 2));
         batch.end();
     }
 

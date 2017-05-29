@@ -35,6 +35,11 @@ public class MenuOption extends UIElement implements InputHandler
         text.render(batch);
     }
 
+    public void setPanelRGBA(float r, float g, float b, float a)
+    {
+        panel.setRGBA(r, g, b, a);
+    }
+
     @Override
     public void handleKeyDown(int keyCode)
     {

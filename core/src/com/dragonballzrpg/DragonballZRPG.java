@@ -110,8 +110,9 @@ public class DragonballZRPG extends Game
 		inputActions.put(ActionName.RIGHT, Input.Keys.RIGHT);
 		inputActions.put(ActionName.INTERACT_OR_MELEE, Input.Keys.M);
 		inputActions.put(ActionName.CANCEL_OR_ENERGY_ATTACK, Input.Keys.N);
-		inputActions.put(ActionName.PAUSE, Input.Keys.ENTER);
+		inputActions.put(ActionName.PAUSE, Input.Keys.SPACE);
 		inputActions.put(ActionName.SWITCH_ENERGY_ATTACK, Input.Keys.B);
+		inputActions.put(ActionName.SELECT, Input.Keys.ENTER);
 	}
 
 	private void initialiseScreens()
