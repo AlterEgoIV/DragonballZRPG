@@ -15,6 +15,15 @@ public abstract class UIElement
     protected Pixmap pixmap;
     protected Texture texture;
 
+    public UIElement()
+    {
+        this.position = new Vector2(0, 0);
+        this.width = 0;
+        this.height = 0;
+
+        pixmap = new Pixmap(width, height, Pixmap.Format.RGBA8888);
+    }
+
     public UIElement(float x, float y)
     {
         this.position = new Vector2(x, y);
@@ -29,6 +38,15 @@ public abstract class UIElement
         this.position = position;
         this.width = 0;
         this.height = 0;
+
+        pixmap = new Pixmap(width, height, Pixmap.Format.RGBA8888);
+    }
+
+    public UIElement(float x, float y, int width, int height)
+    {
+        position = new Vector2(x, y);
+        this.width = width;
+        this.height = height;
 
         pixmap = new Pixmap(width, height, Pixmap.Format.RGBA8888);
     }

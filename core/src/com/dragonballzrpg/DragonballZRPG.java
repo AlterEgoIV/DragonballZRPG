@@ -5,10 +5,16 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.assets.loaders.FileHandleResolver;
+import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGeneratorLoader;
+import com.badlogic.gdx.graphics.g2d.freetype.FreetypeFontLoader;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.dragonballzrpg.enums.*;
@@ -17,8 +23,6 @@ import com.dragonballzrpg.loaders.AnimationLoader;
 import com.dragonballzrpg.screens.ControlsScreen;
 import com.dragonballzrpg.screens.MainMenuScreen;
 import com.dragonballzrpg.screens.PlayScreen;
-import com.dragonballzrpg.utilities.Animation;
-import com.dragonballzrpg.utilities.SpriteSheetAnimationsExtractorXML;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +38,7 @@ public class DragonballZRPG extends Game
 	public Viewport viewport;
 	public GameInputProcessor inputProcessor;
 	public AnimationLoader animationLoader;
-	public Map<ActionName, Integer> inputActions;
+	public Map<ActionName, Integer> actions;
 
 	@Override
 	public void create()
@@ -43,7 +47,7 @@ public class DragonballZRPG extends Game
 		loadAssets(); // load assets first
 
 		sounds = new HashMap<SoundName, Sound>();
-		loadSounds();
+		initialiseSounds();
 
 		animationLoader = new AnimationLoader(assetManager);
 		animationLoader.loadAnimations();
@@ -54,7 +58,7 @@ public class DragonballZRPG extends Game
 		inputProcessor = new GameInputProcessor();
 		Gdx.input.setInputProcessor(inputProcessor);
 
-		inputActions = new HashMap<ActionName, Integer>();
+		actions = new HashMap<ActionName, Integer>();
 		initialiseInputActions();
 
 		initialiseScreens();
@@ -86,16 +90,38 @@ public class DragonballZRPG extends Game
 
 	private void loadAssets()
 	{
-		assetManager.load("spritesheets/futuretrunks/teenFutureTrunks.png", Texture.class);
-
-		assetManager.load("sounds/melee1.wav", Sound.class);
-		assetManager.load("sounds/melee2.wav", Sound.class);
-		assetManager.load("sounds/running.wav", Sound.class);
+		loadFonts();
+		loadTextures();
+		loadSounds();
 
 		assetManager.finishLoading();
 	}
 
+	private void loadFonts()
+	{
+		FileHandleResolver fileHandleResolver = new InternalFileHandleResolver();
+		assetManager.setLoader(FreeTypeFontGenerator.class, new FreeTypeFontGeneratorLoader(fileHandleResolver));
+		assetManager.setLoader(BitmapFont.class, ".ttf", new FreetypeFontLoader(fileHandleResolver));
+
+		FreetypeFontLoader.FreeTypeFontLoaderParameter parameter = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
+		parameter.fontFileName = "fonts/FreeSans.ttf";
+		parameter.fontParameters.size = 10;
+		assetManager.load("FreeSans10.ttf", BitmapFont.class, parameter);
+	}
+
+	private void loadTextures()
+	{
+		assetManager.load("spritesheets/futuretrunks/teenFutureTrunks.png", Texture.class);
+	}
+
 	private void loadSounds()
+	{
+		assetManager.load("sounds/melee1.wav", Sound.class);
+		assetManager.load("sounds/melee2.wav", Sound.class);
+		assetManager.load("sounds/running.wav", Sound.class);
+	}
+
+	private void initialiseSounds()
 	{
 		sounds.put(SoundName.MELEE_1, assetManager.get("sounds/melee1.wav", Sound.class));
 		sounds.put(SoundName.MELEE_2, assetManager.get("sounds/melee2.wav", Sound.class));
@@ -104,15 +130,15 @@ public class DragonballZRPG extends Game
 
 	private void initialiseInputActions()
 	{
-		inputActions.put(ActionName.UP, Input.Keys.UP);
-		inputActions.put(ActionName.DOWN, Input.Keys.DOWN);
-		inputActions.put(ActionName.LEFT, Input.Keys.LEFT);
-		inputActions.put(ActionName.RIGHT, Input.Keys.RIGHT);
-		inputActions.put(ActionName.INTERACT_OR_MELEE, Input.Keys.M);
-		inputActions.put(ActionName.CANCEL_OR_ENERGY_ATTACK, Input.Keys.N);
-		inputActions.put(ActionName.PAUSE, Input.Keys.SPACE);
-		inputActions.put(ActionName.SWITCH_ENERGY_ATTACK, Input.Keys.B);
-		inputActions.put(ActionName.SELECT, Input.Keys.ENTER);
+		actions.put(ActionName.UP, Input.Keys.UP);
+		actions.put(ActionName.DOWN, Input.Keys.DOWN);
+		actions.put(ActionName.LEFT, Input.Keys.LEFT);
+		actions.put(ActionName.RIGHT, Input.Keys.RIGHT);
+		actions.put(ActionName.INTERACT_OR_MELEE, Input.Keys.M);
+		actions.put(ActionName.CANCEL_OR_ENERGY_ATTACK, Input.Keys.N);
+		actions.put(ActionName.PAUSE, Input.Keys.SPACE);
+		actions.put(ActionName.SWITCH_ENERGY_ATTACK, Input.Keys.B);
+		actions.put(ActionName.SELECT, Input.Keys.ENTER);
 	}
 
 	private void initialiseScreens()

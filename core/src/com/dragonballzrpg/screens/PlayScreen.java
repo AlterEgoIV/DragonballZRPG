@@ -1,6 +1,7 @@
 package com.dragonballzrpg.screens;
 
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -16,6 +17,7 @@ import com.dragonballzrpg.enums.AnimationName;
 import com.dragonballzrpg.enums.AnimationSet;
 import com.dragonballzrpg.enums.PlayerName;
 import com.dragonballzrpg.input.InputHandler;
+import com.dragonballzrpg.ui.PlayUI;
 
 import java.awt.Rectangle;
 import java.util.*;
@@ -37,7 +39,7 @@ public class PlayScreen extends GameScreen
 
     public PlayScreen(DragonballZRPG game)
     {
-        super(game);
+        super(game, new PlayUI(game.assetManager, game.viewport));
 
         physicsSimulator = new PhysicsSimulator();
 
@@ -57,9 +59,13 @@ public class PlayScreen extends GameScreen
 
     private void loadMaps()
     {
-        map = new TmxMapLoader().load("test2.tmx");
+        //TmxMapLoader.Parameters parameters = new TmxMapLoader.Parameters();
+        //parameters.textureMinFilter = Texture.TextureFilter.Nearest;
+        //parameters.textureMagFilter = Texture.TextureFilter.Nearest;
+        //map = new TmxMapLoader().load("test2.tmx");
+        map = new TmxMapLoader().load("untitled.tmx");
 
-        MapObjects mapObjects = map.getLayers().get("collisions").getObjects();
+        MapObjects mapObjects = map.getLayers().get("collision").getObjects();
 
         for(RectangleMapObject rectangleMapObject : mapObjects.getByType(RectangleMapObject.class))
         {
