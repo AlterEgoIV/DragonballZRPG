@@ -4,7 +4,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector2;
 import com.dragonballzrpg.enums.TextAlignment;
 
 /**
@@ -15,6 +14,7 @@ public class Text extends UIElement
     private String text;
     private BitmapFont font;
     private GlyphLayout layout;
+    private TextAlignment textAlignment;
 
     public Text(String text, float x, float y, float scaleX, float scaleY)
     {
@@ -26,12 +26,23 @@ public class Text extends UIElement
         layout = new GlyphLayout(this.font, text);
     }
 
+    public Text(String text, BitmapFont font, float x, float y)
+    {
+        super(x, y);
+
+        this.text = text;
+        this.font = font;
+        this.textAlignment = TextAlignment.CENTER;
+        layout = new GlyphLayout(font, text);
+    }
+
     public Text(String text, BitmapFont font, float x, float y, TextAlignment textAlignment)
     {
         super(x, y);
 
         this.text = text;
         this.font = font;
+        this.textAlignment = textAlignment;
         layout = new GlyphLayout(font, text);
 
         switch(textAlignment)
@@ -79,10 +90,40 @@ public class Text extends UIElement
         return layout.height;
     }
 
-    public void setText(String text)
+    public String getText()
+    {
+        return text;
+    }
+
+    public void setText(String text, float x, float y)
     {
         this.text = text;
-        layout.setText(font, text);
+        position.x = x;
+        position.y = y;
+        //layout.setText(font, text);
+        layout = new GlyphLayout(font, text);
+
+        switch(textAlignment)
+        {
+            case CENTER:
+            {
+                position.x -= layout.width / 2;
+                position.y += layout.height / 2;
+
+                break;
+            }
+
+            case RIGHT:
+            {
+                position.x += layout.width;
+                break;
+            }
+
+            default:
+            {
+                break;
+            }
+        }
     }
 
     public void setScale(float scaleX, float scaleY)
@@ -101,5 +142,10 @@ public class Text extends UIElement
     {
         font.setColor(r, g, b, a);
         layout.setText(font, text);
+    }
+
+    public Text copy()
+    {
+        return new Text(this.text, this.font, this.position.x, this.position.y);
     }
 }

@@ -14,6 +14,13 @@ public abstract class GameScreen implements Screen
     protected UI ui;
     protected SpriteBatch batch;
 
+    protected GameScreen(DragonballZRPG game)
+    {
+        this.game = game;
+        this.ui = null;
+        batch = new SpriteBatch();
+    }
+
     protected GameScreen(DragonballZRPG game, UI ui)
     {
         this.game = game;

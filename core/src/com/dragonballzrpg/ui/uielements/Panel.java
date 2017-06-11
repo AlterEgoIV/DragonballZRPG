@@ -10,11 +10,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
  */
 public class Panel extends UIElement
 {
-    private Texture primary, secondary;
-    private Color colour, primaryColour, secondaryColour, primaryOutlineColour, secondaryOutlineColour;
-    private float primaryAlpha, secondaryAlpha, primaryOutlineAlpha, secondaryOutlineAlpha;
-    private float r, g, b, a;
-    private Text text;
+    private Texture selectedTexture, unselectedTexture;
+    private Color colour;
+    private Text text, defaultText;
 
     public Panel(float x, float y, int width, int height, Color colour, float alpha)
     {
@@ -25,74 +23,33 @@ public class Panel extends UIElement
         pixmap.setColor(colour);
         pixmap.fillRectangle(0, 0, width, height);
         texture = new Texture(pixmap);
+        unselectedTexture = new Texture(pixmap);
+
+        pixmap.setColor(Color.RED);
+        pixmap.fillRectangle(0, 0, width, height);
+        selectedTexture = new Texture(pixmap);
         pixmap.dispose();
 
         text = new Text("", position.x, position.y, 1, 1);
+        defaultText = new Text("", position.x, position.y, 1, 1);
     }
 
     public Panel(float x, float y, int width, int height, Color colour, float alpha, Text text)
     {
         super(x, y, width, height);
 
-        this.text = text;
+        this.text = text.copy();
+        this.defaultText = text.copy();
         this.colour = colour;
         this.colour.a = alpha;
         pixmap.setColor(colour);
         pixmap.fillRectangle(0, 0, width, height);
         texture = new Texture(pixmap);
-        pixmap.dispose();
-    }
+        unselectedTexture = new Texture(pixmap);
 
-    public Panel(float x, float y, int width, int height,
-                 Color primaryColour, Color secondaryColour, Color primaryOutlineColour, Color secondaryOutlineColour,
-                 float primaryAlpha, float secondaryAlpha, float primaryOutlineAlpha, float secondaryOutlineAlpha)
-    {
-        super(x, y, width, height);
-
-        this.primaryColour = primaryColour;
-        this.secondaryColour = secondaryColour;
-        this.primaryOutlineColour = primaryOutlineColour;
-        this.secondaryOutlineColour = secondaryOutlineColour;
-        this.primaryAlpha = primaryAlpha;
-        this.secondaryAlpha = secondaryAlpha;
-        this.primaryOutlineAlpha = primaryOutlineAlpha;
-        this.secondaryOutlineAlpha = secondaryOutlineAlpha;
-        text = new Text("", position.x, position.y, 1, 1);
-    }
-
-    public Panel(float x, float y, int width, int height,
-                 Color primaryColour, Color secondaryColour, Color primaryOutlineColour, Color secondaryOutlineColour,
-                 float primaryAlpha, float secondaryAlpha, float primaryOutlineAlpha, float secondaryOutlineAlpha,
-                 Text text)
-    {
-        super(x, y, width, height);
-
-        this.primaryColour = primaryColour;
-        this.secondaryColour = secondaryColour;
-        this.primaryOutlineColour = primaryOutlineColour;
-        this.secondaryOutlineColour = secondaryOutlineColour;
-        this.primaryAlpha = primaryAlpha;
-        this.secondaryAlpha = secondaryAlpha;
-        this.primaryOutlineAlpha = primaryOutlineAlpha;
-        this.secondaryOutlineAlpha = secondaryOutlineAlpha;
-        this.text = text;
-    }
-
-    public Panel(float x, float y, int width, int height, float r, float g, float b, float a, Color outline)
-    {
-        super(x, y, width, height);
-
-        this.r = r;
-        this.g = g;
-        this.b = b;
-        this.a = a;
-        //this.outline = outline;
-
-        pixmap.setColor(r, g, b, a);
+        pixmap.setColor(Color.RED);
         pixmap.fillRectangle(0, 0, width, height);
-        pixmap.setColor(outline);
-        pixmap.drawRectangle(0, 0, width, height);
-        texture = new Texture(pixmap);
+        selectedTexture = new Texture(pixmap);
         pixmap.dispose();
     }
 
@@ -107,5 +64,27 @@ public class Panel extends UIElement
     {
         batch.draw(texture, position.x - width / 2, position.y - height / 2);
         text.render(batch);
+    }
+
+    public void isSelected(boolean isSelected)
+    {
+        if(isSelected)
+        {
+            texture = selectedTexture;
+        }
+        else
+        {
+            texture = unselectedTexture;
+        }
+    }
+
+    public void setText(String text)
+    {
+        this.text.setText(text, position.x, position.y);
+    }
+
+    public void resetText()
+    {
+        this.text = defaultText.copy();
     }
 }

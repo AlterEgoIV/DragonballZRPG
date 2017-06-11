@@ -105,8 +105,8 @@ public class DragonballZRPG extends Game
 
 		FreetypeFontLoader.FreeTypeFontLoaderParameter parameter = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
 		parameter.fontFileName = "fonts/FreeSans.ttf";
-		parameter.fontParameters.size = 10;
-		assetManager.load("FreeSans10.ttf", BitmapFont.class, parameter);
+		parameter.fontParameters.size = 36;
+		assetManager.load("FreeSans36.ttf", BitmapFont.class, parameter);
 	}
 
 	private void loadTextures()
@@ -147,8 +147,9 @@ public class DragonballZRPG extends Game
 		screens.put(ScreenName.PLAY_SCREEN, new PlayScreen(this));
 		screens.put(ScreenName.CONTROLS_SCREEN, new ControlsScreen(this));
 
-		setScreen(screens.get(ScreenName.MAIN_MENU_SCREEN));
+		//setScreen(screens.get(ScreenName.MAIN_MENU_SCREEN));
 		//setScreen(screens.get(ScreenName.PLAY_SCREEN));
+		setScreen(screens.get(ScreenName.CONTROLS_SCREEN));
 	}
 
 	private void initialiseCamera()

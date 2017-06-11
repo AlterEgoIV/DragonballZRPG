@@ -14,7 +14,7 @@ public class MainMenuScreen extends GameScreen implements InputProcessor
 {
     public MainMenuScreen(DragonballZRPG game)
     {
-        super(game, new MainMenuUI(game.assetManager, game.viewport));
+        super(game, new MainMenuUI(game.assetManager));
     }
 
     @Override
@@ -26,7 +26,7 @@ public class MainMenuScreen extends GameScreen implements InputProcessor
     @Override
     public void render(float delta)
     {
-        batch.setProjectionMatrix(game.camera.combined);
+        //batch.setProjectionMatrix(game.camera.combined);
         batch.begin();
         ui.render(batch);
         batch.end();
@@ -61,11 +61,11 @@ public class MainMenuScreen extends GameScreen implements InputProcessor
     {
         if(keycode == game.actions.get(ActionName.UP))
         {
-            ((MainMenuUI)ui).cursor.previous();
+            ui.previousOption();
         }
         else if(keycode == game.actions.get(ActionName.DOWN))
         {
-            ((MainMenuUI)ui).cursor.next();
+            ui.nextOption();
         }
 
         return false;
@@ -76,7 +76,7 @@ public class MainMenuScreen extends GameScreen implements InputProcessor
     {
         if(keycode == game.actions.get(ActionName.SELECT))
         {
-            switch(((MainMenuUI)ui).cursor.currentMenuOption)
+            switch(ui.getCurrentMenuOption())
             {
                 case START:
                 {

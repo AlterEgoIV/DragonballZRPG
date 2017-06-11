@@ -62,4 +62,14 @@ public abstract class UIElement
 
     public abstract void update();
     public abstract void render(SpriteBatch batch);
+
+    public float getX()
+    {
+        return position.x;
+    }
+
+    public float getY()
+    {
+        return position.y;
+    }
 }

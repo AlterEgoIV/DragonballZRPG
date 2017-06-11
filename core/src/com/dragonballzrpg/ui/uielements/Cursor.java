@@ -16,17 +16,17 @@ public class Cursor extends UIElement
 {
     private List<Panel> panels;
     private List<Texture> panelOverlays;
+    private List<MenuOption> menuOptions;
     private int currentPanel;
-    private MenuOption[] menuOptions;
-    public MenuOption currentMenuOption;
+    private MenuOption currentMenuOption;
 
-    public Cursor(MenuOption[] menuOptions)
+    public Cursor()
     {
-        this.menuOptions = menuOptions;
         panels = new ArrayList<Panel>();
         panelOverlays = new ArrayList<Texture>();
+        menuOptions = new ArrayList<MenuOption>();
         currentPanel = 0;
-        currentMenuOption = menuOptions[0];
+        currentMenuOption = MenuOption.NULL;
     }
 
     @Override
@@ -43,20 +43,16 @@ public class Cursor extends UIElement
         panels.get(currentPanel).position.y - panels.get(currentPanel).height / 2);
     }
 
-    public void add(Panel panel)
+    public void add(Panel panel, MenuOption menuOption)
     {
         panels.add(panel);
+        menuOptions.add(menuOption);
 
         Pixmap pixmap = new Pixmap(panel.width, panel.height, Pixmap.Format.RGBA8888);
         pixmap.setColor(Color.WHITE);
         pixmap.drawRectangle(0, 0, panel.width, panel.height);
         panelOverlays.add(new Texture(pixmap));
         pixmap.dispose();
-    }
-
-    public void remove(Panel panel)
-    {
-        panels.remove(panel);
     }
 
     public void next()
@@ -70,7 +66,7 @@ public class Cursor extends UIElement
             currentPanel = 0;
         }
 
-        currentMenuOption = menuOptions[currentPanel];
+        currentMenuOption = menuOptions.get(currentPanel);
     }
 
     public void previous()
@@ -84,6 +80,34 @@ public class Cursor extends UIElement
             currentPanel = panels.size() - 1;
         }
 
-        currentMenuOption = menuOptions[currentPanel];
+        currentMenuOption = menuOptions.get(currentPanel);
+    }
+
+    public MenuOption getCurrentMenuOption()
+    {
+        return currentMenuOption;
+    }
+
+    public Panel getCurrentPanel()
+    {
+        return panels.get(currentPanel);
+    }
+
+    public void setCurrentMenuOption(MenuOption menuOption)
+    {
+        this.currentMenuOption = menuOption;
+    }
+
+    public void setCurrentMenuOptionText(String key)
+    {
+        this.panels.get(currentPanel).setText(key);
+    }
+
+    public void resetAllPanelText()
+    {
+        for(Panel panel : panels)
+        {
+            panel.resetText();
+        }
     }
 }

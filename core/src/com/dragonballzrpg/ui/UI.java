@@ -3,13 +3,12 @@ package com.dragonballzrpg.ui;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.dragonballzrpg.DragonballZRPG;
-import com.dragonballzrpg.enums.ActionName;
+import com.dragonballzrpg.enums.MenuOption;
+import com.dragonballzrpg.ui.uielements.Cursor;
 import com.dragonballzrpg.ui.uielements.UIElement;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Carl on 25/05/2017.
@@ -19,6 +18,15 @@ public abstract class UI
     protected AssetManager assetManager;
     protected Viewport viewport;
     protected List<UIElement> uiElements;
+    protected Cursor cursor;
+
+    public UI(AssetManager assetManager)
+    {
+        this.assetManager = assetManager;
+
+        uiElements = new ArrayList<UIElement>();
+        cursor = new Cursor();
+    }
 
     public UI(AssetManager assetManager, Viewport viewport)
     {
@@ -26,6 +34,7 @@ public abstract class UI
         this.viewport = viewport;
 
         uiElements = new ArrayList<UIElement>();
+        cursor = new Cursor();
     }
 
     public void update()
@@ -42,5 +51,35 @@ public abstract class UI
         {
             uiElement.render(batch);
         }
+    }
+
+    public void nextOption()
+    {
+        cursor.next();
+    }
+
+    public void previousOption()
+    {
+        cursor.previous();
+    }
+
+    public MenuOption getCurrentMenuOption()
+    {
+        return cursor.getCurrentMenuOption();
+    }
+
+    public void setCurrentMenuOptionText(String text)
+    {
+        cursor.setCurrentMenuOptionText(text);
+    }
+
+    public void highlightCurrentMenuOption(boolean highlight)
+    {
+        cursor.getCurrentPanel().isSelected(highlight);
+    }
+
+    public void resetText()
+    {
+        cursor.resetAllPanelText();
     }
 }
