@@ -41,7 +41,6 @@ import java.util.Map;
  */
 public abstract class Player extends GameObject implements InputHandler
 {
-    protected OrthographicCamera camera;
     public Bool isUpKeyPressed;
     public Bool isDownKeyPressed;
     public Bool isLeftKeyPressed;
@@ -59,9 +58,9 @@ public abstract class Player extends GameObject implements InputHandler
     private int up, down, left, right, melee;
 
     public Player(Vector2 position, float speed, Map<AnimationName, Animation> animations, Animation currentAnimation,
-                  Map<SoundName, Sound> sounds, int up, int down, int left, int right, int melee)
+                  int up, int down, int left, int right, int melee)
     {
-        super(position, speed, animations, currentAnimation, sounds);
+        super(position, speed, animations, currentAnimation);
         runSpeed = speed * 2;
 
         isUpKeyPressed = new Bool();

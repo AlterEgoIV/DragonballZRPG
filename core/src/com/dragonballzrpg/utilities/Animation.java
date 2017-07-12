@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -13,8 +14,7 @@ public class Animation
 {
     private List<Frame> frames;
     private int currentFrame;
-    private double animationDuration;
-    private double currentFrameDuration;
+    private double animationDuration, currentFrameDuration;
     private boolean loops;
 
     public Animation()
@@ -26,34 +26,64 @@ public class Animation
         loops = false;
     }
 
-    public Animation(TextureRegion[] frames, double frameDuration)
+//    public Animation(TextureRegion[] frames, double frameDuration)
+//    {
+//        this.frames = new ArrayList<Frame>();
+//
+//        for(TextureRegion frame : frames)
+//        {
+//            this.frames.add(new Frame(frame, frameDuration));
+//        }
+//
+//        currentFrame = 0;
+//        currentFrameDuration = 0.0d;
+//        animationDuration = frameDuration * frames.length;
+//        loops = false;
+//    }
+
+    public Animation(Frame[] frames)
     {
         this.frames = new ArrayList<Frame>();
-
-        for(TextureRegion frame : frames)
-        {
-            this.frames.add(new Frame(frame, frameDuration));
-        }
+        this.frames.addAll(Arrays.asList(frames));
 
         currentFrame = 0;
         currentFrameDuration = 0.0d;
-        animationDuration = frameDuration * frames.length;
         loops = false;
+
+        for(Frame frame : frames)
+        {
+            animationDuration += frame.getDuration();
+        }
     }
 
-    public Animation(TextureRegion[] frames, double frameDuration, boolean loops)
-    {
-        this.loops = loops;
-        this.frames = new ArrayList<Frame>();
+//    public Animation(TextureRegion[] frames, double frameDuration, boolean loops)
+//    {
+//        this.loops = loops;
+//        this.frames = new ArrayList<Frame>();
+//
+//        for(TextureRegion frame : frames)
+//        {
+//            this.frames.add(new Frame(frame, frameDuration));
+//        }
+//
+//        currentFrame = 0;
+//        currentFrameDuration = 0.0d;
+//        animationDuration = frameDuration * frames.length;
+//    }
 
-        for(TextureRegion frame : frames)
-        {
-            this.frames.add(new Frame(frame, frameDuration));
-        }
+    public Animation(Frame[] frames, boolean loops)
+    {
+        this.frames = new ArrayList<Frame>();
+        this.frames.addAll(Arrays.asList(frames));
+        this.loops = loops;
 
         currentFrame = 0;
         currentFrameDuration = 0.0d;
-        animationDuration = frameDuration * frames.length;
+
+        for(Frame frame : frames)
+        {
+            animationDuration += frame.getDuration();
+        }
     }
 
     public void update()
@@ -78,10 +108,16 @@ public class Animation
         }
     }
 
-    public void addFrame(TextureRegion frame, double duration)
+//    public void addFrame(TextureRegion frame, double duration)
+//    {
+//        animationDuration += duration;
+//        frames.add(new Frame(frame, duration));
+//    }
+
+    public void addFrame(Frame frame)
     {
-        animationDuration += duration;
-        frames.add(new Frame(frame, duration));
+        animationDuration += frame.getDuration();
+        frames.add(frame);
     }
 
     public void removeFrame(int frame)
@@ -92,13 +128,11 @@ public class Animation
 
     public Frame getCurrentFrame()
     {
-        //return frames.get(currentFrame).getTextureRegion();
         return frames.get(currentFrame);
     }
 
     public Frame getFrame(int index)
     {
-        //return frames.get(index).getTextureRegion();
         return frames.get(index);
     }
 
@@ -112,15 +146,6 @@ public class Animation
         currentFrame = 0;
         currentFrameDuration = 0.0d;
     }
-
-//    public void clear()
-//    {
-//        frames = new ArrayList<Frame>();
-//        currentFrame = 0;
-//        animationDuration = 0.0d;
-//        currentFrameDuration = 0.0d;
-//        loops = false;
-//    }
 
     public void loops(boolean loops)
     {

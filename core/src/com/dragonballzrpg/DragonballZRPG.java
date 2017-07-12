@@ -24,6 +24,7 @@ import com.dragonballzrpg.screens.ControlsScreen;
 import com.dragonballzrpg.screens.MainMenuScreen;
 import com.dragonballzrpg.screens.PlayScreen;
 import com.dragonballzrpg.utilities.GameAssetManager;
+import com.dragonballzrpg.utilities.SoundSystem;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +34,7 @@ public class DragonballZRPG extends Game
 	private final int VIEWPORT_WIDTH = 240;
 	private final int VIEWPORT_HEIGHT = 160;
 	public GameAssetManager assetManager;
-	public Map<SoundName, Sound> sounds;
+	public SoundSystem soundSystem;
 	public Map<ScreenName, Screen> screens;
 	public OrthographicCamera camera;
 	public Viewport viewport;
@@ -47,8 +48,7 @@ public class DragonballZRPG extends Game
 		assetManager = new GameAssetManager();
 		assetManager.loadAssets(); // load assets first
 
-		sounds = new HashMap<SoundName, Sound>();
-		initialiseSounds();
+		soundSystem = new SoundSystem(assetManager);
 
 		animationLoader = new AnimationLoader(assetManager);
 		animationLoader.loadAnimations();
@@ -87,13 +87,6 @@ public class DragonballZRPG extends Game
 	public void resize(int width, int height)
 	{
 		viewport.update(width, height);
-	}
-
-	private void initialiseSounds()
-	{
-		sounds.put(SoundName.MELEE_1, assetManager.get("sounds/melee1.wav", Sound.class));
-		sounds.put(SoundName.MELEE_2, assetManager.get("sounds/melee2.wav", Sound.class));
-		sounds.put(SoundName.RUNNING, assetManager.get("sounds/running.wav", Sound.class));
 	}
 
 	private void initialiseInputActions()

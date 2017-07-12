@@ -2,12 +2,9 @@ package com.dragonballzrpg.gameobjects.players;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.dragonballzrpg.enums.AnimationName;
-import com.dragonballzrpg.enums.SoundName;
 import com.dragonballzrpg.utilities.Animation;
 
 import java.util.Map;
@@ -17,15 +14,15 @@ import java.util.Map;
  */
 public class TeenFutureTrunks extends Player
 {
-    public TeenFutureTrunks(OrthographicCamera camera, Vector2 position, float speed,
+    public TeenFutureTrunks(Vector2 position, float speed,
                             Map<AnimationName, Animation> animations, Animation currentAnimation,
-                            Map<SoundName, Sound> sounds, int up, int down, int left, int right, int melee)
+                            int up, int down, int left, int right, int melee)
     {
-        super(position, speed, animations, currentAnimation, sounds, up, down, left, right, melee);
-        this.camera = camera;
-        animations.get(AnimationName.PUNCH_LEFT_1).getFrame(1).relativePosition.x = -3;
-        animations.get(AnimationName.PUNCH_LEFT_1).getFrame(2).relativePosition.x = -13;
-        animations.get(AnimationName.PUNCH_LEFT_1).getFrame(3).relativePosition.x = -6;
+        super(position, speed, animations, currentAnimation, up, down, left, right, melee);
+
+        //animations.get(AnimationName.PUNCH_LEFT_1).getFrame(1).offset.x = -3;
+        //animations.get(AnimationName.PUNCH_LEFT_1).getFrame(2).offset.x = -13;
+        //animations.get(AnimationName.PUNCH_LEFT_1).getFrame(3).offset.x = -6;
     }
 
     @Override
@@ -63,17 +60,14 @@ public class TeenFutureTrunks extends Player
             //position.x += speed * Gdx.graphics.getDeltaTime();
             velocity.x += speed;
         }
-
-        //camera.position.x = (int)position.x;
-        //camera.position.y = (int)position.y;
     }
 
     @Override
     public void render(SpriteBatch batch)
     {
         batch.draw(currentAnimation.getCurrentFrame().getTextureRegion(),
-        ((int)position.x + currentAnimation.getCurrentFrame().relativePosition.x) - width / 2,
-        ((int)position.y + currentAnimation.getCurrentFrame().relativePosition.y) - height / 2);
+        ((int)position.x + currentAnimation.getCurrentFrame().getXOffset()) - width / 2,
+        ((int)position.y + currentAnimation.getCurrentFrame().getYOffset()) - height / 2);
         //batch.draw(currentAnimation.getCurrentFrame(), (int)position.x - width / 2, (int)position.y - height / 2);
     }
 

@@ -18,22 +18,22 @@ import java.util.Map;
 public class SpriteSheetAnimationsExtractorXML
 {
     private GameAssetManager assetManager;
-    private Map<String, TextureRegion[]> animations;
+    private Map<String, Frame[]> animations;
 
     public SpriteSheetAnimationsExtractorXML(GameAssetManager assetManager)
     {
         this.assetManager = assetManager;
-        animations = new HashMap<String, TextureRegion[]>();
+        animations = new HashMap<String, Frame[]>();
     }
 
-    public void extractAnimations(String spriteSheet, String xml)
+    public void extractAnimations(String spriteSheet, String spriteSheetDataFile)
     {
         Texture sheet = assetManager.get(spriteSheet);
-        List<TextureRegion> frames = new ArrayList<TextureRegion>();
+        List<Frame> frames = new ArrayList<Frame>();
 
         try
         {
-            XmlReader.Element rootElement = new XmlReader().parse(Gdx.files.internal(xml));
+            XmlReader.Element rootElement = new XmlReader().parse(Gdx.files.internal(spriteSheetDataFile));
             XmlReader.Element element = rootElement.getChildByName("definitions").getChildByName("dir");
 
             for(int i = 0; i < element.getChildCount(); ++i)
@@ -49,19 +49,21 @@ public class SpriteSheetAnimationsExtractorXML
                     int y = Integer.parseInt(nestedChild.get("y"));
                     int width = Integer.parseInt(nestedChild.get("w"));
                     int height = Integer.parseInt(nestedChild.get("h"));
+                    int xOffset = Integer.parseInt(nestedChild.get("xOffset"));
+                    int yOffset = Integer.parseInt(nestedChild.get("yOffset"));
+                    double duration = Double.parseDouble(nestedChild.get("duration"));
 
-                    TextureRegion frame = new TextureRegion(sheet, x, y, width, height);
-                    frames.add(frame);
+                    frames.add(new Frame(new TextureRegion(sheet, x, y, width, height), xOffset, yOffset, duration));
                 }
 
-                TextureRegion[] textureRegions = new TextureRegion[frames.size()];
+                Frame[] tempFrames = new Frame[frames.size()];
 
                 for(int k = 0; k < frames.size(); ++k)
                 {
-                    textureRegions[k] = frames.get(k);
+                    tempFrames[k] = frames.get(k);
                 }
 
-                animations.put(animationName, textureRegions);
+                animations.put(animationName, tempFrames);
                 frames.clear();
             }
         }
@@ -71,14 +73,14 @@ public class SpriteSheetAnimationsExtractorXML
         }
     }
 
-    public TextureRegion[] getAnimation(String animation)
+    public Frame[] getAnimation(String animation)
     {
         return animations.get(animation);
     }
 
-    public TextureRegion getAnimationFrame(String animation, int frame)
+    public Frame getAnimationFrame(String animation, int frame)
     {
-        TextureRegion[] frames = animations.get(animation);
+        Frame[] frames = animations.get(animation);
 
         return frames[frame];
     }

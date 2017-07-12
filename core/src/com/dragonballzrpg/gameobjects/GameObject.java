@@ -1,10 +1,8 @@
 package com.dragonballzrpg.gameobjects;
 
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.dragonballzrpg.enums.AnimationName;
-import com.dragonballzrpg.enums.SoundName;
 import com.dragonballzrpg.enums.StateName;
 import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.utilities.Animation;
@@ -23,20 +21,17 @@ public abstract class GameObject
     public State currentState;
     public Map<AnimationName, Animation> animations;
     public Animation currentAnimation;
-    public Map<SoundName, Sound> sounds;
     protected float speed;
     public int width, height;
     public Rectangle boundingBox;
 
-    public GameObject(Vector2 position, float speed, Map<AnimationName, Animation> animations, Animation currentAnimation,
-                      Map<SoundName, Sound> sounds)
+    public GameObject(Vector2 position, float speed, Map<AnimationName, Animation> animations, Animation currentAnimation)
     {
         this.position = position;
         this.speed = speed;
         this.velocity = new Vector2(speed, speed);
         this.animations = animations;
         this.currentAnimation = currentAnimation;
-        this.sounds = sounds;
         width = currentAnimation.getFrame(0).getTextureRegion().getRegionWidth();
         height = currentAnimation.getFrame(0).getTextureRegion().getRegionHeight();
 

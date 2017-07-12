@@ -9,19 +9,30 @@ import com.badlogic.gdx.math.Vector2;
 public class Frame
 {
     private TextureRegion frame;
+    private int xOffset, yOffset;
     private double duration;
-    public Vector2 relativePosition;
 
-    public Frame(TextureRegion frame, double duration)
+    public Frame(TextureRegion frame, int xOffset, int yOffset, double duration)
     {
         this.frame = frame;
+        this.xOffset = xOffset;
+        this.yOffset = yOffset;
         this.duration = duration;
-        relativePosition = new Vector2();
     }
 
     public TextureRegion getTextureRegion()
     {
         return frame;
+    }
+
+    public int getXOffset()
+    {
+        return xOffset;
+    }
+
+    public int getYOffset()
+    {
+        return yOffset;
     }
 
     public double getDuration()

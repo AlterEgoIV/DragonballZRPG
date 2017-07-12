@@ -86,11 +86,9 @@ public class PlayScreen extends GameScreen
     {
         Player player;
 
-        player = new TeenFutureTrunks(game.camera,
-          new Vector2(0, 0), 100.0f,
+        player = new TeenFutureTrunks(new Vector2(0, 0), 100.0f,
           game.animationLoader.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
           game.animationLoader.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN),
-          game.sounds,
           Input.Keys.UP, Input.Keys.DOWN, Input.Keys.LEFT, Input.Keys.RIGHT, Input.Keys.M);
 
         players.put(PlayerName.TEEN_FUTURE_TRUNKS, player);

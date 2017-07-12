@@ -37,13 +37,13 @@ public class RunningRightState extends State
     @Override
     public void enter(GameObject gameObject)
     {
-        gameObject.sounds.get(SoundName.RUNNING).loop();
+        //gameObject.sounds.get(SoundName.RUNNING).loop();
     }
 
     @Override
     public void exit(GameObject gameObject)
     {
-        gameObject.sounds.get(SoundName.RUNNING).stop();
+        //gameObject.sounds.get(SoundName.RUNNING).stop();
     }
 
     @Override

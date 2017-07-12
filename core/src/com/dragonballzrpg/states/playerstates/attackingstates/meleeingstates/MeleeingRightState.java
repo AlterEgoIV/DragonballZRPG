@@ -90,7 +90,7 @@ public class MeleeingRightState extends State
         Player player = (Player) gameObject;
 
         player.canAttack.set(false);
-        player.sounds.get(getRandomValue(new SoundName[]{SoundName.MELEE_1, SoundName.MELEE_2})).play();
+        //player.sounds.get(getRandomValue(new SoundName[]{SoundName.MELEE_1, SoundName.MELEE_2})).play();
 
         //p.canAttack().set(false);
         //p.setCanAttack(false);

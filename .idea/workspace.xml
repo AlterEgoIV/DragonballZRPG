@@ -2,20 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6cbd35be-cf1d-47ce-8c94-36c768fd3ece" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/GameAssetManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/SoundSystem.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/android.iml" afterPath="$PROJECT_DIR$/android/android.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/spritesheetproperties/teenFutureTrunksSpriteSheet.sprites" afterPath="$PROJECT_DIR$/android/assets/spritesheetproperties/teenFutureTrunksSpriteSheet.sprites" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/DragonballZRPG.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/DragonballZRPG.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/GameObject.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/GameObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/Player.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/TeenFutureTrunks.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/TeenFutureTrunks.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/loaders/AnimationLoader.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/loaders/AnimationLoader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/ui/ControlsUI.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/ui/ControlsUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/ui/MainMenuUI.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/ui/MainMenuUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/ui/PlayUI.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/ui/PlayUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/ui/UI.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/ui/UI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/screens/PlayScreen.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/screens/PlayScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingDownState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingDownState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingRightState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingRightState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningRightState.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningRightState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/Animation.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/Animation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/Frame.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/Frame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/SpriteSheetAnimationsExtractorXML.java" afterPath="$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/SpriteSheetAnimationsExtractorXML.java" />
     </list>
     <manually-removed-from-ignored>
@@ -43,38 +48,88 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="DragonballZRPG.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/DragonballZRPG.java">
+      <file leaf-file-name="SpriteSheetAnimationsExtractorXML.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/SpriteSheetAnimationsExtractorXML.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1953">
-              <caret line="119" column="59" lean-forward="true" selection-start-line="119" selection-start-column="59" selection-end-line="119" selection-end-column="59" />
+            <state relative-caret-position="693">
+              <caret line="58" column="62" lean-forward="true" selection-start-line="58" selection-start-column="62" selection-end-line="58" selection-end-column="62" />
               <folding>
-                <element signature="e#2717#2718#0" expanded="true" />
-                <element signature="e#2754#2755#0" expanded="true" />
-                <element signature="e#4242#4243#0" expanded="true" />
-                <element signature="e#4265#4266#0" expanded="true" />
+                <element signature="e#926#933#0" expanded="true" />
+                <element signature="e#2655#2656#0" expanded="true" />
+                <element signature="e#2703#2704#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameAssetManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/GameAssetManager.java">
+      <file leaf-file-name="AnimationLoader.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/loaders/AnimationLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+            <state relative-caret-position="553">
+              <caret line="49" column="96" lean-forward="true" selection-start-line="49" selection-start-column="96" selection-end-line="49" selection-end-column="96" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#707#708#0" expanded="true" />
-                <element signature="e#756#757#0" expanded="true" />
-                <element signature="e#801#802#0" expanded="true" />
-                <element signature="e#850#851#0" expanded="true" />
-                <element signature="e#910#911#0" expanded="true" />
-                <element signature="e#965#966#0" expanded="true" />
-                <element signature="e#1787#1788#0" expanded="true" />
-                <element signature="e#1885#1886#0" expanded="true" />
-                <element signature="e#2145#2146#0" expanded="true" />
-                <element signature="e#2183#2184#0" expanded="true" />
+                <element signature="e#1408#1409#0" expanded="true" />
+                <element signature="e#1456#1457#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="teenFutureTrunksSpriteSheet.sprites" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android/assets/spritesheetproperties/teenFutureTrunksSpriteSheet.sprites">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="441">
+              <caret line="111" column="60" lean-forward="false" selection-start-line="111" selection-start-column="60" selection-end-line="111" selection-end-column="60" />
+              <folding>
+                <marker date="1499891692581" expanded="true" signature="13831:13846" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TeenFutureTrunks.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/TeenFutureTrunks.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="69" column="90" lean-forward="false" selection-start-line="69" selection-start-column="90" selection-end-line="69" selection-end-column="90" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Frame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/Frame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="693">
+              <caret line="39" column="24" lean-forward="false" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+              <folding>
+                <element signature="e#558#559#0" expanded="true" />
+                <element signature="e#586#587#0" expanded="true" />
+                <element signature="e#621#622#0" expanded="true" />
+                <element signature="e#651#652#0" expanded="true" />
+                <element signature="e#686#687#0" expanded="true" />
+                <element signature="e#716#717#0" expanded="true" />
+                <element signature="e#755#756#0" expanded="true" />
+                <element signature="e#786#787#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Animation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/Animation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1869">
+              <caret line="94" column="40" lean-forward="false" selection-start-line="94" selection-start-column="40" selection-end-line="94" selection-end-column="40" />
+              <folding>
+                <element signature="e#3163#3164#0" expanded="true" />
+                <element signature="e#3210#3211#0" expanded="true" />
+                <element signature="e#3254#3255#0" expanded="true" />
+                <element signature="e#3294#3295#0" expanded="true" />
+                <element signature="e#3333#3334#0" expanded="true" />
+                <element signature="e#3373#3374#0" expanded="true" />
+                <element signature="e#3517#3518#0" expanded="true" />
+                <element signature="e#3551#3552#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -85,8 +140,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -2550,24 +2606,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/entities/Entity.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingDownState.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingLeftState.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingUpState.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/facingstates/FacingDownState.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/facingstates/FacingLeftState.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/facingstates/FacingRightState.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/facingstates/FacingUpState.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingDownState.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingLeftState.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingUpState.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/entities/players/TeenFutureTrunks.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/GameObject.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/Player.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/Physics.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/CollisionHandler.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/PhysicsSimulator.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/TeenFutureTrunks.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/physics/CollisionHandler.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/physics/PhysicsSimulator.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/uielements/UIElement.java" />
@@ -2580,7 +2624,6 @@
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/UIElement.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/ui/uielements/TextBox.java" />
         <option value="$PROJECT_DIR$/desktop/src/com/dragonballzrpg/desktop/DesktopLauncher.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/screens/PlayScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/ui/uielements/MenuOption.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/enums/TextAlignment.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/enums/MainMenuOption.java" />
@@ -2594,13 +2637,26 @@
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/ui/uielements/Text.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/screens/ControlsScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/GameAssetManager.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/DragonballZRPG.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/loaders/AnimationLoader.java" />
-        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/SpriteSheetAnimationsExtractorXML.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/ui/ControlsUI.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/ui/UI.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/ui/MainMenuUI.java" />
         <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/ui/PlayUI.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/DragonballZRPG.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/GameObject.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/Player.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/SoundSystem.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/listeners/Listener.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/observer/Observable.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/Frame.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/SpriteSheetAnimationsExtractorXML.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/Animation.java" />
+        <option value="$PROJECT_DIR$/android/assets/spritesheetproperties/teenFutureTrunksSpriteSheet.sprites" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/loaders/AnimationLoader.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/TeenFutureTrunks.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/screens/PlayScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingDownState.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingRightState.java" />
+        <option value="$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningRightState.java" />
       </list>
     </option>
   </component>
@@ -2740,7 +2796,71 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
+              <option name="myItemId" value="states" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dragonballzrpg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="states" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="playerstates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dragonballzrpg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="states" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="playerstates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meleeingstates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2793,6 +2913,142 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="loaders" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dragonballzrpg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameobjects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dragonballzrpg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameobjects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="players" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dragonballzrpg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="enums" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonballZRPG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spritesheetproperties" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3270,7 +3526,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497139557572</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Refactored AssetManager into GameAssetManager for greater encapsulation">
+      <created>1499868480441</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1499868480441</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -3351,7 +3614,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactoring branch created" />
     <MESSAGE value="Player states are accessed with an Enum instead of a String" />
     <MESSAGE value="Replaced Bool wrapper with Boolean" />
     <MESSAGE value="Animations are now loaded by the main class instead of the object using them" />
@@ -3376,7 +3638,8 @@
     <MESSAGE value="Implemented MainMenuScreen UI" />
     <MESSAGE value="Restructured MainMenuScreen UI" />
     <MESSAGE value="Implemented ControlsScreen UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented ControlsScreen UI" />
+    <MESSAGE value="Refactored AssetManager into GameAssetManager for greater encapsulation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored AssetManager into GameAssetManager for greater encapsulation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -3387,69 +3650,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/android/assets/spritesheetproperties/teenFutureTrunks.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/enums/StateName.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/SpriteSheetAnimationsExtractor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="815">
-          <caret line="98" column="50" lean-forward="false" selection-start-line="98" selection-start-column="50" selection-end-line="98" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/enums/AnimationName.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="78" lean-forward="false" selection-start-line="16" selection-start-column="78" selection-end-line="16" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingUpState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="100" column="10" lean-forward="false" selection-start-line="100" selection-start-column="10" selection-end-line="102" selection-end-column="120" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingLeftState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="121" column="10" lean-forward="false" selection-start-line="121" selection-start-column="10" selection-end-line="123" selection-end-column="118" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingDownState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="103" column="120" lean-forward="false" selection-start-line="103" selection-start-column="120" selection-end-line="103" selection-end-column="120" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/facingstates/FacingUpState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="81" column="10" lean-forward="false" selection-start-line="81" selection-start-column="10" selection-end-line="83" selection-end-column="120" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/facingstates/FacingRightState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="82" column="90" lean-forward="false" selection-start-line="82" selection-start-column="90" selection-end-line="82" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/facingstates/FacingLeftState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="490">
@@ -3478,43 +3678,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingDownState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="134" column="10" lean-forward="false" selection-start-line="134" selection-start-column="10" selection-end-line="134" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/Frame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="21" column="41" lean-forward="false" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/android/assets/spritesheets/futuretrunks/teenFutureTrunks.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/assets/spritesheetproperties/teenFutureTrunksSpriteSheet.sprites">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="105" column="53" lean-forward="false" selection-start-line="105" selection-start-column="53" selection-end-line="105" selection-end-column="53" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/walkingstates/WalkingRightState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-560">
           <caret line="32" column="12" lean-forward="false" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/Animation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="95" column="40" lean-forward="false" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -3536,27 +3708,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="798">
           <caret line="41" column="63" lean-forward="false" selection-start-line="41" selection-start-column="63" selection-end-line="41" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/TeenFutureTrunks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="23" column="99" lean-forward="true" selection-start-line="23" selection-start-column="99" selection-end-line="23" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/GameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -3663,22 +3814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/SpriteSheetAnimationsExtractorXML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="19" column="28" lean-forward="false" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/loaders/AnimationLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="20" column="43" lean-forward="false" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/screens/ControlsScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="398">
@@ -3692,8 +3827,8 @@
         <state relative-caret-position="147">
           <caret line="31" column="30" lean-forward="false" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
           <folding>
-            <element signature="e#1873#1874#0" expanded="true" />
-            <element signature="e#1915#1916#0" expanded="true" />
+            <element signature="e#1873#1874#0" expanded="false" />
+            <element signature="e#1915#1916#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3719,7 +3854,7 @@
         <state relative-caret-position="178">
           <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
           <folding>
-            <element signature="e#508#509#0" expanded="true" />
+            <element signature="e#508#509#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3743,43 +3878,218 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/screens/PlayScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/GameAssetManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#707#708#0" expanded="true" />
-            <element signature="e#756#757#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-            <element signature="e#850#851#0" expanded="true" />
-            <element signature="e#910#911#0" expanded="true" />
-            <element signature="e#965#966#0" expanded="true" />
-            <element signature="e#1787#1788#0" expanded="true" />
-            <element signature="e#1885#1886#0" expanded="true" />
-            <element signature="e#2145#2146#0" expanded="true" />
-            <element signature="e#2183#2184#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#707#708#0" expanded="false" />
+            <element signature="e#756#757#0" expanded="false" />
+            <element signature="e#801#802#0" expanded="false" />
+            <element signature="e#850#851#0" expanded="false" />
+            <element signature="e#910#911#0" expanded="false" />
+            <element signature="e#965#966#0" expanded="false" />
+            <element signature="e#1787#1788#0" expanded="false" />
+            <element signature="e#1885#1886#0" expanded="false" />
+            <element signature="e#2145#2146#0" expanded="false" />
+            <element signature="e#2183#2184#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="43" column="31" lean-forward="false" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/DragonballZRPG.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1953">
-          <caret line="119" column="59" lean-forward="true" selection-start-line="119" selection-start-column="59" selection-end-line="119" selection-end-column="59" />
+        <state relative-caret-position="189">
+          <caret line="36" column="35" lean-forward="false" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
           <folding>
-            <element signature="e#2717#2718#0" expanded="true" />
-            <element signature="e#2754#2755#0" expanded="true" />
-            <element signature="e#4242#4243#0" expanded="true" />
-            <element signature="e#4265#4266#0" expanded="true" />
+            <element signature="e#2742#2743#0" expanded="true" />
+            <element signature="e#2779#2780#0" expanded="true" />
+            <element signature="e#3971#3972#0" expanded="true" />
+            <element signature="e#3994#3995#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/listeners/Listener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/SoundSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="33" column="37" lean-forward="false" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
+            <element signature="e#925#926#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/observer/Observer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/enums/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/observer/Observable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/assets/untitled.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/SpriteSheetAnimationsExtractor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="19" column="52" lean-forward="true" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/Frame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="39" column="24" lean-forward="false" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+          <folding>
+            <element signature="e#558#559#0" expanded="true" />
+            <element signature="e#586#587#0" expanded="true" />
+            <element signature="e#621#622#0" expanded="true" />
+            <element signature="e#651#652#0" expanded="true" />
+            <element signature="e#686#687#0" expanded="true" />
+            <element signature="e#716#717#0" expanded="true" />
+            <element signature="e#755#756#0" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/Animation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1869">
+          <caret line="94" column="40" lean-forward="false" selection-start-line="94" selection-start-column="40" selection-end-line="94" selection-end-column="40" />
+          <folding>
+            <element signature="e#3163#3164#0" expanded="true" />
+            <element signature="e#3210#3211#0" expanded="true" />
+            <element signature="e#3254#3255#0" expanded="true" />
+            <element signature="e#3294#3295#0" expanded="true" />
+            <element signature="e#3333#3334#0" expanded="true" />
+            <element signature="e#3373#3374#0" expanded="true" />
+            <element signature="e#3517#3518#0" expanded="true" />
+            <element signature="e#3551#3552#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/assets/spritesheetproperties/teenFutureTrunksSpriteSheet.sprites">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="111" column="60" lean-forward="false" selection-start-line="111" selection-start-column="60" selection-end-line="111" selection-end-column="60" />
+          <folding>
+            <marker date="1499891692581" expanded="true" signature="13831:13846" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/gameobjects/players/TeenFutureTrunks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="69" column="90" lean-forward="false" selection-start-line="69" selection-start-column="90" selection-end-line="69" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/runningstates/RunningRightState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="45" column="58" lean-forward="false" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingRightState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="92" column="10" lean-forward="false" selection-start-line="92" selection-start-column="10" selection-end-line="92" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/states/playerstates/attackingstates/meleeingstates/MeleeingDownState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="92" column="10" lean-forward="false" selection-start-line="92" selection-start-column="10" selection-end-line="92" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/screens/PlayScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="88" column="38" lean-forward="false" selection-start-line="88" selection-start-column="38" selection-end-line="88" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/utilities/SpriteSheetAnimationsExtractorXML.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="58" column="62" lean-forward="true" selection-start-line="58" selection-start-column="62" selection-end-line="58" selection-end-column="62" />
+          <folding>
+            <element signature="e#926#933#0" expanded="true" />
+            <element signature="e#2655#2656#0" expanded="true" />
+            <element signature="e#2703#2704#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/dragonballzrpg/loaders/AnimationLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="49" column="96" lean-forward="true" selection-start-line="49" selection-start-column="96" selection-end-line="49" selection-end-column="96" />
+          <folding>
+            <element signature="e#1408#1409#0" expanded="true" />
+            <element signature="e#1456#1457#0" expanded="true" />
           </folding>
         </state>
       </provider>
