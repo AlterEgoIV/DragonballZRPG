@@ -6,6 +6,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.dragonballzrpg.enums.MenuOption;
 import com.dragonballzrpg.ui.uielements.Cursor;
 import com.dragonballzrpg.ui.uielements.UIElement;
+import com.dragonballzrpg.utilities.GameAssetManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +16,12 @@ import java.util.List;
  */
 public abstract class UI
 {
-    protected AssetManager assetManager;
+    protected GameAssetManager assetManager;
     protected Viewport viewport;
     protected List<UIElement> uiElements;
     protected Cursor cursor;
 
-    public UI(AssetManager assetManager)
+    public UI(GameAssetManager assetManager)
     {
         this.assetManager = assetManager;
 
@@ -28,7 +29,7 @@ public abstract class UI
         cursor = new Cursor();
     }
 
-    public UI(AssetManager assetManager, Viewport viewport)
+    public UI(GameAssetManager assetManager, Viewport viewport)
     {
         this.assetManager = assetManager;
         this.viewport = viewport;

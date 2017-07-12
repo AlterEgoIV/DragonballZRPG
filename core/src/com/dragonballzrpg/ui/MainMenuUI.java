@@ -8,13 +8,14 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.dragonballzrpg.enums.*;
 import com.dragonballzrpg.enums.MenuOption;
 import com.dragonballzrpg.ui.uielements.*;
+import com.dragonballzrpg.utilities.GameAssetManager;
 
 /**
  * Created by Carl on 25/05/2017.
  */
 public class MainMenuUI extends UI
 {
-    public MainMenuUI(AssetManager assetManager)
+    public MainMenuUI(GameAssetManager assetManager)
     {
         super(assetManager);
 

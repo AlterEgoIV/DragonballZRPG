@@ -23,6 +23,7 @@ import com.dragonballzrpg.loaders.AnimationLoader;
 import com.dragonballzrpg.screens.ControlsScreen;
 import com.dragonballzrpg.screens.MainMenuScreen;
 import com.dragonballzrpg.screens.PlayScreen;
+import com.dragonballzrpg.utilities.GameAssetManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +32,7 @@ public class DragonballZRPG extends Game
 {
 	private final int VIEWPORT_WIDTH = 240;
 	private final int VIEWPORT_HEIGHT = 160;
-	public AssetManager assetManager;
+	public GameAssetManager assetManager;
 	public Map<SoundName, Sound> sounds;
 	public Map<ScreenName, Screen> screens;
 	public OrthographicCamera camera;
@@ -43,8 +44,8 @@ public class DragonballZRPG extends Game
 	@Override
 	public void create()
 	{
-		assetManager = new AssetManager();
-		loadAssets(); // load assets first
+		assetManager = new GameAssetManager();
+		assetManager.loadAssets(); // load assets first
 
 		sounds = new HashMap<SoundName, Sound>();
 		initialiseSounds();
@@ -86,39 +87,6 @@ public class DragonballZRPG extends Game
 	public void resize(int width, int height)
 	{
 		viewport.update(width, height);
-	}
-
-	private void loadAssets()
-	{
-		loadFonts();
-		loadTextures();
-		loadSounds();
-
-		assetManager.finishLoading();
-	}
-
-	private void loadFonts()
-	{
-		FileHandleResolver fileHandleResolver = new InternalFileHandleResolver();
-		assetManager.setLoader(FreeTypeFontGenerator.class, new FreeTypeFontGeneratorLoader(fileHandleResolver));
-		assetManager.setLoader(BitmapFont.class, ".ttf", new FreetypeFontLoader(fileHandleResolver));
-
-		FreetypeFontLoader.FreeTypeFontLoaderParameter parameter = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
-		parameter.fontFileName = "fonts/FreeSans.ttf";
-		parameter.fontParameters.size = 36;
-		assetManager.load("FreeSans36.ttf", BitmapFont.class, parameter);
-	}
-
-	private void loadTextures()
-	{
-		assetManager.load("spritesheets/futuretrunks/teenFutureTrunks.png", Texture.class);
-	}
-
-	private void loadSounds()
-	{
-		assetManager.load("sounds/melee1.wav", Sound.class);
-		assetManager.load("sounds/melee2.wav", Sound.class);
-		assetManager.load("sounds/running.wav", Sound.class);
 	}
 
 	private void initialiseSounds()

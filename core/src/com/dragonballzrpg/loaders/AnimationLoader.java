@@ -4,6 +4,7 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.dragonballzrpg.enums.AnimationName;
 import com.dragonballzrpg.enums.AnimationSet;
 import com.dragonballzrpg.utilities.Animation;
+import com.dragonballzrpg.utilities.GameAssetManager;
 import com.dragonballzrpg.utilities.SpriteSheetAnimationsExtractorXML;
 
 import java.util.HashMap;
@@ -17,7 +18,7 @@ public class AnimationLoader
     private SpriteSheetAnimationsExtractorXML spriteSheetAnimationsExtractorXML;
     private Map<AnimationSet, HashMap<AnimationName, Animation>> setOfAnimationSets;
 
-    public AnimationLoader(AssetManager assetManager)
+    public AnimationLoader(GameAssetManager assetManager)
     {
         spriteSheetAnimationsExtractorXML = new SpriteSheetAnimationsExtractorXML(assetManager);
         setOfAnimationSets = new HashMap<AnimationSet, HashMap<AnimationName, Animation>>();
