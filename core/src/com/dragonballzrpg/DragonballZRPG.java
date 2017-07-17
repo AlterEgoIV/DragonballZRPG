@@ -4,22 +4,12 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.assets.loaders.FileHandleResolver;
-import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGeneratorLoader;
-import com.badlogic.gdx.graphics.g2d.freetype.FreetypeFontLoader;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.dragonballzrpg.enums.*;
-import com.dragonballzrpg.input.GameInputProcessor;
-import com.dragonballzrpg.loaders.AnimationLoader;
+import com.dragonballzrpg.utilities.AnimationManager;
 import com.dragonballzrpg.screens.ControlsScreen;
 import com.dragonballzrpg.screens.MainMenuScreen;
 import com.dragonballzrpg.screens.PlayScreen;
@@ -38,9 +28,9 @@ public class DragonballZRPG extends Game
 	public Map<ScreenName, Screen> screens;
 	public OrthographicCamera camera;
 	public Viewport viewport;
-	public GameInputProcessor inputProcessor;
-	public AnimationLoader animationLoader;
-	public Map<ActionName, Integer> actions;
+	//public GameInputProcessor inputProcessor;
+	public AnimationManager animationManager;
+	public Map<ActionName, Integer> inputToActionMap;
 
 	@Override
 	public void create()
@@ -48,18 +38,18 @@ public class DragonballZRPG extends Game
 		assetManager = new GameAssetManager();
 		assetManager.loadAssets(); // load assets first
 
-		soundSystem = new SoundSystem(assetManager);
+		animationManager = new AnimationManager(assetManager);
+		animationManager.loadAnimations();
 
-		animationLoader = new AnimationLoader(assetManager);
-		animationLoader.loadAnimations();
+		soundSystem = new SoundSystem(assetManager);
 
 		screens = new HashMap<ScreenName, Screen>();
 		camera = new OrthographicCamera(VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
 		viewport = new StretchViewport(VIEWPORT_WIDTH, VIEWPORT_HEIGHT, camera);
-		inputProcessor = new GameInputProcessor();
-		Gdx.input.setInputProcessor(inputProcessor);
+		//inputProcessor = new GameInputProcessor();
+		//Gdx.input.setInputProcessor(inputProcessor);
 
-		actions = new HashMap<ActionName, Integer>();
+		inputToActionMap = new HashMap<ActionName, Integer>();
 		initialiseInputActions();
 
 		initialiseScreens();
@@ -91,15 +81,15 @@ public class DragonballZRPG extends Game
 
 	private void initialiseInputActions()
 	{
-		actions.put(ActionName.UP, Input.Keys.UP);
-		actions.put(ActionName.DOWN, Input.Keys.DOWN);
-		actions.put(ActionName.LEFT, Input.Keys.LEFT);
-		actions.put(ActionName.RIGHT, Input.Keys.RIGHT);
-		actions.put(ActionName.INTERACT_OR_MELEE, Input.Keys.M);
-		actions.put(ActionName.CANCEL_OR_ENERGY_ATTACK, Input.Keys.N);
-		actions.put(ActionName.PAUSE, Input.Keys.SPACE);
-		actions.put(ActionName.SWITCH_ENERGY_ATTACK, Input.Keys.B);
-		actions.put(ActionName.SELECT, Input.Keys.ENTER);
+		inputToActionMap.put(ActionName.UP, Input.Keys.UP);
+		inputToActionMap.put(ActionName.DOWN, Input.Keys.DOWN);
+		inputToActionMap.put(ActionName.LEFT, Input.Keys.LEFT);
+		inputToActionMap.put(ActionName.RIGHT, Input.Keys.RIGHT);
+		inputToActionMap.put(ActionName.INTERACT_OR_MELEE, Input.Keys.M);
+		inputToActionMap.put(ActionName.CANCEL_OR_ENERGY_ATTACK, Input.Keys.N);
+		inputToActionMap.put(ActionName.PAUSE, Input.Keys.SPACE);
+		inputToActionMap.put(ActionName.SWITCH_ENERGY_ATTACK, Input.Keys.B);
+		inputToActionMap.put(ActionName.SELECT, Input.Keys.ENTER);
 	}
 
 	private void initialiseScreens()

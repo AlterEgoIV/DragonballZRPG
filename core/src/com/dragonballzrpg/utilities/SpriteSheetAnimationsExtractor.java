@@ -3,81 +3,67 @@ package com.dragonballzrpg.utilities;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.utils.XmlReader;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Carl on 07/08/2016.
+ * Created by Carl on 22/04/2017.
  */
 public class SpriteSheetAnimationsExtractor
 {
-    private Map<String, TextureRegion[]> animations;
+    private GameAssetManager assetManager;
+    private Map<String, Frame[]> animations;
 
-    public SpriteSheetAnimationsExtractor()
+    public SpriteSheetAnimationsExtractor(GameAssetManager assetManager)
     {
-        animations = new HashMap<String, TextureRegion[]>();
+        this.assetManager = assetManager;
+        animations = new HashMap<String, Frame[]>();
     }
 
-    public void extractAnimations(Texture spriteSheet, String dataFile)
+    public void extractAnimations(String spriteSheet, String spriteSheetDataFile)
     {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(Gdx.files.internal(dataFile).read()));
-        List<TextureRegion> frames = new ArrayList<TextureRegion>();
+        Texture sheet = assetManager.get(spriteSheet);
+        List<Frame> frames = new ArrayList<Frame>();
 
         try
         {
-            try
-            {
-                String line;
+            XmlReader.Element rootElement = new XmlReader().parse(Gdx.files.internal(spriteSheetDataFile));
+            XmlReader.Element element = rootElement.getChildByName("definitions").getChildByName("dir");
 
-                // While there is a line from the file left to be read, transfer it to line (String)
-                while((line = reader.readLine()) != null)
+            for(int i = 0; i < element.getChildCount(); ++i)
+            {
+                XmlReader.Element child = element.getChild(i);
+                String animationName = child.get("name");
+
+                for(int j = 0; j < child.getChildCount(); ++j)
                 {
-                    String[] values = line.split(","); // Split the line up into set of String values
+                    XmlReader.Element nestedChild = child.getChild(j);
 
-                    if(values.length == 1) // If only one String in the line
-                    {
-                        String name = values[0]; // Set the Animation name
+                    int x = Integer.parseInt(nestedChild.get("x"));
+                    int y = Integer.parseInt(nestedChild.get("y"));
+                    int width = Integer.parseInt(nestedChild.get("w"));
+                    int height = Integer.parseInt(nestedChild.get("h"));
+                    int xOffset = Integer.parseInt(nestedChild.get("xOffset"));
+                    int yOffset = Integer.parseInt(nestedChild.get("yOffset"));
+                    double duration = Double.parseDouble(nestedChild.get("duration"));
 
-                        // Create TextureRegion array the same size as List of frames
-                        TextureRegion[] textureRegions = new TextureRegion[frames.size()];
-
-                        // Convert the List of frames to array of TextureRegions
-                        for(int i = 0; i < frames.size(); ++i)
-                        {
-                            textureRegions[i] = frames.get(i);
-                        }
-
-                        // Add the current name and frames to the stringAnimations HashMap
-                        animations.put(name, textureRegions);
-
-                        // Reset frames
-                        //frames.clear();
-                        frames = new ArrayList<TextureRegion>();
-                    }
-                    else
-                    {
-                        // Convert the values
-                        int frameX = Integer.parseInt(values[0]);
-                        int frameY = Integer.parseInt(values[1]);
-                        int frameWidth = Integer.parseInt(values[2]);
-                        int frameHeight = Integer.parseInt(values[3]);
-
-                        // Create a new TextureRegion and set it to the specified dimensions at the given coordinates
-                        TextureRegion frame = new TextureRegion(spriteSheet, frameX, frameY, frameWidth, frameHeight);
-
-                        frames.add(frame); // Add the frame to a List of frames
-                    }
+                    frames.add(new Frame(new TextureRegion(sheet, x, y, width, height), xOffset, yOffset, duration));
                 }
-            }
-            finally
-            {
-                reader.close();
+
+                Frame[] tempFrames = new Frame[frames.size()];
+
+                for(int k = 0; k < frames.size(); ++k)
+                {
+                    tempFrames[k] = frames.get(k);
+                }
+
+                animations.put(animationName, tempFrames);
+                frames.clear();
             }
         }
         catch(IOException e)
@@ -86,16 +72,15 @@ public class SpriteSheetAnimationsExtractor
         }
     }
 
-    public TextureRegion[] getAnimation(String animation)
+    public Frame[] getAnimation(String animation)
     {
         return animations.get(animation);
     }
 
-    public TextureRegion getAnimationFrame(String animation, int frame)
+    public Frame getAnimationFrame(String animation, int frame)
     {
-        TextureRegion[] frames = animations.get(animation);
+        Frame[] frames = animations.get(animation);
 
         return frames[frame];
-        //return new TextureRegion(frames[frame]);
     }
 }

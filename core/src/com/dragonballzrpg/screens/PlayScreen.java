@@ -1,7 +1,8 @@
 package com.dragonballzrpg.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -9,14 +10,16 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.*;
 import com.dragonballzrpg.DragonballZRPG;
+import com.dragonballzrpg.controllers.Controller;
+import com.dragonballzrpg.controllers.PlayerController;
+import com.dragonballzrpg.enums.ActionName;
 import com.dragonballzrpg.physics.PhysicsSimulator;
 import com.dragonballzrpg.gameobjects.GameObject;
-import com.dragonballzrpg.gameobjects.players.Player;
-import com.dragonballzrpg.gameobjects.players.TeenFutureTrunks;
+import com.dragonballzrpg.gameobjects.characters.Player;
+import com.dragonballzrpg.gameobjects.characters.players.TeenFutureTrunks;
 import com.dragonballzrpg.enums.AnimationName;
 import com.dragonballzrpg.enums.AnimationSet;
 import com.dragonballzrpg.enums.PlayerName;
-import com.dragonballzrpg.input.InputHandler;
 import com.dragonballzrpg.ui.PlayUI;
 
 import java.awt.Rectangle;
@@ -26,7 +29,7 @@ import java.util.List;
 /**
  * Created by Carl on 04/08/2016.
  */
-public class PlayScreen extends GameScreen
+public class PlayScreen extends GameScreen implements InputProcessor
 {
     private TiledMap map;
     private OrthogonalTiledMapRenderer mapRenderer;
@@ -36,6 +39,7 @@ public class PlayScreen extends GameScreen
     private List<GameObject> entities;
     private PhysicsSimulator physicsSimulator;
     private int[] backgroundLayers, foregroundLayers;
+    private PlayerController playerController;
 
     public PlayScreen(DragonballZRPG game)
     {
@@ -52,9 +56,10 @@ public class PlayScreen extends GameScreen
         currentPlayer = players.get(PlayerName.TEEN_FUTURE_TRUNKS);
         createEntities();
 
-        game.inputProcessor.add((InputHandler)currentPlayer);
+        //game.inputProcessor.add((InputHandler)currentPlayer);
 
         physicsSimulator.add(currentPlayer);
+        playerController = new PlayerController((Player)currentPlayer);
     }
 
     private void loadMaps()
@@ -87,9 +92,8 @@ public class PlayScreen extends GameScreen
         Player player;
 
         player = new TeenFutureTrunks(new Vector2(0, 0), 100.0f,
-          game.animationLoader.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
-          game.animationLoader.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN),
-          Input.Keys.UP, Input.Keys.DOWN, Input.Keys.LEFT, Input.Keys.RIGHT, Input.Keys.M);
+          game.animationManager.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
+          game.animationManager.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN));
 
         players.put(PlayerName.TEEN_FUTURE_TRUNKS, player);
     }
@@ -104,12 +108,14 @@ public class PlayScreen extends GameScreen
     @Override
     public void show()
     {
-
+        Gdx.input.setInputProcessor(this);
     }
 
     @Override
     public void render(float delta)
     {
+        playerController.update();
+
         for(GameObject gameObject : entities)
         {
             gameObject.update();
@@ -164,5 +170,111 @@ public class PlayScreen extends GameScreen
     {
         map.dispose();
         mapRenderer.dispose();
+    }
+
+    @Override
+    public boolean keyDown(int keycode)
+    {
+        if(keycode == game.inputToActionMap.get(ActionName.UP))
+        {
+            playerController.moveUp = true;
+        }
+        else if(keycode == game.inputToActionMap.get(ActionName.DOWN))
+        {
+
+        }
+        else if(keycode == game.inputToActionMap.get(ActionName.LEFT))
+        {
+
+        }
+        else if(keycode == game.inputToActionMap.get(ActionName.RIGHT))
+        {
+
+        }
+        else if(keycode == game.inputToActionMap.get(ActionName.INTERACT_OR_MELEE))
+        {
+
+        }
+        else if(keycode == game.inputToActionMap.get(ActionName.CANCEL_OR_ENERGY_ATTACK))
+        {
+
+        }
+        else if(keycode == game.inputToActionMap.get(ActionName.SWITCH_ENERGY_ATTACK))
+        {
+
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean keyUp(int keycode)
+    {
+        if(keycode == game.inputToActionMap.get(ActionName.UP))
+        {
+            playerController.moveUp = false;
+        }
+        else if(keycode == game.inputToActionMap.get(ActionName.DOWN))
+        {
+
+        }
+        else if(keycode == game.inputToActionMap.get(ActionName.LEFT))
+        {
+
+        }
+        else if(keycode == game.inputToActionMap.get(ActionName.RIGHT))
+        {
+
+        }
+        else if(keycode == game.inputToActionMap.get(ActionName.INTERACT_OR_MELEE))
+        {
+
+        }
+        else if(keycode == game.inputToActionMap.get(ActionName.CANCEL_OR_ENERGY_ATTACK))
+        {
+
+        }
+        else if(keycode == game.inputToActionMap.get(ActionName.SWITCH_ENERGY_ATTACK))
+        {
+
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean keyTyped(char character)
+    {
+        return false;
+    }
+
+    @Override
+    public boolean touchDown(int screenX, int screenY, int pointer, int button)
+    {
+        return false;
+    }
+
+    @Override
+    public boolean touchUp(int screenX, int screenY, int pointer, int button)
+    {
+        return false;
+    }
+
+    @Override
+    public boolean touchDragged(int screenX, int screenY, int pointer)
+    {
+        return false;
+    }
+
+    @Override
+    public boolean mouseMoved(int screenX, int screenY)
+    {
+        return false;
+    }
+
+    @Override
+    public boolean scrolled(int amount)
+    {
+        return false;
     }
 }

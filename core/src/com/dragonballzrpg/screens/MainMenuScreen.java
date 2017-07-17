@@ -59,11 +59,11 @@ public class MainMenuScreen extends GameScreen implements InputProcessor
     @Override
     public boolean keyDown(int keycode)
     {
-        if(keycode == game.actions.get(ActionName.UP))
+        if(keycode == game.inputToActionMap.get(ActionName.UP))
         {
             ui.previousOption();
         }
-        else if(keycode == game.actions.get(ActionName.DOWN))
+        else if(keycode == game.inputToActionMap.get(ActionName.DOWN))
         {
             ui.nextOption();
         }
@@ -74,7 +74,7 @@ public class MainMenuScreen extends GameScreen implements InputProcessor
     @Override
     public boolean keyUp(int keycode)
     {
-        if(keycode == game.actions.get(ActionName.SELECT))
+        if(keycode == game.inputToActionMap.get(ActionName.SELECT))
         {
             switch(ui.getCurrentMenuOption())
             {

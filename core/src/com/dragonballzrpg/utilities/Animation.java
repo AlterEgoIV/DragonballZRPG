@@ -26,21 +26,6 @@ public class Animation
         loops = false;
     }
 
-//    public Animation(TextureRegion[] frames, double frameDuration)
-//    {
-//        this.frames = new ArrayList<Frame>();
-//
-//        for(TextureRegion frame : frames)
-//        {
-//            this.frames.add(new Frame(frame, frameDuration));
-//        }
-//
-//        currentFrame = 0;
-//        currentFrameDuration = 0.0d;
-//        animationDuration = frameDuration * frames.length;
-//        loops = false;
-//    }
-
     public Animation(Frame[] frames)
     {
         this.frames = new ArrayList<Frame>();
@@ -55,21 +40,6 @@ public class Animation
             animationDuration += frame.getDuration();
         }
     }
-
-//    public Animation(TextureRegion[] frames, double frameDuration, boolean loops)
-//    {
-//        this.loops = loops;
-//        this.frames = new ArrayList<Frame>();
-//
-//        for(TextureRegion frame : frames)
-//        {
-//            this.frames.add(new Frame(frame, frameDuration));
-//        }
-//
-//        currentFrame = 0;
-//        currentFrameDuration = 0.0d;
-//        animationDuration = frameDuration * frames.length;
-//    }
 
     public Animation(Frame[] frames, boolean loops)
     {
@@ -107,12 +77,6 @@ public class Animation
             }
         }
     }
-
-//    public void addFrame(TextureRegion frame, double duration)
-//    {
-//        animationDuration += duration;
-//        frames.add(new Frame(frame, duration));
-//    }
 
     public void addFrame(Frame frame)
     {
