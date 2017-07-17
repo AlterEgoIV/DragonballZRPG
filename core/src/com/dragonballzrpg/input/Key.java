@@ -7,13 +7,13 @@ import com.badlogic.gdx.Gdx;
  */
 public class Key
 {
-    private boolean isPressed, justPressed, isDoublePressed;
+    private boolean isPressed, isJustPressed, isDoublePressed;
     private double currentTimeBetweenPresses, allowedTimeBetweenPresses;
 
     public Key()
     {
         isPressed = false;
-        justPressed = false;
+        isJustPressed = false;
         isDoublePressed = false;
         currentTimeBetweenPresses = 0.0d;
         allowedTimeBetweenPresses = 0.3d;
@@ -21,13 +21,13 @@ public class Key
 
     public void update()
     {
-        if(justPressed)
+        if(isJustPressed)
         {
             currentTimeBetweenPresses += Gdx.graphics.getDeltaTime();
 
             if(currentTimeBetweenPresses >= allowedTimeBetweenPresses)
             {
-                justPressed = false;
+                isJustPressed = false;
                 currentTimeBetweenPresses = 0.0d;
             }
         }
@@ -39,7 +39,7 @@ public class Key
         {
             this.isPressed = true;
 
-            if(justPressed)
+            if(isJustPressed)
             {
                 isDoublePressed = true;
             }
@@ -47,24 +47,8 @@ public class Key
         else
         {
             this.isPressed = false;
-            justPressed = true;
+            isJustPressed = true;
         }
-    }
-
-    public void press()
-    {
-        isPressed = true;
-
-        if(justPressed)
-        {
-            isDoublePressed = true;
-        }
-    }
-
-    public void release()
-    {
-        isPressed = false;
-        justPressed = true;
     }
 
     public boolean isPressed()

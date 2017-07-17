@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.dragonballzrpg.DragonballZRPG;
-import com.dragonballzrpg.enums.ActionName;
+import com.dragonballzrpg.enums.KeyName;
 import com.dragonballzrpg.enums.ScreenName;
 import com.dragonballzrpg.ui.ControlsUI;
 
@@ -16,19 +16,19 @@ import java.util.Map;
  */
 public class ControlsScreen extends GameScreen implements InputProcessor
 {
-    private Map<ActionName, String> actionStrings;
-    private Map<ActionName, Integer> defaultActions;
+    private Map<KeyName, String> actionStrings;
+    private Map<KeyName, Integer> defaultActions;
     private boolean optionSelected;
 
     public ControlsScreen(DragonballZRPG game)
     {
         super(game);
 
-        actionStrings = new HashMap<ActionName, String>();
-        defaultActions = new HashMap<ActionName, Integer>();
+        actionStrings = new HashMap<KeyName, String>();
+        defaultActions = new HashMap<KeyName, Integer>();
         optionSelected = false;
 
-        for(Map.Entry<ActionName, Integer> entry : game.inputToActionMap.entrySet())
+        for(Map.Entry<KeyName, Integer> entry : game.inputKeyMap.entrySet())
         {
             actionStrings.put(entry.getKey(), Input.Keys.toString(entry.getValue()));
             defaultActions.put(entry.getKey(), entry.getValue());
@@ -86,11 +86,11 @@ public class ControlsScreen extends GameScreen implements InputProcessor
     {
         if(!optionSelected)
         {
-            if(keycode == game.inputToActionMap.get(ActionName.UP))
+            if(keycode == game.inputKeyMap.get(KeyName.UP_KEY))
             {
                 ui.previousOption();
             }
-            else if(keycode == game.inputToActionMap.get(ActionName.DOWN))
+            else if(keycode == game.inputKeyMap.get(KeyName.DOWN_KEY))
             {
                 ui.nextOption();
             }
@@ -108,9 +108,9 @@ public class ControlsScreen extends GameScreen implements InputProcessor
             {
                 case SET_UP_ACTION_INPUT:
                 {
-                    if(keycode != game.inputToActionMap.get(ActionName.SELECT))
+                    if(keycode != game.inputKeyMap.get(KeyName.SELECT_KEY))
                     {
-                        game.inputToActionMap.put(ActionName.UP, keycode);
+                        game.inputKeyMap.put(KeyName.UP_KEY, keycode);
                         ui.setCurrentMenuOptionText(Input.Keys.toString(keycode));
                         optionSelected = false;
                         ui.highlightCurrentMenuOption(false);
@@ -121,9 +121,9 @@ public class ControlsScreen extends GameScreen implements InputProcessor
 
                 case SET_DOWN_ACTION_INPUT:
                 {
-                    if(keycode != game.inputToActionMap.get(ActionName.SELECT))
+                    if(keycode != game.inputKeyMap.get(KeyName.SELECT_KEY))
                     {
-                        game.inputToActionMap.put(ActionName.DOWN, keycode);
+                        game.inputKeyMap.put(KeyName.DOWN_KEY, keycode);
                         ui.setCurrentMenuOptionText(Input.Keys.toString(keycode));
                         optionSelected = false;
                         ui.highlightCurrentMenuOption(false);
@@ -134,9 +134,9 @@ public class ControlsScreen extends GameScreen implements InputProcessor
 
                 case SET_LEFT_ACTION_INPUT:
                 {
-                    if(keycode != game.inputToActionMap.get(ActionName.SELECT))
+                    if(keycode != game.inputKeyMap.get(KeyName.SELECT_KEY))
                     {
-                        game.inputToActionMap.put(ActionName.LEFT, keycode);
+                        game.inputKeyMap.put(KeyName.LEFT_KEY, keycode);
                         ui.setCurrentMenuOptionText(Input.Keys.toString(keycode));
                         optionSelected = false;
                         ui.highlightCurrentMenuOption(false);
@@ -147,9 +147,9 @@ public class ControlsScreen extends GameScreen implements InputProcessor
 
                 case SET_RIGHT_ACTION_INPUT:
                 {
-                    if(keycode != game.inputToActionMap.get(ActionName.SELECT))
+                    if(keycode != game.inputKeyMap.get(KeyName.SELECT_KEY))
                     {
-                        game.inputToActionMap.put(ActionName.RIGHT, keycode);
+                        game.inputKeyMap.put(KeyName.RIGHT_KEY, keycode);
                         ui.setCurrentMenuOptionText(Input.Keys.toString(keycode));
                         optionSelected = false;
                         ui.highlightCurrentMenuOption(false);
@@ -160,9 +160,9 @@ public class ControlsScreen extends GameScreen implements InputProcessor
 
                 case SET_INTERACT_OR_MELEE_ACTION_INPUT:
                 {
-                    if(keycode != game.inputToActionMap.get(ActionName.SELECT))
+                    if(keycode != game.inputKeyMap.get(KeyName.SELECT_KEY))
                     {
-                        game.inputToActionMap.put(ActionName.INTERACT_OR_MELEE, keycode);
+                        game.inputKeyMap.put(KeyName.INTERACT_OR_MELEE_KEY, keycode);
                         ui.setCurrentMenuOptionText(Input.Keys.toString(keycode));
                         optionSelected = false;
                         ui.highlightCurrentMenuOption(false);
@@ -173,9 +173,9 @@ public class ControlsScreen extends GameScreen implements InputProcessor
 
                 case SET_CANCEL_OR_ENERGY_ATTACK_ACTION_INPUT:
                 {
-                    if(keycode != game.inputToActionMap.get(ActionName.SELECT))
+                    if(keycode != game.inputKeyMap.get(KeyName.SELECT_KEY))
                     {
-                        game.inputToActionMap.put(ActionName.CANCEL_OR_ENERGY_ATTACK, keycode);
+                        game.inputKeyMap.put(KeyName.CANCEL_OR_ENERGY_ATTACK_KEY, keycode);
                         ui.setCurrentMenuOptionText(Input.Keys.toString(keycode));
                         optionSelected = false;
                         ui.highlightCurrentMenuOption(false);
@@ -186,9 +186,9 @@ public class ControlsScreen extends GameScreen implements InputProcessor
 
                 case SET_SWITCH_ENERGY_ATTACK_ACTION_INPUT:
                 {
-                    if(keycode != game.inputToActionMap.get(ActionName.SELECT))
+                    if(keycode != game.inputKeyMap.get(KeyName.SELECT_KEY))
                     {
-                        game.inputToActionMap.put(ActionName.SWITCH_ENERGY_ATTACK, keycode);
+                        game.inputKeyMap.put(KeyName.SWITCH_ENERGY_ATTACK_KEY, keycode);
                         ui.setCurrentMenuOptionText(Input.Keys.toString(keycode));
                         optionSelected = false;
                         ui.highlightCurrentMenuOption(false);
@@ -199,9 +199,9 @@ public class ControlsScreen extends GameScreen implements InputProcessor
 
                 case SET_PAUSE_ACTION_INPUT:
                 {
-                    if(keycode != game.inputToActionMap.get(ActionName.SELECT))
+                    if(keycode != game.inputKeyMap.get(KeyName.SELECT_KEY))
                     {
-                        game.inputToActionMap.put(ActionName.PAUSE, keycode);
+                        game.inputKeyMap.put(KeyName.PAUSE_KEY, keycode);
                         ui.setCurrentMenuOptionText(Input.Keys.toString(keycode));
                         optionSelected = false;
                         ui.highlightCurrentMenuOption(false);
@@ -212,17 +212,17 @@ public class ControlsScreen extends GameScreen implements InputProcessor
             }
         }
 
-        if(keycode == game.inputToActionMap.get(ActionName.SELECT))
+        if(keycode == game.inputKeyMap.get(KeyName.SELECT_KEY))
         {
             switch(ui.getCurrentMenuOption())
             {
                 case RESET_TO_DEFAULT:
                 {
-                    game.inputToActionMap.clear();
+                    game.inputKeyMap.clear();
 
-                    for(Map.Entry<ActionName, Integer> entry : defaultActions.entrySet())
+                    for(Map.Entry<KeyName, Integer> entry : defaultActions.entrySet())
                     {
-                        game.inputToActionMap.put(entry.getKey(), entry.getValue());
+                        game.inputKeyMap.put(entry.getKey(), entry.getValue());
                     }
 
                     ui.resetText();

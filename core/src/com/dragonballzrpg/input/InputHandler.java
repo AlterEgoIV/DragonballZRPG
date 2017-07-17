@@ -1,6 +1,5 @@
 package com.dragonballzrpg.input;
 
-import com.dragonballzrpg.enums.ActionName;
 import com.dragonballzrpg.enums.KeyName;
 
 import java.util.HashMap;
@@ -11,62 +10,84 @@ import java.util.Map;
  */
 public class InputHandler
 {
-    private Map<ActionName, Integer> inputToActionMap;
+    private Map<KeyName, Integer> inputKeyMap;
     private Map<KeyName, Key> keys;
 
-    public InputHandler(Map<ActionName, Integer> inputToActionMap)
+    public InputHandler(Map<KeyName, Integer> inputKeyMap)
     {
-        this.inputToActionMap = inputToActionMap;
-
+        this.inputKeyMap = inputKeyMap;
         keys = new HashMap<KeyName, Key>();
-        keys.put(KeyName.UP_KEY, new Key());
-        keys.put(KeyName.DOWN_KEY, new Key());
-        keys.put(KeyName.LEFT_KEY, new Key());
-        keys.put(KeyName.RIGHT_KEY, new Key());
-        keys.put(KeyName.INTERACT_OR_MELEE_KEY, new Key());
-        keys.put(KeyName.CANCEL_OR_ENERGY_ATTACK_KEY, new Key());
-        keys.put(KeyName.SWITCH_ENERGY_ATTACK_KEY, new Key());
+
+        for(Map.Entry<KeyName, Integer> inputKey : inputKeyMap.entrySet())
+        {
+            keys.put(inputKey.getKey(), new Key());
+        }
+
+//        keys.put(KeyName.UP_KEY, new Key());
+//        keys.put(KeyName.DOWN_KEY, new Key());
+//        keys.put(KeyName.LEFT_KEY, new Key());
+//        keys.put(KeyName.RIGHT_KEY, new Key());
+//        keys.put(KeyName.INTERACT_OR_MELEE_KEY, new Key());
+//        keys.put(KeyName.CANCEL_OR_ENERGY_ATTACK_KEY, new Key());
+//        keys.put(KeyName.SWITCH_ENERGY_ATTACK_KEY, new Key());
     }
 
-    public void handleKeyDown(int keyCode)
+    public void update()
     {
-        setKey(keyCode, true);
+        for(Key key : keys.values())
+        {
+            key.update();
+        }
     }
 
-    public void handleKeyUp(int keyCode)
-    {
-        setKey(keyCode, false);
-    }
+//    public void handleKeyDown(int keyCode)
+//    {
+//        setKey(keyCode, true);
+//    }
+//
+//    public void handleKeyUp(int keyCode)
+//    {
+//        setKey(keyCode, false);
+//    }
 
-    private void setKey(int keyCode, boolean isPressed)
+    public void setKey(int keyCode, boolean isPressed)
     {
-        if(keyCode == inputToActionMap.get(ActionName.UP))
+        for(Map.Entry<KeyName, Integer> inputKey : inputKeyMap.entrySet())
         {
-            keys.get(KeyName.UP_KEY).setPressed(isPressed);
+            if(keyCode == inputKey.getValue())
+            {
+                keys.get(inputKey.getKey()).setPressed(isPressed);
+                break;
+            }
         }
-        else if(keyCode == inputToActionMap.get(ActionName.DOWN))
-        {
-            keys.get(KeyName.DOWN_KEY).setPressed(isPressed);
-        }
-        else if(keyCode == inputToActionMap.get(ActionName.LEFT))
-        {
-            keys.get(KeyName.LEFT_KEY).setPressed(isPressed);
-        }
-        else if(keyCode == inputToActionMap.get(ActionName.RIGHT))
-        {
-            keys.get(KeyName.RIGHT_KEY).setPressed(isPressed);
-        }
-        else if(keyCode == inputToActionMap.get(ActionName.INTERACT_OR_MELEE))
-        {
-            keys.get(KeyName.INTERACT_OR_MELEE_KEY).setPressed(isPressed);
-        }
-        else if(keyCode == inputToActionMap.get(ActionName.CANCEL_OR_ENERGY_ATTACK))
-        {
-            keys.get(KeyName.CANCEL_OR_ENERGY_ATTACK_KEY).setPressed(isPressed);
-        }
-        else if(keyCode == inputToActionMap.get(ActionName.SWITCH_ENERGY_ATTACK))
-        {
-            keys.get(KeyName.SWITCH_ENERGY_ATTACK_KEY).setPressed(isPressed);
-        }
+
+//        if(keyCode == inputKeyMap.get(KeyName.UP_KEY))
+//        {
+//            keys.get(KeyName.UP_KEY).setPressed(isPressed);
+//        }
+//        else if(keyCode == inputKeyMap.get(KeyName.DOWN_KEY))
+//        {
+//            keys.get(KeyName.DOWN_KEY).setPressed(isPressed);
+//        }
+//        else if(keyCode == inputKeyMap.get(KeyName.LEFT_KEY))
+//        {
+//            keys.get(KeyName.LEFT_KEY).setPressed(isPressed);
+//        }
+//        else if(keyCode == inputKeyMap.get(KeyName.RIGHT_KEY))
+//        {
+//            keys.get(KeyName.RIGHT_KEY).setPressed(isPressed);
+//        }
+//        else if(keyCode == inputKeyMap.get(KeyName.INTERACT_OR_MELEE_KEY))
+//        {
+//            keys.get(KeyName.INTERACT_OR_MELEE_KEY).setPressed(isPressed);
+//        }
+//        else if(keyCode == inputKeyMap.get(KeyName.CANCEL_OR_ENERGY_ATTACK_KEY))
+//        {
+//            keys.get(KeyName.CANCEL_OR_ENERGY_ATTACK_KEY).setPressed(isPressed);
+//        }
+//        else if(keyCode == inputKeyMap.get(KeyName.SWITCH_ENERGY_ATTACK_KEY))
+//        {
+//            keys.get(KeyName.SWITCH_ENERGY_ATTACK_KEY).setPressed(isPressed);
+//        }
     }
 }

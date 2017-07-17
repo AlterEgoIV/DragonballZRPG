@@ -36,10 +36,10 @@ public class GameInputProcessor implements InputProcessor
     @Override
     public boolean keyDown(int keycode)
     {
-        for(InputHandler inputHandler : inputHandlers)
-        {
-            inputHandler.handleKeyDown(keycode);
-        }
+//        for(InputHandler inputHandler : inputHandlers)
+//        {
+//            inputHandler.handleKeyDown(keycode);
+//        }
 
         return false;
     }
@@ -47,10 +47,10 @@ public class GameInputProcessor implements InputProcessor
     @Override
     public boolean keyUp(int keycode)
     {
-        for(InputHandler inputHandler : inputHandlers)
-        {
-            inputHandler.handleKeyUp(keycode);
-        }
+//        for(InputHandler inputHandler : inputHandlers)
+//        {
+//            inputHandler.handleKeyUp(keycode);
+//        }
 
         return false;
     }

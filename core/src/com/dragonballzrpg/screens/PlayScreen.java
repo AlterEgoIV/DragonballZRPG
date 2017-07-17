@@ -1,7 +1,6 @@
 package com.dragonballzrpg.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
@@ -10,16 +9,13 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.*;
 import com.dragonballzrpg.DragonballZRPG;
-import com.dragonballzrpg.controllers.Controller;
 import com.dragonballzrpg.controllers.PlayerController;
-import com.dragonballzrpg.enums.ActionName;
+import com.dragonballzrpg.enums.*;
+import com.dragonballzrpg.input.InputHandler;
 import com.dragonballzrpg.physics.PhysicsSimulator;
 import com.dragonballzrpg.gameobjects.GameObject;
 import com.dragonballzrpg.gameobjects.characters.Player;
 import com.dragonballzrpg.gameobjects.characters.players.TeenFutureTrunks;
-import com.dragonballzrpg.enums.AnimationName;
-import com.dragonballzrpg.enums.AnimationSet;
-import com.dragonballzrpg.enums.PlayerName;
 import com.dragonballzrpg.ui.PlayUI;
 
 import java.awt.Rectangle;
@@ -40,10 +36,13 @@ public class PlayScreen extends GameScreen implements InputProcessor
     private PhysicsSimulator physicsSimulator;
     private int[] backgroundLayers, foregroundLayers;
     private PlayerController playerController;
+    private InputHandler inputHandler;
 
     public PlayScreen(DragonballZRPG game)
     {
         super(game, new PlayUI(game.assetManager, game.viewport));
+
+        inputHandler = new InputHandler(game.inputKeyMap);
 
         physicsSimulator = new PhysicsSimulator();
 
@@ -114,6 +113,8 @@ public class PlayScreen extends GameScreen implements InputProcessor
     @Override
     public void render(float delta)
     {
+        inputHandler.update();
+
         playerController.update();
 
         for(GameObject gameObject : entities)
@@ -175,34 +176,8 @@ public class PlayScreen extends GameScreen implements InputProcessor
     @Override
     public boolean keyDown(int keycode)
     {
-        if(keycode == game.inputToActionMap.get(ActionName.UP))
-        {
-            playerController.moveUp = true;
-        }
-        else if(keycode == game.inputToActionMap.get(ActionName.DOWN))
-        {
-
-        }
-        else if(keycode == game.inputToActionMap.get(ActionName.LEFT))
-        {
-
-        }
-        else if(keycode == game.inputToActionMap.get(ActionName.RIGHT))
-        {
-
-        }
-        else if(keycode == game.inputToActionMap.get(ActionName.INTERACT_OR_MELEE))
-        {
-
-        }
-        else if(keycode == game.inputToActionMap.get(ActionName.CANCEL_OR_ENERGY_ATTACK))
-        {
-
-        }
-        else if(keycode == game.inputToActionMap.get(ActionName.SWITCH_ENERGY_ATTACK))
-        {
-
-        }
+        inputHandler.setKey(keycode, true);
+        //inputHandler.handleKeyDown(keycode);
 
         return false;
     }
@@ -210,34 +185,8 @@ public class PlayScreen extends GameScreen implements InputProcessor
     @Override
     public boolean keyUp(int keycode)
     {
-        if(keycode == game.inputToActionMap.get(ActionName.UP))
-        {
-            playerController.moveUp = false;
-        }
-        else if(keycode == game.inputToActionMap.get(ActionName.DOWN))
-        {
-
-        }
-        else if(keycode == game.inputToActionMap.get(ActionName.LEFT))
-        {
-
-        }
-        else if(keycode == game.inputToActionMap.get(ActionName.RIGHT))
-        {
-
-        }
-        else if(keycode == game.inputToActionMap.get(ActionName.INTERACT_OR_MELEE))
-        {
-
-        }
-        else if(keycode == game.inputToActionMap.get(ActionName.CANCEL_OR_ENERGY_ATTACK))
-        {
-
-        }
-        else if(keycode == game.inputToActionMap.get(ActionName.SWITCH_ENERGY_ATTACK))
-        {
-
-        }
+        inputHandler.setKey(keycode, false);
+        //inputHandler.handleKeyUp(keycode);
 
         return false;
     }

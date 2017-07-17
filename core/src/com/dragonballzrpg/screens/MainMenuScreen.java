@@ -3,7 +3,7 @@ package com.dragonballzrpg.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.dragonballzrpg.DragonballZRPG;
-import com.dragonballzrpg.enums.ActionName;
+import com.dragonballzrpg.enums.KeyName;
 import com.dragonballzrpg.enums.ScreenName;
 import com.dragonballzrpg.ui.MainMenuUI;
 
@@ -59,11 +59,11 @@ public class MainMenuScreen extends GameScreen implements InputProcessor
     @Override
     public boolean keyDown(int keycode)
     {
-        if(keycode == game.inputToActionMap.get(ActionName.UP))
+        if(keycode == game.inputKeyMap.get(KeyName.UP_KEY))
         {
             ui.previousOption();
         }
-        else if(keycode == game.inputToActionMap.get(ActionName.DOWN))
+        else if(keycode == game.inputKeyMap.get(KeyName.DOWN_KEY))
         {
             ui.nextOption();
         }
@@ -74,7 +74,7 @@ public class MainMenuScreen extends GameScreen implements InputProcessor
     @Override
     public boolean keyUp(int keycode)
     {
-        if(keycode == game.inputToActionMap.get(ActionName.SELECT))
+        if(keycode == game.inputKeyMap.get(KeyName.SELECT_KEY))
         {
             switch(ui.getCurrentMenuOption())
             {

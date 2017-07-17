@@ -30,7 +30,7 @@ public class DragonballZRPG extends Game
 	public Viewport viewport;
 	//public GameInputProcessor inputProcessor;
 	public AnimationManager animationManager;
-	public Map<ActionName, Integer> inputToActionMap;
+	public Map<KeyName, Integer> inputKeyMap;
 
 	@Override
 	public void create()
@@ -49,8 +49,8 @@ public class DragonballZRPG extends Game
 		//inputProcessor = new GameInputProcessor();
 		//Gdx.input.setInputProcessor(inputProcessor);
 
-		inputToActionMap = new HashMap<ActionName, Integer>();
-		initialiseInputActions();
+		inputKeyMap = new HashMap<KeyName, Integer>();
+		initialiseInputKeys();
 
 		initialiseScreens();
 		initialiseCamera();
@@ -79,17 +79,17 @@ public class DragonballZRPG extends Game
 		viewport.update(width, height);
 	}
 
-	private void initialiseInputActions()
+	private void initialiseInputKeys()
 	{
-		inputToActionMap.put(ActionName.UP, Input.Keys.UP);
-		inputToActionMap.put(ActionName.DOWN, Input.Keys.DOWN);
-		inputToActionMap.put(ActionName.LEFT, Input.Keys.LEFT);
-		inputToActionMap.put(ActionName.RIGHT, Input.Keys.RIGHT);
-		inputToActionMap.put(ActionName.INTERACT_OR_MELEE, Input.Keys.M);
-		inputToActionMap.put(ActionName.CANCEL_OR_ENERGY_ATTACK, Input.Keys.N);
-		inputToActionMap.put(ActionName.PAUSE, Input.Keys.SPACE);
-		inputToActionMap.put(ActionName.SWITCH_ENERGY_ATTACK, Input.Keys.B);
-		inputToActionMap.put(ActionName.SELECT, Input.Keys.ENTER);
+		inputKeyMap.put(KeyName.UP_KEY, Input.Keys.UP);
+		inputKeyMap.put(KeyName.DOWN_KEY, Input.Keys.DOWN);
+		inputKeyMap.put(KeyName.LEFT_KEY, Input.Keys.LEFT);
+		inputKeyMap.put(KeyName.RIGHT_KEY, Input.Keys.RIGHT);
+		inputKeyMap.put(KeyName.INTERACT_OR_MELEE_KEY, Input.Keys.M);
+		inputKeyMap.put(KeyName.CANCEL_OR_ENERGY_ATTACK_KEY, Input.Keys.N);
+		inputKeyMap.put(KeyName.SWITCH_ENERGY_ATTACK_KEY, Input.Keys.B);
+		inputKeyMap.put(KeyName.PAUSE_KEY, Input.Keys.SPACE);
+		inputKeyMap.put(KeyName.SELECT_KEY, Input.Keys.ENTER);
 	}
 
 	private void initialiseScreens()

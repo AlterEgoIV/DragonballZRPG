@@ -1,10 +1,9 @@
 package com.dragonballzrpg.ui;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.dragonballzrpg.enums.ActionName;
+import com.dragonballzrpg.enums.KeyName;
 import com.dragonballzrpg.enums.MenuOption;
 import com.dragonballzrpg.enums.TextAlignment;
 import com.dragonballzrpg.ui.uielements.Panel;
@@ -18,9 +17,9 @@ import java.util.Map;
  */
 public class ControlsUI extends UI
 {
-    private Map<ActionName, String> actionStrings;
+    private Map<KeyName, String> actionStrings;
 
-    public ControlsUI(GameAssetManager assetManager, Map<ActionName, String> actionStrings)
+    public ControlsUI(GameAssetManager assetManager, Map<KeyName, String> actionStrings)
     {
         super(assetManager);
 
@@ -122,10 +121,10 @@ public class ControlsUI extends UI
         {
             "Keys",
             "Up", "Down", "Left", "Right", "Interact/Melee", "Cancel/Energy Technique", "Switch Technique", "Pause",
-            actionStrings.get(ActionName.UP), actionStrings.get(ActionName.DOWN), actionStrings.get(ActionName.LEFT),
-            actionStrings.get(ActionName.RIGHT), actionStrings.get(ActionName.INTERACT_OR_MELEE),
-            actionStrings.get(ActionName.CANCEL_OR_ENERGY_ATTACK), actionStrings.get(ActionName.SWITCH_ENERGY_ATTACK),
-            actionStrings.get(ActionName.PAUSE),
+            actionStrings.get(KeyName.UP_KEY), actionStrings.get(KeyName.DOWN_KEY), actionStrings.get(KeyName.LEFT_KEY),
+            actionStrings.get(KeyName.RIGHT_KEY), actionStrings.get(KeyName.INTERACT_OR_MELEE_KEY),
+            actionStrings.get(KeyName.CANCEL_OR_ENERGY_ATTACK_KEY), actionStrings.get(KeyName.SWITCH_ENERGY_ATTACK_KEY),
+            actionStrings.get(KeyName.PAUSE_KEY),
             "Reset to Default", "Back"
         };
 
