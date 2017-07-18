@@ -12,6 +12,7 @@ public class InputHandler
 {
     private Map<KeyName, Integer> inputKeyMap;
     private Map<KeyName, Key> keys;
+    private InputControllable inputControllable;
 
     public InputHandler(Map<KeyName, Integer> inputKeyMap)
     {
@@ -22,14 +23,11 @@ public class InputHandler
         {
             keys.put(inputKey.getKey(), new Key());
         }
+    }
 
-//        keys.put(KeyName.UP_KEY, new Key());
-//        keys.put(KeyName.DOWN_KEY, new Key());
-//        keys.put(KeyName.LEFT_KEY, new Key());
-//        keys.put(KeyName.RIGHT_KEY, new Key());
-//        keys.put(KeyName.INTERACT_OR_MELEE_KEY, new Key());
-//        keys.put(KeyName.CANCEL_OR_ENERGY_ATTACK_KEY, new Key());
-//        keys.put(KeyName.SWITCH_ENERGY_ATTACK_KEY, new Key());
+    public void setInputControllable(InputControllable inputControllable)
+    {
+        this.inputControllable = inputControllable;
     }
 
     public void update()
@@ -38,17 +36,31 @@ public class InputHandler
         {
             key.update();
         }
-    }
 
-//    public void handleKeyDown(int keyCode)
-//    {
-//        setKey(keyCode, true);
-//    }
-//
-//    public void handleKeyUp(int keyCode)
-//    {
-//        setKey(keyCode, false);
-//    }
+        if(keys.get(KeyName.UP_KEY).isDoublePressed())
+        {
+            inputControllable.moveUpFast();
+        }
+//        else if(keys.get(KeyName.UP_KEY).isPressed())
+//        {
+//            inputControllable.moveUp();
+//        }
+
+        if(keys.get(KeyName.DOWN_KEY).isPressed())
+        {
+            inputControllable.moveDown();
+        }
+
+        if(keys.get(KeyName.LEFT_KEY).isPressed())
+        {
+            inputControllable.moveLeft();
+        }
+
+        if(keys.get(KeyName.RIGHT_KEY).isPressed())
+        {
+            inputControllable.moveRight();
+        }
+    }
 
     public void setKey(int keyCode, boolean isPressed)
     {
@@ -60,34 +72,5 @@ public class InputHandler
                 break;
             }
         }
-
-//        if(keyCode == inputKeyMap.get(KeyName.UP_KEY))
-//        {
-//            keys.get(KeyName.UP_KEY).setPressed(isPressed);
-//        }
-//        else if(keyCode == inputKeyMap.get(KeyName.DOWN_KEY))
-//        {
-//            keys.get(KeyName.DOWN_KEY).setPressed(isPressed);
-//        }
-//        else if(keyCode == inputKeyMap.get(KeyName.LEFT_KEY))
-//        {
-//            keys.get(KeyName.LEFT_KEY).setPressed(isPressed);
-//        }
-//        else if(keyCode == inputKeyMap.get(KeyName.RIGHT_KEY))
-//        {
-//            keys.get(KeyName.RIGHT_KEY).setPressed(isPressed);
-//        }
-//        else if(keyCode == inputKeyMap.get(KeyName.INTERACT_OR_MELEE_KEY))
-//        {
-//            keys.get(KeyName.INTERACT_OR_MELEE_KEY).setPressed(isPressed);
-//        }
-//        else if(keyCode == inputKeyMap.get(KeyName.CANCEL_OR_ENERGY_ATTACK_KEY))
-//        {
-//            keys.get(KeyName.CANCEL_OR_ENERGY_ATTACK_KEY).setPressed(isPressed);
-//        }
-//        else if(keyCode == inputKeyMap.get(KeyName.SWITCH_ENERGY_ATTACK_KEY))
-//        {
-//            keys.get(KeyName.SWITCH_ENERGY_ATTACK_KEY).setPressed(isPressed);
-//        }
     }
 }

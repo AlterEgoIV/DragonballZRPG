@@ -90,11 +90,16 @@ public class PlayScreen extends GameScreen implements InputProcessor
     {
         Player player;
 
-        player = new TeenFutureTrunks(new Vector2(0, 0), 100.0f,
-          game.animationManager.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
-          game.animationManager.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN));
+        player = new Player(new Vector2(0, 0), 100.0f,
+        game.animationManager.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
+        game.animationManager.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN));
+
+//        player = new TeenFutureTrunks(new Vector2(0, 0), 100.0f,
+//          game.animationManager.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
+//          game.animationManager.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN));
 
         players.put(PlayerName.TEEN_FUTURE_TRUNKS, player);
+        inputHandler.setInputControllable(player);
     }
 
     private void createEntities()
@@ -115,7 +120,7 @@ public class PlayScreen extends GameScreen implements InputProcessor
     {
         inputHandler.update();
 
-        playerController.update();
+        //playerController.update();
 
         for(GameObject gameObject : entities)
         {
@@ -177,7 +182,6 @@ public class PlayScreen extends GameScreen implements InputProcessor
     public boolean keyDown(int keycode)
     {
         inputHandler.setKey(keycode, true);
-        //inputHandler.handleKeyDown(keycode);
 
         return false;
     }
@@ -186,7 +190,6 @@ public class PlayScreen extends GameScreen implements InputProcessor
     public boolean keyUp(int keycode)
     {
         inputHandler.setKey(keycode, false);
-        //inputHandler.handleKeyUp(keycode);
 
         return false;
     }

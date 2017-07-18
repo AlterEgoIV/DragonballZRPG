@@ -1,8 +1,10 @@
 package com.dragonballzrpg.gameobjects.characters;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.dragonballzrpg.gameobjects.GameObject;
 import com.dragonballzrpg.enums.AnimationName;
+import com.dragonballzrpg.input.InputControllable;
 import com.dragonballzrpg.utilities.Animation;
 
 import java.util.Map;
@@ -10,7 +12,7 @@ import java.util.Map;
 /**
  * Created by Carl on 09/08/2016.
  */
-public abstract class Player extends GameObject
+public class Player extends GameObject implements InputControllable
 {
 //    public Bool isUpKeyPressed;
 //    public Bool isDownKeyPressed;
@@ -55,6 +57,22 @@ public abstract class Player extends GameObject
 //
 //        elapsedRunWindowTime = 0.0d;
 //        runWindowDuration = .3d;
+    }
+
+    @Override
+    public void update()
+    {
+        currentAnimation.update();
+        //velocity.x = 0;
+        //velocity.y = 0;
+    }
+
+    @Override
+    public void render(SpriteBatch batch)
+    {
+        batch.draw(currentAnimation.getCurrentFrame().getTextureRegion(),
+        ((int)position.x + currentAnimation.getCurrentFrame().getXOffset()) - width / 2,
+        ((int)position.y + currentAnimation.getCurrentFrame().getYOffset()) - height / 2);
     }
 
     private void initialiseStates()
@@ -191,5 +209,48 @@ public abstract class Player extends GameObject
     public double getRunSpeed()
     {
         return runSpeed;
+    }
+
+    @Override
+    public void move(double x, double y)
+    {
+        velocity.x = speed * (float)x;
+        velocity.y = speed * (float)y;
+    }
+
+    @Override
+    public void moveUp()
+    {
+        velocity.y += speed;
+    }
+
+    @Override
+    public void moveDown()
+    {
+        velocity.y -= speed;
+    }
+
+    @Override
+    public void moveLeft()
+    {
+        velocity.x -= speed;
+    }
+
+    @Override
+    public void moveRight()
+    {
+        velocity.x += speed;
+    }
+
+    @Override
+    public void moveUpFast()
+    {
+        velocity.y += speed * 2;
+    }
+
+    @Override
+    public void melee()
+    {
+
     }
 }

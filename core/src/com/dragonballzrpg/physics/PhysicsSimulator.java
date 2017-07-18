@@ -45,6 +45,9 @@ public class PhysicsSimulator
             gameObject.boundingBox.setLocation((int)gameObject.position.x - gameObject.width / 2, (int)gameObject.position.y - gameObject.height / 2);
 
             collisionHandler.handleYAxisCollisions(gameObject);
+
+            gameObject.velocity.x = 0;
+            gameObject.velocity.y = 0;
         }
     }
 }

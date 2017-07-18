@@ -99,8 +99,8 @@ public class DragonballZRPG extends Game
 		screens.put(ScreenName.CONTROLS_SCREEN, new ControlsScreen(this));
 
 		//setScreen(screens.get(ScreenName.MAIN_MENU_SCREEN));
-		//setScreen(screens.get(ScreenName.PLAY_SCREEN));
-		setScreen(screens.get(ScreenName.CONTROLS_SCREEN));
+		setScreen(screens.get(ScreenName.PLAY_SCREEN));
+		//setScreen(screens.get(ScreenName.CONTROLS_SCREEN));
 	}
 
 	private void initialiseCamera()

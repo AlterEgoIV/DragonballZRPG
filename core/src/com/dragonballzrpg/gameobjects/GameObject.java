@@ -29,7 +29,8 @@ public abstract class GameObject
     {
         this.position = position;
         this.speed = speed;
-        this.velocity = new Vector2(speed, speed);
+        this.velocity = new Vector2(0, 0);
+        //this.velocity = new Vector2(speed, speed);
         this.animations = animations;
         this.currentAnimation = currentAnimation;
         width = currentAnimation.getFrame(0).getTextureRegion().getRegionWidth();
