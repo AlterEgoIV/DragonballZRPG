@@ -15,6 +15,11 @@ public abstract class Controller
     public List<State> states;
     public State currentState;
 
+    public Controller()
+    {
+        states = new ArrayList<State>();
+    }
+
     public Controller(GameObject gameObject)
     {
         this.gameObject = gameObject;

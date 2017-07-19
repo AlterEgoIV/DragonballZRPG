@@ -7,50 +7,32 @@ import com.badlogic.gdx.Gdx;
  */
 public class Key
 {
-    private boolean isPressed, isJustPressed, isDoublePressed, doublePressWindowOpen, readyToBeDoublePressed;
-    private double durationPressed, currentTimeBetweenPresses, allowedTimeBetweenPresses, allowedTimeToPress, doublePressTimer,
-    doublePressWindowTimeElapsed, doublePressWindowDuration;
+    private boolean isPressed, isDoublePressed, isDoublePressWindowOpen, isReadyToBeDoublePressed;
+    private double currentTimeDoublePressWindowOpen, doublePressWindowDuration;
 
     public Key()
     {
         isPressed = false;
-        isJustPressed = false;
         isDoublePressed = false;
-        doublePressWindowOpen = false;
-        readyToBeDoublePressed = false;
-        durationPressed = 0.0d;
-        currentTimeBetweenPresses = 0.0d;
-        allowedTimeBetweenPresses = 0.3d;
-        allowedTimeToPress = 0.3d;
-        doublePressTimer = 0.5d;
-        doublePressWindowTimeElapsed = 0.0d;
+        isDoublePressWindowOpen = false;
+        isReadyToBeDoublePressed = false;
+        currentTimeDoublePressWindowOpen = 0.0d;
         doublePressWindowDuration = 0.3d;
     }
 
     public void update()
     {
-        if(doublePressWindowOpen)
+        if(isDoublePressWindowOpen)
         {
-            doublePressWindowTimeElapsed += Gdx.graphics.getDeltaTime();
+            currentTimeDoublePressWindowOpen += Gdx.graphics.getDeltaTime();
 
-            if(doublePressWindowTimeElapsed >= doublePressWindowDuration)
+            if(currentTimeDoublePressWindowOpen >= doublePressWindowDuration)
             {
-                doublePressWindowTimeElapsed = 0.0d;
-                doublePressWindowOpen = false;
-                readyToBeDoublePressed = false;
+                currentTimeDoublePressWindowOpen = 0.0d;
+                isDoublePressWindowOpen = false;
+                isReadyToBeDoublePressed = false;
             }
         }
-
-//        if(isJustPressed)
-//        {
-//            currentTimeBetweenPresses += Gdx.graphics.getDeltaTime();
-//
-//            if(currentTimeBetweenPresses >= allowedTimeBetweenPresses)
-//            {
-//                isJustPressed = false;
-//                currentTimeBetweenPresses = 0.0d;
-//            }
-//        }
     }
 
     public void setPressed(boolean isPressed)
@@ -59,57 +41,30 @@ public class Key
         {
             this.isPressed = true;
 
-            if(readyToBeDoublePressed)
+            if(isReadyToBeDoublePressed)
             {
                 isDoublePressed = true;
             }
 
-            if(!doublePressWindowOpen)
+            if(!isDoublePressWindowOpen)
             {
-                doublePressWindowOpen = true;
+                isDoublePressWindowOpen = true;
             }
-
-//            if(doublePressWindowOpen && isJustPressed)
-//            {
-//                isDoublePressed = true;
-//                isJustPressed = false;
-//                doublePressWindowOpen = false;
-//            }
         }
         else
         {
             this.isPressed = false;
 
-            if(doublePressWindowOpen)
+            if(isDoublePressWindowOpen)
             {
-                readyToBeDoublePressed = true;
+                isReadyToBeDoublePressed = true;
             }
 
             if(isDoublePressed)
             {
                 isDoublePressed = false;
             }
-
-//            isJustPressed = true;
-//            isDoublePressed = false;
         }
-
-//        if(isPressed)
-//        {
-//            this.isPressed = true;
-//
-//            if(isJustPressed)
-//            {
-//                this.isPressed = false;
-//                isDoublePressed = true;
-//            }
-//        }
-//        else
-//        {
-//            this.isPressed = false;
-//            isJustPressed = true;
-//            isDoublePressed = false;
-//        }
     }
 
     public boolean isPressed()

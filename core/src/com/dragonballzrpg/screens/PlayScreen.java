@@ -11,11 +11,10 @@ import com.badlogic.gdx.math.*;
 import com.dragonballzrpg.DragonballZRPG;
 import com.dragonballzrpg.controllers.PlayerController;
 import com.dragonballzrpg.enums.*;
-import com.dragonballzrpg.input.InputHandler;
+import com.dragonballzrpg.input.KeyHandler;
 import com.dragonballzrpg.physics.PhysicsSimulator;
 import com.dragonballzrpg.gameobjects.GameObject;
 import com.dragonballzrpg.gameobjects.characters.Player;
-import com.dragonballzrpg.gameobjects.characters.players.TeenFutureTrunks;
 import com.dragonballzrpg.ui.PlayUI;
 
 import java.awt.Rectangle;
@@ -36,13 +35,13 @@ public class PlayScreen extends GameScreen implements InputProcessor
     private PhysicsSimulator physicsSimulator;
     private int[] backgroundLayers, foregroundLayers;
     private PlayerController playerController;
-    private InputHandler inputHandler;
+    private KeyHandler keyHandler;
 
     public PlayScreen(DragonballZRPG game)
     {
         super(game, new PlayUI(game.assetManager, game.viewport));
 
-        inputHandler = new InputHandler(game.inputKeyMap);
+        keyHandler = new KeyHandler(game.inputKeyMap);
 
         physicsSimulator = new PhysicsSimulator();
 
@@ -55,10 +54,11 @@ public class PlayScreen extends GameScreen implements InputProcessor
         currentPlayer = players.get(PlayerName.TEEN_FUTURE_TRUNKS);
         createEntities();
 
-        //game.inputProcessor.add((InputHandler)currentPlayer);
+        //game.inputProcessor.add((KeyHandler)currentPlayer);
 
         physicsSimulator.add(currentPlayer);
-        playerController = new PlayerController((Player)currentPlayer);
+        playerController = new PlayerController(keyHandler);
+        playerController.setPlayer((Player)currentPlayer);
     }
 
     private void loadMaps()
@@ -99,7 +99,6 @@ public class PlayScreen extends GameScreen implements InputProcessor
 //          game.animationManager.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN));
 
         players.put(PlayerName.TEEN_FUTURE_TRUNKS, player);
-        inputHandler.setInputControllable(player);
     }
 
     private void createEntities()
@@ -118,7 +117,7 @@ public class PlayScreen extends GameScreen implements InputProcessor
     @Override
     public void render(float delta)
     {
-        inputHandler.update();
+        keyHandler.update();
 
         //playerController.update();
 
@@ -181,7 +180,7 @@ public class PlayScreen extends GameScreen implements InputProcessor
     @Override
     public boolean keyDown(int keycode)
     {
-        inputHandler.setKey(keycode, true);
+        keyHandler.setKeyState(keycode, true);
 
         return false;
     }
@@ -189,7 +188,7 @@ public class PlayScreen extends GameScreen implements InputProcessor
     @Override
     public boolean keyUp(int keycode)
     {
-        inputHandler.setKey(keycode, false);
+        keyHandler.setKeyState(keycode, false);
 
         return false;
     }

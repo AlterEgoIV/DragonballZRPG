@@ -4,7 +4,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.dragonballzrpg.gameobjects.GameObject;
 import com.dragonballzrpg.enums.AnimationName;
-import com.dragonballzrpg.input.InputControllable;
 import com.dragonballzrpg.utilities.Animation;
 
 import java.util.Map;
@@ -12,7 +11,7 @@ import java.util.Map;
 /**
  * Created by Carl on 09/08/2016.
  */
-public class Player extends GameObject implements InputControllable
+public class Player extends GameObject
 {
 //    public Bool isUpKeyPressed;
 //    public Bool isDownKeyPressed;
@@ -63,8 +62,6 @@ public class Player extends GameObject implements InputControllable
     public void update()
     {
         currentAnimation.update();
-        //velocity.x = 0;
-        //velocity.y = 0;
     }
 
     @Override
@@ -209,48 +206,5 @@ public class Player extends GameObject implements InputControllable
     public double getRunSpeed()
     {
         return runSpeed;
-    }
-
-    @Override
-    public void move(double x, double y)
-    {
-        velocity.x = speed * (float)x;
-        velocity.y = speed * (float)y;
-    }
-
-    @Override
-    public void moveUp()
-    {
-        velocity.y += speed;
-    }
-
-    @Override
-    public void moveDown()
-    {
-        velocity.y -= speed;
-    }
-
-    @Override
-    public void moveLeft()
-    {
-        velocity.x -= speed;
-    }
-
-    @Override
-    public void moveRight()
-    {
-        velocity.x += speed;
-    }
-
-    @Override
-    public void moveUpFast()
-    {
-        velocity.y += speed * 2;
-    }
-
-    @Override
-    public void melee()
-    {
-
     }
 }

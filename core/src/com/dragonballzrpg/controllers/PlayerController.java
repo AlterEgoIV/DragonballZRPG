@@ -1,29 +1,29 @@
 package com.dragonballzrpg.controllers;
 
+import com.dragonballzrpg.enums.KeyName;
 import com.dragonballzrpg.gameobjects.characters.Player;
-import com.dragonballzrpg.states.controllerstates.IdleState;
-import com.dragonballzrpg.states.controllerstates.MovePlayerUpState;
+import com.dragonballzrpg.input.KeyHandler;
 
 /**
  * Created by Carl on 14/07/2017.
  */
 public class PlayerController extends Controller
 {
-    public boolean moveUp, moveDown, moveLeft, moveRight, melee;
+    private Player player;
+    public KeyHandler keyHandler;
 
-    public PlayerController(Player player)
+    public PlayerController(KeyHandler keyHandler)
     {
-        super(player);
+        this.keyHandler = keyHandler;
+    }
 
-        moveUp = false;
-        moveDown = false;
-        moveLeft = false;
-        moveRight = false;
-        melee = false;
+    public void update()
+    {
+        keyHandler.update();
+    }
 
-        states.add(new IdleState(this));
-        states.add(new MovePlayerUpState(this));
-
-        currentState = states.get(0);
+    public void setPlayer(Player player)
+    {
+        this.player = player;
     }
 }
