@@ -9,12 +9,12 @@ import java.util.Map;
 /**
  * Created by Carl on 21/05/2017.
  */
-public class AnimationManager
+public class AnimationLoader
 {
     private SpriteSheetAnimationsExtractor spriteSheetAnimationsExtractor;
     private Map<AnimationSet, HashMap<AnimationName, Animation>> setOfAnimationSets;
 
-    public AnimationManager(GameAssetManager assetManager)
+    public AnimationLoader(ResourceManager assetManager)
     {
         spriteSheetAnimationsExtractor = new SpriteSheetAnimationsExtractor(assetManager);
         setOfAnimationSets = new HashMap<AnimationSet, HashMap<AnimationName, Animation>>();

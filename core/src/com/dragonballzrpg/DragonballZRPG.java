@@ -9,11 +9,10 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.dragonballzrpg.enums.*;
-import com.dragonballzrpg.utilities.AnimationManager;
 import com.dragonballzrpg.screens.ControlsScreen;
 import com.dragonballzrpg.screens.MainMenuScreen;
 import com.dragonballzrpg.screens.PlayScreen;
-import com.dragonballzrpg.utilities.GameAssetManager;
+import com.dragonballzrpg.utilities.ResourceManager;
 import com.dragonballzrpg.utilities.SoundSystem;
 
 import java.util.HashMap;
@@ -23,35 +22,28 @@ public class DragonballZRPG extends Game
 {
 	private final int VIEWPORT_WIDTH = 240;
 	private final int VIEWPORT_HEIGHT = 160;
-	public GameAssetManager assetManager;
+	public ResourceManager resourceManager;
 	public SoundSystem soundSystem;
 	public Map<ScreenName, Screen> screens;
 	public OrthographicCamera camera;
 	public Viewport viewport;
-	//public GameInputProcessor inputProcessor;
-	public AnimationManager animationManager;
 	public Map<KeyName, Integer> inputKeyMap;
 
 	@Override
 	public void create()
 	{
-		assetManager = new GameAssetManager();
-		assetManager.loadAssets(); // load assets first
+		resourceManager = new ResourceManager();
+		resourceManager.loadAssets(); // load assets first
 
-		animationManager = new AnimationManager(assetManager);
-		animationManager.loadAnimations();
-
-		soundSystem = new SoundSystem(assetManager);
+		soundSystem = new SoundSystem(resourceManager);
 
 		screens = new HashMap<ScreenName, Screen>();
 		camera = new OrthographicCamera(VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
 		viewport = new StretchViewport(VIEWPORT_WIDTH, VIEWPORT_HEIGHT, camera);
-		//inputProcessor = new GameInputProcessor();
-		//Gdx.input.setInputProcessor(inputProcessor);
 
 		inputKeyMap = new HashMap<KeyName, Integer>();
-		initialiseInputKeys();
 
+		initialiseInputKeys();
 		initialiseScreens();
 		initialiseCamera();
 		initialiseViewport();
@@ -69,7 +61,7 @@ public class DragonballZRPG extends Game
 	@Override
 	public void dispose()
 	{
-		assetManager.dispose();
+		resourceManager.dispose();
 		screens.get(ScreenName.PLAY_SCREEN).dispose();
 	}
 

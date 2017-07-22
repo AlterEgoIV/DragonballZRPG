@@ -1,21 +1,19 @@
 package com.dragonballzrpg.ui;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.utils.viewport.Viewport;
 import com.dragonballzrpg.enums.*;
 import com.dragonballzrpg.enums.MenuOption;
 import com.dragonballzrpg.ui.uielements.*;
-import com.dragonballzrpg.utilities.GameAssetManager;
+import com.dragonballzrpg.utilities.ResourceManager;
 
 /**
  * Created by Carl on 25/05/2017.
  */
 public class MainMenuUI extends UI
 {
-    public MainMenuUI(GameAssetManager assetManager)
+    public MainMenuUI(ResourceManager assetManager)
     {
         super(assetManager);
 

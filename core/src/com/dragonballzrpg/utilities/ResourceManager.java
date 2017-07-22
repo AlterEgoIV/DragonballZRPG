@@ -9,17 +9,23 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGeneratorLoader;
 import com.badlogic.gdx.graphics.g2d.freetype.FreetypeFontLoader;
+import com.dragonballzrpg.enums.AnimationName;
+import com.dragonballzrpg.enums.AnimationSet;
+
+import java.util.HashMap;
 
 /**
  * Created by Carl on 12/07/2017.
  */
-public class GameAssetManager
+public class ResourceManager
 {
     private AssetManager assetManager;
+    private AnimationLoader animationLoader;
 
-    public GameAssetManager()
+    public ResourceManager()
     {
         assetManager = new AssetManager();
+        animationLoader = new AnimationLoader(this);
     }
 
     public <T> T get(String filename)
@@ -32,6 +38,11 @@ public class GameAssetManager
         return assetManager.get(filename, type);
     }
 
+    public HashMap<AnimationName, Animation> getAnimationSet(AnimationSet animationSet)
+    {
+        return animationLoader.get(animationSet);
+    }
+
     public void loadAssets()
     {
         loadFonts();
@@ -39,6 +50,8 @@ public class GameAssetManager
         loadSounds();
 
         assetManager.finishLoading();
+
+        animationLoader.loadAnimations();
     }
 
     private void loadFonts()

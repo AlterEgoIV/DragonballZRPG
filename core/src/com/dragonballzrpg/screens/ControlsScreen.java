@@ -34,7 +34,7 @@ public class ControlsScreen extends GameScreen implements InputProcessor
             defaultActions.put(entry.getKey(), entry.getValue());
         }
 
-        ui = new ControlsUI(game.assetManager, actionStrings);
+        ui = new ControlsUI(game.resourceManager, actionStrings);
     }
 
     @Override

@@ -11,12 +11,12 @@ import java.util.Map;
  */
 public class SoundSystem
 {
-    private GameAssetManager assetManager;
+    private ResourceManager resourceManager;
     private Map<SoundName, Sound> sounds;
 
-    public SoundSystem(GameAssetManager assetManager)
+    public SoundSystem(ResourceManager resourceManager)
     {
-        this.assetManager = assetManager;
+        this.resourceManager = resourceManager;
         sounds = new HashMap<SoundName, Sound>();
 
         initialiseSounds();
@@ -24,9 +24,9 @@ public class SoundSystem
 
     private void initialiseSounds()
     {
-        sounds.put(SoundName.MELEE_1, assetManager.get("sounds/melee1.wav", Sound.class));
-        sounds.put(SoundName.MELEE_2, assetManager.get("sounds/melee2.wav", Sound.class));
-        sounds.put(SoundName.RUNNING, assetManager.get("sounds/running.wav", Sound.class));
+        sounds.put(SoundName.MELEE_1, resourceManager.get("sounds/melee1.wav", Sound.class));
+        sounds.put(SoundName.MELEE_2, resourceManager.get("sounds/melee2.wav", Sound.class));
+        sounds.put(SoundName.RUNNING, resourceManager.get("sounds/running.wav", Sound.class));
     }
 
     public Sound get(SoundName soundName)

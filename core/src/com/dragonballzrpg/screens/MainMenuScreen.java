@@ -14,7 +14,7 @@ public class MainMenuScreen extends GameScreen implements InputProcessor
 {
     public MainMenuScreen(DragonballZRPG game)
     {
-        super(game, new MainMenuUI(game.assetManager));
+        super(game, new MainMenuUI(game.resourceManager));
     }
 
     @Override

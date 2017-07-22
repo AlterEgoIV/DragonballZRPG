@@ -28,9 +28,9 @@ public class PlayScreen extends GameScreen implements InputProcessor
 {
     private TiledMap map;
     private OrthogonalTiledMapRenderer mapRenderer;
-    private int mapWidth, mapHeight;
+    // private int mapWidth, mapHeight;
     private Map<PlayerName, Player> players;
-    private GameObject currentPlayer;
+    private Player currentPlayer;
     private List<GameObject> entities;
     private PhysicsSimulator physicsSimulator;
     private int[] backgroundLayers, foregroundLayers;
@@ -39,26 +39,21 @@ public class PlayScreen extends GameScreen implements InputProcessor
 
     public PlayScreen(DragonballZRPG game)
     {
-        super(game, new PlayUI(game.assetManager, game.viewport));
+        super(game, new PlayUI(game.resourceManager, game.viewport));
 
         keyHandler = new KeyHandler(game.inputKeyMap);
-
+        playerController = new PlayerController(keyHandler);
         physicsSimulator = new PhysicsSimulator();
-
-        loadMaps();
-
         players = new HashMap<PlayerName, Player>();
         entities = new ArrayList<GameObject>();
 
+        loadMaps();
         createPlayers();
-        currentPlayer = players.get(PlayerName.TEEN_FUTURE_TRUNKS);
         createEntities();
-
-        //game.inputProcessor.add((KeyHandler)currentPlayer);
+        currentPlayer = players.get(PlayerName.TEEN_FUTURE_TRUNKS);
 
         physicsSimulator.add(currentPlayer);
-        playerController = new PlayerController(keyHandler);
-        playerController.setPlayer((Player)currentPlayer);
+        playerController.setPlayer(currentPlayer);
     }
 
     private void loadMaps()
@@ -82,8 +77,8 @@ public class PlayScreen extends GameScreen implements InputProcessor
         foregroundLayers = new int[]{2};
 
         mapRenderer = new OrthogonalTiledMapRenderer(map);
-        mapWidth = map.getProperties().get("width", Integer.class) * map.getProperties().get("tilewidth", Integer.class);
-        mapHeight = map.getProperties().get("height", Integer.class) * map.getProperties().get("tileheight", Integer.class);
+        // mapWidth = map.getProperties().get("width", Integer.class) * map.getProperties().get("tilewidth", Integer.class);
+        // mapHeight = map.getProperties().get("height", Integer.class) * map.getProperties().get("tileheight", Integer.class);
     }
 
     private void createPlayers()
@@ -91,12 +86,12 @@ public class PlayScreen extends GameScreen implements InputProcessor
         Player player;
 
         player = new Player(new Vector2(0, 0), 100.0f,
-        game.animationManager.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
-        game.animationManager.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN));
+        game.resourceManager.getAnimationSet(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
+        game.resourceManager.getAnimationSet(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN));
 
 //        player = new TeenFutureTrunks(new Vector2(0, 0), 100.0f,
-//          game.animationManager.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
-//          game.animationManager.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN));
+//          game.animationLoader.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
+//          game.animationLoader.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN));
 
         players.put(PlayerName.TEEN_FUTURE_TRUNKS, player);
     }
@@ -135,7 +130,6 @@ public class PlayScreen extends GameScreen implements InputProcessor
         mapRenderer.setView(game.camera);
         mapRenderer.render(backgroundLayers);
 
-        batch.setProjectionMatrix(game.camera.combined);
         batch.begin();
         for(GameObject gameObject : entities)
         {
@@ -149,7 +143,7 @@ public class PlayScreen extends GameScreen implements InputProcessor
     @Override
     public void resize(int width, int height)
     {
-
+        batch.setProjectionMatrix(game.camera.combined);
     }
 
     @Override

@@ -8,7 +8,7 @@ import com.dragonballzrpg.enums.MenuOption;
 import com.dragonballzrpg.enums.TextAlignment;
 import com.dragonballzrpg.ui.uielements.Panel;
 import com.dragonballzrpg.ui.uielements.Text;
-import com.dragonballzrpg.utilities.GameAssetManager;
+import com.dragonballzrpg.utilities.ResourceManager;
 
 import java.util.Map;
 
@@ -19,7 +19,7 @@ public class ControlsUI extends UI
 {
     private Map<KeyName, String> actionStrings;
 
-    public ControlsUI(GameAssetManager assetManager, Map<KeyName, String> actionStrings)
+    public ControlsUI(ResourceManager assetManager, Map<KeyName, String> actionStrings)
     {
         super(assetManager);
 

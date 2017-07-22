@@ -16,10 +16,10 @@ import java.util.Map;
  */
 public class SpriteSheetAnimationsExtractor
 {
-    private GameAssetManager assetManager;
+    private ResourceManager assetManager;
     private Map<String, Frame[]> animations;
 
-    public SpriteSheetAnimationsExtractor(GameAssetManager assetManager)
+    public SpriteSheetAnimationsExtractor(ResourceManager assetManager)
     {
         this.assetManager = assetManager;
         animations = new HashMap<String, Frame[]>();

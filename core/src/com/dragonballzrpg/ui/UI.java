@@ -1,12 +1,11 @@
 package com.dragonballzrpg.ui;
 
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.dragonballzrpg.enums.MenuOption;
 import com.dragonballzrpg.ui.uielements.Cursor;
 import com.dragonballzrpg.ui.uielements.UIElement;
-import com.dragonballzrpg.utilities.GameAssetManager;
+import com.dragonballzrpg.utilities.ResourceManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,12 +15,12 @@ import java.util.List;
  */
 public abstract class UI
 {
-    protected GameAssetManager assetManager;
+    protected ResourceManager assetManager;
     protected Viewport viewport;
     protected List<UIElement> uiElements;
     protected Cursor cursor;
 
-    public UI(GameAssetManager assetManager)
+    public UI(ResourceManager assetManager)
     {
         this.assetManager = assetManager;
 
@@ -29,7 +28,7 @@ public abstract class UI
         cursor = new Cursor();
     }
 
-    public UI(GameAssetManager assetManager, Viewport viewport)
+    public UI(ResourceManager assetManager, Viewport viewport)
     {
         this.assetManager = assetManager;
         this.viewport = viewport;
