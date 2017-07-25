@@ -2,6 +2,7 @@ package com.dragonballzrpg.states;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.dragonballzrpg.gameobjects.GameObject;
+import com.dragonballzrpg.states.transitions.Transition;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,12 @@ public abstract class State
         currentDuration = 0.0d;
     }
 
-    //public abstract void initialiseTransitions(Player player);
+    public State(List<Transition> transitions)
+    {
+        this.transitions = transitions;
+        currentDuration = 0.0d;
+    }
+
     public abstract void enter(GameObject gameObject);
     public abstract void exit(GameObject gameObject);
     public abstract void update(GameObject gameObject);
@@ -34,12 +40,4 @@ public abstract class State
     {
         this.transitions = transitions;
     }
-
-//    protected <T> T getRandomValue(T[] values)
-//    {
-//        Random random = new Random();
-//        int value = random.nextInt(values.length);
-//
-//        return values[value];
-//    }
 }

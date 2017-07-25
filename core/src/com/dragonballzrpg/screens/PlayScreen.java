@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.*;
 import com.dragonballzrpg.DragonballZRPG;
 import com.dragonballzrpg.controllers.PlayerController;
 import com.dragonballzrpg.enums.*;
+import com.dragonballzrpg.input.InputHandler;
 import com.dragonballzrpg.input.KeyHandler;
 import com.dragonballzrpg.physics.PhysicsSimulator;
 import com.dragonballzrpg.gameobjects.GameObject;
@@ -34,15 +35,17 @@ public class PlayScreen extends GameScreen implements InputProcessor
     private List<GameObject> entities;
     private PhysicsSimulator physicsSimulator;
     private int[] backgroundLayers, foregroundLayers;
-    private PlayerController playerController;
-    private KeyHandler keyHandler;
+    //private PlayerController playerController;
+    //private KeyHandler keyHandler;
+    private InputHandler inputHandler;
 
     public PlayScreen(DragonballZRPG game)
     {
         super(game, new PlayUI(game.resourceManager, game.viewport));
 
-        keyHandler = new KeyHandler(game.inputKeyMap);
-        playerController = new PlayerController(keyHandler);
+        //keyHandler = new KeyHandler(game.inputKeyMap);
+        //playerController = new PlayerController(keyHandler);
+        inputHandler = new InputHandler(game.inputKeyMap);
         physicsSimulator = new PhysicsSimulator();
         players = new HashMap<PlayerName, Player>();
         entities = new ArrayList<GameObject>();
@@ -53,7 +56,7 @@ public class PlayScreen extends GameScreen implements InputProcessor
         currentPlayer = players.get(PlayerName.TEEN_FUTURE_TRUNKS);
 
         physicsSimulator.add(currentPlayer);
-        playerController.setPlayer(currentPlayer);
+        //playerController.setPlayer(currentPlayer);
     }
 
     private void loadMaps()
@@ -112,9 +115,9 @@ public class PlayScreen extends GameScreen implements InputProcessor
     @Override
     public void render(float delta)
     {
-        keyHandler.update();
-
+        //keyHandler.update();
         //playerController.update();
+        inputHandler.update();
 
         for(GameObject gameObject : entities)
         {
@@ -174,7 +177,8 @@ public class PlayScreen extends GameScreen implements InputProcessor
     @Override
     public boolean keyDown(int keycode)
     {
-        keyHandler.setKeyState(keycode, true);
+        //keyHandler.setKeyState(keycode, true);
+        inputHandler.setKeyState(keycode, true);
 
         return false;
     }
@@ -182,7 +186,8 @@ public class PlayScreen extends GameScreen implements InputProcessor
     @Override
     public boolean keyUp(int keycode)
     {
-        keyHandler.setKeyState(keycode, false);
+        //keyHandler.setKeyState(keycode, false);
+        inputHandler.setKeyState(keycode, false);
 
         return false;
     }

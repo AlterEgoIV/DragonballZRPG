@@ -1,6 +1,5 @@
 package com.dragonballzrpg.controllers;
 
-import com.dragonballzrpg.enums.KeyName;
 import com.dragonballzrpg.gameobjects.characters.Player;
 import com.dragonballzrpg.input.KeyHandler;
 

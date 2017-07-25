@@ -33,7 +33,7 @@ public class DragonballZRPG extends Game
 	public void create()
 	{
 		resourceManager = new ResourceManager();
-		resourceManager.loadAssets(); // load assets first
+		resourceManager.loadResources(); // load resources first
 
 		soundSystem = new SoundSystem(resourceManager);
 
@@ -62,7 +62,8 @@ public class DragonballZRPG extends Game
 	public void dispose()
 	{
 		resourceManager.dispose();
-		screens.get(ScreenName.PLAY_SCREEN).dispose();
+
+		for(Screen screen : screens.values()) { screen.dispose(); }
 	}
 
 	@Override

@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="lwjgl_util-2.9.2">
     <CLASSES>
-      <root url="jar://F:/.gradle/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl_util/2.9.2/4b9e37300a87799856e0bd15ed81663cdb6b0947/lwjgl_util-2.9.2.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl_util/2.9.2/4b9e37300a87799856e0bd15ed81663cdb6b0947/lwjgl_util-2.9.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

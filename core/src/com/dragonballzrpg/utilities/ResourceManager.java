@@ -43,7 +43,7 @@ public class ResourceManager
         return animationLoader.get(animationSet);
     }
 
-    public void loadAssets()
+    public void loadResources()
     {
         loadFonts();
         loadTextures();

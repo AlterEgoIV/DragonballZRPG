@@ -1,0 +1,63 @@
+package com.dragonballzrpg.states.controllerstates;
+
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.dragonballzrpg.controllers.Controller;
+import com.dragonballzrpg.controllers.PlayerController;
+import com.dragonballzrpg.gameobjects.GameObject;
+import com.dragonballzrpg.gameobjects.characters.Player;
+import com.dragonballzrpg.states.State;
+
+/**
+ * Created by Carl on 15/07/2017.
+ */
+public class IdleState extends ControllerState
+{
+    public IdleState(Controller controller)
+    {
+        super(controller);
+    }
+
+    @Override
+    public void enter(GameObject gameObject)
+    {
+
+    }
+
+    @Override
+    public void exit(GameObject gameObject)
+    {
+
+    }
+
+    @Override
+    public void update(GameObject gameObject)
+    {
+
+    }
+
+    @Override
+    public void render(GameObject gameObject, SpriteBatch batch)
+    {
+
+    }
+
+    @Override
+    public void enter() {
+
+    }
+
+    @Override
+    public void exit() {
+
+    }
+
+    @Override
+    public void update() {
+
+    }
+
+    @Override
+    public void render() {
+
+    }
+}

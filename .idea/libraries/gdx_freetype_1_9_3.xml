@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="gdx-freetype-1.9.3">
     <CLASSES>
-      <root url="jar://F:/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-freetype/1.9.3/dc44a8c15ce18fec8cdbdbd74bbb8bce3ccbba84/gdx-freetype-1.9.3.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-freetype/1.9.3/dc44a8c15ce18fec8cdbdbd74bbb8bce3ccbba84/gdx-freetype-1.9.3.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
