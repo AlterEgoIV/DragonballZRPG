@@ -40,4 +40,12 @@ public abstract class State
     {
         this.transitions = transitions;
     }
+
+    protected void checkTransitions()
+    {
+        for(Transition transition : transitions)
+        {
+            transition.update();
+        }
+    }
 }

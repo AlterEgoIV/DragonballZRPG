@@ -7,11 +7,13 @@ import com.badlogic.gdx.Gdx;
  */
 public class Key
 {
+    private int keyCode;
     private boolean isPressed, isDoublePressed, isDoublePressWindowOpen, isReadyToBeDoublePressed;
     private double currentTimeDoublePressWindowOpen, doublePressWindowDuration;
 
-    public Key()
+    public Key(int keyCode)
     {
+        this.keyCode = keyCode;
         isPressed = false;
         isDoublePressed = false;
         isDoublePressWindowOpen = false;
@@ -65,6 +67,11 @@ public class Key
                 isDoublePressed = false;
             }
         }
+    }
+
+    public int getKeyCode()
+    {
+        return keyCode;
     }
 
     public boolean isPressed()

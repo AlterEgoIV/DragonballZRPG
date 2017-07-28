@@ -5,5 +5,5 @@ package com.dragonballzrpg.enums;
  */
 public enum ActionName
 {
-    MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT
+    IDLE, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT
 }

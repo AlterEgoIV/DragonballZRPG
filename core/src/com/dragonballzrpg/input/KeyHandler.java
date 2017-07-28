@@ -20,7 +20,7 @@ public class KeyHandler
 
         for(Map.Entry<KeyName, Integer> inputKey : inputKeyMap.entrySet())
         {
-            keys.put(inputKey.getKey(), new Key());
+            keys.put(inputKey.getKey(), new Key(inputKey.getValue()));
         }
     }
 

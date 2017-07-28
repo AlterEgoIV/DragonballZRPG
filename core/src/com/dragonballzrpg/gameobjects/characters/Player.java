@@ -2,10 +2,13 @@ package com.dragonballzrpg.gameobjects.characters;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.dragonballzrpg.actions.PlayerAction;
 import com.dragonballzrpg.gameobjects.GameObject;
 import com.dragonballzrpg.enums.AnimationName;
 import com.dragonballzrpg.utilities.Animation;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,13 +29,16 @@ public class Player extends GameObject
 //    public Bool canAttack;
 //    private double elapsedRunWindowTime;
 //    private double runWindowDuration;
-    private double runSpeed;
 //    private int up, down, left, right, melee;
+    private double runSpeed;
+    private List<PlayerAction> playerActions;
 
     public Player(Vector2 position, float speed, Map<AnimationName, Animation> animations, Animation currentAnimation)
     {
         super(position, speed, animations, currentAnimation);
+
         runSpeed = speed * 2;
+        playerActions = new ArrayList<PlayerAction>();
 
 //        isUpKeyPressed = new Bool();
 //        isDownKeyPressed = new Bool();
@@ -61,6 +67,11 @@ public class Player extends GameObject
     @Override
     public void update()
     {
+        for(PlayerAction playerAction : playerActions)
+        {
+            playerAction.update();
+        }
+
         currentAnimation.update();
     }
 
@@ -72,8 +83,18 @@ public class Player extends GameObject
         ((int)position.y + currentAnimation.getCurrentFrame().getYOffset()) - height / 2);
     }
 
-    private void initialiseStates()
+    public void addAction(PlayerAction playerAction, Animation animation)
     {
+        playerActions.add(playerAction);
+    }
+
+    public double getRunSpeed()
+    {
+        return runSpeed;
+    }
+
+//    private void initialiseStates()
+//    {
 //        states.put(StateName.STANDING, new StandingState());
 //        states.put(StateName.WALKING_UP, new WalkingUpState());
 //        states.put(StateName.WALKING_DOWN, new WalkingDownState());
@@ -102,7 +123,7 @@ public class Player extends GameObject
 //        }
 //
 //        currentState = states.get(StateName.STANDING);
-    }
+//    }
 
 //    protected void setKeys(int keyCode)
 //    {
@@ -202,9 +223,4 @@ public class Player extends GameObject
 //            }
 //        }
 //    }
-
-    public double getRunSpeed()
-    {
-        return runSpeed;
-    }
 }
