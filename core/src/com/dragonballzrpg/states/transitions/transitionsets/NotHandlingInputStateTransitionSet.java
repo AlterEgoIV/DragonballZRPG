@@ -21,6 +21,5 @@ public class NotHandlingInputStateTransitionSet extends InputHandlingStateTransi
 
         transitionConditions.add(new InputTransitionCondition(keyHandler.getKey(KeyName.UP_KEY).getKeyCode(), true));
         transitions.add(new Transition(currentState, states.get(StateName.HANDLING_UP_KEY_PRESSED), transitionConditions));
-        //transitions.add(new Transition(states.get(StateName.NOT_HANDLING_INPUT), states.get(StateName.HANDLING_UP_KEY_PRESSED), transitionConditions));
     }
 }

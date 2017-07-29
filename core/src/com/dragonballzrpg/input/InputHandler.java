@@ -33,10 +33,30 @@ public class InputHandler
         initialiseStates();
     }
 
+    public InputHandler(Map<KeyName, Integer> inputKeyMap, Player player)
+    {
+        keyHandler = new KeyHandler(inputKeyMap);
+        states = new HashMap<StateName, State>();
+        this.player = player;
+
+        initialiseStates();
+    }
+
     public void update()
     {
         keyHandler.update();
         currentState.update();
+
+        // This works
+//        if(keyHandler.getKey(KeyName.UP_KEY).isPressed())
+//        {
+//            System.out.println("Up Key Pressed");
+//            currentState = states.get(StateName.HANDLING_UP_KEY_PRESSED);
+//        }
+//        else
+//        {
+//            currentState = states.get(StateName.NOT_HANDLING_INPUT);
+//        }
     }
 
     public void setKeyState(int keyCode, boolean isPressed)

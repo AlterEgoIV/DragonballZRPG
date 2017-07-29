@@ -23,12 +23,16 @@ public class Transition
     {
         for(TransitionCondition transitionCondition : transitionConditions)
         {
+            System.out.println("In Transition update()");
             if(!transitionCondition.isMet()) return;
         }
 
+        System.out.println("Transition succeeded");
+
         // If everything is correct
         currentState.exit();
-        currentState = newState;
+        currentState = newState; // This should re-assign InputHandler.currentState but does not seem to
         currentState.enter();
+        System.out.println(currentState.toString());
     }
 }

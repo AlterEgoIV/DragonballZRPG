@@ -45,7 +45,7 @@ public class PlayScreen extends GameScreen implements InputProcessor
 
         //keyHandler = new KeyHandler(game.inputKeyMap);
         //playerController = new PlayerController(keyHandler);
-        inputHandler = new InputHandler(game.inputKeyMap);
+        //inputHandler = new InputHandler(game.inputKeyMap);
         physicsSimulator = new PhysicsSimulator();
         players = new HashMap<PlayerName, Player>();
         entities = new ArrayList<GameObject>();
@@ -55,7 +55,8 @@ public class PlayScreen extends GameScreen implements InputProcessor
         createEntities();
         currentPlayer = players.get(PlayerName.TEEN_FUTURE_TRUNKS);
 
-        inputHandler.setPlayer(currentPlayer);
+        inputHandler = new InputHandler(game.inputKeyMap, currentPlayer);
+        //inputHandler.setPlayer(currentPlayer);
         physicsSimulator.add(currentPlayer);
         //playerController.setPlayer(currentPlayer);
     }
@@ -125,7 +126,7 @@ public class PlayScreen extends GameScreen implements InputProcessor
             gameObject.update();
         }
 
-        //physicsSimulator.update();
+        physicsSimulator.update();
 
         game.camera.position.x = (int)currentPlayer.position.x;
         game.camera.position.y = (int)currentPlayer.position.y;
@@ -134,6 +135,7 @@ public class PlayScreen extends GameScreen implements InputProcessor
         mapRenderer.setView(game.camera);
         mapRenderer.render(backgroundLayers);
 
+        batch.setProjectionMatrix(game.camera.combined);
         batch.begin();
         for(GameObject gameObject : entities)
         {
@@ -147,7 +149,7 @@ public class PlayScreen extends GameScreen implements InputProcessor
     @Override
     public void resize(int width, int height)
     {
-        batch.setProjectionMatrix(game.camera.combined);
+
     }
 
     @Override

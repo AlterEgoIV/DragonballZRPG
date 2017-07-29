@@ -13,6 +13,11 @@ public class HandlingUpKeyPressedState extends State
 {
     Player player;
 
+    public HandlingUpKeyPressedState()
+    {
+
+    }
+
     public HandlingUpKeyPressedState(Player player)
     {
         this.player = player;
@@ -35,7 +40,9 @@ public class HandlingUpKeyPressedState extends State
     {
         checkTransitions();
 
-        player.position.y += 300;
+        player.velocity.y = 30;
+
+        System.out.println("Updating HandlingUpKeyPressedState");
     }
 
     @Override
