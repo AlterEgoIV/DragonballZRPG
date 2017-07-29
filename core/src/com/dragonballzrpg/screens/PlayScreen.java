@@ -7,7 +7,7 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.*;
+import com.badlogic.gdx.math.Vector2;
 import com.dragonballzrpg.DragonballZRPG;
 import com.dragonballzrpg.controllers.PlayerController;
 import com.dragonballzrpg.enums.*;
@@ -55,6 +55,7 @@ public class PlayScreen extends GameScreen implements InputProcessor
         createEntities();
         currentPlayer = players.get(PlayerName.TEEN_FUTURE_TRUNKS);
 
+        inputHandler.setPlayer(currentPlayer);
         physicsSimulator.add(currentPlayer);
         //playerController.setPlayer(currentPlayer);
     }
@@ -124,7 +125,7 @@ public class PlayScreen extends GameScreen implements InputProcessor
             gameObject.update();
         }
 
-        physicsSimulator.update();
+        //physicsSimulator.update();
 
         game.camera.position.x = (int)currentPlayer.position.x;
         game.camera.position.y = (int)currentPlayer.position.y;

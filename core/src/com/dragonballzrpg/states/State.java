@@ -13,19 +13,19 @@ import java.util.List;
  */
 public abstract class State
 {
-    protected List<Transition> transitions;
+    //protected List<Transition> transitions;
     protected StateTransitionSet stateTransitionSet;
     protected double currentDuration;
 
     public State()
     {
-        transitions = new ArrayList<Transition>();
+        //transitions = new ArrayList<Transition>();
         currentDuration = 0.0d;
     }
 
     public State(List<Transition> transitions)
     {
-        this.transitions = transitions;
+        //this.transitions = transitions;
         currentDuration = 0.0d;
     }
 
@@ -36,7 +36,7 @@ public abstract class State
 
     public void setTransitions(List<Transition> transitions)
     {
-        this.transitions = transitions;
+        //this.transitions = transitions;
     }
 
     public void setTransitions(StateTransitionSet stateTransitionSet)

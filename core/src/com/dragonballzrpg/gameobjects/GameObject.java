@@ -40,7 +40,7 @@ public abstract class GameObject
         //position.y += height / 2;
         states = new HashMap<StateName, State>();
         currentState = null;
-        boundingBox = new Rectangle((int)position.x - width / 2, (int)position.y - height / 2, (int)width, (int)height);
+        boundingBox = new Rectangle((int)position.x - width / 2, (int)position.y - height / 2, width, height);
     }
 
     public abstract void update();

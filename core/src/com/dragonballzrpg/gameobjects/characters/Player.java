@@ -67,10 +67,10 @@ public class Player extends GameObject
     @Override
     public void update()
     {
-        for(PlayerAction playerAction : playerActions)
-        {
-            playerAction.update();
-        }
+//        for(PlayerAction playerAction : playerActions)
+//        {
+//            playerAction.update();
+//        }
 
         currentAnimation.update();
     }

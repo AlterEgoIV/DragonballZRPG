@@ -2,6 +2,7 @@ package com.dragonballzrpg.states.inputhandlerstates;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.dragonballzrpg.gameobjects.GameObject;
+import com.dragonballzrpg.gameobjects.characters.Player;
 import com.dragonballzrpg.states.State;
 
 /**
@@ -10,6 +11,13 @@ import com.dragonballzrpg.states.State;
 
 public class HandlingUpKeyPressedState extends State
 {
+    Player player;
+
+    public HandlingUpKeyPressedState(Player player)
+    {
+        this.player = player;
+    }
+
     @Override
     public void enter()
     {
@@ -26,6 +34,8 @@ public class HandlingUpKeyPressedState extends State
     public void update()
     {
         checkTransitions();
+
+        player.position.y += 300;
     }
 
     @Override
