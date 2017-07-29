@@ -10,30 +10,6 @@ import com.dragonballzrpg.states.State;
 public class NotHandlingInputState extends State
 {
     @Override
-    public void enter(GameObject gameObject)
-    {
-
-    }
-
-    @Override
-    public void exit(GameObject gameObject)
-    {
-
-    }
-
-    @Override
-    public void update(GameObject gameObject)
-    {
-
-    }
-
-    @Override
-    public void render(GameObject gameObject, SpriteBatch batch)
-    {
-
-    }
-
-    @Override
     public void enter()
     {
 
@@ -52,7 +28,7 @@ public class NotHandlingInputState extends State
     }
 
     @Override
-    public void render()
+    public void render(SpriteBatch batch)
     {
 
     }

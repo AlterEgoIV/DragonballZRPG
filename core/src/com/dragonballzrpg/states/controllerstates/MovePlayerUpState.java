@@ -18,46 +18,26 @@ public class MovePlayerUpState extends ControllerState
     }
 
     @Override
-    public void enter(GameObject gameObject)
+    public void enter()
     {
 
     }
 
     @Override
-    public void exit(GameObject gameObject)
+    public void exit()
     {
 
     }
 
     @Override
-    public void update(GameObject gameObject)
+    public void update()
     {
 
     }
 
     @Override
-    public void render(GameObject gameObject, SpriteBatch batch)
+    public void render(SpriteBatch batch)
     {
-
-    }
-
-    @Override
-    public void enter() {
-
-    }
-
-    @Override
-    public void exit() {
-
-    }
-
-    @Override
-    public void update() {
-
-    }
-
-    @Override
-    public void render() {
 
     }
 }

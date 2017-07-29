@@ -37,9 +37,9 @@ public class Transition_deprecated_
         }
 
         gameObject.currentAnimation = gameObject.animations.get(getRandomAnimationName(animationNames));
-        gameObject.currentState.exit(gameObject);
+        //gameObject.currentState.exit(gameObject);
         gameObject.currentState = state;
-        gameObject.currentState.enter(gameObject);
+        //gameObject.currentState.enter(gameObject);
     }
 
     private AnimationName getRandomAnimationName(AnimationName[] animationNames)

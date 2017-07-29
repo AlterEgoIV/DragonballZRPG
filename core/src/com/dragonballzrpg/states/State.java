@@ -3,6 +3,7 @@ package com.dragonballzrpg.states;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.dragonballzrpg.gameobjects.GameObject;
 import com.dragonballzrpg.states.transitions.Transition;
+import com.dragonballzrpg.states.transitions.transitionsets.StateTransitionSet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 public abstract class State
 {
     protected List<Transition> transitions;
+    protected StateTransitionSet stateTransitionSet;
     protected double currentDuration;
 
     public State()
@@ -27,25 +29,23 @@ public abstract class State
         currentDuration = 0.0d;
     }
 
-    public abstract void enter(GameObject gameObject);
-    public abstract void exit(GameObject gameObject);
-    public abstract void update(GameObject gameObject);
-    public abstract void render(GameObject gameObject, SpriteBatch batch);
     public abstract void enter();
     public abstract void exit();
     public abstract void update();
-    public abstract void render();
+    public abstract void render(SpriteBatch batch);
 
     public void setTransitions(List<Transition> transitions)
     {
         this.transitions = transitions;
     }
 
+    public void setTransitions(StateTransitionSet stateTransitionSet)
+    {
+        this.stateTransitionSet = stateTransitionSet;
+    }
+
     protected void checkTransitions()
     {
-        for(Transition transition : transitions)
-        {
-            transition.update();
-        }
+        stateTransitionSet.checkTransitions();
     }
 }
