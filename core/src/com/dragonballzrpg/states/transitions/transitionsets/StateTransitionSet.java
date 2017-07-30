@@ -1,5 +1,7 @@
 package com.dragonballzrpg.states.transitions.transitionsets;
 
+import com.dragonballzrpg.states.State;
+import com.dragonballzrpg.states.inputhandlerstates.NotHandlingInputState;
 import com.dragonballzrpg.states.transitions.Transition;
 import com.dragonballzrpg.states.transitions.TransitionCondition;
 
@@ -21,11 +23,13 @@ public abstract class StateTransitionSet
         transitionConditions = new ArrayList<TransitionCondition>();
     }
 
-    public void checkTransitions()
+    public State checkTransitions(State state)
     {
         for(Transition transition : transitions)
         {
-            transition.update();
+            state = transition.update(state);
         }
+
+        return state;
     }
 }

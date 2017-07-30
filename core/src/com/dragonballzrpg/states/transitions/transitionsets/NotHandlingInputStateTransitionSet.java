@@ -15,11 +15,11 @@ import java.util.Map;
 
 public class NotHandlingInputStateTransitionSet extends InputHandlingStateTransitionSet
 {
-    public NotHandlingInputStateTransitionSet(KeyHandler keyHandler, Map<StateName, State> states, State currentState)
+    public NotHandlingInputStateTransitionSet(KeyHandler keyHandler, Map<StateName, State> states)
     {
         super(keyHandler, states);
 
         transitionConditions.add(new InputTransitionCondition(keyHandler.getKey(KeyName.UP_KEY).getKeyCode(), true));
-        transitions.add(new Transition(currentState, states.get(StateName.HANDLING_UP_KEY_PRESSED), transitionConditions));
+        transitions.add(new Transition(states.get(StateName.HANDLING_UP_KEY_PRESSED), transitionConditions));
     }
 }

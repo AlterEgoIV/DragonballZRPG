@@ -22,11 +22,11 @@ public class NotHandlingInputState extends State
     }
 
     @Override
-    public void update()
+    public State update()
     {
-        checkTransitions();
-
         System.out.println("Updating NotHandlingInputState");
+
+        return checkTransitions(this);
     }
 
     @Override

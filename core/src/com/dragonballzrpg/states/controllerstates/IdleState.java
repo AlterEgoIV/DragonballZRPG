@@ -30,9 +30,9 @@ public class IdleState extends ControllerState
     }
 
     @Override
-    public void update()
+    public State update()
     {
-
+        return this;
     }
 
     @Override

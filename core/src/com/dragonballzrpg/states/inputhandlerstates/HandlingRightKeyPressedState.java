@@ -23,9 +23,9 @@ public class HandlingRightKeyPressedState extends State
     }
 
     @Override
-    public void update()
+    public State update()
     {
-
+        return this;
     }
 
     @Override

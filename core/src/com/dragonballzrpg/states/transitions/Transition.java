@@ -9,30 +9,30 @@ import java.util.List;
  */
 public class Transition
 {
-    private State currentState, newState;
+    private State newState;
     private List<TransitionCondition> transitionConditions;
 
-    public Transition(State currentState, State newState, List<TransitionCondition> transitionConditions)
+    public Transition(State newState, List<TransitionCondition> transitionConditions)
     {
-        this.currentState = currentState;
         this.newState = newState;
         this.transitionConditions = transitionConditions;
     }
 
-    public void update()
+    public State update(State state)
     {
         for(TransitionCondition transitionCondition : transitionConditions)
         {
             System.out.println("In Transition update()");
-            if(!transitionCondition.isMet()) return;
+            if(!transitionCondition.isMet()) return state;
         }
 
         System.out.println("Transition succeeded");
 
         // If everything is correct
-        currentState.exit();
-        currentState = newState; // This should re-assign InputHandler.currentState but does not seem to
-        currentState.enter();
-        System.out.println(currentState.toString());
+        state.exit();
+        state = newState;
+        state.enter();
+
+        return state;
     }
 }

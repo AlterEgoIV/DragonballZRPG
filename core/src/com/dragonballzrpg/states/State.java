@@ -13,39 +13,27 @@ import java.util.List;
  */
 public abstract class State
 {
-    //protected List<Transition> transitions;
     protected StateTransitionSet stateTransitionSet;
     protected double currentDuration;
 
     public State()
     {
-        //transitions = new ArrayList<Transition>();
-        currentDuration = 0.0d;
-    }
-
-    public State(List<Transition> transitions)
-    {
-        //this.transitions = transitions;
         currentDuration = 0.0d;
     }
 
     public abstract void enter();
     public abstract void exit();
-    public abstract void update();
+    public abstract State update();
     public abstract void render(SpriteBatch batch);
 
-    public void setTransitions(List<Transition> transitions)
-    {
-        //this.transitions = transitions;
-    }
 
     public void setTransitions(StateTransitionSet stateTransitionSet)
     {
         this.stateTransitionSet = stateTransitionSet;
     }
 
-    protected void checkTransitions()
+    protected State checkTransitions(State state)
     {
-        stateTransitionSet.checkTransitions();
+        return stateTransitionSet.checkTransitions(state);
     }
 }

@@ -36,13 +36,13 @@ public class HandlingUpKeyPressedState extends State
     }
 
     @Override
-    public void update()
+    public State update()
     {
-        checkTransitions();
-
-        player.velocity.y = 30;
+        player.velocity.y = 30; // Here for testing purposes
 
         System.out.println("Updating HandlingUpKeyPressedState");
+
+        return checkTransitions(this);
     }
 
     @Override

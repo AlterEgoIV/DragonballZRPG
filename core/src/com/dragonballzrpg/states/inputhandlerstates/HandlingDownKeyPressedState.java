@@ -23,9 +23,9 @@ public class HandlingDownKeyPressedState extends State
     }
 
     @Override
-    public void update()
+    public State update()
     {
-
+        return this;
     }
 
     @Override

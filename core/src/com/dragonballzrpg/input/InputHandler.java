@@ -23,7 +23,7 @@ public class InputHandler
     private KeyHandler keyHandler;
     private Map<StateName, State> states;
     private State currentState;
-    private Player player;
+    private Player player; // Here for testing purposes
 
     public InputHandler(Map<KeyName, Integer> inputKeyMap)
     {
@@ -45,18 +45,7 @@ public class InputHandler
     public void update()
     {
         keyHandler.update();
-        currentState.update();
-
-        // This works
-//        if(keyHandler.getKey(KeyName.UP_KEY).isPressed())
-//        {
-//            System.out.println("Up Key Pressed");
-//            currentState = states.get(StateName.HANDLING_UP_KEY_PRESSED);
-//        }
-//        else
-//        {
-//            currentState = states.get(StateName.NOT_HANDLING_INPUT);
-//        }
+        currentState = currentState.update(); // Success!
     }
 
     public void setKeyState(int keyCode, boolean isPressed)
@@ -81,7 +70,7 @@ public class InputHandler
         currentState = states.get(StateName.NOT_HANDLING_INPUT);
 
         // Set State Transitions
-        states.get(StateName.NOT_HANDLING_INPUT).setTransitions(new NotHandlingInputStateTransitionSet(keyHandler, states, currentState));
-        states.get(StateName.HANDLING_UP_KEY_PRESSED).setTransitions(new HandlingUpKeyPressedStateTransitionSet(keyHandler, states, currentState));
+        states.get(StateName.NOT_HANDLING_INPUT).setTransitions(new NotHandlingInputStateTransitionSet(keyHandler, states));
+        states.get(StateName.HANDLING_UP_KEY_PRESSED).setTransitions(new HandlingUpKeyPressedStateTransitionSet(keyHandler, states));
     }
 }
