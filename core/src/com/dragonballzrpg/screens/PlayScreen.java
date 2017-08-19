@@ -9,6 +9,7 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.dragonballzrpg.DragonballZRPG;
+import com.dragonballzrpg.actions.ActionManager;
 import com.dragonballzrpg.controllers.PlayerController;
 import com.dragonballzrpg.enums.*;
 import com.dragonballzrpg.input.InputHandler;
@@ -35,17 +36,13 @@ public class PlayScreen extends GameScreen implements InputProcessor
     private List<GameObject> entities;
     private PhysicsSimulator physicsSimulator;
     private int[] backgroundLayers, foregroundLayers;
-    //private PlayerController playerController;
-    //private KeyHandler keyHandler;
+    private ActionManager actionManager;
     private InputHandler inputHandler;
 
     public PlayScreen(DragonballZRPG game)
     {
         super(game, new PlayUI(game.resourceManager, game.viewport));
 
-        //keyHandler = new KeyHandler(game.inputKeyMap);
-        //playerController = new PlayerController(keyHandler);
-        //inputHandler = new InputHandler(game.inputKeyMap);
         physicsSimulator = new PhysicsSimulator();
         players = new HashMap<PlayerName, Player>();
         entities = new ArrayList<GameObject>();
@@ -55,18 +52,15 @@ public class PlayScreen extends GameScreen implements InputProcessor
         createEntities();
         currentPlayer = players.get(PlayerName.TEEN_FUTURE_TRUNKS);
 
+        actionManager = new ActionManager(game.resourceManager);
+        actionManager.addActionProcessor(currentPlayer.actionProcessor);
+        //inputHandler = new InputHandler(game.inputKeyMap, actionManager);
         inputHandler = new InputHandler(game.inputKeyMap, currentPlayer);
-        //inputHandler.setPlayer(currentPlayer);
         physicsSimulator.add(currentPlayer);
-        //playerController.setPlayer(currentPlayer);
     }
 
     private void loadMaps()
     {
-        //TmxMapLoader.Parameters parameters = new TmxMapLoader.Parameters();
-        //parameters.textureMinFilter = Texture.TextureFilter.Nearest;
-        //parameters.textureMagFilter = Texture.TextureFilter.Nearest;
-        //map = new TmxMapLoader().load("test2.tmx");
         map = new TmxMapLoader().load("untitled.tmx");
 
         MapObjects mapObjects = map.getLayers().get("collision").getObjects();
@@ -117,8 +111,6 @@ public class PlayScreen extends GameScreen implements InputProcessor
     @Override
     public void render(float delta)
     {
-        //keyHandler.update();
-        //playerController.update();
         inputHandler.update();
 
         for(GameObject gameObject : entities)
@@ -180,7 +172,6 @@ public class PlayScreen extends GameScreen implements InputProcessor
     @Override
     public boolean keyDown(int keycode)
     {
-        //keyHandler.setKeyState(keycode, true);
         inputHandler.setKeyState(keycode, true);
 
         return false;
@@ -189,7 +180,7 @@ public class PlayScreen extends GameScreen implements InputProcessor
     @Override
     public boolean keyUp(int keycode)
     {
-        //keyHandler.setKeyState(keycode, false);
+
         inputHandler.setKeyState(keycode, false);
 
         return false;

@@ -1,5 +1,6 @@
 package com.dragonballzrpg.input;
 
+import com.dragonballzrpg.actions.ActionManager;
 import com.dragonballzrpg.enums.KeyName;
 import com.dragonballzrpg.enums.StateName;
 import com.dragonballzrpg.gameobjects.characters.Player;
@@ -12,6 +13,7 @@ import com.dragonballzrpg.states.inputhandlerstates.NotHandlingInputState;
 import com.dragonballzrpg.states.transitions.transitionsets.HandlingUpKeyPressedStateTransitionSet;
 import com.dragonballzrpg.states.transitions.transitionsets.NotHandlingInputStateTransitionSet;
 
+import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,12 +25,14 @@ public class InputHandler
     private KeyHandler keyHandler;
     private Map<StateName, State> states;
     private State currentState;
-    private Player player; // Here for testing purposes
+    private Player player;
+    //private ActionManager actionManager;
 
-    public InputHandler(Map<KeyName, Integer> inputKeyMap)
+    public InputHandler(Map<KeyName, Integer> inputKeyMap, ActionManager actionManager)
     {
         keyHandler = new KeyHandler(inputKeyMap);
         states = new HashMap<StateName, State>();
+        //this.actionManager = actionManager;
 
         initialiseStates();
     }
@@ -45,7 +49,7 @@ public class InputHandler
     public void update()
     {
         keyHandler.update();
-        currentState = currentState.update(); // Success!
+        currentState = currentState.update();
     }
 
     public void setKeyState(int keyCode, boolean isPressed)
@@ -53,15 +57,12 @@ public class InputHandler
         keyHandler.setKeyState(keyCode, isPressed);
     }
 
-    public void setPlayer(Player player)
-    {
-        this.player = player;
-    }
-
     private void initialiseStates()
     {
         // Put States in HashMap
-        states.put(StateName.NOT_HANDLING_INPUT, new NotHandlingInputState());
+        //states.put(StateName.NOT_HANDLING_INPUT, new NotHandlingInputState(actionManager));
+        //states.put(StateName.HANDLING_UP_KEY_PRESSED, new HandlingUpKeyPressedState(actionManager));
+        states.put(StateName.NOT_HANDLING_INPUT, new NotHandlingInputState(player));
         states.put(StateName.HANDLING_UP_KEY_PRESSED, new HandlingUpKeyPressedState(player));
         states.put(StateName.HANDLING_DOWN_KEY_PRESSED, new HandlingDownKeyPressedState());
         states.put(StateName.HANDLING_LEFT_KEY_PRESSED, new HandlingLeftKeyPressedState());

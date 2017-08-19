@@ -26,7 +26,6 @@ public abstract class State
     public abstract State update();
     public abstract void render(SpriteBatch batch);
 
-
     public void setTransitions(StateTransitionSet stateTransitionSet)
     {
         this.stateTransitionSet = stateTransitionSet;

@@ -1,7 +1,10 @@
 package com.dragonballzrpg.states.inputhandlerstates;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.dragonballzrpg.gameobjects.GameObject;
+import com.dragonballzrpg.actions.ActionManager;
+import com.dragonballzrpg.enums.ActionName;
+import com.dragonballzrpg.enums.AnimationName;
+import com.dragonballzrpg.enums.AnimationSet;
 import com.dragonballzrpg.gameobjects.characters.Player;
 import com.dragonballzrpg.states.State;
 
@@ -9,18 +12,16 @@ import com.dragonballzrpg.states.State;
  * Created by Carl on 28/07/2017.
  */
 
-public class HandlingUpKeyPressedState extends State
+public class HandlingUpKeyPressedState extends InputHandlingState
 {
-    Player player;
-
-    public HandlingUpKeyPressedState()
-    {
-
-    }
+//    public HandlingUpKeyPressedState(ActionManager actionManager)
+//    {
+//        super(actionManager);
+//    }
 
     public HandlingUpKeyPressedState(Player player)
     {
-        this.player = player;
+        super(player);
     }
 
     @Override
@@ -38,9 +39,7 @@ public class HandlingUpKeyPressedState extends State
     @Override
     public State update()
     {
-        player.velocity.y = 30; // Here for testing purposes
-
-        System.out.println("Updating HandlingUpKeyPressedState");
+        //actionManager.sendAction(ActionName.MOVE_UP, AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS, AnimationName.WALK_UP);
 
         return checkTransitions(this);
     }

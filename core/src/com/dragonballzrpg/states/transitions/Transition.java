@@ -22,13 +22,9 @@ public class Transition
     {
         for(TransitionCondition transitionCondition : transitionConditions)
         {
-            System.out.println("In Transition update()");
             if(!transitionCondition.isMet()) return state;
         }
 
-        System.out.println("Transition succeeded");
-
-        // If everything is correct
         state.exit();
         state = newState;
         state.enter();

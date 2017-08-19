@@ -1,14 +1,25 @@
 package com.dragonballzrpg.states.inputhandlerstates;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.dragonballzrpg.gameobjects.GameObject;
+import com.dragonballzrpg.actions.ActionManager;
+import com.dragonballzrpg.gameobjects.characters.Player;
 import com.dragonballzrpg.states.State;
 
 /**
  * Created by Carl on 28/07/2017.
  */
-public class NotHandlingInputState extends State
+public class NotHandlingInputState extends InputHandlingState
 {
+//    public NotHandlingInputState(ActionManager actionManager)
+//    {
+//        super(actionManager);
+//    }
+
+    public NotHandlingInputState(Player player)
+    {
+        super(player);
+    }
+
     @Override
     public void enter()
     {
@@ -24,8 +35,6 @@ public class NotHandlingInputState extends State
     @Override
     public State update()
     {
-        System.out.println("Updating NotHandlingInputState");
-
         return checkTransitions(this);
     }
 
