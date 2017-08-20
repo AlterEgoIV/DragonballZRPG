@@ -1,28 +1,28 @@
 package com.dragonballzrpg.controllers;
 
+import com.dragonballzrpg.enums.KeyName;
 import com.dragonballzrpg.gameobjects.characters.Player;
 import com.dragonballzrpg.input.KeyHandler;
+import com.dragonballzrpg.input.KeyStateViewer;
+
+import java.util.Map;
 
 /**
  * Created by Carl on 14/07/2017.
  */
-public class PlayerController extends Controller
+public class PlayerController extends InputController
 {
     private Player player;
-    public KeyHandler keyHandler;
 
-    public PlayerController(KeyHandler keyHandler)
+    public PlayerController(Player player, KeyStateViewer keyStateViewer)
     {
-        this.keyHandler = keyHandler;
+        super(keyStateViewer);
+
+        this.player = player;
     }
 
     public void update()
     {
-        keyHandler.update();
-    }
-
-    public void setPlayer(Player player)
-    {
-        this.player = player;
+        //currentState = currentState.update();
     }
 }

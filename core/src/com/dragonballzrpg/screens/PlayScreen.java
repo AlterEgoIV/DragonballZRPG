@@ -1,7 +1,6 @@
 package com.dragonballzrpg.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -13,7 +12,7 @@ import com.dragonballzrpg.actions.ActionManager;
 import com.dragonballzrpg.controllers.PlayerController;
 import com.dragonballzrpg.enums.*;
 import com.dragonballzrpg.input.InputHandler;
-import com.dragonballzrpg.input.KeyHandler;
+import com.dragonballzrpg.input.PlayInputProcessor;
 import com.dragonballzrpg.physics.PhysicsSimulator;
 import com.dragonballzrpg.gameobjects.GameObject;
 import com.dragonballzrpg.gameobjects.characters.Player;
@@ -26,36 +25,41 @@ import java.util.List;
 /**
  * Created by Carl on 04/08/2016.
  */
-public class PlayScreen extends GameScreen implements InputProcessor
+public class PlayScreen extends GameScreen
 {
     private TiledMap map;
     private OrthogonalTiledMapRenderer mapRenderer;
     // private int mapWidth, mapHeight;
+    private PlayInputProcessor playInputProcessor;
     private Map<PlayerName, Player> players;
     private Player currentPlayer;
-    private List<GameObject> entities;
+    private List<GameObject> gameObjects;
     private PhysicsSimulator physicsSimulator;
     private int[] backgroundLayers, foregroundLayers;
-    private ActionManager actionManager;
-    private InputHandler inputHandler;
+    //private ActionManager actionManager;
+    //private InputHandler inputHandler;
 
     public PlayScreen(DragonballZRPG game)
     {
         super(game, new PlayUI(game.resourceManager, game.viewport));
 
+        playInputProcessor = new PlayInputProcessor(game.inputKeyMap);
         physicsSimulator = new PhysicsSimulator();
         players = new HashMap<PlayerName, Player>();
-        entities = new ArrayList<GameObject>();
+        gameObjects = new ArrayList<GameObject>();
 
         loadMaps();
         createPlayers();
         createEntities();
         currentPlayer = players.get(PlayerName.TEEN_FUTURE_TRUNKS);
+        currentPlayer.setController(new PlayerController(currentPlayer, playInputProcessor.keyStateViewer));
 
-        actionManager = new ActionManager(game.resourceManager);
-        actionManager.addActionProcessor(currentPlayer.actionProcessor);
+        //playInputProcessor.addInputController((PlayerController)currentPlayer.controller);
+
+        //actionManager = new ActionManager(game.resourceManager);
+        //actionManager.addActionProcessor(currentPlayer.actionProcessor);
         //inputHandler = new InputHandler(game.inputKeyMap, actionManager);
-        inputHandler = new InputHandler(game.inputKeyMap, currentPlayer);
+        //inputHandler = new InputHandler(game.inputKeyMap, currentPlayer);
         physicsSimulator.add(currentPlayer);
     }
 
@@ -97,23 +101,25 @@ public class PlayScreen extends GameScreen implements InputProcessor
 
     private void createEntities()
     {
-        entities.addAll(players.values());
+        gameObjects.addAll(players.values());
 
-        // Create other entities
+        // Create other gameObjects
     }
 
     @Override
     public void show()
     {
-        Gdx.input.setInputProcessor(this);
+        Gdx.input.setInputProcessor(playInputProcessor);
+        //Gdx.input.setInputProcessor(this);
     }
 
     @Override
     public void render(float delta)
     {
-        inputHandler.update();
+        playInputProcessor.update();
+        //inputHandler.update();
 
-        for(GameObject gameObject : entities)
+        for(GameObject gameObject : gameObjects)
         {
             gameObject.update();
         }
@@ -129,7 +135,7 @@ public class PlayScreen extends GameScreen implements InputProcessor
 
         batch.setProjectionMatrix(game.camera.combined);
         batch.begin();
-        for(GameObject gameObject : entities)
+        for(GameObject gameObject : gameObjects)
         {
             gameObject.render(batch);
         }
@@ -167,58 +173,5 @@ public class PlayScreen extends GameScreen implements InputProcessor
     {
         map.dispose();
         mapRenderer.dispose();
-    }
-
-    @Override
-    public boolean keyDown(int keycode)
-    {
-        inputHandler.setKeyState(keycode, true);
-
-        return false;
-    }
-
-    @Override
-    public boolean keyUp(int keycode)
-    {
-
-        inputHandler.setKeyState(keycode, false);
-
-        return false;
-    }
-
-    @Override
-    public boolean keyTyped(char character)
-    {
-        return false;
-    }
-
-    @Override
-    public boolean touchDown(int screenX, int screenY, int pointer, int button)
-    {
-        return false;
-    }
-
-    @Override
-    public boolean touchUp(int screenX, int screenY, int pointer, int button)
-    {
-        return false;
-    }
-
-    @Override
-    public boolean touchDragged(int screenX, int screenY, int pointer)
-    {
-        return false;
-    }
-
-    @Override
-    public boolean mouseMoved(int screenX, int screenY)
-    {
-        return false;
-    }
-
-    @Override
-    public boolean scrolled(int amount)
-    {
-        return false;
     }
 }

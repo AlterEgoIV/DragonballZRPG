@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public abstract class Controller
 {
-    protected GameObject gameObject;
+    //protected GameObject gameObject;
     //public List<State> states;
     public Map<StateName, State> states;
     public State currentState;
@@ -27,14 +27,14 @@ public abstract class Controller
 
     public Controller(GameObject gameObject)
     {
-        this.gameObject = gameObject;
+        //this.gameObject = gameObject;
         //states = new ArrayList<State>();
         states = new HashMap<StateName, State>();
     }
 
     public Controller(GameObject gameObject, Map<StateName, State> states)
     {
-        this.gameObject = gameObject;
+        //this.gameObject = gameObject;
         this.states = states;
     }
 

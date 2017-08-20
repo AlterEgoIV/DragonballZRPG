@@ -12,11 +12,13 @@ public class KeyHandler
 {
     private Map<KeyName, Integer> inputKeyMap;
     private Map<KeyName, Key> keys;
+    //public KeyStateViewer keyStateViewer;
 
     public KeyHandler(Map<KeyName, Integer> inputKeyMap)
     {
         this.inputKeyMap = inputKeyMap;
         keys = new HashMap<KeyName, Key>();
+        //keyStateViewer = new KeyStateViewer(keys);
 
         for(Map.Entry<KeyName, Integer> inputKey : inputKeyMap.entrySet())
         {
@@ -30,6 +32,11 @@ public class KeyHandler
         {
             key.update();
         }
+    }
+
+    public KeyStateViewer getKeyStateViewer()
+    {
+        return new KeyStateViewer(keys);
     }
 
     public Key getKey(KeyName keyName)
