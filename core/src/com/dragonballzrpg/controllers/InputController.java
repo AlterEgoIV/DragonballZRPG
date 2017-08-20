@@ -1,10 +1,6 @@
 package com.dragonballzrpg.controllers;
 
-import com.dragonballzrpg.enums.KeyName;
-import com.dragonballzrpg.input.KeyHandler;
 import com.dragonballzrpg.input.KeyStateViewer;
-
-import java.util.Map;
 
 /**
  * Created by Carl on 19/08/2017.
@@ -20,6 +16,6 @@ public abstract class InputController extends Controller
 
 //    public void setKeyState(int keyCode, boolean isPressed)
 //    {
-//        keyHandler.setKeyState(keyCode, isPressed);
+//        keyStateManager.setKeyState(keyCode, isPressed);
 //    }
 }

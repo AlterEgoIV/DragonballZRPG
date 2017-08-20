@@ -13,7 +13,6 @@ import com.dragonballzrpg.states.inputhandlerstates.NotHandlingInputState;
 import com.dragonballzrpg.states.transitions.transitionsets.HandlingUpKeyPressedStateTransitionSet;
 import com.dragonballzrpg.states.transitions.transitionsets.NotHandlingInputStateTransitionSet;
 
-import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,7 +21,7 @@ import java.util.Map;
  */
 public class InputHandler
 {
-    private KeyHandler keyHandler;
+    private KeyStateManager keyStateManager;
     private Map<StateName, State> states;
     private State currentState;
     private Player player;
@@ -30,7 +29,7 @@ public class InputHandler
 
     public InputHandler(Map<KeyName, Integer> inputKeyMap, ActionManager actionManager)
     {
-        keyHandler = new KeyHandler(inputKeyMap);
+        keyStateManager = new KeyStateManager(inputKeyMap);
         states = new HashMap<StateName, State>();
         //this.actionManager = actionManager;
 
@@ -39,7 +38,7 @@ public class InputHandler
 
     public InputHandler(Map<KeyName, Integer> inputKeyMap, Player player)
     {
-        keyHandler = new KeyHandler(inputKeyMap);
+        keyStateManager = new KeyStateManager(inputKeyMap);
         states = new HashMap<StateName, State>();
         this.player = player;
 
@@ -48,13 +47,13 @@ public class InputHandler
 
     public void update()
     {
-        keyHandler.update();
+        keyStateManager.update();
         currentState = currentState.update();
     }
 
     public void setKeyState(int keyCode, boolean isPressed)
     {
-        keyHandler.setKeyState(keyCode, isPressed);
+        keyStateManager.setKeyState(keyCode, isPressed);
     }
 
     private void initialiseStates()
@@ -71,7 +70,7 @@ public class InputHandler
         currentState = states.get(StateName.NOT_HANDLING_INPUT);
 
         // Set State Transitions
-        states.get(StateName.NOT_HANDLING_INPUT).setTransitions(new NotHandlingInputStateTransitionSet(keyHandler, states));
-        states.get(StateName.HANDLING_UP_KEY_PRESSED).setTransitions(new HandlingUpKeyPressedStateTransitionSet(keyHandler, states));
+        states.get(StateName.NOT_HANDLING_INPUT).setTransitions(new NotHandlingInputStateTransitionSet(keyStateManager, states));
+        states.get(StateName.HANDLING_UP_KEY_PRESSED).setTransitions(new HandlingUpKeyPressedStateTransitionSet(keyStateManager, states));
     }
 }

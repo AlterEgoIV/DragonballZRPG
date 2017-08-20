@@ -1,11 +1,7 @@
 package com.dragonballzrpg.controllers;
 
-import com.dragonballzrpg.enums.KeyName;
 import com.dragonballzrpg.gameobjects.characters.Player;
-import com.dragonballzrpg.input.KeyHandler;
 import com.dragonballzrpg.input.KeyStateViewer;
-
-import java.util.Map;
 
 /**
  * Created by Carl on 14/07/2017.

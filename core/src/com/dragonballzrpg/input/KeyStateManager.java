@@ -8,17 +8,17 @@ import java.util.Map;
 /**
  * Created by Carl on 16/07/2017.
  */
-public class KeyHandler
+public class KeyStateManager
 {
     private Map<KeyName, Integer> inputKeyMap;
     private Map<KeyName, Key> keys;
-    //public KeyStateViewer keyStateViewer;
+    private KeyStateViewer keyStateViewer;
 
-    public KeyHandler(Map<KeyName, Integer> inputKeyMap)
+    public KeyStateManager(Map<KeyName, Integer> inputKeyMap)
     {
         this.inputKeyMap = inputKeyMap;
         keys = new HashMap<KeyName, Key>();
-        //keyStateViewer = new KeyStateViewer(keys);
+        keyStateViewer = new KeyStateViewer(keys);
 
         for(Map.Entry<KeyName, Integer> inputKey : inputKeyMap.entrySet())
         {
@@ -36,7 +36,7 @@ public class KeyHandler
 
     public KeyStateViewer getKeyStateViewer()
     {
-        return new KeyStateViewer(keys);
+        return keyStateViewer;
     }
 
     public Key getKey(KeyName keyName)

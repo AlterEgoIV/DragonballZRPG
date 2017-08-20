@@ -36,8 +36,6 @@ public class PlayScreen extends GameScreen
     private List<GameObject> gameObjects;
     private PhysicsSimulator physicsSimulator;
     private int[] backgroundLayers, foregroundLayers;
-    //private ActionManager actionManager;
-    //private InputHandler inputHandler;
 
     public PlayScreen(DragonballZRPG game)
     {
@@ -52,14 +50,8 @@ public class PlayScreen extends GameScreen
         createPlayers();
         createEntities();
         currentPlayer = players.get(PlayerName.TEEN_FUTURE_TRUNKS);
-        currentPlayer.setController(new PlayerController(currentPlayer, playInputProcessor.keyStateViewer));
+        currentPlayer.setController(new PlayerController(currentPlayer, playInputProcessor.getKeyStateViewer()));
 
-        //playInputProcessor.addInputController((PlayerController)currentPlayer.controller);
-
-        //actionManager = new ActionManager(game.resourceManager);
-        //actionManager.addActionProcessor(currentPlayer.actionProcessor);
-        //inputHandler = new InputHandler(game.inputKeyMap, actionManager);
-        //inputHandler = new InputHandler(game.inputKeyMap, currentPlayer);
         physicsSimulator.add(currentPlayer);
     }
 
@@ -92,10 +84,6 @@ public class PlayScreen extends GameScreen
         game.resourceManager.getAnimationSet(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
         game.resourceManager.getAnimationSet(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN));
 
-//        player = new TeenFutureTrunks(new Vector2(0, 0), 100.0f,
-//          game.animationLoader.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS),
-//          game.animationLoader.get(AnimationSet.TEEN_FUTURE_TRUNKS_ANIMATIONS).get(AnimationName.FACE_DOWN));
-
         players.put(PlayerName.TEEN_FUTURE_TRUNKS, player);
     }
 
@@ -110,14 +98,12 @@ public class PlayScreen extends GameScreen
     public void show()
     {
         Gdx.input.setInputProcessor(playInputProcessor);
-        //Gdx.input.setInputProcessor(this);
     }
 
     @Override
     public void render(float delta)
     {
         playInputProcessor.update();
-        //inputHandler.update();
 
         for(GameObject gameObject : gameObjects)
         {

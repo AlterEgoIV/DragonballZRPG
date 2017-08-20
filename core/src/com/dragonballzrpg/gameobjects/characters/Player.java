@@ -38,7 +38,6 @@ public class Player extends Character
     @Override
     public void update()
     {
-        //actionProcessor.update();
         controller.update();
         currentAnimation.update();
     }

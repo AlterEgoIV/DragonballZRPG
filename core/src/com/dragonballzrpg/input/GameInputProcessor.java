@@ -11,32 +11,32 @@ import java.util.List;
  */
 public class GameInputProcessor implements InputProcessor
 {
-    private List<KeyHandler> keyHandlers;
+    private List<KeyStateManager> keyStateManagers;
 
     public GameInputProcessor()
     {
-        keyHandlers = new ArrayList<KeyHandler>();
+        keyStateManagers = new ArrayList<KeyStateManager>();
     }
 
-    public void addAll(Collection<? extends KeyHandler> inputHandlers)
+    public void addAll(Collection<? extends KeyStateManager> inputHandlers)
     {
-        this.keyHandlers.addAll(inputHandlers);
+        this.keyStateManagers.addAll(inputHandlers);
     }
 
-    public void add(KeyHandler keyHandler)
+    public void add(KeyStateManager keyStateManager)
     {
-        if(!keyHandlers.contains(keyHandler)) keyHandlers.add(keyHandler);
+        if(!keyStateManagers.contains(keyStateManager)) keyStateManagers.add(keyStateManager);
     }
 
-    public void remove(KeyHandler keyHandler)
+    public void remove(KeyStateManager keyStateManager)
     {
-        if(keyHandlers.contains(keyHandler)) keyHandlers.remove(keyHandler);
+        if(keyStateManagers.contains(keyStateManager)) keyStateManagers.remove(keyStateManager);
     }
 
     @Override
     public boolean keyDown(int keycode)
     {
-//        for(KeyHandler inputHandler : keyHandlers)
+//        for(KeyStateManager inputHandler : keyStateManagers)
 //        {
 //            inputHandler.handleKeyDown(keycode);
 //        }
@@ -47,7 +47,7 @@ public class GameInputProcessor implements InputProcessor
     @Override
     public boolean keyUp(int keycode)
     {
-//        for(KeyHandler inputHandler : keyHandlers)
+//        for(KeyStateManager inputHandler : keyStateManagers)
 //        {
 //            inputHandler.handleKeyUp(keycode);
 //        }

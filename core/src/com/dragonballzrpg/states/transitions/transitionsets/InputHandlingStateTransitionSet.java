@@ -1,7 +1,7 @@
 package com.dragonballzrpg.states.transitions.transitionsets;
 
 import com.dragonballzrpg.enums.StateName;
-import com.dragonballzrpg.input.KeyHandler;
+import com.dragonballzrpg.input.KeyStateManager;
 import com.dragonballzrpg.states.State;
 
 import java.util.Map;
@@ -12,12 +12,12 @@ import java.util.Map;
 
 public class InputHandlingStateTransitionSet extends StateTransitionSet
 {
-    protected KeyHandler keyHandler;
+    protected KeyStateManager keyStateManager;
     protected Map<StateName, State> states;
 
-    public InputHandlingStateTransitionSet(KeyHandler keyHandler, Map<StateName, State> states)
+    public InputHandlingStateTransitionSet(KeyStateManager keyStateManager, Map<StateName, State> states)
     {
-        this.keyHandler = keyHandler;
+        this.keyStateManager = keyStateManager;
         this.states = states;
     }
 }

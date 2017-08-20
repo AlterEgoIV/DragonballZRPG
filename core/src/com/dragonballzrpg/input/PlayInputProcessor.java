@@ -1,12 +1,8 @@
 package com.dragonballzrpg.input;
 
 import com.badlogic.gdx.InputAdapter;
-import com.dragonballzrpg.controllers.Controller;
-import com.dragonballzrpg.controllers.InputController;
 import com.dragonballzrpg.enums.KeyName;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,42 +10,27 @@ import java.util.Map;
  */
 public class PlayInputProcessor extends InputAdapter
 {
-    private KeyHandler keyHandler;
-    public KeyStateViewer keyStateViewer;
-    //private List<InputController> inputControllers;
+    private KeyStateManager keyStateManager;
 
     public PlayInputProcessor(Map<KeyName, Integer> inputKeyMap)
     {
-        keyHandler = new KeyHandler(inputKeyMap);
-        keyStateViewer = keyHandler.getKeyStateViewer();
-        //inputControllers = new ArrayList<InputController>();
+        keyStateManager = new KeyStateManager(inputKeyMap);
     }
-
-    public void addInputController(InputController inputController)
-    {
-        //inputControllers.add(inputController);
-    }
-
-//    private void setKeyState(int keyCode, boolean isPressed)
-//    {
-//        for(InputController inputController : inputControllers)
-//        {
-//            inputController.setKeyState(keyCode, isPressed);
-//        }
-//    }
 
     public void update()
     {
-        keyHandler.update();
+        keyStateManager.update();
+    }
+
+    public KeyStateViewer getKeyStateViewer()
+    {
+        return keyStateManager.getKeyStateViewer();
     }
 
     @Override
     public boolean keyDown(int keyCode)
     {
-        //System.out.println("Key Down");
-
-        keyHandler.setKeyState(keyCode, true);
-        //setKeyState(keyCode, true);
+        keyStateManager.setKeyState(keyCode, true);
 
         return false;
     }
@@ -57,10 +38,7 @@ public class PlayInputProcessor extends InputAdapter
     @Override
     public boolean keyUp(int keyCode)
     {
-        //System.out.println("Key Up");
-
-        keyHandler.setKeyState(keyCode, false);
-        //setKeyState(keyCode, false);
+        keyStateManager.setKeyState(keyCode, false);
 
         return false;
     }

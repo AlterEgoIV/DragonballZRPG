@@ -2,7 +2,7 @@ package com.dragonballzrpg.states.transitions.transitionsets;
 
 import com.dragonballzrpg.enums.KeyName;
 import com.dragonballzrpg.enums.StateName;
-import com.dragonballzrpg.input.KeyHandler;
+import com.dragonballzrpg.input.KeyStateManager;
 import com.dragonballzrpg.states.State;
 import com.dragonballzrpg.states.transitions.InputTransitionCondition;
 import com.dragonballzrpg.states.transitions.Transition;
@@ -15,11 +15,11 @@ import java.util.Map;
 
 public class NotHandlingInputStateTransitionSet extends InputHandlingStateTransitionSet
 {
-    public NotHandlingInputStateTransitionSet(KeyHandler keyHandler, Map<StateName, State> states)
+    public NotHandlingInputStateTransitionSet(KeyStateManager keyStateManager, Map<StateName, State> states)
     {
-        super(keyHandler, states);
+        super(keyStateManager, states);
 
-        transitionConditions.add(new InputTransitionCondition(keyHandler.getKey(KeyName.UP_KEY).getKeyCode(), true));
+        transitionConditions.add(new InputTransitionCondition(keyStateManager.getKey(KeyName.UP_KEY).getKeyCode(), true));
         transitions.add(new Transition(states.get(StateName.HANDLING_UP_KEY_PRESSED), transitionConditions));
     }
 }
