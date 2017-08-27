@@ -1,6 +1,7 @@
 package com.dragonballzrpg.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -9,6 +10,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.dragonballzrpg.DragonballZRPG;
 import com.dragonballzrpg.actions.ActionManager;
+import com.dragonballzrpg.controllers.Controller;
 import com.dragonballzrpg.controllers.PlayerController;
 import com.dragonballzrpg.enums.*;
 import com.dragonballzrpg.input.InputHandler;
@@ -97,6 +99,7 @@ public class PlayScreen extends GameScreen
     @Override
     public void show()
     {
+        Controllers.addListener(playInputProcessor);
         Gdx.input.setInputProcessor(playInputProcessor);
     }
 
